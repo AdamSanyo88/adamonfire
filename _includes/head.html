@@ -1,0 +1,76 @@
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
+
+    <link rel="preload" href="/images/vote_cover.png" as="image">
+    <link rel="preload" href="/assets/main.css" as="style">
+    <link rel="preload" href="/assets/materialize.css" as="style">
+    <link rel="preload" href="/assets/material-icons.css" as="style">
+    <link rel="preload" href="/assets/jquery-ui.css" as="style">
+    <link rel="preload" href="/js/init.js" as="script">
+    <link rel="preload" href="/js/materialize.min.js" as="script">
+    <link rel="preload" href="/js/jquery-1.12.4.js" as="script">
+    <link rel="preload" href="/js/jquery-ui.js" as="script">
+    <link rel="preload" href="/js/fingerprint.min.js" as="script">
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+	var initChart = null;
+	var drawChart = null;
+	var loadChart = function() {
+		if ( initChart == null ) {
+			setTimeout(function(){if(initChart!=null)initChart()},3000);
+		} else {
+			initChart();
+		}
+		window.addEventListener('resize', resize);
+	};
+	var resizeTO = 0;
+	//create trigger to resizeEnd event     
+	var resize = function() {
+		if(resizeTO) clearTimeout(resizeTO);
+		resizeTO = setTimeout(function() {
+			resizeEnd();
+		}, 20);
+	};
+
+	//redraw graph when window resize is completed  
+	var resizeEnd = function() {
+		if(drawChart!=null)drawChart();
+	};
+	google.charts.load('current', {packages: ['corechart']});
+	google.charts.setOnLoadCallback(loadChart);
+</script>
+	
+    <!--
+    <link rel="preload" href="/fonts/roboto/Roboto-Regular.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="/fonts/roboto/Roboto-Medium.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="/fonts/roboto/Roboto-Light.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="/fonts/roboto/Roboto-Bold.woff2" as="font" type="font/woff2">
+    <link rel="preload" href="/fonts/material-icons/material-icons.woff2" as="font" type="font/woff2">
+    -->
+    
+    <link href="{{ "/assets/material-icons.css" | relative_url }}" rel="stylesheet">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+	<!-- test CSS addition -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!-- end of test part -->
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ "/assets/materialize.css" | relative_url }}" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ "/assets/main.css" | relative_url }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}" />
+
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ "/assets/jquery-ui.css" | relative_url }}">
+    <script src="{{ "/js/fingerprint.min.js" | relative_url }}"></script>
+    <script src="{{ "/js/jquery-1.12.4.js" | relative_url }}"></script>
+    <script src="{{ "/js/jquery-ui.js" | relative_url }}"></script>
+
+    {% if jekyll.environment == 'production' and site.google_analytics %}
+    {% include google-analytics.html %}
+    {% endif %}
+</head>

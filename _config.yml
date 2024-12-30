@@ -1,0 +1,13 @@
+title: taktikaiszavazas.hu
+author: Adam Sanyo
+email: adamsanyo@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  
+
+twitter_username: AdamSanyo
+github_username:  AdamSanyo88
+
+sass:
+    style: compressed
+
+google_analytics: UA-45281172-4
