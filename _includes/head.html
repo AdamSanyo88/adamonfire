@@ -5,7 +5,7 @@
     <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}" />
 
-    <link rel="preload" href="/images/vote_cover.png" as="image">
+
     <link rel="preload" href="/assets/main.css" as="style">
     <link rel="preload" href="/assets/materialize.css" as="style">
     <link rel="preload" href="/assets/material-icons.css" as="style">
