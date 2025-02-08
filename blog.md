@@ -1,6 +1,6 @@
 ---
 layout: page
-title: blog
+title: My FIRE blog
 permalink: /blog
 ---
 
@@ -9,15 +9,13 @@ permalink: /blog
 <div class="section">
     <div class="row">
           <div class="col s12">
-		  <h4>Blog posts</h4> 
-<h5>550 days to go</h5>
+		  <h4>Latest posts</h4> 
+<h5>550 days to go - 8th Feb 2025</h5>
 
-<p>8th Feb 2025 - I recently did a calculation on my FIRE portfolio and if all goes well, I can pull the trigger in mid-2026, so in about 550 days. My only concerns are the following:<p/>
-<br/>
-<p>The markets are still overvalued with S&P500 standing over 6,000 and Nasdaq-100 being at 21,400 points. My portfolio's current average buy price for these two indexes is at 4,788 and 16,479 points. So even if there was a 20-25% drop in both indexes, I would be where I was over the last 4 years. The trouble is that without a drop in the current valuation, my 4% FIRE target is a bit risky at least according to the simulation I ran using the calculator on <a href="earlyretirement.com">earlyretirement.com</a>. I will write a separate post on how useful that calculator is.</p>
+<p>I recently did a calculation on my FIRE portfolio and if all goes well, I can pull the trigger in mid-2026, so in about 550 days. My only concerns are the following:<p/>
+<p><strong>The markets are still overvalued with S&P500 standing over 6,000 and Nasdaq-100 being at 21,400 points</strong>. My portfolio's current average buy price for these two indexes is at 4,788 and 16,479 points. <strong>So even if there was a 20-25% drop in both indexes, I would be where I was over the last 4 years</strong> (and my total portfolio would only drop ~15%). The trouble is that without a drop in the current valuation, <strong>my 4% FIRE target is a bit risky at least according to the simulation I ran</strong> using the calculator on <a href="earlyretirement.com">earlyretirement.com</a>. I will write a separate post on how useful that calculator is.</p>
 <p>I am still a bit unsure about my spending habits and FIRE budget target. Last year I spent around 7.8M HUF (~19k EUR) without accounting for single item purchases (e.g. new car, new flat). This is a big enough budget now, but for example, it would not finance my travels for 60-90 days per year (it would cover 25 to 40 days maximum). I don't know yet if I want to travel more and if so, to what destinations, but a more cushioned travel budget would probably help.</li>
 <p>I am still not sure how to factor in my potential future income into my FIRE target. I started realizing that I will be working in some form even when I retire, but I am trying to work out if there is a good way to do that self-employed. I know that I can sign up a sole trader to the Hungarian Tax Office (NAV), but if I do, then I must pay periodically 50k to 100k HUF / month even if I don't have sole trader income. So it's not as simple as "I will start things small", so I need to be mindful about how to work a sole trader. I'm trying to build my network where I can get some help with this, but it's not as easy as I thought it would be.</p>
-
 
 <br/>
 <p>So these are my struggles at the moment, I'm hoping that as the "pulling the trigger" time approaches, I'll have more clear-cut ideas on what to do next.</p>
