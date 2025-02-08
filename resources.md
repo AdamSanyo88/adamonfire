@@ -10,11 +10,11 @@ permalink: /resources
     <div class="row">
           <div class="col s12">
 		  <h4>Useful resources</h4> 
-<p">This part of the site will cover all the available resources that someone may found useful in planning their FIRE journey:</p>
+<p">This part of the site will cover all the available resources that someone may found useful in planning their FIRE journey.</p>
 
-<ul>
-<li><a href="https://docs.google.com/spreadsheets/d/1QGrMm6XSGWBVLI8I_DOAeJV5whoCnSdmaR8toQB2Jz8/copy?>Earlyretirement.com FIRE calculator</a></li>
-<li>Tax optimization in Hungary (TBD)</li>
-<li>FIRE simulation with a real-life example (TBD, Hungarian)</li>
-</ul>
+<br/>
+<p><a href="https://docs.google.com/spreadsheets/d/1QGrMm6XSGWBVLI8I_DOAeJV5whoCnSdmaR8toQB2Jz8/copy?">Earlyretirement.com FIRE calculator</a></p>
+<p>Tax optimization in Hungary (TBD)</p>
+<p>FIRE simulation with a real-life example (TBD, Hungarian)</p>
+
 
