@@ -4,7 +4,6 @@ title: Useful resources
 permalink: /net-worth
 ---
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
