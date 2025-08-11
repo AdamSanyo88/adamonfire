@@ -24,8 +24,8 @@ layout: default
 	  </div>
 
 	  
- <style>
-/* make Datawrapper iframes reliably fill the column and avoid overlaps */
+<style>
+/* Ensures iframes scale correctly inside columns */
 .responsive-iframe {
   width: 100% !important;
   min-width: 0 !important;
@@ -33,44 +33,34 @@ layout: default
   border: 0;
   display: block;
 }
-.mb-4 { margin-bottom: 1.5rem; } /* spacing between stacked items */
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
 </style>
 
 <div class="container">
   <div class="row">
-    <!-- LEFT column: two charts stacked -->
-    <div class="col-12 col-md-6">
+    <!-- LEFT column: 2 charts stacked -->
+    <div class="col s12 m6">
       <div class="mb-4">
         <h5>My Portfolio History</h5>
-        <iframe class="responsive-iframe" title="Portfolio value (monthly snapshots)"
-          id="datawrapper-chart-oK5cm"
-          src="https://datawrapper.dwcdn.net/oK5cm/10/" scrolling="no"
-          frameborder="0" height="663" data-external="1"></iframe>
-        <script>/* keep Datawrapper's height listener */!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();</script>
+        <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/oK5cm/10/" height="663"></iframe>
       </div>
 
       <div class="mb-4">
         <h5>Current allocation by asset groups</h5>
-        <iframe class="responsive-iframe" title="Portfolio snapshot (% of all assets)"
-          id="datawrapper-chart-tq0GF"
-          src="https://datawrapper.dwcdn.net/tq0GF/5/" scrolling="no"
-          frameborder="0" height="493" data-external="1"></iframe>
-        <script>!function(){"use strict";window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}})}();</script>
+        <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/tq0GF/5/" height="493"></iframe>
       </div>
     </div>
 
     <!-- RIGHT column: 1 chart + About card -->
-    <div class="col-12 col-md-6">
+    <div class="col s12 m6">
       <div class="mb-4">
         <h5>My FIRE journey (since 2015)</h5>
-        <iframe class="responsive-iframe" title="Portfolio valuation and FIRE target"
-          id="datawrapper-chart-eQxCE"
-          src="https://datawrapper.dwcdn.net/eQxCE/2/" scrolling="no"
-          frameborder="0" height="433" data-external="1"></iframe>
-        <script>!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}}))}();</script>
+        <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/eQxCE/2/" height="433"></iframe>
       </div>
-	  
-	  <div class="card light-blue lighten-4">
+
+      <div class="card light-blue lighten-4">
         <div class="card-content">
           <span class="card-title">About Me</span>
           <p>This blog is dedicated to my journey to financial independence. I will share my personal story as well as provide meaningful guidance for those who would like to retire.</p>
@@ -81,4 +71,3 @@ layout: default
     </div>
   </div>
 </div>
-  
