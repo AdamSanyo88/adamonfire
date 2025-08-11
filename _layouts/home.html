@@ -25,7 +25,6 @@ layout: default
 
 	  
 <style>
-/* Ensures iframes scale correctly inside columns */
 .responsive-iframe {
   width: 100% !important;
   min-width: 0 !important;
@@ -39,6 +38,21 @@ layout: default
 </style>
 
 <div class="container">
+  <!-- Full-width About Me card at the top -->
+  <div class="row">
+    <div class="col s12">
+      <div class="card light-blue lighten-4 mb-4">
+        <div class="card-content">
+          <span class="card-title">About Me</span>
+          <p>This blog is dedicated to my journey to financial independence. I will share my personal story as well as provide meaningful guidance for those who would like to retire.</p>
+          <p>Visit the <a href="../blog">Blog section</a> for the available posts.</p>
+          <p>The <a href="../resources">Resources tab</a> contains detailed information on FIRE-related content.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column layout for charts -->
   <div class="row">
     <!-- LEFT column: 2 charts stacked -->
     <div class="col s12 m6">
@@ -53,20 +67,11 @@ layout: default
       </div>
     </div>
 
-    <!-- RIGHT column: 1 chart + About card -->
+    <!-- RIGHT column: 1 chart -->
     <div class="col s12 m6">
       <div class="mb-4">
         <h5>My FIRE journey (since 2015)</h5>
         <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/eQxCE/2/" height="433"></iframe>
-      </div>
-
-      <div class="card light-blue lighten-4">
-        <div class="card-content">
-          <span class="card-title">About Me</span>
-          <p>This blog is dedicated to my journey to financial independence. I will share my personal story as well as provide meaningful guidance for those who would like to retire.</p>
-          <p>Visit the <a href="../blog">Blog section</a> for the available posts.</p>
-          <p>The <a href="../resources">Resources tab</a> contains detailed information on FIRE-related content.</p>
-        </div>
       </div>
     </div>
   </div>
