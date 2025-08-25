@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Useful resources
-permalink: /resources
+title: Services
+permalink: /services
 ---
 
 <h1 class="page-title">{{ page.title | escape }}</h1>
