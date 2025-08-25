@@ -22,7 +22,7 @@ permalink: /services
       <thead>
         <tr>
           <th scope="col" class="first-col">Tiers</th>
-          <th scope="col" style="text-align:center; padding:14px 16px; background:#38bdf8; color:white;">Tier 0<br><span style="font-weight:600;">Free</span></th>
+          <th scope="col" style="text-align:center; padding:14px 16px; background:#38bdf8; color:white;">Tier 0<br><span style="font-weight:600;">FIRE Free</span></th>
           <th scope="col" style="text-align:center; padding:14px 16px; background:#0284c7; color:white;">Tier 1<br><span style="font-weight:600;">FIRE Review</span></th>
           <th scope="col" style="text-align:center; padding:14px 16px; background:#0369a1; color:white;">Tier 2<br><span style="font-weight:600;">FIRE Coach</span></th>
           <th scope="col" style="text-align:center; padding:14px 16px; background:#0c4a6e; color:white;">Tier 3<br><span style="font-weight:600;">FIRE Partner</span></th>
@@ -34,8 +34,8 @@ permalink: /services
           <th scope="row" class="first-col">1-to-1 Coaching Sessions</th>
           <td style="text-align:center; padding:14px 16px;">1 × 20-min discovery call</td>
           <td style="text-align:center; padding:14px 16px;">1 × 90-min session</td>
-          <td style="text-align:center; padding:14px 16px;">3 × 60-min sessions</td>
-          <td style="text-align:center; padding:14px 16px;">6 × 60-min sessions</td>
+          <td style="text-align:center; padding:14px 16px;">90-min session + 3 × 60-min sessions</td>
+          <td style="text-align:center; padding:14px 16px;">90-min session + 6 × 60-min sessions</td>
         </tr>
 
         <!-- Portfolio Review -->
@@ -70,7 +70,7 @@ permalink: /services
         <tr>
           <th scope="row" class="first-col">Follow-up calls and emails</th>
           <td style="text-align:center; padding:14px 16px;">Access to newsletter</td>
-          <td style="text-align:center; padding:14px 16px;">One follow-up session on reduced price</td>
+          <td style="text-align:center; padding:14px 16px;">One follow-up session at reduced price</td>
           <td style="text-align:center; padding:14px 16px;">Up to 3 months</td>
           <td style="text-align:center; padding:14px 16px;">Up to 6 months</td>
         </tr>
@@ -88,9 +88,9 @@ permalink: /services
 
         <!-- Pricing -->
         <tr>
-          <th scope="row" class="first-col">Prices*</th>
+          <th scope="row" class="first-col">Price*</th>
           <td style="text-align:center; padding:14px 16px;">Free</td>
-          <td style="text-align:center; padding:14px 16px;">€150 <span style="font-size:0.9em; color:#64748b">€75 extra for follow-up call</span></td>
+          <td style="text-align:center; padding:14px 16px;">€150 <span style="font-size:0.9em; color:#64748b">+ €75 extra for follow-up call</span></td>
           <td style="text-align:center; padding:14px 16px;">€500</td>
           <td style="text-align:center; padding:14px 16px;">€1,000</td>
         </tr>
@@ -115,7 +115,7 @@ permalink: /services
     </table>
   </div>
 
-  <p style="font-size:0.9em; color:#64748b; margin-top:12px;">*Pricing shown as indicative. Final quotes depend on scope and complexity.</p>
+  <p style="font-size:0.9em; color:#64748b; margin-top:12px;">*Pricing shown as indicative. Final quotes may vary on scope and complexity. Each additional 60-min session is priced at €100.</p>
 </section>
 
 <!-- Styles -->
