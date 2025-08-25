@@ -9,7 +9,7 @@ permalink: /services
 <div class="section">
     <div class="row">
           <div class="col s12">
-<p>Would you like to have your FIRE journey started or you need some guidance in your path? Check out my services below:</p>
+<p>Would you like to have your FIRE journey started or you need some guidance on your path? Check out my coaching services below:</p>
 
 <br/>
 <!-- Service Tiers Table -->
@@ -21,11 +21,11 @@ permalink: /services
     <table role="table" aria-label="Coaching service tiers" style="width:100%; border-collapse:separate; border-spacing:0; min-width:960px;">
       <thead>
         <tr>
-          <th scope="col" class="first-col">What you get</th>
-          <th scope="col" style="text-align:center; padding:14px 16px; background:#38bdf8; color:white;">Tier 0<br><span style="font-weight:600;">Free Starter</span></th>
-          <th scope="col" style="text-align:center; padding:14px 16px; background:#0284c7; color:white;">Tier 1<br><span style="font-weight:600;">Essential</span></th>
-          <th scope="col" style="text-align:center; padding:14px 16px; background:#0369a1; color:white;">Tier 2<br><span style="font-weight:600;">Growth</span></th>
-          <th scope="col" style="text-align:center; padding:14px 16px; background:#0c4a6e; color:white;">Tier 3<br><span style="font-weight:600;">Legacy</span></th>
+          <th scope="col" class="first-col">Tiers</th>
+          <th scope="col" style="text-align:center; padding:14px 16px; background:#38bdf8; color:white;">Tier 0<br><span style="font-weight:600;">Free</span></th>
+          <th scope="col" style="text-align:center; padding:14px 16px; background:#0284c7; color:white;">Tier 1<br><span style="font-weight:600;">FIRE Review</span></th>
+          <th scope="col" style="text-align:center; padding:14px 16px; background:#0369a1; color:white;">Tier 2<br><span style="font-weight:600;">FIRE Coach</span></th>
+          <th scope="col" style="text-align:center; padding:14px 16px; background:#0c4a6e; color:white;">Tier 3<br><span style="font-weight:600;">FIRE Partner</span></th>
         </tr>
       </thead>
       <tbody style="background:white;">
@@ -33,52 +33,44 @@ permalink: /services
         <tr>
           <th scope="row" class="first-col">1-to-1 Coaching Sessions</th>
           <td style="text-align:center; padding:14px 16px;">1 × 20-min discovery call</td>
-          <td style="text-align:center; padding:14px 16px;">1 × 60–90 min</td>
-          <td style="text-align:center; padding:14px 16px;">3–4 sessions</td>
-          <td style="text-align:center; padding:14px 16px;">6–8 sessions</td>
+          <td style="text-align:center; padding:14px 16px;">1 × 90-min session</td>
+          <td style="text-align:center; padding:14px 16px;">3 × 60-min sessions</td>
+          <td style="text-align:center; padding:14px 16px;">6 × 60-min sessions</td>
         </tr>
 
         <!-- Portfolio Review -->
         <tr>
           <th scope="row" class="first-col">Portfolio Review</th>
           <td style="text-align:center; padding:14px 16px;">—</td>
-          <td style="text-align:center; padding:14px 16px;">Snapshot check-up</td>
-          <td style="text-align:center; padding:14px 16px;">Detailed analysis</td>
-          <td style="text-align:center; padding:14px 16px;">Comprehensive strategy</td>
+          <td style="text-align:center; padding:14px 16px;">Snapshot (check-up)</td>
+          <td style="text-align:center; padding:14px 16px;">Detailed analysis (with projections)</td>
+          <td style="text-align:center; padding:14px 16px;">Fully personalized strategy</td>
         </tr>
 
         <!-- Written Deliverable -->
         <tr>
           <th scope="row" class="first-col">Written Recommendations</th>
-          <td style="text-align:center; padding:14px 16px;">Free guides & templates</td>
-          <td style="text-align:center; padding:14px 16px;">Brief summary (2–3 actions)</td>
-          <td style="text-align:center; padding:14px 16px;">Report + action plan</td>
-          <td style="text-align:center; padding:14px 16px;">Full financial plan</td>
+          <td style="text-align:center; padding:14px 16px;">Free guides and templates</td>
+          <td style="text-align:center; padding:14px 16px;">Brief summary (with benckmarks)</td>
+          <td style="text-align:center; padding:14px 16px;">Full report with basic action plan</td>
+          <td style="text-align:center; padding:14px 16px;">Full financial planning</td>
         </tr>
 
         <!-- FIRE Roadmap -->
         <tr>
           <th scope="row" class="first-col">FIRE / Retirement Roadmap</th>
           <td style="text-align:center; padding:14px 16px;">—</td>
-          <td style="text-align:center; padding:14px 16px;">Baseline timeline</td>
-          <td style="text-align:center; padding:14px 16px;">Milestones & projections</td>
-          <td style="text-align:center; padding:14px 16px;">Advanced modeling & withdrawal plan</td>
+          <td style="text-align:center; padding:14px 16px;">Basic calculations</td>
+          <td style="text-align:center; padding:14px 16px;">Milestones and projections</td>
+          <td style="text-align:center; padding:14px 16px;">Advanced modeling and withdrawal plan</td>
         </tr>
 
-        <!-- Lifestyle -->
-        <tr>
-          <th scope="row" class="first-col">Lifestyle / Location Cost Planning</th>
-          <td style="text-align:center; padding:14px 16px;">—</td>
-          <td style="text-align:center; padding:14px 16px;">—</td>
-          <td style="text-align:center; padding:14px 16px;">Included</td>
-          <td style="text-align:center; padding:14px 16px;">Included + relocation scenarios</td>
-        </tr>
 
         <!-- Email Support -->
         <tr>
-          <th scope="row" class="first-col">Email Support</th>
+          <th scope="row" class="first-col">Follow-up calls and emails</th>
           <td style="text-align:center; padding:14px 16px;">Access to newsletter</td>
-          <td style="text-align:center; padding:14px 16px;">—</td>
+          <td style="text-align:center; padding:14px 16px;">One follow-up session on reduced price</td>
           <td style="text-align:center; padding:14px 16px;">Up to 3 months</td>
           <td style="text-align:center; padding:14px 16px;">Up to 6 months</td>
         </tr>
@@ -92,22 +84,15 @@ permalink: /services
           <td style="text-align:center; padding:14px 16px;">Monthly + quarterly reviews</td>
         </tr>
 
-        <!-- Events -->
-        <tr>
-          <th scope="row" class="first-col">Access to Events & Workshops</th>
-          <td style="text-align:center; padding:14px 16px;">Free access to public webinars</td>
-          <td style="text-align:center; padding:14px 16px;">Standard</td>
-          <td style="text-align:center; padding:14px 16px;">Standard + Q&A</td>
-          <td style="text-align:center; padding:14px 16px;">Priority seating</td>
-        </tr>
+      
 
         <!-- Pricing -->
         <tr>
-          <th scope="row" class="first-col">Investment*</th>
+          <th scope="row" class="first-col">Prices*</th>
           <td style="text-align:center; padding:14px 16px;">Free</td>
-          <td style="text-align:center; padding:14px 16px;">€75–€150 / session<br><span style="font-size:0.9em; color:#64748b;">or €200–€300 package</span></td>
-          <td style="text-align:center; padding:14px 16px;">€500–€900 / 3 months</td>
-          <td style="text-align:center; padding:14px 16px;">€1,500–€2,500 / 6 months</td>
+          <td style="text-align:center; padding:14px 16px;">€150 <span style="font-size:0.9em; color:#64748b">€75 extra for follow-up call</span></td>
+          <td style="text-align:center; padding:14px 16px;">€500</td>
+          <td style="text-align:center; padding:14px 16px;">€1,000</td>
         </tr>
 
         <!-- CTA -->
@@ -117,13 +102,13 @@ permalink: /services
             <a href="#book-tier0" class="cta cta0">Book Free Call</a>
           </td>
           <td style="text-align:center; padding:16px;">
-            <a href="#book-tier1" class="cta cta1">Book Essential</a>
+            <a href="#book-tier1" class="cta cta1">Book Tier 1</a>
           </td>
           <td style="text-align:center; padding:16px;">
-            <a href="#book-tier2" class="cta cta2">Start Growth</a>
+            <a href="#book-tier2" class="cta cta2">Book Tier 2</a>
           </td>
           <td style="text-align:center; padding:16px;">
-            <a href="#book-tier3" class="cta cta3">Apply for Legacy</a>
+            <a href="#book-tier3" class="cta cta3">Book Tier 3</a>
           </td>
         </tr>
       </tbody>
