@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Services
-permalink: /services
+title: Coaching
+permalink: /coaching
 ---
 
 <h1 class="page-title">{{ page.title | escape }}</h1>
