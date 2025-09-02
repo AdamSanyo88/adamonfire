@@ -12,7 +12,7 @@ permalink: /net-worth
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
-    body.dark-mode { background:#121212; color:#fff; }
+    body { background:#f8f9fa; color:#212529; }
     .card { margin-bottom: 20px; }
     .result { font-weight: 600; font-size: 1.1rem; white-space: pre-line; }
     .bg-orange { background-color: #ffe5b4; }
@@ -22,9 +22,11 @@ permalink: /net-worth
     .bg-lightblue { background-color: #b3e5fc; }
     .chart-wrap { height: 360px; }
     .muted { opacity: .85; }
+    /* Prevent underline on navigation icons/links */
+    a, a:hover, a:focus, a:active { text-decoration: none !important; }
   </style>
 </head>
-<body class="bg-light">
+<body>
   <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h1 class="h3 m-0">Net Worth & Percentile Calculator</h1>
@@ -81,13 +83,13 @@ permalink: /net-worth
           <div class="card-body">
             <h4 class="h5">📈 Results</h4>
             <button class="btn btn-primary mb-3" id="calcBtn">Calculate Net Worth</button>
-            <div id="result" class="result mb-3"></div>
+            <div id="result" class="result mb-3">Click “Calculate Net Worth” to update your percentile.</div>
 
             <div class="small muted mb-1">Percentile chart (100 → 1)</div>
             <div class="chart-wrap">
               <canvas id="percentileChart" aria-label="Percentile chart" role="img"></canvas>
             </div>
-            <div class="small mt-2" id="percentileSummary"></div>
+            <div class="small mt-2" id="percentileSummary">Your position will be highlighted in blue.</div>
           </div>
         </div>
       </div>
@@ -113,7 +115,10 @@ const PCT_THRESHOLDS = [
   9031, 7594, 6158, 4721, 3284, 2627, 1970, 1314, 657, 0
 ];
 
-// UI helpers
+// Build labels 100 → 1 and base data once
+const CHART_LABELS = Array.from({ length: 100 }, (_, i) => String(100 - i));
+const CHART_DATA   = [...PCT_THRESHOLDS].reverse(); // align to labels (100→1)
+let percentileChart = null;
 
 function generatePropertyInputs() {
   const count = parseInt(document.getElementById("propertyCount").value) || 0;
@@ -133,9 +138,7 @@ function generatePropertyInputs() {
   }
 }
 
-// Calculation
 function calculateNetWorthAndPercentile() {
-  // Real estate
   const count = parseInt(document.getElementById("propertyCount").value) || 0;
   let realEstateTotal = 0;
   for (let i = 0; i < count; i++) {
@@ -144,27 +147,24 @@ function calculateNetWorthAndPercentile() {
     realEstateTotal += (v - m);
   }
 
-  // Investments
   const investments =
     (parseFloat(document.getElementById("privatePension").value) || 0) +
     (parseFloat(document.getElementById("govBonds").value) || 0) +
     (parseFloat(document.getElementById("taxInvestments").value) || 0) +
     (parseFloat(document.getElementById("otherInvestments").value) || 0);
 
-  // Other + Liabilities
   const otherAssets = parseFloat(document.getElementById("otherAssets").value) || 0;
   const liabilities = parseFloat(document.getElementById("otherLiabilities").value) || 0;
 
   const netWorth = realEstateTotal + investments + otherAssets - liabilities;
 
-  // Update subtotals
   document.getElementById("realEstateTotal").innerText = `€${realEstateTotal.toLocaleString()}`;
   document.getElementById("investmentTotal").innerText = `€${investments.toLocaleString()}`;
   document.getElementById("otherAssetsTotal").innerText = `€${otherAssets.toLocaleString()}`;
   document.getElementById("liabilitiesTotal").innerText = `€${liabilities.toLocaleString()}`;
 
   // Find percentile: first threshold that netWorth >= threshold
-  let percentile = 100; // default: bottom
+  let percentile = 100;
   for (let i = 0; i < PCT_THRESHOLDS.length; i++) {
     if (netWorth >= PCT_THRESHOLDS[i]) { percentile = i + 1; break; }
   }
@@ -172,36 +172,17 @@ function calculateNetWorthAndPercentile() {
   return { netWorth, percentile };
 }
 
-// Chart
-let percentileChart;
-
-function drawPercentileChart(percentile) {
+// Initialize chart ONCE so it is always visible
+function initChart() {
   const ctx = document.getElementById("percentileChart").getContext("2d");
-
-  // Build labels 100 → 1
-  const labels = Array.from({ length: 100 }, (_, i) => String(100 - i));
-
-  // Data in the same order (100 → 1) so reverse the thresholds
-  const data = [...PCT_THRESHOLDS].reverse();
-
-  // Colors: grey bars, one highlighted at the user's percentile
-  const colors = data.map(() => "#b9c2cf");
-  // Mapping: label "p" sits at index (100 - p)
-  const idx = Math.max(1, Math.min(100, percentile));
-  const highlightIndex = 100 - idx;
-  colors[highlightIndex] = "#0d6efd";
-
-  // Destroy previous chart if exists
-  if (percentileChart) percentileChart.destroy();
 
   percentileChart = new Chart(ctx, {
     type: "bar",
     data: {
-      labels,
+      labels: CHART_LABELS,
       datasets: [{
-        label: "Minimum net worth at each percentile",
-        data,
-        backgroundColor: colors,
+        data: CHART_DATA,
+        backgroundColor: CHART_DATA.map(() => "#b9c2cf"), // all grey initially
         borderWidth: 0
       }]
     },
@@ -218,33 +199,44 @@ function drawPercentileChart(percentile) {
         }
       },
       scales: {
-        x: {
-          grid: { display: false },
-          ticks: { maxRotation: 0, autoSkip: true }
-        },
-        y: {
-          beginAtZero: true,
-          ticks: {
-            callback: (v) => `€${v.toLocaleString()}`
-          }
-        }
+        x: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: true } },
+        y: { beginAtZero: true, ticks: { callback: (v) => `€${v.toLocaleString()}` } }
       }
     }
   });
 }
 
-// Wire up the button
-document.getElementById("calcBtn").addEventListener("click", () => {
-  const { netWorth, percentile } = calculateNetWorthAndPercentile();
-  const above = Math.max(0, Math.min(100, 100 - (percentile))); // "above X% of people"
+// Update only the highlight after clicking the button
+function highlightPercentile(percentile) {
+  if (!percentileChart) return;
 
-  document.getElementById("result").textContent =
-    `Estimated Net Worth: €${netWorth.toLocaleString()}\nEstimated Wealth Percentile: Top ${percentile}%`;
+  const colors = CHART_DATA.map(() => "#b9c2cf");
+  // label "p" sits at index (100 - p)
+  const idx = Math.max(1, Math.min(100, percentile));
+  const highlightIndex = 100 - idx;
+  colors[highlightIndex] = "#0d6efd";
 
-  document.getElementById("percentileSummary").textContent =
-    `You’re above approximately ${above}% of people (Top ${percentile}%).`;
+  percentileChart.data.datasets[0].backgroundColor = colors;
+  percentileChart.update();
+}
 
-  drawPercentileChart(percentile);
+// Wire up events
+document.addEventListener("DOMContentLoaded", () => {
+  initChart(); // chart visible immediately
+
+  document.getElementById("calcBtn").addEventListener("click", () => {
+    const { netWorth, percentile } = calculateNetWorthAndPercentile();
+    // "above X% of people" → X = 101 - percentile (Top 1% => above 100%, clamp to 99)
+    const above = Math.max(0, Math.min(100, 100 - percentile));
+
+    document.getElementById("result").textContent =
+      `Estimated Net Worth: €${netWorth.toLocaleString()}\nEstimated Wealth Percentile: Top ${percentile}%`;
+
+    document.getElementById("percentileSummary").textContent =
+      `You’re above approximately ${above}% of people (Top ${percentile}%).`;
+
+    highlightPercentile(percentile);
+  });
 });
 </script>
 </body>
