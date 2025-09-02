@@ -172,9 +172,23 @@ function calculateNetWorthAndPercentile() {
   return { netWorth, percentile };
 }
 
+// Build labels 100 → 1 and base data once (ensure these are defined above)
+const CHART_LABELS = Array.from({ length: 100 }, (_, i) => String(100 - i));
+const CHART_DATA   = [...PCT_THRESHOLDS].reverse(); // align to labels (100→1)
+
+let percentileChart = null;
+
 // Initialize chart ONCE so it is always visible
 function initChart() {
-  const ctx = document.getElementById("percentileChart").getContext("2d");
+  const canvas = document.getElementById("percentileChart");
+  if (!canvas || !window.Chart) return;            // guard: DOM or lib not ready yet
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;                                // guard: canvas not ready
+
+  // Safe re-init if something tried to create it before
+  if (percentileChart) percentileChart.destroy();
+
+  const baseColors = CHART_DATA.map(() => "#b9c2cf");
 
   percentileChart = new Chart(ctx, {
     type: "bar",
@@ -182,7 +196,7 @@ function initChart() {
       labels: CHART_LABELS,
       datasets: [{
         data: CHART_DATA,
-        backgroundColor: CHART_DATA.map(() => "#b9c2cf"), // all grey initially
+        backgroundColor: baseColors,
         borderWidth: 0
       }]
     },
@@ -194,7 +208,7 @@ function initChart() {
         tooltip: {
           callbacks: {
             title: (items) => `Percentile: ${items[0].label}`,
-            label: (item) => `Threshold: €${Number(item.raw).toLocaleString()}`
+            label:  (item)  => `Threshold: €${Number(item.raw).toLocaleString()}`
           }
         }
       },
@@ -208,12 +222,15 @@ function initChart() {
 
 // Update only the highlight after clicking the button
 function highlightPercentile(percentile) {
-  if (!percentileChart) return;
+  // If chart isn't ready (e.g., init was skipped), try to init now
+  if (!percentileChart) initChart();
+  if (!percentileChart) return; // still not ready → bail gracefully
+
+  // Map percentile p to index (100 → 0, 1 → 99)
+  const p = Math.max(1, Math.min(100, percentile));
+  const highlightIndex = 100 - p;
 
   const colors = CHART_DATA.map(() => "#b9c2cf");
-  // label "p" sits at index (100 - p)
-  const idx = Math.max(1, Math.min(100, percentile));
-  const highlightIndex = 100 - idx;
   colors[highlightIndex] = "#0d6efd";
 
   percentileChart.data.datasets[0].backgroundColor = colors;
@@ -222,12 +239,15 @@ function highlightPercentile(percentile) {
 
 // Wire up events
 document.addEventListener("DOMContentLoaded", () => {
-  initChart(); // chart visible immediately
+  // Ensure chart is visible immediately.
+  if (window.Chart) initChart();
+  else window.addEventListener("load", initChart); // fallback if Chart.js loads slowly
 
   document.getElementById("calcBtn").addEventListener("click", () => {
     const { netWorth, percentile } = calculateNetWorthAndPercentile();
-    // "above X% of people" → X = 101 - percentile (Top 1% => above 100%, clamp to 99)
-    const above = Math.max(0, Math.min(100, 100 - percentile));
+
+    // "above X% of people": Top 1% ⇒ ~100%, Top 100% ⇒ 0%
+    const above = Math.max(0, Math.min(100, 101 - percentile));
 
     document.getElementById("result").textContent =
       `Estimated Net Worth: €${netWorth.toLocaleString()}\nEstimated Wealth Percentile: Top ${percentile}%`;
@@ -238,6 +258,6 @@ document.addEventListener("DOMContentLoaded", () => {
     highlightPercentile(percentile);
   });
 });
-</script>
+
 </body>
 </html>
