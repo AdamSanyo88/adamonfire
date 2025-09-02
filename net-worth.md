@@ -30,7 +30,6 @@ permalink: /net-worth
   <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
       <h1>Net Worth & Percentile Calculator</h1>
-      <button class="btn btn-secondary" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </div>
 
     <div class="row">
@@ -109,12 +108,7 @@ permalink: /net-worth
       9031, 7594, 6158, 4721, 3284, 2627, 1970, 1314, 657, 0
     ];
 
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      document.body.classList.toggle('bg-light');
-      document.body.classList.toggle('bg-dark');
-      // Optional: restyle chart ticks/grid for dark mode here if you like
-    }
+   
 
     function generatePropertyInputs() {
       const count = parseInt(document.getElementById("propertyCount").value) || 0;
