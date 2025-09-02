@@ -99,16 +99,16 @@ permalink: /coaching
         <tr>
           <th scope="row" class="first-col">&nbsp;</th>
           <td style="text-align:center; padding:16px;">
-            <a href="#book-tier0" class="cta cta0">Book Free Call</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOcKnrw_0LkIpL9N_DVCsG0uNtBO3hUeGG65Fw7V3z0xTrhw/viewform?usp=dialog" class="cta cta0">Book Free Call</a>
           </td>
           <td style="text-align:center; padding:16px;">
-            <a href="#book-tier1" class="cta cta1">Book Tier 1</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOcKnrw_0LkIpL9N_DVCsG0uNtBO3hUeGG65Fw7V3z0xTrhw/viewform?usp=dialog" class="cta cta1">Book Tier 1</a>
           </td>
           <td style="text-align:center; padding:16px;">
-            <a href="#book-tier2" class="cta cta2">Book Tier 2</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOcKnrw_0LkIpL9N_DVCsG0uNtBO3hUeGG65Fw7V3z0xTrhw/viewform?usp=dialog" class="cta cta2">Book Tier 2</a>
           </td>
           <td style="text-align:center; padding:16px;">
-            <a href="#book-tier3" class="cta cta3">Book Tier 3</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOcKnrw_0LkIpL9N_DVCsG0uNtBO3hUeGG65Fw7V3z0xTrhw/viewform?usp=dialog" class="cta cta3">Book Tier 3</a>
           </td>
         </tr>
       </tbody>
