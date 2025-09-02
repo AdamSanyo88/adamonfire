@@ -13,16 +13,16 @@ permalink: /resources
 
 <br/>
 <h5>Guides</h5>
-<h6>Tax optimization in Hungary (TBD)</h5>
+<h6>Tax optimization in Hungary (TBD)</h6>
 <br/>
-<h6>Portfolio tracking sheet (for easier, semi-automated portfolio management) (TBD)</h5>
+<h6>Portfolio tracking sheet (for easier, semi-automated portfolio management) (TBD)</h6>
 <br/>
-<h5>Presentations</h4>
-<h6><a href="https://www.slideshare.net/slideshow/hogyan-epits-vagyont-tapasztalatok-egy-15-eves-fire-ut-vegen/276076087">Presentation at the FIRE Hungary group in February 2025</a>.</h5>
+<h5>Presentations</h5>
+<h6><a href="https://www.slideshare.net/slideshow/hogyan-epits-vagyont-tapasztalatok-egy-15-eves-fire-ut-vegen/276076087">Presentation at the FIRE Hungary group in February 2025</a>.</h6>
 <br/>
-<h5>Calculators</h4>
-<h6>Net worth calculator in Hungary (TBD)</h5>
+<h5>Calculators</h5>
+<h6>Net worth calculator in Hungary (TBD)</h6>
 <br/>
-<h6>Household expenses calculator (TBD)</h5>
+<h6>Household expenses calculator (TBD)</h6>
 
 
