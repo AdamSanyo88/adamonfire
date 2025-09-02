@@ -83,7 +83,7 @@ permalink: /net-worth
           <div class="card-body">
             <h4 class="h5">📈 Results</h4>
             <button class="btn btn-primary mb-3" id="calcBtn">Calculate Net Worth</button>
-            <div id="result" class="result mb-3">Click “Calculate Net Worth” to update your percentile.</div>
+            <div id="result" class="result mb-3">Click “Calculate Net Worth” to highlight your percentile.</div>
 
             <div class="small muted mb-1">Percentile chart (100 → 1)</div>
             <div class="chart-wrap">
@@ -115,10 +115,65 @@ const PCT_THRESHOLDS = [
   9031, 7594, 6158, 4721, 3284, 2627, 1970, 1314, 657, 0
 ];
 
-// Build labels 100 → 1 and base data once
+// Static chart data (labels 100 → 1, values aligned)
 const CHART_LABELS = Array.from({ length: 100 }, (_, i) => String(100 - i));
-const CHART_DATA   = [...PCT_THRESHOLDS].reverse(); // align to labels (100→1)
+const CHART_DATA   = [...PCT_THRESHOLDS].reverse();
+
 let percentileChart = null;
+
+// Create the chart ONCE so it's always visible; no destroy/recreate later
+function initChartStatic() {
+  const canvas = document.getElementById("percentileChart");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const baseColors = new Array(100).fill("#b9c2cf"); // grey everywhere initially
+
+  percentileChart = new Chart(ctx, {
+    type: "bar",
+    data: {
+      labels: CHART_LABELS,
+      datasets: [{
+        data: CHART_DATA,
+        backgroundColor: baseColors,
+        borderWidth: 0
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            title: (items) => `Percentile: ${items[0].label}`,
+            label:  (item)  => `Threshold: €${Number(item.raw).toLocaleString()}`
+          }
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: true } },
+        y: { beginAtZero: true, ticks: { callback: (v) => `€${v.toLocaleString()}` } }
+      }
+    }
+  });
+}
+
+// Only update bar colors to highlight the clicked percentile
+function highlightPercentile(percentile) {
+  if (!percentileChart) return;
+
+  // Map percentile p (1..100) to bar index (100..1 -> 0..99)
+  const p = Math.max(1, Math.min(100, percentile));
+  const highlightIndex = 100 - p;
+
+  const colors = new Array(100).fill("#b9c2cf");
+  colors[highlightIndex] = "#0d6efd";
+
+  percentileChart.data.datasets[0].backgroundColor = colors;
+  percentileChart.update();
+}
 
 function generatePropertyInputs() {
   const count = parseInt(document.getElementById("propertyCount").value) || 0;
@@ -172,82 +227,14 @@ function calculateNetWorthAndPercentile() {
   return { netWorth, percentile };
 }
 
-// Build labels 100 → 1 and base data once (ensure these are defined above)
-const CHART_LABELS = Array.from({ length: 100 }, (_, i) => String(100 - i));
-const CHART_DATA   = [...PCT_THRESHOLDS].reverse(); // align to labels (100→1)
-
-let percentileChart = null;
-
-// Initialize chart ONCE so it is always visible
-function initChart() {
-  const canvas = document.getElementById("percentileChart");
-  if (!canvas || !window.Chart) return;            // guard: DOM or lib not ready yet
-  const ctx = canvas.getContext("2d");
-  if (!ctx) return;                                // guard: canvas not ready
-
-  // Safe re-init if something tried to create it before
-  if (percentileChart) percentileChart.destroy();
-
-  const baseColors = CHART_DATA.map(() => "#b9c2cf");
-
-  percentileChart = new Chart(ctx, {
-    type: "bar",
-    data: {
-      labels: CHART_LABELS,
-      datasets: [{
-        data: CHART_DATA,
-        backgroundColor: baseColors,
-        borderWidth: 0
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            title: (items) => `Percentile: ${items[0].label}`,
-            label:  (item)  => `Threshold: €${Number(item.raw).toLocaleString()}`
-          }
-        }
-      },
-      scales: {
-        x: { grid: { display: false }, ticks: { maxRotation: 0, autoSkip: true } },
-        y: { beginAtZero: true, ticks: { callback: (v) => `€${v.toLocaleString()}` } }
-      }
-    }
-  });
-}
-
-// Update only the highlight after clicking the button
-function highlightPercentile(percentile) {
-  // If chart isn't ready (e.g., init was skipped), try to init now
-  if (!percentileChart) initChart();
-  if (!percentileChart) return; // still not ready → bail gracefully
-
-  // Map percentile p to index (100 → 0, 1 → 99)
-  const p = Math.max(1, Math.min(100, percentile));
-  const highlightIndex = 100 - p;
-
-  const colors = CHART_DATA.map(() => "#b9c2cf");
-  colors[highlightIndex] = "#0d6efd";
-
-  percentileChart.data.datasets[0].backgroundColor = colors;
-  percentileChart.update();
-}
-
-// Wire up events
 document.addEventListener("DOMContentLoaded", () => {
-  // Ensure chart is visible immediately.
-  if (window.Chart) initChart();
-  else window.addEventListener("load", initChart); // fallback if Chart.js loads slowly
+  // Static chart is visible immediately
+  initChartStatic();
 
+  // Only highlight on click; keep your original math for "above"
   document.getElementById("calcBtn").addEventListener("click", () => {
     const { netWorth, percentile } = calculateNetWorthAndPercentile();
-
-    // "above X% of people": Top 1% ⇒ ~100%, Top 100% ⇒ 0%
-    const above = Math.max(0, Math.min(100, 101 - percentile));
+    const above = Math.max(0, Math.min(100, 100 - percentile)); // unchanged
 
     document.getElementById("result").textContent =
       `Estimated Net Worth: €${netWorth.toLocaleString()}\nEstimated Wealth Percentile: Top ${percentile}%`;
@@ -258,6 +245,6 @@ document.addEventListener("DOMContentLoaded", () => {
     highlightPercentile(percentile);
   });
 });
-
+</script>
 </body>
 </html>
