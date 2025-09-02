@@ -8,9 +8,6 @@ permalink: /privacy-policy
     
 <body>
   <div class="container">
-    <header>
-      <h3>Adatvédelmi tájékoztató</h3>
-    </header>
 
     <section id="bevezetes">
       <h4>1. Bevezetés</h4>
@@ -35,7 +32,7 @@ permalink: /privacy-policy
           <li><strong>Cégjegyzékszám:</strong> xxx</li>
           <li><strong>Adószám:</strong> xxx</li>
           <li><strong>E-mail:</strong> <a href="mailto:adamsanyo@gmail.com">adamsanyo@gmail.com</a></li>
-          <li><strong>Telefonszám:</strong> <a href="tel:+36307681656">+36 30 768 1656</a></li>
+          <li><strong>Telefonszám:</strong> <a href="tel:+36307681656">+36307681656</a></li>
         </ul>
       </div>
 
