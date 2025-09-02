@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Useful resources
+title: Net worth calculator
 permalink: /net-worth
 ---
 

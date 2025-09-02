@@ -23,6 +23,6 @@ permalink: /resources
 <h5>Calculators</h5>
 <h6>Net worth calculator in Hungary (TBD)</h6>
 <br/>
-<h6>Household expenses calculator (TBD)</h6>
+<h6>Household expenses calculator in Hungary (TBD)</h6>
 
 
