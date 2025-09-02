@@ -16,19 +16,14 @@ permalink: /net-worth
       background-color: #121212;
       color: #ffffff;
     }
-    .card {
-      margin-bottom: 20px;
-    }
-    .result {
-      font-weight: bold;
-      font-size: 1.2em;
-    }
+    .card { margin-bottom: 20px; }
+    .result { font-weight: bold; font-size: 1.2em; }
     .bg-orange { background-color: #ffe5b4; }
     .bg-green { background-color: #d4edda; }
     .bg-blue { background-color: #d1ecf1; }
     .bg-red { background-color: #f8d7da; }
     .bg-lightblue { background-color: #b3e5fc; }
-    }
+    /* FIX: removed extra stray brace that broke the stylesheet */
   </style>
 </head>
 <body class="bg-light">
@@ -90,6 +85,10 @@ permalink: /net-worth
             <h4>📈 Results</h4>
             <button class="btn btn-primary mb-3" onclick="calculateNetWorth()">Calculate Net Worth</button>
             <div id="result" class="result mb-3"></div>
+            <!-- NEW: canvas for the percentile bar chart -->
+            <div class="ratio ratio-4x3">
+              <canvas id="percentileChart"></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -114,6 +113,7 @@ permalink: /net-worth
       document.body.classList.toggle('dark-mode');
       document.body.classList.toggle('bg-light');
       document.body.classList.toggle('bg-dark');
+      // Optional: restyle chart ticks/grid for dark mode here if you like
     }
 
     function generatePropertyInputs() {
@@ -157,6 +157,7 @@ permalink: /net-worth
 
       netWorth = realEstateTotal + investments + otherAssets - liabilities;
 
+      // Percentile: find first threshold the net worth meets or exceeds
       let percentile = 100;
       for (let i = 0; i < percentiles.length; i++) {
         if (netWorth >= percentiles[i]) {
@@ -171,20 +172,25 @@ permalink: /net-worth
       document.getElementById("liabilitiesTotal").innerText = `€${liabilities.toLocaleString()}`;
 
       document.getElementById("result").innerText =
-        `Estimated Net Worth: €${netWorth.toLocaleString()}\nEstimated Wealth Percentile: ${percentile}th percentile`;
+        `Estimated Net Worth: €${netWorth.toLocaleString()}\nEstimated Wealth Percentile: Top ${percentile} percentile`;
 
       drawChart(netWorth);
     }
 
     function drawChart(userNetWorth) {
-      const ctx = document.getElementById("percentileChart").getContext("2d");
+      const canvas = document.getElementById("percentileChart"); // NEW
+      if (!canvas) return; // NEW: graceful no-op if canvas isn't present
+      const ctx = canvas.getContext("2d");
+
       if (window.percentileChart) window.percentileChart.destroy();
-      const reversed = [...percentiles].reverse();
-      const barColors = reversed.map(value => value < userNetWorth ? '#0d6efd' : '#ccc');
+
+      const reversed = [...percentiles].reverse(); // now 0..99th ascending visually
+      const barColors = reversed.map(v => v < userNetWorth ? '#0d6efd' : '#ccc');
+
       window.percentileChart = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: Array.from({ length: 100 }, (_, i) => `${100 - i}`),
+          labels: Array.from({ length: 100 }, (_, i) => `${100 - i}`), // show 100..1
           datasets: [{
             data: reversed,
             backgroundColor: barColors,
@@ -193,12 +199,16 @@ permalink: /net-worth
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false, // works nicely with the .ratio wrapper
           plugins: {
             legend: { display: false },
             tooltip: { mode: 'index' }
           },
           scales: {
-            x: { reverse: true, ticks: { autoSkip: true, maxRotation: 90, minRotation: 90 } },
+            x: {
+              reverse: true,
+              ticks: { autoSkip: true, maxRotation: 90, minRotation: 90 }
+            },
             y: { beginAtZero: true }
           }
         }
@@ -207,4 +217,3 @@ permalink: /net-worth
   </script>
 </body>
 </html>
-
