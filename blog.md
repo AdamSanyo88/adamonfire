@@ -21,7 +21,7 @@ permalink: /blog
 <p>There was one positive thing about the whole tariff ordeal and that is related to my preparedness to FIRE. Up until Trump's annoucement and the market meltdown, I thought that I have everything I need to monitor my portfolio...<a href="blog-3"><strong> continue reading here</strong></a>.</p>
 <br/>
 <h5>Trump made me panic sell</h5>
-<p>So I was right about the markets being too high up. The only problem was that I didn't expect them to come down like this. <strong>Trump with his billboard show managed to make everything plunge in just 7 days</strong>. I was actually cautious about this and sold... <a href="blog-2"><strong> continue reading here</strong></a>.</p>
+<p>So I was right about the markets being too high up. The only problem was that I didn't expect them to come down like this. Trump with his billboard show managed to make everything plunge in just 7 days. I was actually cautious about this and sold... <a href="blog-2"><strong> continue reading here</strong></a>.</p>
 
 <br/>
 <h5>550 days to go</h5>

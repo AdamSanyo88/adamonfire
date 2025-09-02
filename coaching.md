@@ -116,6 +116,7 @@ permalink: /coaching
   </div>
 
   <p style="font-size:0.9em; color:#64748b; margin-top:12px;">*Pricing shown as indicative. Final quotes may vary on scope and complexity. Each additional 60-min session is priced at €100.</p>
+<p>You can read the <a href="..privacy-policy">Privacy Policy</a> related to the services provided.
 </section>
 
 <!-- Styles -->
