@@ -130,84 +130,48 @@ permalink: /net-worth
     }
 
     function calculateNetWorth() {
-      let netWorth = 0;
-      const count = parseInt(document.getElementById("propertyCount").value) || 0;
-      let realEstateTotal = 0;
+  let netWorth = 0;
+  const count = parseInt(document.getElementById("propertyCount").value) || 0;
+  let realEstateTotal = 0;
 
-      for (let i = 0; i < count; i++) {
-        const value = parseFloat(document.getElementById(`propertyValue${i}`).value) || 0;
-        const mortgage = parseFloat(document.getElementById(`propertyMortgage${i}`).value) || 0;
-        realEstateTotal += (value - mortgage);
-      }
+  for (let i = 0; i < count; i++) {
+    const value = parseFloat(document.getElementById(`propertyValue${i}`).value) || 0;
+    const mortgage = parseFloat(document.getElementById(`propertyMortgage${i}`).value) || 0;
+    realEstateTotal += (value - mortgage);
+  }
 
-      let investments =
-        (parseFloat(document.getElementById("privatePension").value) || 0) +
-        (parseFloat(document.getElementById("govBonds").value) || 0) +
-        (parseFloat(document.getElementById("taxInvestments").value) || 0) +
-        (parseFloat(document.getElementById("otherInvestments").value) || 0);
+  let investments =
+    (parseFloat(document.getElementById("privatePension").value) || 0) +
+    (parseFloat(document.getElementById("govBonds").value) || 0) +
+    (parseFloat(document.getElementById("taxInvestments").value) || 0) +
+    (parseFloat(document.getElementById("otherInvestments").value) || 0);
 
-      let otherAssets = parseFloat(document.getElementById("otherAssets").value) || 0;
-      let liabilities = parseFloat(document.getElementById("otherLiabilities").value) || 0;
+  let otherAssets = parseFloat(document.getElementById("otherAssets").value) || 0;
+  let liabilities = parseFloat(document.getElementById("otherLiabilities").value) || 0;
 
-      netWorth = realEstateTotal + investments + otherAssets - liabilities;
+  netWorth = realEstateTotal + investments + otherAssets - liabilities;
 
-      // Percentile: find first threshold the net worth meets or exceeds
-      let percentile = 100;
-      for (let i = 0; i < percentiles.length; i++) {
-        if (netWorth >= percentiles[i]) {
-          percentile = i + 1;
-          break;
-        }
-      }
-
-      document.getElementById("realEstateTotal").innerText = `€${realEstateTotal.toLocaleString()}`;
-      document.getElementById("investmentTotal").innerText = `€${investments.toLocaleString()}`;
-      document.getElementById("otherAssetsTotal").innerText = `€${otherAssets.toLocaleString()}`;
-      document.getElementById("liabilitiesTotal").innerText = `€${liabilities.toLocaleString()}`;
-
-      document.getElementById("result").innerText =
-        `Estimated Net Worth: €${netWorth.toLocaleString()}\nEstimated Wealth Percentile: Top ${percentile} percentile`;
-
-      drawChart(netWorth);
+  // Find percentile
+  let percentile = 100;
+  for (let i = 0; i < percentiles.length; i++) {
+    if (netWorth >= percentiles[i]) {
+      percentile = i + 1;
+      break;
     }
+  }
 
-    function drawChart(userNetWorth) {
-      const canvas = document.getElementById("percentileChart"); // NEW
-      if (!canvas) return; // NEW: graceful no-op if canvas isn't present
-      const ctx = canvas.getContext("2d");
+  document.getElementById("realEstateTotal").innerText = `€${realEstateTotal.toLocaleString()}`;
+  document.getElementById("investmentTotal").innerText = `€${investments.toLocaleString()}`;
+  document.getElementById("otherAssetsTotal").innerText = `€${otherAssets.toLocaleString()}`;
+  document.getElementById("liabilitiesTotal").innerText = `€${liabilities.toLocaleString()}`;
 
-      if (window.percentileChart) window.percentileChart.destroy();
+  document.getElementById("result").innerText =
+    `Estimated Net Worth: €${netWorth.toLocaleString()}\nEstimated Wealth Percentile: Top ${percentile}%`;
 
-      const reversed = [...percentiles].reverse(); // now 0..99th ascending visually
-      const barColors = reversed.map(v => v < userNetWorth ? '#0d6efd' : '#ccc');
-
-      window.percentileChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: Array.from({ length: 100 }, (_, i) => `${100 - i}`), // show 100..1
-          datasets: [{
-            data: reversed,
-            backgroundColor: barColors,
-            borderWidth: 1
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false, // works nicely with the .ratio wrapper
-          plugins: {
-            legend: { display: false },
-            tooltip: { mode: 'index' }
-          },
-          scales: {
-            x: {
-              reverse: true,
-              ticks: { autoSkip: true, maxRotation: 90, minRotation: 90 }
-            },
-            y: { beginAtZero: true }
-          }
-        }
-      });
-    }
-  </script>
+  // Update progress bar
+  const bar = document.getElementById("percentileBar");
+  bar.style.width = `${100 - percentile}%`;   // flip: higher net worth = fuller bar
+  bar.setAttribute("aria-valuenow", 100 - percentile);
+  bar.textContent = `Top ${percentile}%`;
 </body>
 </html>
