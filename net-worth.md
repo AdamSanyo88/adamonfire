@@ -37,7 +37,7 @@ permalink: /net-worth
         <div class="card bg-orange">
           <div class="card-body">
             <h4 class="h5">🏠 Real Estate</h4>
-            <label for="propertyCount" class="form-label">Number of Properties</label>
+            <label for="propertyCount" class="form-label"><h6>Number of Properties</h6></label>
             <input type="number" class="form-control" id="propertyCount" min="0" value="0" onchange="generatePropertyInputs()"/>
             <div id="propertyInputs"></div>
             <div class="mt-3"><strong>Total Real Estate:</strong> <span id="realEstateTotal">€0</span></div>
@@ -47,9 +47,9 @@ permalink: /net-worth
         <div class="card bg-green">
           <div class="card-body">
             <h4 class="h5">📊 Investments</h4>
-            <label class="form-label">Private Pension</label>
+            <label class="form-label"><h6>Private Pension</h6></label>
             <input type="number" class="form-control" id="privatePension" value="0"/>
-            <label class="form-label mt-2">Government Bonds</label>
+            <label class="form-label mt-2"><h6>Government Bonds</h6></label>
             <input type="number" class="form-control" id="govBonds" value="0"/>
             <label class="form-label mt-2">Tax-efficient Investments</label>
             <input type="number" class="form-control" id="taxInvestments" value="0"/>
