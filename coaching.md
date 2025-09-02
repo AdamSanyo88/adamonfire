@@ -22,7 +22,7 @@ permalink: /coaching
       <thead>
         <tr>
           <th scope="col" class="first-col">Tiers</th>
-          <th scope="col" style="text-align:center; padding:14px 16px; background:#38bdf8; color:white;">Tier 0<br><span style="font-weight:600;">FIRE Free</span></th>
+          <th scope="col" style="text-align:center; padding:14px 16px; background:#38bdf8; color:white;">Tier 0<br><span style="font-weight:600;">FIRE Starter</span></th>
           <th scope="col" style="text-align:center; padding:14px 16px; background:#0284c7; color:white;">Tier 1<br><span style="font-weight:600;">FIRE Review</span></th>
           <th scope="col" style="text-align:center; padding:14px 16px; background:#0369a1; color:white;">Tier 2<br><span style="font-weight:600;">FIRE Coach</span></th>
           <th scope="col" style="text-align:center; padding:14px 16px; background:#0c4a6e; color:white;">Tier 3<br><span style="font-weight:600;">FIRE Partner</span></th>

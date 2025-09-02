@@ -31,9 +31,7 @@ permalink: /spending
           <div class="card-body">
             <label for="monthlyInput" class="form-label">Havi átlagos költés</label>
             <div class="input-group mb-3">
-              <span class="input-group-text">Összeg</span>
-              <input id="monthlyInput" type="number" class="form-control" min="0" step="1" value="300000" />
-              <span class="input-group-text">HUF</span>
+              <input id="monthlyInput" type="number" class="form-control" min="0" step="100" value="0" />
             </div>
 
             <div class="form-check mb-2">
@@ -107,7 +105,7 @@ permalink: /spending
       { key: "alkohol", label: "Alkohol", weight: 0.0325 },
       { key: "dohanyaru", label: "Dohányárú", weight: 0.0591 },
       { key: "ruhazat", label: "Ruházat", weight: 0.0341 },
-      { key: "rezsi_lakas", label: "Rezsi és saját lakás fenntartása", weight: 0.1152 },
+      { key: "rezsi_lakas", label: "Rezsi és lakáshoz kötött költségek", weight: 0.1152 },
       { key: "lakber_karb", label: "Lakberendezés és lakás karbantartása", weight: 0.0717 },
       { key: "egeszsegugy", label: "Egészségügy", weight: 0.0545 },
       { key: "auto_kozlekedes", label: "Közlekedés saját autóval", weight: 0.1309 },
@@ -116,7 +114,7 @@ permalink: /spending
       { key: "oktatas", label: "Oktatás", weight: 0.0222 },
       { key: "szabadido", label: "Szabadidő és hobbi", weight: 0.0734 },
       { key: "vendeglatas", label: "Vendéglátás", weight: 0.0495 },
-      { key: "egyeb_szolg", label: "Egyéb szolgáltatás (pl. biztosítások)", weight: 0.0733 },
+      { key: "egyeb_szolg", label: "Egyéb szolgáltatás (pl. biztosítások, banki díjak)", weight: 0.0733 },
     ];
 
     const fmtPct = (v) => (v * 100).toFixed(1).replace('.', ',');
