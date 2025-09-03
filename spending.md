@@ -16,10 +16,10 @@ permalink: /spending
     .badge-fixed { font-variant-numeric: tabular-nums; }
     .table thead th { white-space: nowrap; }
 	
-	.navbar .nav-link,
-.navbar .nav-link:hover,
-.navbar .nav-link:focus {
-  text-decoration: none;
+  nav ul.right.hide-on-med-and-down a .material-icons {
+  text-decoration: none;             /* some resets target inline elements */
+  display: inline-flex;              /* avoids stray underline artifacts */
+  vertical-align: middle;
 }
   </style>
 </head>

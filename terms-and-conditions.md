@@ -8,7 +8,7 @@ permalink: /terms-and-conditions
     
 
 <body>
-
+  <div class="container">
 
   <h4>1. Szolgáltató adatai</h4>
   
@@ -124,4 +124,5 @@ permalink: /terms-and-conditions
     <p>Ha az Ügyfél az elállási időszak alatt már igénybe vett coaching alkalmat, akkor az elállás esetén a Szolgáltató jogosult arányos díjra az addig nyújtott szolgáltatásért, továbbá a Fizetési feltételekben meghatározott lemondási díj arányos részére.</p>
   
 <p>Utolsó módosítás: 2025.09.10</p>
+</div>
 </body>
