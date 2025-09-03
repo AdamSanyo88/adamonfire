@@ -22,7 +22,7 @@ permalink: /spending
     <h1 class="h3 mb-1">Költségvetési kalkulátor</h1>
     <p class="text-muted mb-4">
       Add meg a havi költésedet. A kalkulátor a magyar fogyasztói kosár súlyai szerint osztja szét.
-      A kijelölt tételek eltávolításra kerülnek, majd a súlyuk arányosan újraelosztódik a maradék kategóriák között.
+      A kijelölt tételek eltávolításra kerülnek, majd a súlyuk arányosan újraelosztódik a maradék kategóriák között. A kalkulátor lakbért nem számol, ezt érdemes kivonni a teljes költségvetésből.
     </p>
 
     <div class="row g-4">
@@ -148,6 +148,7 @@ permalink: /spending
       if (document.getElementById('noHouse').checked) removedSet.add('lakber_karb');
       if (document.getElementById('noCar').checked) {
 	['auto_kozlekedes', 'auto_vasarlas'].forEach(item => removedSet.add(item));
+	]
 
       const adjusted = redistribute(BASE, removedSet);
 
