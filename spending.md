@@ -10,50 +10,13 @@ permalink: /spending
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Monthly Spending Redistributor</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-  body { 
-    background: #f8fafc; 
-  }
-
-  .category-removed { 
-    opacity: 0.5; 
-  }
-
-  .badge-fixed { 
-    font-variant-numeric: tabular-nums; 
-  }
-
-  .table thead th { 
-    white-space: nowrap; 
-  }
-
-  /* Reset underlines and borders on nav links */
-  nav ul.right.hide-on-med-and-down > li > a,
-  nav ul.right.hide-on-med-and-down > li > a:link,
-  nav ul.right.hide-on-med-and-down > li > a:visited,
-  nav ul.right.hide-on-med-and-down > li > a:hover,
-  nav ul.right.hide-on-med-and-down > li > a:focus,
-  nav ul.right.hide-on-med-and-down > li > a:active {
-    text-decoration: none !important;
-    border-bottom: 0 !important;
-    box-shadow: none !important;
-  }
-
-  /* Remove “active” underline/border styles */
-  nav ul.right.hide-on-med-and-down > li.active > a,
-  nav ul.right.hide-on-med-and-down > li > a.active {
-    text-decoration: none !important;
-    border-bottom: 0 !important;
-    box-shadow: none !important;
-  }
-
-  /* Keep icons themselves clean */
-  nav ul.right.hide-on-med-and-down a .material-icons {
-    text-decoration: none;
-    display: inline-flex;
-    vertical-align: middle;
-  }
-</style>
+  <style>
+    body { background: #f8fafc; }
+    .category-removed { opacity: 0.5; }
+    .badge-fixed { font-variant-numeric: tabular-nums; }
+    .table thead th { white-space: nowrap; }
+	
+  </style>
 </head>
 <body>
   <div class="container py-4">
