@@ -28,10 +28,10 @@ permalink: /privacy-policy
       <div class="card">
         <ul class="kv-list">
           <li><strong>Név:</strong> Sanyó Ádám</li>
-          <li><strong>Székhely:</strong> 1045 Budapest, Chinoin utca 4.</li>
+          <li><strong>Székhely:</strong> 1045 Budapest, Chinoin utca 4. 1/4</li>
           <li><strong>Cégjegyzékszám:</strong> xxx</li>
           <li><strong>Adószám:</strong> xxx</li>
-          <li><strong>E-mail:</strong> <a href="mailto:adamsanyo@gmail.com">adamsanyo@gmail.com</a></li>
+          <li><strong>E-mail:</strong> <a href="mailto:adamsanyo@goefire.com">adamsanyo@goesfire.com</a></li>
           <li><strong>Telefonszám:</strong> <a href="tel:+36307681656">+36307681656</a></li>
         </ul>
       </div>
