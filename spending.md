@@ -15,6 +15,12 @@ permalink: /spending
     .category-removed { opacity: 0.5; }
     .badge-fixed { font-variant-numeric: tabular-nums; }
     .table thead th { white-space: nowrap; }
+	
+	.navbar .nav-link,
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+  text-decoration: none;
+}
   </style>
 </head>
 <body>
