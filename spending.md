@@ -146,7 +146,8 @@ permalink: /spending
       if (document.getElementById('noSmoke').checked) removedSet.add('dohanyaru');
       if (document.getElementById('noDrink').checked) removedSet.add('alkohol');
       if (document.getElementById('noHouse').checked) removedSet.add('lakber_karb');
-      if (document.getElementById('noCar').checked) removedSet.add('auto_kozlekedes', 'auto_vasarlas');
+      if (document.getElementById('noCar').checked) {
+	['auto_kozlekedes', 'auto_vasarlas'].forEach(item => removedSet.add(item));
 
       const adjusted = redistribute(BASE, removedSet);
 
