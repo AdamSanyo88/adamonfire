@@ -39,7 +39,7 @@ permalink: /net-worth
           <div class="card-body">
             <h4 class="h5">🏠 Real Estate</h4>
             <label for="propertyCount" class="form-label">Number of Properties</label>
-            <input type="number" class="form-control" id="propertyCount" min="0" max="5" value="1" onchange="generatePropertyInputs()"/>
+            <input type="number" class="form-control" id="propertyCount" min="0" max="5" value="0" onchange="generatePropertyInputs()"/>
             <div id="propertyInputs"></div>
             <div class="mt-3"><strong>Total Real Estate:</strong> <span id="realEstateTotal">€0</span></div>
           </div>
