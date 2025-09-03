@@ -75,7 +75,6 @@ permalink: /terms-and-conditions
         <p><strong>Személyes coaching tanácsadás esetén:</strong> a díj a helyszínen, a tanácsadást követően azonnal fizetendő készpénzben.</p>
         <p><strong>Online coaching tanácsadás esetén:</strong> a díj a tanácsadást követő <strong>3 munkanapon belül</strong> átutalással fizetendő a Szolgáltató által kiállított számla alapján.</p>
       
-    </p>
     <p>Több alkalmat tartalmazó csomag választása esetén a teljes csomag díja egy összegben, a szolgáltatás első igénybevételét megelőzően fizetendő, kivéve ha a Szolgáltató és az Ügyfél írásban másként állapodnak meg.</p>
     <p>Lemondás esetén a már megfizetett díj 50%-a jár vissza (kivéve jogszabályban meghatározott elállási jog esetén). Ez az összeg az igénybe nem vett coaching alkalmak számából kerül kiszámításra (például a FIRE Coach csomag esetében 3 igénybe nem vett alkalom esetén 1.5 alkalom ára jár vissza az ügyfélnek. A lemondást követően a Szolgáltató ezt az összeget 7 napon belül visszautalja az Ügyfél számlájára.</p>
   
@@ -124,6 +123,6 @@ permalink: /terms-and-conditions
     <p>Ha az Ügyfél a 14 napos elállási idő alatt kéri a szolgáltatás megkezdését, tudomásul veszi, hogy az elállási jogát elveszíti, amennyiben a szolgáltatás legalább első része - az ingyenes felmérő hívás kivételével - teljesítésre került.</p>
     <p>Ha az Ügyfél az elállási időszak alatt már igénybe vett coaching alkalmat, akkor az elállás esetén a Szolgáltató jogosult arányos díjra az addig nyújtott szolgáltatásért, továbbá a Fizetési feltételekben meghatározott lemondási díj arányos részére.</p>
   
-<p>Utolsó módosítás: 2025.09.10
+<p>Utolsó módosítás: 2025.09.10</p>
 </body>
 </html>
