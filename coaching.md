@@ -80,8 +80,8 @@ permalink: /coaching
           <th scope="row" class="first-col">Accountability Check-ins</th>
           <td style="text-align:center; padding:14px 16px;">—</td>
           <td style="text-align:center; padding:14px 16px;">—</td>
-          <td style="text-align:center; padding:14px 16px;">Monthly quick check-ins</td>
-          <td style="text-align:center; padding:14px 16px;">Monthly + quarterly reviews</td>
+          <td style="text-align:center; padding:14px 16px;">Monthly check-ins</td>
+          <td style="text-align:center; padding:14px 16px;">Monthly check-ins</td>
         </tr>
 
       
@@ -116,7 +116,7 @@ permalink: /coaching
   </div>
 
   <p style="font-size:0.9em; color:#64748b; margin-top:12px;">*Pricing shown as indicative. Final quotes may vary on scope and complexity. Each additional 60-min session is priced at €100.</p>
-<p>You can read the <a href="privacy-policy">Privacy Policy</a> related to the services provided.</p>
+<p>You can read the <a href="privacy-policy">Privacy Policy</a> and the <a href="terms-and-conditions">Terms and Conditions</a> related to the services provided.</p>
 </section>
 
 <!-- Styles -->
