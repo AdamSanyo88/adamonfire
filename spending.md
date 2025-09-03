@@ -16,6 +16,48 @@ permalink: /spending
     .badge-fixed { font-variant-numeric: tabular-nums; }
     .table thead th { white-space: nowrap; }
 	
+	/* your existing styles */
+  body { background: #f8fafc; }
+  .category-removed { opacity: 0.5; }
+  .badge-fixed { font-variant-numeric: tabular-nums; }
+  .table thead th { white-space: nowrap; }
+
+  /* Page-scoped nav overrides (Materialize markup) */
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:link,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:visited,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:hover,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:focus,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:active,
+  nav.blue.accent-4 .nav-wrapper ul#nav-mobile.side-nav li > a {
+    text-decoration: none !important;
+    border-bottom: 0 !important;   /* handles themes that fake underline as border */
+    box-shadow: none !important;    /* handles themes using bottom shadow */
+  }
+
+  /* Active item variants */
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li.active > a,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a.active {
+    text-decoration: none !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Kill any pseudo-element underline decorations */
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a::after {
+    content: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  /* Keep icons themselves clean */
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a .material-icons,
+  nav.blue.accent-4 .nav-wrapper ul#nav-mobile.side-nav li > a .material-icons {
+    text-decoration: none;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+	
   </style>
 </head>
 <body>
