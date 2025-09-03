@@ -13,7 +13,7 @@ permalink: /resources
 
 <br/>
 <h5>Guides</h5>
-<h6>Tax optimization in Hungary (TBD)</h6>
+<h6><a href="tbsz">Tax optimization in Hungary - Long-term investment account (TBSZ) information</a></h6>
 <br/>
 <h6>Portfolio tracking sheet (for easier, semi-automated portfolio management) (TBD)</h6>
 <br/>
