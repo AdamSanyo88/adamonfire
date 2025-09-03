@@ -21,8 +21,8 @@ permalink: /resources
 <h6><a href="https://www.slideshare.net/slideshow/hogyan-epits-vagyont-tapasztalatok-egy-15-eves-fire-ut-vegen/276076087">Presentation at the FIRE Hungary group in February 2025</a>.</h6>
 <br/>
 <h5>Calculators</h5>
-<h6>Net worth calculator in Hungary (TBD)</h6>
+<h6><a href="net-worth">Net worth calculator</a> - how rich you were in 2024 in Hungary?</h6>
 <br/>
-<h6>Household expenses calculator in Hungary (TBD)</h6>
+<h6><a href="spending">Household expenses calculator</a> - how does the average household spend its budget?</h6>
 
 

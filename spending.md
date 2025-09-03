@@ -108,7 +108,8 @@ permalink: /spending
       { key: "rezsi_lakas", label: "Rezsi és lakáshoz kötött költségek", weight: 0.1152 },
       { key: "lakber_karb", label: "Lakberendezés és lakás karbantartása", weight: 0.0717 },
       { key: "egeszsegugy", label: "Egészségügy", weight: 0.0545 },
-      { key: "auto_kozlekedes", label: "Közlekedés saját autóval", weight: 0.1309 },
+      { key: "auto_kozlekedes", label: "Közlekedés saját autóval", weight: 0.872 },
+	  { key: "auto_vasarlas", label: "Saját autó értékvesztése", weight: 0.437 },
       { key: "egyeb_kozlekedes", label: "Egyéb közlekedés", weight: 0.0140 },
       { key: "tavkozles", label: "Távközlés", weight: 0.0422 },
       { key: "oktatas", label: "Oktatás", weight: 0.0222 },
@@ -145,7 +146,7 @@ permalink: /spending
       if (document.getElementById('noSmoke').checked) removedSet.add('dohanyaru');
       if (document.getElementById('noDrink').checked) removedSet.add('alkohol');
       if (document.getElementById('noHouse').checked) removedSet.add('lakber_karb');
-      if (document.getElementById('noCar').checked) removedSet.add('auto_kozlekedes');
+      if (document.getElementById('noCar').checked) removedSet.add('auto_kozlekedes', 'auto_vasarlas');
 
       const adjusted = redistribute(BASE, removedSet);
 
