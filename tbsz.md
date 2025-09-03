@@ -16,22 +16,17 @@ permalink: /tbsz
 </head>
 <body>
   <main class="container">
-    <header>
-      <span class="badge">Gyors útmutató</span>
-      <h1>Tartós Befektetési Számla (TBSZ)</h1>
-      <p class="subtitle">Mi ez, hogyan működik, és hogyan adózik – röviden és érthetően.</p>
-    </header>
 
     <section class="panel">
       <h4>Mi a TBSZ és hogyan működik?</h4>
-      <p>A Tartós Befektetési Számla hosszú távú megtakarítási forma Magyarországon, amelyhez speciális adózási kedvezmények kapcsolódnak. A konstrukció fő elemei:</p>
+      <p>A Tartós Befektetési Számla hosszú távú megtakarítási forma Magyarországon, magyarországi adóalanyok számára, amelyhez speciális adózási kedvezmények kapcsolódnak. A konstrukció fő elemei:</p>
       <ul>
-        <li><strong>Gyűjtőév (0. év):</strong> ebben az évben lehet pénzt elhelyezni a számlán. A gyűjtőév nem számít bele a lekötési időbe.</li>
-        <li><strong>Lekötési idő:</strong> a gyűjtőévet követő <strong>3</strong> vagy <strong>5 év</strong>. A befektető ekkor különféle eszközökbe (pl. állampapír, részvény, befektetési alap, betét) fektethet.</li>
+        <li><strong>Gyűjtőév (0. év):</strong> ebben az évben lehet pénzt elhelyezni a számlán. A gyűjtőév nem számít bele a lekötési időbe. Korlátlan összeg helyezhető el a számlán, de a megnyitáshoz minimum egyszeri 25000 Ft-ot kell elhelyezni.</li>
+        <li><strong>Lekötési idő:</strong> a gyűjtőévet követő <strong>3</strong> vagy <strong>5 év</strong>. A befektető ekkor különféle eszközökbe (pl. állampapír, részvény, befektetési alap, stb.) fektethet.</li>
         <li><strong>Hozzáférés:</strong> a futamidő alatti kifizetés megszakítja a lekötést és adókövetkezménnyel járhat.</li>
         <li><strong>Lezárás/újrakötés:</strong> 5 év után a számla adómentesen zárható, vagy a megtakarítás új, gyűjtőév nélküli TBSZ-re gördíthető.</li>
       </ul>
-	  <p>Fontos: A gyűjtőév során a számlán befektetett eszközök szabadon kereskedhetőek, csupán a számláról kiutalni nem lehet pénzt - illetve a kiutalás 5 éven belül adóvonzattal jár.</p>
+	  <p><strong>Fontos:</strong> A gyűjtőév során a számlán befektetett eszközök szabadon kereskedhetőek, csupán a számláról kiutalni nem lehet pénzt - illetve a kiutalás 5 éven belül adóvonzattal jár.</p>
     </section>
 
     <section class="panel">
@@ -72,9 +67,9 @@ permalink: /tbsz
         <div>
           <p><strong>Fegyelmezett megtakarítás:</strong> a gyűjtőév és a lekötés szerkezete támogatja a hosszú távú szemléletet.</p>
           <p><strong>Rugalmasság a végén:</strong> 5 év után adómentes zárás vagy gördítés új TBSZ számlára</p>
-		  <p>FIRE tipp: Ha 5+1 TBSZ számlát tudsz nyitni 6 egymást követő évben, akkor a 6. évtől kezdve gyakorlatilag teljesen adómentesen tudsz megtakarítani, hiszen a 6. évben az első lejáró TBSZ számlád hozamaiból tudod finanszírozni a következő TBSZ számládat. Így folyamatosan görgetheted magad előtt az adómentesen felhalmozott nyereséged.</p>
+		  <p><strong>FIRE tipp:</strong> Ha 5+1 TBSZ számlát tudsz nyitni 6 egymást követő évben, akkor a 6. évtől kezdve gyakorlatilag teljesen adómentesen tudsz megtakarítani, hiszen a 6. évben az első lejáró TBSZ számlád hozamaiból tudod finanszírozni a következő TBSZ számládat. Így folyamatosan görgetheted magad előtt az adómentesen felhalmozott nyereséged.</p>
 		  <br/>
-		  <p>Ezt a görgetett TBSZ számlás megoldást használom én is a FIRE utam során. Ha hasonló tippeket szeretnél kapni a saját számláid menedzseléséhez, <a href="/coaching">gyere el egy coaching megbeszélésre.</a></p>
+		  <p>Ezt a görgetett TBSZ számlás megoldást használom én is a FIRE utam során. Hasonló tippeket szeretnél kapni a saját számláid menedzseléséhez? <a href="/coaching">Gyere el egy coaching megbeszélésre, ahol személyre szabottan kaphatsz tanácsokat, ötleteket.</a></p>
         </div>
       </div>
     </section>
