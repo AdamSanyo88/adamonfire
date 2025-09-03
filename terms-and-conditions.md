@@ -125,4 +125,3 @@ permalink: /terms-and-conditions
   
 <p>Utolsó módosítás: 2025.09.10</p>
 </body>
-</html>

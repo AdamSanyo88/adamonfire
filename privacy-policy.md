@@ -194,8 +194,5 @@ permalink: /privacy-policy
       <strong>Sanyó Ádám</strong></p>
     </section>
 
-    <footer>
-      <p class="note">Ez a tájékoztató a vonatkozó jogszabályoknak való megfelelést szolgálja, és az Adatkezelő szolgáltatásaihoz kapcsolódó adatkezeléseket foglalja össze.</p>
-    </footer>
   </div>
 </body>
