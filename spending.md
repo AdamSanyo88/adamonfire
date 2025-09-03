@@ -99,7 +99,7 @@ permalink: /spending
   </div>
 
   <script>
-    // Hungarian CPI basket weights from the uploaded Excel (normalized to 1.0)
+    // Hungarian CPI basket weights (normalized to 1.0)
     const BASE = [
       { key: "elelmiszer", label: "Élelmiszer", weight: 0.2274 },
       { key: "alkohol", label: "Alkohol", weight: 0.0325 },
@@ -109,7 +109,7 @@ permalink: /spending
       { key: "lakber_karb", label: "Lakberendezés és lakás karbantartása", weight: 0.0717 },
       { key: "egeszsegugy", label: "Egészségügy", weight: 0.0545 },
       { key: "auto_kozlekedes", label: "Közlekedés saját autóval", weight: 0.0872 },
-	  { key: "auto_vasarlas", label: "Saját autó értékvesztése", weight: 0.0437 },
+      { key: "auto_vasarlas", label: "Saját autó értékvesztése", weight: 0.0437 },
       { key: "egyeb_kozlekedes", label: "Egyéb közlekedés", weight: 0.0140 },
       { key: "tavkozles", label: "Távközlés", weight: 0.0422 },
       { key: "oktatas", label: "Oktatás", weight: 0.0222 },
@@ -147,8 +147,8 @@ permalink: /spending
       if (document.getElementById('noDrink').checked) removedSet.add('alkohol');
       if (document.getElementById('noHouse').checked) removedSet.add('lakber_karb');
       if (document.getElementById('noCar').checked) {
-	['auto_kozlekedes', 'auto_vasarlas'].forEach(item => removedSet.add(item));
-	]
+        ['auto_kozlekedes', 'auto_vasarlas'].forEach(item => removedSet.add(item));
+      } // <-- missing brace added here ✅
 
       const adjusted = redistribute(BASE, removedSet);
 
@@ -157,6 +157,7 @@ permalink: /spending
       const rounded = raw.map(v => Math.round(v * 100) / 100);
       const sumRounded = rounded.reduce((s, v) => s + v, 0);
       const diff = Math.round((monthly - sumRounded) * 100) / 100;
+
       // apply diff to the largest kept category
       let idxMax = -1, maxW = -Infinity;
       adjusted.forEach((r, i) => { if (r.adjWeight > maxW) { maxW = r.adjWeight; idxMax = i; } });
