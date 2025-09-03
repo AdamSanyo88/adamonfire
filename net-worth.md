@@ -4,11 +4,12 @@ title: Net worth calculator
 permalink: /net-worth
 ---
 
+<h1 class="page-title">{{ page.title | escape }}</h1>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Net Worth Calculator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <style>
@@ -29,8 +30,7 @@ permalink: /net-worth
 <body>
   <div class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-      <h1 class="h3 m-0">Net Worth & Percentile Calculator</h1>
-	  <p>This calculator shows you how wealthy your household was at the end of 2024. The percentiles are created using the 2023 data collected by the Hungarian Central Bank (MNB) and modified to match the estimated wealth increase between 2023 and 2024.</p>
+	  <p>This calculator shows you how wealthy your household was at the end of 2024 compared to all household in Hungary. The percentiles are created using the 2023 data collected by the Hungarian Central Bank (MNB) and modified to match the estimated wealth increase between 2023 and 2024. The calculation takes into account the value of your primary residence, so include that as well. All calculations are made in euro.</p>
     </div>
 
     <div class="row">
@@ -39,7 +39,7 @@ permalink: /net-worth
           <div class="card-body">
             <h4 class="h5">🏠 Real Estate</h4>
             <label for="propertyCount" class="form-label">Number of Properties</label>
-            <input type="number" class="form-control" id="propertyCount" min="0" value="0" onchange="generatePropertyInputs()"/>
+            <input type="number" class="form-control" id="propertyCount" min="0" max="5" value="1" onchange="generatePropertyInputs()"/>
             <div id="propertyInputs"></div>
             <div class="mt-3"><strong>Total Real Estate:</strong> <span id="realEstateTotal">€0</span></div>
           </div>
