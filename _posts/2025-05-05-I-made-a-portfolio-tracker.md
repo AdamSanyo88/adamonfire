@@ -51,3 +51,6 @@ permalink: blog-3
   })
 }();
 </script>
+
+<br/>  
+<h5><a href="../blog">Back to all posts</a></h5>
