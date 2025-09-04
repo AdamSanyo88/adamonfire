@@ -50,7 +50,7 @@ permalink: /coaching
         <!-- Written Deliverable -->
         <tr>
           <th scope="row" class="first-col">Written Recommendations</th>
-          <td style="text-align:center; padding:14px 16px;">-</td>
+          <td style="text-align:center; padding:14px 16px;">—</td>
           <td style="text-align:center; padding:14px 16px;">Brief summary (with benchmarks)</td>
           <td style="text-align:center; padding:14px 16px;">Full report with basic action plan</td>
           <td style="text-align:center; padding:14px 16px;">Full financial planning</td>
