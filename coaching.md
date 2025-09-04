@@ -15,7 +15,7 @@ permalink: /coaching
 <!-- Service Tiers Table -->
 <section class="pricing-tiers" style="font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:#0f172a; padding:24px;">
   <h2 style="text-align:center; font-size:clamp(1.4rem, 2.5vw, 2rem); margin:0 0 16px;">1-to-1 Coaching Packages</h2>
-  <p style="text-align:center; color:#475569; margin:0 0 24px;">Choose the level of support that meets your goals. Every package builds on the previous one.</p>
+  <p style="text-align:center; color:#475569; margin:0 0 24px;">Choose the level of support that meets your goals. Every package contains some extras compared to the previous ones.</p>
 
   <div style="overflow-x:auto;">
     <table role="table" aria-label="Coaching service tiers" style="width:100%; border-collapse:separate; border-spacing:0; min-width:960px;">
@@ -89,10 +89,10 @@ permalink: /coaching
         <!-- Pricing -->
         <tr>
           <th scope="row" class="first-col">Price*</th>
-          <td style="text-align:center; padding:14px 16px;">Free</td>
-          <td style="text-align:center; padding:14px 16px;">€150 <span style="font-size:0.9em; color:#64748b">+ €75 extra for follow-up call</span></td>
-          <td style="text-align:center; padding:14px 16px;">€500</td>
-          <td style="text-align:center; padding:14px 16px;">€1,000</td>
+          <td style="text-align:center; padding:14px 16px;"><strong>Free</strong></td>
+          <td style="text-align:center; padding:14px 16px;"><strong>€150</strong> <span style="font-size:0.9em; color:#64748b">+ €75 extra for one follow-up session</span></td>
+          <td style="text-align:center; padding:14px 16px;"><strong>€500</strong></td>
+          <td style="text-align:center; padding:14px 16px;"><strong>€1000</strong></td>
         </tr>
 
         <!-- CTA -->
