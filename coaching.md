@@ -90,7 +90,7 @@ permalink: /coaching
         <tr>
           <th scope="row" class="first-col">Price*</th>
           <td style="text-align:center; padding:14px 16px;"><strong>Free</strong></td>
-          <td style="text-align:center; padding:14px 16px;"><strong>€150</strong> <span style="font-size:0.9em; color:#64748b">+ €75 extra for one follow-up session</span></td>
+          <td style="text-align:center; padding:14px 16px;"><strong>€150</strong> <span style="font-size:1em; color:#64748b">+ €75 extra for one follow-up session</span></td>
           <td style="text-align:center; padding:14px 16px;"><strong>€500</strong></td>
           <td style="text-align:center; padding:14px 16px;"><strong>€1000</strong></td>
         </tr>
