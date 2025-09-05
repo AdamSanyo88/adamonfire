@@ -111,7 +111,7 @@ permalink: /spending
             </div>
 
             <div id="removedAlert" class="alert alert-secondary mt-3 mb-0" role="alert">
-              Eltávolított eredeti súly összesen: <strong><span id="removedPct">0.0</span>%</strong>
+              Total removed from original weights: <strong><span id="removedPct">0.0</span>%</strong>
             </div>
           </div>
         </div>
@@ -124,7 +124,7 @@ permalink: /spending
             <table class="table table-sm table-striped align-middle">
               <thead>
                 <tr>
-                  <th>Kategória</th>
+                  <th>Categories</th>
                   <th class="text-end">Original weight</th>
                   <th class="text-end">New weight</th>
                   <th class="text-end">Amount</th>
