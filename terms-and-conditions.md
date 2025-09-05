@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Terms and Conditions
+title: Általános szerződési feltételek
 permalink: /terms-and-conditions
 ---
 
@@ -16,7 +16,7 @@ permalink: /terms-and-conditions
     <p><strong>Székhely / levelezési cím:</strong> 1045 Budapest, Chinoin utca 4. 1/4</p>
     <p><strong>Adószám / egyéni vállalkozói nyilvántartási szám:</strong> XXX</p>
     <p><strong>Elérhetőség:</strong> adamgoesfire@gmail.com, +36307681656</p>
-    <p><strong>Weboldal:</strong> adamonfire.eu</p>
+    <p><strong>Weboldal:</strong> adamonfire.hu és adamonfire.eu</p>
   
 
   <h4>2. A szolgáltatás tárgya</h4>
@@ -30,14 +30,14 @@ permalink: /terms-and-conditions
 
   <h4>3. Szolgáltatási csomagok</h4>
   
-    <p><strong>Tier 0 – FIRE Starter</strong> (ingyenes)
+    <p><strong>0. szint – FIRE Starter</strong> (ingyenes)
       
         <p>1 × 20 perces ingyenes felmérő hívás</p>
 		<p>A hívás célja felmérni, hogy az Ügyfél az általa választott csomagban foglaltakat megértette és tényleg szüksége van a szolgáltatásra</p>
-		<p>A szolgáltató a hívás eredményétől függően visszautasíthatja a szolgáltatás nyújtását</p>
+		<p>A szolgáltató a hívás eredményétől függően indoklás nélkül visszautasíthatja a szolgáltatás nyújtását</p>
       
     </p>
-    <p><strong>Tier 1 – FIRE Review</strong> (€150 + €75 extra egy follow-up hívásért)
+    <p><strong>1. szint – FIRE Review</strong> (60,000 Ft + 30,000 Ft extra egy további alkalomért)
       
         <p>1 × 90 perces coaching alkalom</p>
         <p>Az Ügyfél portfóliójának áttekintése</p>
@@ -46,24 +46,24 @@ permalink: /terms-and-conditions
         <p>25% Kedvezménnyel további egy 60 perces coaching alkalom lehetősége</p>
       
     </p>
-    <p><strong>Tier 2 – FIRE Coach</strong> (€500)
+    <p><strong>2. szint – FIRE Coach</strong> (200,000 Ft)
       
         <p>1 × 90 perces coaching alkalom + 3 × 60 perces kísérő alkalom</p>
         <p>Portfólió részletes elemzése, előrejelzések készítése</p>
         <p>Teljes írásos jelentés és alap akcióterv</p>
         <p>Mérföldkövek és előrejelzések a FIRE útvonalhoz</p>
         <p>Legfeljebb 3 hónap utókövetés (e-mail-ben és a coaching alkalmak keretében)</p>
-        <p>Havi accountability check-in</p>
+        <p>Havi egyeztetés</p>
       
     </p>
-    <p><strong>Tier 3 – FIRE Partner</strong> (€1,000)
+    <p><strong>3. szint – FIRE Partner</strong> (400,000 Ft)
       
         <p>1 × 90 perces coaching alkalom + 6 × 60 perces kísérő alkalom</p>
         <p>Teljesen személyre szabott portfólió stratégia készítése</p>
         <p>Komplett pénzügyi tervezés, több </p>
         <p>Haladó modellezés, pénzügyi szabadság és visszavonulási terv</p>
         <p>Legfeljebb 6 hónap utókövetés (e-mail-ben és a coaching alkalmak keretében)</p>
-        <p>Havi accountability check-in</p>
+        <p>Havi egyeztetés</p>
       
     </p>
   
@@ -89,7 +89,7 @@ permalink: /terms-and-conditions
   <h4>6. Felelősségkorlátozás</h4>
   
     <p>A Szolgáltató a coaching során kapott információk alapján nyújt támogatást, de az Ügyfél minden pénzügyi és életmódbeli döntésért önállóan felelős.</p>
-    <p>A coaching nem helyettesíti a szakképzett pénzügyi tanácsadót, befektetési szolgáltatót vagy adótanácsadót.</p>
+    <p>A coaching nem helyettesíti a szakképzett pénzügyi tanácsadót, befektetési szolgáltatót, adótanácsadót vagy egyéb okleveles szakembert.</p>
 	<p>A coaching célja, hogy az Ügyfél önálló döntéseket hozzon, és szükség esetén egyéb, szakképesítéssel rendelkező szolgáltatókat vegyen igénybe.
   
 
@@ -112,7 +112,7 @@ permalink: /terms-and-conditions
   <h4>9. Záró rendelkezések</h4>
   
     <p>Az ÁSZF a közzététel napjától hatályos.</p>
-    <p>A Szolgáltató fenntartja a jogot az ÁSZF egyoldalú módosítására, melyről az Ügyfelet előzetesen értesíti.</p>
+    <p>A Szolgáltató fenntartja a jogot az ÁSZF egyoldalú módosítására.</p>
   
 
   <h4>10. Elállási jog</h4>

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Privacy policy
+title: Adatkezelési tájékoztató
 permalink: /privacy-policy
 ---
 
@@ -29,7 +29,7 @@ permalink: /privacy-policy
         <ul class="kv-list">
           <li><strong>Név:</strong> Sanyó Ádám</li>
           <li><strong>Székhely:</strong> 1045 Budapest, Chinoin utca 4. 1/4</li>
-          <li><strong>Cégjegyzékszám:</strong> xxx</li>
+          <li><strong>Egyéni vállalkozói nyilvántartási száma:</strong> xxx</li>
           <li><strong>Adószám:</strong> xxx</li>
           <li><strong>E-mail:</strong> <a href="mailto:adamsanyo@goefire.com">adamsanyo@goesfire.com</a></li>
           <li><strong>Telefonszám:</strong> <a href="tel:+36307681656">+36307681656</a></li>
@@ -37,7 +37,7 @@ permalink: /privacy-policy
       </div>
 
       <h5>2.2. Az adatkezelési tájékoztató elérhetősége</h5>
-      <p>A jelen Tájékoztató elektronikusan elérhető: <a href="https://adamonfire.hu/adatkezeles">adamonfire.hu/adatkezeles</a>.</p>
+      <p>A jelen Tájékoztató elektronikusan elérhető: <a href="https://adamonfire.hu/privacy-policy">adamonfire.hu/privacy-policy</a>.</p>
     </section>
 
     <section id="fogalmak">
