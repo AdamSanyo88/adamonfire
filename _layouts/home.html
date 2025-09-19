@@ -93,15 +93,58 @@ layout: default
         <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/peTBA" height="800"></iframe>
       </div>
     </div>
-	<div class="col-12">
-  <h5>Daily performance</h5>
-  <div class="ratio ratio-16x9">
-    <iframe 
-      src="https://lookerstudio.google.com/embed/reporting/0ad69f9e-224c-4c63-9d80-2edd772dba80/page/YRuYF" 
-      style="border:0;" 
-      allowfullscreen 
-      sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
-    </iframe>
+	<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-xl-10">
+      <h5 class="mb-3">Daily performance</h5>
+
+      <!-- Responsive wrapper -->
+      <div class="resp-embed">
+        <iframe
+          src="https://lookerstudio.google.com/embed/reporting/0ad69f9e-224c-4c63-9d80-2edd772dba80/page/YRuYF"
+          title="Daily portfolio performance"
+          loading="lazy"
+          allowfullscreen
+          sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+          style="border:0">
+        </iframe>
+      </div>
+    </div>
   </div>
 </div>
+
+<style>
+  /* Responsive iframe wrapper */
+  .resp-embed {
+    position: relative;
+    width: 100%;
+    /* Fallback for older browsers: 16:9 via padding hack */
+    padding-top: 56.25%;
+    /* Prevent tiny heights on narrow screens */
+    min-height: 320px;
+  }
+
+  .resp-embed > iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  /* Use modern aspect-ratio when available, and drop the padding fallback */
+  @supports (aspect-ratio: 1 / 1) {
+    .resp-embed {
+      padding-top: 0;
+      aspect-ratio: 16 / 9;          /* change to 4 / 3 if you prefer */
+      min-height: auto;
+    }
+  }
+
+  /* On very large screens, let it breathe but keep page margins */
+  @media (min-width: 1200px) {
+    .resp-embed { max-width: 100%; }
+  }
+</style>
+
 </div>
