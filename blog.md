@@ -11,6 +11,9 @@ permalink: /blog
           <div class="col s12">
 		  <h4>Post collection</h4> 
 
+<h5>I was given the FIRE green light</h5>
+<p>In the last few months, I was contemplating my ideas on how to actually evaluate my portfolio for FIRE readiness. I know my numbers (my expense tracking trial of 2 years is coming to an end in December), I know how to diversify my portfolio, but I am still not sure if everything is at the right place...<a href="blog-6"><strong> continue reading here</strong></a>.</p>
+<br/>
 <h5>New visuals</h5>
 <p>I received some very good feedback from some strangers in the FIRE community Several people explained to me that the real value of my FIRE journey is the transparency around it meaning that I shared my journey with numbers, explanation on what I purchased...<a href="blog-5"><strong> continue reading here</strong></a>.</p>
 <br/>
