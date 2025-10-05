@@ -1,7 +1,7 @@
 ---
 layout: post
 title: I was given the FIRE green light
-date: 2025-02-08
+date: 2025-10-03
 permalink: blog-6
 ---
 
