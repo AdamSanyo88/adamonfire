@@ -20,6 +20,7 @@ permalink: /resources
 <h5>Presentations</h5>
 <h6><a href="https://www.slideshare.net/slideshow/hogyan-epits-vagyont-tapasztalatok-egy-15-eves-fire-ut-vegen/276076087">Presentation at the FIRE Hungary group in February 2025</a>.</h6>
 <br/>
+<h6><a href="https://www.youtube.com/watch?v=i6TT_x7nPZ4">10 misconceptions about the FIRE movement, September 2025</a>.</h6>
 <h5>Calculators</h5>
 <h6><a href="net-worth">Net worth calculator</a> - how rich you were in 2024 in Hungary?</h6>
 <br/>
