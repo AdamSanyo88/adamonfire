@@ -10,7 +10,8 @@ permalink: /blog
     <div class="row">
           <div class="col s12">
 		  <h4>Post collection</h4> 
-
+<h5>Japan is the best holiday destination</h5>
+<p>Many people still think of Japan as an extremely expensive country where you’d need thousands of euros to travel. Fortunately, Japan’s economy has been struggling for decades, and the yen has hit historic lows (for example, it has weakened by 13% against the forint this year - almost as much as the US dollar). Since there was virtually no inflation for about 25 years, Japan’s overall price level has now become lower than Hungary’s in many respects...<a href="blog-7"><strong> continue reading here</strong></a>.</p>
 <h5>I was given the FIRE green light</h5>
 <p>In the last few months, I was contemplating my ideas on how to actually evaluate my portfolio for FIRE readiness. I know my numbers (my expense tracking trial of 2 years is coming to an end in December), I know how to diversify my portfolio, but I am still not sure if everything is at the right place...<a href="blog-6"><strong> continue reading here</strong></a>.</p>
 <br/>
