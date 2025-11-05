@@ -15,7 +15,7 @@ permalink: /resources
 <h5>Guides</h5>
 <h6><a href="tbsz">Tax optimization in Hungary - Long-term investment account (TBSZ) information</a></h6>
 <br/>
-<h6><a href="https://docs.google.com/spreadsheets/d/187XPDuyiaca-yMYnOafutBzTN9iyEWD-4WxdzP6CK-s/edit?usp=sharing">Portfolio tracking sheet</a> (for easier, semi-automated portfolio management) (TBD)</h6>
+<h6><a href="https://docs.google.com/spreadsheets/d/187XPDuyiaca-yMYnOafutBzTN9iyEWD-4WxdzP6CK-s/copy">Portfolio tracking sheet</a> (for easier, semi-automated portfolio management) (TBD)</h6>
 <br/>
 <h5>Presentations</h5>
 <h6><a href="https://www.slideshare.net/slideshow/hogyan-epits-vagyont-tapasztalatok-egy-15-eves-fire-ut-vegen/276076087">Presentation at the FIRE Hungary group in February 2025</a>.</h6>
