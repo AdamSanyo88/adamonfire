@@ -25,5 +25,6 @@ permalink: /resources
 <h6><a href="net-worth">Net worth calculator</a> - how rich you were in 2024 in Hungary?</h6>
 <br/>
 <h6><a href="spending">Household expenses calculator</a> - how does the average household spend its budget?</h6>
-
+<br/>
+<h6><a href="pension">Hungarian pension calculator</a> - what is your expected monthly state pension?</h6>
 
