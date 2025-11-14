@@ -100,17 +100,27 @@ input[type="number"] {
 .footer { margin-top: 10px; font-size: 12px; color: var(--muted); }
 .right .card { position: sticky; top: 16px; }
 .btn {
+  display: inline-block;
   cursor: pointer;
-  padding: 10px 14px;
+  padding: 10px 18px;
+  min-width: 130px;
   border-radius: 12px;
   border: 1px solid rgba(0,0,0,0.1);
   background: #fff;
   color: var(--text);
   font-weight: 600;
-  transition: background 0.2s;
+  font-size: 14px;
+  white-space: nowrap;     /* nem törik a sor */
+  text-align: center;
+  transition: background 0.2s, transform 0.1s;
 }
-.btn:hover { background: #f0f0f0; }
-.btn:active { transform: translateY(1px); }
+.btn:hover {
+  background: #f0f0f0;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+
 .mono { font-variant-numeric: tabular-nums; }
 
 /* --- SLIDER compact layout --- */
@@ -225,12 +235,29 @@ const YEARS = [1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,
 const YEAR_MULTS = [63.115,53.99,44.4,35.378,29.163,24.782,19.468,17.287,14.724,11.867,10.023,8.893,7.982,6.871,5.742,5.028,4.753,4.318,4.013,3.894,3.643,3.576,3.347,3.146,3.083,2.938,2.852,2.735,2.539,2.248,2.019,1.813,1.652,1.52,1.294,1.133,1.0];
 const ANNUAL_NET = [85017, 97676, 119400, 150646, 184594, 215210, 271801, 308088, 365329, 457200, 542400, 601200, 669600, 778800, 931200, 1065600, 1125600, 1237200, 1330800, 1369200, 1464000, 1489200, 1591200, 1693200, 1728000, 1812000, 1868400, 1947600, 2100000, 2370000, 2632800, 2935200, 3220800, 3501600, 4115808, 4701132, 5325576];
 
+const SERVICE_TABLE = {
+  10: 33, 11: 35, 12: 37, 13: 39, 14: 41,
+  15: 43, 16: 45, 17: 47, 18: 49, 19: 51,
+  20: 53, 21: 55, 22: 57, 23: 59, 24: 61,
+  25: 63, 26: 64, 27: 65, 28: 66, 29: 67,
+  30: 68, 31: 69, 32: 70, 33: 71, 34: 72,
+  35: 73, 36: 74, 37: 75.5, 38: 77, 39: 78.5,
+  40: 80, 41: 82, 42: 84, 43: 86, 44: 88,
+  45: 90, 46: 92, 47: 94, 48: 96, 49: 98, 50: 100
+};
 
 
-
+// Szolgálati szorzó (0..1) a fenti táblából
 function serviceMultiplier(years) {
-  const y = Math.max(10, Math.min(50, years));
-  return Math.min(1.00, 0.33 + (y - 10) * 0.02);
+  const y = Math.max(10, Math.min(50, years|0));
+  const pct = SERVICE_TABLE[y];
+  return (typeof pct === 'number') ? (pct / 100) : 1.0;
+}
+
+// Segédfüggvény a % kiírásához: egész vagy 1 tizedes
+function formatPct(mult) {
+  const pct = mult * 100;
+  return (pct % 1 === 0) ? `${pct.toFixed(0)}%` : `${pct.toFixed(1)}%`;
 }
 
 function progressiveDegression(monthly) {
