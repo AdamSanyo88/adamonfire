@@ -215,6 +215,28 @@ label[for="serviceYears"] {
     flex-basis: 240px !important;
   }
 }
+
+/* Könyvtár által beszúrt érték-buborék elrejtése */
+#serviceYears + .thumb,
+#serviceYears ~ .thumb,
+#serviceYears + .thumb .value,
+#serviceYears ~ .thumb .value,
+.left .row .thumb,
+.left .row .thumb .value {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Ha a lib más neveket is használ, ezeket is tiltsd le (opcionális) */
+.range-label,
+.value,
+.value-indicator,
+.mdc-slider__value-indicator,
+.noUi-tooltip {
+  display: none !important;
+}
 </style>
 </head>
 <body>
