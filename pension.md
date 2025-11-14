@@ -5,174 +5,96 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Nyugdíjkalkulátor</title>
 <style>
-  :root {
-  --bg: #ffffff;
-  --card: #f7f7f9;
-  --muted: #555555;
-  --accent: #007acc;
-  --text: #111111;
-}
-* {
-  box-sizing: border-box;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-}
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-}
-.wrap {
-  max-width: 1100px;
-  margin: 32px auto;
-  padding: 0 16px;
-}
-h1 {
-  font-size: 28px;
-  margin: 0 0 6px;
-}
-p.lead {
-  margin: 0 0 24px;
-  color: var(--muted);
-}
-.card {
-  background: var(--card);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 16px;
-}
-@media (min-width: 900px) {
-  .grid {
-    grid-template-columns: 3fr 2fr;
-  }
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th,
-td {
-  padding: 8px 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  text-align: left;
-}
-thead th {
-  position: sticky;
-  top: 0;
-  background: #f1f1f3;
-  backdrop-filter: blur(4px);
-  z-index: 2;
-}
-tbody tr:hover {
-  background: rgba(0, 0, 0, 0.04);
-}
-input[type="number"] {
-  width: 120px;
-  padding: 6px 8px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background: #fff;
-  color: var(--text);
-}
+  :root { --bg:#0b0c10; --card:#15171c; --muted:#8e99a4; --accent:#00c2ff; --text:#e8eef5; }
+* { box-sizing: border-box; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+body { margin:0; background:var(--bg); color:var(--text); }
+.wrap { max-width: 1100px; margin: 32px auto; padding: 0 16px; }
+h1 { font-size: 28px; margin: 0 0 6px; }
+p.lead { margin: 0 0 24px; color: var(--muted); }
+.card { background: var(--card); border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+.grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+@media (min-width: 900px) { .grid { grid-template-columns: 3fr 2fr; } }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,.06); text-align: left; }
+thead th { position: sticky; top: 0; background: rgba(21,23,28,.9); backdrop-filter: blur(6px); z-index:2; }
+tbody tr:hover { background: rgba(255,255,255,.03); }
+input[type="number"] { width: 120px; padding: 6px 8px; border-radius: 10px; border: 1px solid rgba(255,255,255,.12); background: #0f1116; color: var(--text); }
+.muted { color: var(--muted); font-size: 13px; }
+.pill { display:inline-block; padding: 6px 10px; border-radius: 999px; background: rgba(0,194,255,.1); border: 1px solid rgba(0,194,255,.35); color: var(--accent); font-weight: 600; }
+.result { font-size: 28px; font-weight: 800; letter-spacing: .3px; }
+.result small { font-size: 14px; font-weight: 600; color: var(--muted); }
+.footer { margin-top: 10px; font-size: 12px; color: var(--muted); }
+.right .card { position: sticky; top: 16px; }
+.btn { cursor:pointer; padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.16); background:#0f1116; color:var(--text); font-weight:600; }
+.btn:active { transform: translateY(1px); }
+.mono { font-variant-numeric: tabular-nums; }
 
-.muted {
-  color: var(--muted);
-  font-size: 13px;
-}
-.pill {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(0, 122, 204, 0.1);
-  border: 1px solid rgba(0, 122, 204, 0.3);
-  color: var(--accent);
-  font-weight: 600;
-}
-.result {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-}
-.result small {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted);
-}
-.footer {
-  margin-top: 10px;
-  font-size: 12px;
-  color: var(--muted);
-}
-.right .card {
-  position: sticky;
-  top: 16px;
-}
-.btn {
-  cursor: pointer;
-  padding: 10px 14px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  background: #fff;
-  color: var(--text);
-  font-weight: 600;
-  transition: background 0.2s;
-}
-.btn:hover {
-  background: #f0f0f0;
-}
-.btn:active {
-  transform: translateY(1px);
-}
-/* --- SLIDER FIX --- */
-.row {
+/* ---------- SLIDER: kompakt elrendezés ---------- */
+.left .row {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: nowrap;          /* prevents wrapping to new line */
-  margin: 8px 0;
+  flex-wrap: nowrap;        /* ne törjön új sorba */
+  margin: 6px 0;            /* kicsi függőleges hely */
+  padding: 0;
+  min-height: 0;            /* ne nőjön feleslegesen */
 }
 
+label[for="serviceYears"] {
+  white-space: nowrap;
+}
+
+#serviceYearsLabel {
+  min-width: 56px;
+  text-align: right;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* A slider mindig kicsi és fix szélességű */
 #serviceYears {
-  width: 280px;
-  flex: 0 0 280px;
-  height: 4px;
+  width: 280px !important;
+  flex: 0 0 280px !important;
+  margin: 0 6px;
   appearance: none;
-  background: #ccc;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  margin: 0 8px;
+  background: transparent;
+  height: 18px;             /* a thumb miatt kis belmagasság */
+  padding: 0;
 }
 
-/* thumb styling for better visibility */
+/* Track */
+#serviceYears::-webkit-slider-runnable-track {
+  height: 4px;
+  background: #b8bec6;
+  border-radius: 999px;
+}
+#serviceYears::-moz-range-track {
+  height: 4px;
+  background: #b8bec6;
+  border-radius: 999px;
+}
+
+/* Thumb */
 #serviceYears::-webkit-slider-thumb {
   appearance: none;
   width: 16px;
   height: 16px;
+  margin-top: -6px;         /* középre igazítja a 4px-es tracken */
   border-radius: 50%;
-  background: #007acc;
+  background: var(--accent);
   cursor: pointer;
 }
 #serviceYears::-moz-range-thumb {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #007acc;
+  background: var(--accent);
   cursor: pointer;
 }
 
-/* container alignment */
-#serviceYearsLabel {
-  min-width: 50px;
-  text-align: right;
-  font-weight: 600;
-}
-.mono {
-  font-variant-numeric: tabular-nums;
+/* Mobilon se nőjön meg a helyigény */
+@media (max-width: 480px) {
+  #serviceYears { width: 240px !important; flex-basis: 240px !important; }
 }
 </style>
 </head>
