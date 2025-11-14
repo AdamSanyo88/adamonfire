@@ -173,7 +173,8 @@ label[for="serviceYears"] { white-space: nowrap; }
 <body>
   <div class="wrap">
     <h1>Nyugdíjkalkulátor</h1>
-    <p class="lead">Add meg az éves nettó kereseteidet. A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad. Egyéb tényezőkkel nem számol, csak a kereseti adatokkal.</p>
+    <p class="lead">Add meg az éves nettó járulékköteles kereseteidet minden általad ledolgozott évben. Fontos, hogy a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj csak.</p>
+	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad. Egyéb tényezőkkel és kedvezményekkel nem számol a modell, csak a kereseti adatokkal.</p>
 	<p>Az adatok tájékoztató jellegűek, pontosabb számításra a <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/az-oregsegi-nyugdij-osszegenek-szamitasa">Magyar Államkincstár nyugdíjkalkulátora</a> javasolt.</p>
 
     <div class="grid">
@@ -182,7 +183,6 @@ label[for="serviceYears"] { white-space: nowrap; }
           <label for="serviceYears"><strong>Szolgálati évek száma</strong></label>
           <input id="serviceYears" class="slider" type="range" min="10" max="50" step="1" value="15" />
           <strong id="serviceYearsLabel">15 év</strong>
-          <span class="muted">10–50 év között választható.</span>
         </div>
 
         <div style="max-height: 55vh; overflow:auto; border-radius: 12px; border: 1px solid rgba(255,255,255,.06)">
