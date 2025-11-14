@@ -78,12 +78,7 @@ input[type="number"] {
   background: #fff;
   color: var(--text);
 }
-.row {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-}
+
 .muted {
   color: var(--muted);
   font-size: 13px;
@@ -132,9 +127,49 @@ input[type="number"] {
 .btn:active {
   transform: translateY(1px);
 }
-.slider {
-  width: 280px !important;
-  flex: 0 0 280px !important; /* prevents resizing on small screens */
+/* --- SLIDER FIX --- */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;          /* prevents wrapping to new line */
+  margin: 8px 0;
+}
+
+#serviceYears {
+  width: 280px;
+  flex: 0 0 280px;
+  height: 4px;
+  appearance: none;
+  background: #ccc;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  margin: 0 8px;
+}
+
+/* thumb styling for better visibility */
+#serviceYears::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #007acc;
+  cursor: pointer;
+}
+#serviceYears::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #007acc;
+  cursor: pointer;
+}
+
+/* container alignment */
+#serviceYearsLabel {
+  min-width: 50px;
+  text-align: right;
+  font-weight: 600;
 }
 .mono {
   font-variant-numeric: tabular-nums;
