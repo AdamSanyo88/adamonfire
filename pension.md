@@ -117,9 +117,7 @@ input[type="number"] {
 .btn:hover {
   background: #f0f0f0;
 }
-.btn:active {
-  transform: translateY(1px);
-}
+
 
 .mono { font-variant-numeric: tabular-nums; }
 
@@ -327,5 +325,3 @@ serviceRange.addEventListener('input',recalc);
 document.getElementById('reset').addEventListener('click',()=>{inputs.forEach(({inp})=>inp.value='');recalc();});
 recalc();
 </script>
-</body>
-</html>
