@@ -122,9 +122,8 @@ input[type="number"] {
 .mono { font-variant-numeric: tabular-nums; }
 
 /* --- SLIDER compact layout --- */
-.tooltip, .range-label, .mdc-slider__value-indicator {
-  display: none !important;
-}
+
+/* --- SLIDER compact layout --- */
 
 .left .row {
   display: flex;
@@ -135,13 +134,19 @@ input[type="number"] {
   padding: 0;
   min-height: 0;
 }
-label[for="serviceYears"] { white-space: nowrap; }
+
+label[for="serviceYears"] {
+  white-space: nowrap;
+}
+
 #serviceYearsLabel {
   min-width: 56px;
   text-align: right;
   font-weight: 600;
   white-space: nowrap;
 }
+
+/* Slider alap */
 #serviceYears {
   width: 280px !important;
   flex: 0 0 280px !important;
@@ -150,7 +155,10 @@ label[for="serviceYears"] { white-space: nowrap; }
   background: transparent;
   height: 18px;
   padding: 0;
+  position: relative;
 }
+
+/* Track */
 #serviceYears::-webkit-slider-runnable-track {
   height: 4px;
   background: #ccc;
@@ -161,6 +169,8 @@ label[for="serviceYears"] { white-space: nowrap; }
   background: #ccc;
   border-radius: 999px;
 }
+
+/* Thumb */
 #serviceYears::-webkit-slider-thumb {
   appearance: none;
   width: 16px;
@@ -169,6 +179,8 @@ label[for="serviceYears"] { white-space: nowrap; }
   border-radius: 50%;
   background: var(--accent);
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
 #serviceYears::-moz-range-thumb {
   width: 16px;
@@ -176,9 +188,32 @@ label[for="serviceYears"] { white-space: nowrap; }
   border-radius: 50%;
   background: var(--accent);
   cursor: pointer;
+  position: relative;
+  z-index: 2;
 }
+
+/* --- Tooltip / value indicator eltüntetése --- */
+#serviceYears::-webkit-slider-thumb::before,
+#serviceYears::-webkit-slider-thumb::after,
+#serviceYears::-moz-range-thumb::before,
+#serviceYears::-moz-range-thumb::after,
+#serviceYears::before,
+#serviceYears::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Egyes böngészők (pl. Edge, Chromium) belső tooltipjét kikapcsolja */
+#serviceYears::-ms-tooltip {
+  display: none !important;
+}
+
+/* Mobilon se nőjön meg */
 @media (max-width: 480px) {
-  #serviceYears { width: 240px !important; flex-basis: 240px !important; }
+  #serviceYears {
+    width: 240px !important;
+    flex-basis: 240px !important;
+  }
 }
 </style>
 </head>
