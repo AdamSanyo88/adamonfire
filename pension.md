@@ -122,6 +122,10 @@ input[type="number"] {
 .mono { font-variant-numeric: tabular-nums; }
 
 /* --- SLIDER compact layout --- */
+.tooltip, .range-label, .mdc-slider__value-indicator {
+  display: none !important;
+}
+
 .left .row {
   display: flex;
   align-items: center;
