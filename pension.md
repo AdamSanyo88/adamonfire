@@ -309,8 +309,27 @@ const SERVICE_TABLE = {
 // Szolgálati szorzó (0..1) a fenti táblából
 function serviceMultiplier(years) {
   const y = Math.max(10, Math.min(50, years|0));
-  const pct = SERVICE_TABLE[y];
-  return (typeof pct === 'number') ? (pct / 100) : 1.0;
+
+  // Ha a táblában van direkt érték, azt vesszük
+  let pct = SERVICE_TABLE[y];
+
+  // Ha nincs (vagy a jövőben nagyobb tartományra bővítenél), számoljuk a szabállyal:
+  if (typeof pct !== 'number') {
+    const baseAt40 = SERVICE_TABLE[40] ?? 80;   // 40 év = 80%
+    const extra = Math.max(0, y - 40) * 2;      // 40 felett +2%/év
+    pct = Math.min(100, baseAt40 + extra);      // felső plafon 100%
+  }
+
+  // Biztonsági háló: ha mégis lenne érték, de 40 felett nem +2%-os lépcső,
+  // ezt a sort kikommentezheted, ha KIZÁRÓLAG a táblát akarod használni.
+  if (y > 40) {
+    const baseAt40 = SERVICE_TABLE[40] ?? 80;
+    const rulePct = Math.min(100, baseAt40 + (y - 40) * 2);
+    // A szabály szerinti érték legyen az irányadó 40+ években
+    pct = rulePct;
+  }
+
+  return pct / 100;
 }
 
 // Segédfüggvény a % kiírásához: egész vagy 1 tizedes
