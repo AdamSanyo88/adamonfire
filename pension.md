@@ -244,7 +244,7 @@ label[for="serviceYears"] {
     <br/>
     <p class="lead">Add meg az éves nettó járulékköteles kereseteidet minden általad ledolgozott évben. Fontos, hogy a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj csak.</p>
 	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad. Egyéb tényezőkkel és kedvezményekkel nem számol a modell, csak a kereseti adatokkal.</p>
-	<p>Az adatok tájékoztató jellegűek, pontosabb számításra a <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/az-oregsegi-nyugdij-osszegenek-szamitasa">Magyar Államkincstár nyugdíjkalkulátora</a> javasolt.</p>
+	<p>Az adatok tájékoztató jellegűek, pontosabb számításra a <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/oregsegi-nyugdij/onkiszolgalo-nyugdijkalkulator">Magyar Államkincstár nyugdíjkalkulátora</a> javasolt.</p>
 
     <div class="grid">
       <div class="left card">
@@ -260,7 +260,7 @@ label[for="serviceYears"] {
               <tr>
                 <th>Év</th>
                 <th>Szorzó</th>
-                <th>Éves kereset (Ft)</th>
+                <th>Éves nettó kereset (Ft)</th>
                 <th>Valorizált éves kereset</th>
                 <th>Éves átlag nettó kereset (irányadó)</th>
               </tr>
@@ -376,10 +376,14 @@ function recalc(){
   const afterServiceMult=avgPerServiceYear*sMult;
   const grossMonthly=afterServiceMult/12;
   const prog=progressiveDegression(grossMonthly);
+
+  // %-os megjelenítés 1 tizedes jeggyel
+  const sMultPct = (sMult * 100).toFixed(1);
+
   resultEl.innerHTML=`${formatFt(prog.value)} <small>havi várható nyugdíj</small>`;
   serviceLabel.textContent=`${years} év`;
-  infoEl.textContent=`Szolgálati szorzó: ${Math.round(sMult*100)}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${years} év = ${formatFt(avgPerServiceYear)}`;
-  breakdownEl.innerHTML=`Összes valorizált kereset: <strong>${formatFt(sumValorizalt)}</strong><br/>Osztás szolgálati évekkel: ÷<strong>${years}</strong> = <strong>${formatFt(avgPerServiceYear)}</strong><br/>Szolgálati szorzó: ×<strong>${Math.round(sMult*100)}%</strong> → <strong>${formatFt(afterServiceMult)}</strong><br/>Havi osztás: ÷12 = <strong>${formatFt(grossMonthly)}</strong><br/>Degresszió:<br/>- ${prog.parts.join('<br/>- ')}<br/><strong>Eredmény: ${formatFt(prog.value)}</strong>`;
+  infoEl.textContent=`Szolgálati szorzó: ${sMultPct}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${years} év = ${formatFt(avgPerServiceYear)}`;
+  breakdownEl.innerHTML=`Összes valorizált kereset: <strong>${formatFt(sumValorizalt)}</strong><br/>Osztás szolgálati évekkel: ÷<strong>${years}</strong> = <strong>${formatFt(avgPerServiceYear)}</strong><br/>Szolgálati szorzó: ×<strong>${sMultPct}%</strong> → <strong>${formatFt(afterServiceMult)}</strong><br/>Havi osztás: ÷12 = <strong>${formatFt(grossMonthly)}</strong><br/>Degresszió:<br/>- ${prog.parts.join('<br/>- ')}<br/><strong>Eredmény: ${formatFt(prog.value)}</strong>`;
 }
 inputs.forEach(({inp})=>inp.addEventListener('input',recalc));
 serviceRange.addEventListener('input',recalc);
