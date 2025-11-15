@@ -255,7 +255,7 @@ label[for="serviceYears"] {
 /* Nagyobb képernyőn két egyforma oszlop (a régi 3fr/2fr helyett) */
 @media (min-width: 900px) {
   .grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
   }
   /* A jobb oldali kártya ragadjon, de csak nagyban */
   .right .card {
