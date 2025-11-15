@@ -274,6 +274,7 @@ label[for="serviceYears"] {
                 <th>Éves nettó kereset (Ft)</th>
                 <th>Valorizált éves kereset</th>
                 <th>Éves átlag nettó kereset (irányadó)</th>
+				<th>Éves bruttó kereset járulékplafonja</th>
               </tr>
             </thead>
             <tbody id="rows"></tbody>
@@ -303,6 +304,13 @@ label[for="serviceYears"] {
 const YEARS = [1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024];
 const YEAR_MULTS = [63.115,53.99,44.4,35.378,29.163,24.782,19.468,17.287,14.724,11.867,10.023,8.893,7.982,6.871,5.742,5.028,4.753,4.318,4.013,3.894,3.643,3.576,3.347,3.146,3.083,2.938,2.852,2.735,2.539,2.248,2.019,1.813,1.652,1.52,1.294,1.133,1.0];
 const ANNUAL_NET = [85017, 97676, 119400, 150646, 184594, 215210, 271801, 308088, 365329, 457200, 542400, 601200, 669600, 778800, 931200, 1065600, 1125600, 1237200, 1330800, 1369200, 1464000, 1489200, 1591200, 1693200, 1728000, 1812000, 1868400, 1947600, 2100000, 2370000, 2632800, 2935200, 3220800, 3501600, 4115808, 4701132, 5325576];
+
+// --- ÚJ ADATLISTA: ADÓALAP-HATÁROK ---
+const CONST_TAX_LIMIT = [
+  , , , , 750000, 915000, 912500, 912500, 915000, 1204500,
+  1565850, 1854200, 2020320, 2197300, 2368850, 3905500, 5307000,
+  6000600, 6325450, 6748850, 7137000, 7446000, 7453300, 7665000, 7942200
+];
 
 const SERVICE_TABLE = {
   10: 33, 11: 35, 12: 37, 13: 39, 14: 41,
@@ -381,20 +389,29 @@ if (!rowsEl || !serviceRange || !serviceLabel || !resultEl || !infoEl || !breakd
 
 // ------- Sorok és inputok felépítése -------
 const inputs = [];
-YEARS.forEach((y,i)=>{
-  const tr=document.createElement('tr');
-  const tdY=document.createElement('td'); tdY.textContent=y;
-  const tdM=document.createElement('td'); tdM.textContent=YEAR_MULTS[i].toFixed(3);
-  const tdIn=document.createElement('td');
-  const inp=document.createElement('input');
-  inp.type='number'; inp.min='0'; inp.step='1000'; inp.placeholder='0'; inp.inputMode='numeric';
+YEARS.forEach((y, i) => {
+  const tr = document.createElement('tr');
+  const tdY = document.createElement('td'); tdY.textContent = y;
+  const tdM = document.createElement('td'); tdM.textContent = YEAR_MULTS[i].toFixed(3);
+  const tdIn = document.createElement('td');
+  const inp = document.createElement('input');
+  inp.type = 'number'; inp.min = '0'; inp.step = '1000'; inp.placeholder = '0'; inp.inputMode = 'numeric';
   tdIn.appendChild(inp);
-  const tdVal=document.createElement('td'); tdVal.className='muted'; tdVal.textContent='—';
-  const tdGuide=document.createElement('td'); tdGuide.className='muted mono';
-  tdGuide.textContent=formatFt(ANNUAL_NET[i]||0);
-  tr.append(tdY,tdM,tdIn,tdVal,tdGuide);
+
+  const tdVal = document.createElement('td'); tdVal.className = 'muted'; tdVal.textContent = '—';
+  const tdGuide = document.createElement('td'); tdGuide.className = 'muted mono';
+  tdGuide.textContent = formatFt(ANNUAL_NET[i] || 0);
+
+  // --- ÚJ: ADÓLIMIT OSZLOP ---
+  const tdTax = document.createElement('td');
+  const limit = CONST_TAX_LIMIT[i];
+  tdTax.className = 'muted mono';
+  tdTax.textContent = limit ? formatFt(limit) : '—';
+
+  // új oszlop beillesztése a sor végére
+  tr.append(tdY, tdM, tdIn, tdVal, tdGuide, tdTax);
   rowsEl.appendChild(tr);
-  inputs.push({inp,tdVal});
+  inputs.push({ inp, tdVal });
 });
 
 // ------- Számítás (új sorrend: degresszió -> szolgálati szorzó) -------
