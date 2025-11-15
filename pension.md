@@ -246,15 +246,14 @@ label[for="serviceYears"] {
 	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad. Egyéb tényezőkkel és kedvezményekkel nem számol a modell, csak a kereseti adatokkal.</p>
 	<p>A kalkulátor nem számol továbbá a 2013 előtti éves járulékplafonnal, de a táblázat megmutatja, hogy milyen éves bruttó bér volt a maximum, amelyre nyugdíjjárulékot kellett fizetni.</p>
 	<p>Mindig egész éves keresetet adj meg, mert törtévvel nem tud számolni a kalkulátor.</p>
-	<h4>Nyugdíjszámítás menete a gyakorlatban</h4>
+	<h5>Nyugdíjszámítás menete a gyakorlatban</h5>
 	<ol>
 	<li>Az egész élet során szerzett szolgálati évek egész számban, lefelé kerekítve (a törtév elvész).</li>
 	<li>Az 1988 január 1-je óta szerzett jövedelmek nettósított éves értéke (adók és járulékok levonása után).</li>
 	<li>A nettó értékeket minden évben fel kell szorozni az éves valorizációs szorzóval. Ez megmutatja, hogy mai áron számolva az akkori kereset mennyit ért. Gyakorlatban a fő szempont az, hogy az adott éves jövedelem az adott év nettó átlagkeresete alatt vagy felett volt-e (ez határozza meg a relatív értékét).</li>
 	<li>A kapott összegeket el kell osztani a teljes szolgálati idővel (napokban számolva). Ezt az összeget utána fel kell szorozni 365-tel, majd osztani 12-vel, így megkapva a nettó életpálya átlagkeresetet. </li>
 	<li>Ha az így kapott összeg meghaladja a 372 ezer Ft-ot havonta, akkor degresszálni kell (először 90%-kal, majd 421 ezer Ft felett 80%-kal). </li>
-	<li>Végül az így kapott összeget meg kell szorozni a szolgálati évekre eső szorzóval (20 év után ez 53%, 30 évnél 68%, 40 évnél 80%, stb.). A maximális szolgálati idő 50 év, a minimális 15 év (de a kalkulátor 10-15 év közötti időszakra is tud számítást végezni). </li>
-	<li> </li>
+	<li>Végül az így kapott összeget meg kell szorozni a szolgálati évekre eső szorzóval (20 év után ez 53%, 30 évnél 68%, 40 évnél 80%, stb.). A maximális szolgálati idő 50 év, a minimális 15 év (de a kalkulátor 10-15 év közötti időszakra is tud számítást végezni).</li>
 	</ol>
 	<p>Az adatok tájékoztató jellegűek, pontosabb számításra a <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/oregsegi-nyugdij/onkiszolgalo-nyugdijkalkulator">Magyar Államkincstár nyugdíjkalkulátora</a> javasolt.</p>
 
@@ -317,39 +316,38 @@ const SERVICE_TABLE = {
   45: 90, 46: 92, 47: 94, 48: 96, 49: 98, 50: 100
 };
 
+// ------- Segédfüggvények -------
 
-// Szolgálati szorzó (0..1) a fenti táblából
+// Szolgálati szorzó (0..1) a fenti táblából + 40 év felett +2%/év, max 100%
 function serviceMultiplier(years) {
   const y = Math.max(10, Math.min(50, years|0));
 
-  // Ha a táblában van direkt érték, azt vesszük
+  // Tábla szerinti érték, ha van
   let pct = SERVICE_TABLE[y];
 
-  // Ha nincs (vagy a jövőben nagyobb tartományra bővítenél), számoljuk a szabállyal:
+  // Ha nincs, számoljuk szabállyal 40 felett
   if (typeof pct !== 'number') {
-    const baseAt40 = SERVICE_TABLE[40] ?? 80;   // 40 év = 80%
-    const extra = Math.max(0, y - 40) * 2;      // 40 felett +2%/év
-    pct = Math.min(100, baseAt40 + extra);      // felső plafon 100%
+    const baseAt40 = SERVICE_TABLE[40] ?? 80; // 40 év = 80%
+    const extra = Math.max(0, y - 40) * 2;    // 40 felett +2%/év
+    pct = Math.min(100, baseAt40 + extra);    // plafon 100%
   }
 
-  // Biztonsági háló: ha mégis lenne érték, de 40 felett nem +2%-os lépcső,
-  // ezt a sort kikommentezheted, ha KIZÁRÓLAG a táblát akarod használni.
+  // 40 felett a szabály legyen az irányadó
   if (y > 40) {
     const baseAt40 = SERVICE_TABLE[40] ?? 80;
-    const rulePct = Math.min(100, baseAt40 + (y - 40) * 2);
-    // A szabály szerinti érték legyen az irányadó 40+ években
-    pct = rulePct;
+    pct = Math.min(100, baseAt40 + (y - 40) * 2);
   }
 
   return pct / 100;
 }
 
-// Segédfüggvény a % kiírásához: egész vagy 1 tizedes
+// % formázó
 function formatPct(mult) {
   const pct = mult * 100;
   return (pct % 1 === 0) ? `${pct.toFixed(0)}%` : `${pct.toFixed(1)}%`;
 }
 
+// Degresszió (2025-ös sávok)
 function progressiveDegression(monthly) {
   const a = 372000, b = 421000;
   let res = 0, parts = [];
@@ -368,14 +366,22 @@ function progressiveDegression(monthly) {
 }
 
 function formatFt(x){return new Intl.NumberFormat('hu-HU').format(Math.round(x))+' Ft';}
-const rowsEl=document.getElementById('rows');
-const serviceRange=document.getElementById('serviceYears');
-const serviceLabel=document.getElementById('serviceYearsLabel');
-const resultEl=document.getElementById('result');
-const infoEl=document.getElementById('serviceInfo');
-const breakdownEl=document.getElementById('breakdown');
 
-const inputs=[];
+// ------- DOM elemek -------
+const rowsEl = document.getElementById('rows');
+const serviceRange = document.getElementById('serviceYears');
+const serviceLabel = document.getElementById('serviceYearsLabel');
+const resultEl = document.getElementById('result');
+const infoEl = document.getElementById('serviceInfo');
+const breakdownEl = document.getElementById('breakdown');
+
+// Védőkorlát: ha kritikus elemek hiányoznak, ne fusson tovább
+if (!rowsEl || !serviceRange || !serviceLabel || !resultEl || !infoEl || !breakdownEl) {
+  console.error('Hiányzó DOM elemek: ellenőrizd az #rows, #serviceYears, #serviceYearsLabel, #result, #serviceInfo, #breakdown elemeket.');
+}
+
+// ------- Sorok és inputok felépítése -------
+const inputs = [];
 YEARS.forEach((y,i)=>{
   const tr=document.createElement('tr');
   const tdY=document.createElement('td'); tdY.textContent=y;
@@ -392,18 +398,20 @@ YEARS.forEach((y,i)=>{
   inputs.push({inp,tdVal});
 });
 
+// ------- Számítás (új sorrend: degresszió -> szolgálati szorzó) -------
 function recalc(){
   let sumValorizalt = 0;
+
   inputs.forEach(({inp,tdVal},i)=>{
     const raw = parseFloat(inp.value || '0');
     const valor = raw * YEAR_MULTS[i];
     tdVal.textContent = raw ? formatFt(valor) : '—';
     tdVal.className = raw ? '' : 'muted';
-    sumValorizalt += valor;
+    sumValorizalt += (isFinite(valor) ? valor : 0);
   });
 
-  const years = parseInt(serviceRange.value, 10);
-  const sMult = serviceMultiplier(years); // %-os szorzó, de majd csak a degresszió UTÁN alkalmazzuk
+  const years = parseInt(serviceRange.value || '0', 10) || 0;
+  const sMult = serviceMultiplier(years);                // %-os szorzó (később alkalmazzuk)
   const sMultPct = (sMult * 100).toFixed(1);
 
   // 1) Éves → szolgálati évek szerinti átlag
@@ -434,4 +442,20 @@ function recalc(){
      Degresszió utáni havi: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
      Szolgálati szorzó alkalmazása: ×<strong>${sMultPct}%</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
 }
+
+// ------- Események és inicializálás -------
+inputs.forEach(({inp})=> inp.addEventListener('input', recalc));
+if (serviceRange) serviceRange.addEventListener('input', recalc);
+
+// Opcionális reset gomb — csak ha létezik
+const resetBtn = document.getElementById('reset');
+if (resetBtn) {
+  resetBtn.addEventListener('click', ()=>{
+    inputs.forEach(({inp})=> inp.value = '');
+    recalc();
+  });
+}
+
+// Első kalkuláció
+recalc();
 </script>
