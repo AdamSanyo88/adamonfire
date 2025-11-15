@@ -237,6 +237,50 @@ label[for="serviceYears"] {
 .noUi-tooltip {
   display: none !important;
 }
+
+/* A bekezdésekkel egyező “tartalomszélesség” – kicsin nem túl széles, nagyban tágas */
+.wrap {
+  /* 720px és 1280px között skálázódik, 92vw-t nem lépi túl */
+  max-width: clamp(720px, 92vw, 1280px);
+}
+
+/* Alap rács: kicsin 1 oszlop marad */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px; /* kicsit nagyobb lélegzet */
+  align-items: start;
+}
+
+/* Nagyobb képernyőn két egyforma oszlop (a régi 3fr/2fr helyett) */
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  /* A jobb oldali kártya ragadjon, de csak nagyban */
+  .right .card {
+    position: sticky;
+    top: 16px;
+  }
+}
+
+/* A kártyák húzódjanak ki a rendelkezésre álló oszlopszélességre */
+.left .card,
+.right .card {
+  width: 100%;
+  height: 100%;
+}
+
+/* A táblázat továbbra is kitölti a kártyát */
+table {
+  width: 100%;
+}
+
+/* A számmezők ne lógjanak túl kis kijelzőn sem */
+input[type="number"] {
+  max-width: 160px;  /* kicsit tágasabb, de nem végtelen */
+  width: 100%;
+}
 </style>
 </head>
 <body>
