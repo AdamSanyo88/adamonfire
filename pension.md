@@ -289,7 +289,6 @@ label[for="serviceYears"] {
         <div class="card">
           <div class="row" style="justify-content:space-between">
             <div>
-              <div class="muted">[(összes × szorzó) ÷ szolgálati évek] × szolgálati szorzó ÷ 12, majd degresszió</div>
               <div class="result" id="result">— <small>havi várható nyugdíj</small></div>
             </div>
             <div>
