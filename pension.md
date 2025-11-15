@@ -242,8 +242,20 @@ label[for="serviceYears"] {
 <body>
   <div class="wrap">
     <br/>
-    <p class="lead">Add meg az éves nettó járulékköteles kereseteidet minden általad ledolgozott évben. Fontos, hogy a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj csak.</p>
+    <p>Add meg az éves nettó járulékköteles kereseteidet minden általad ledolgozott évben. Fontos, hogy a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj csak.</p>
 	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad. Egyéb tényezőkkel és kedvezményekkel nem számol a modell, csak a kereseti adatokkal.</p>
+	<p>A kalkulátor nem számol továbbá a 2013 előtti éves járulékplafonnal, de a táblázat megmutatja, hogy milyen éves bruttó bér volt a maximum, amelyre nyugdíjjárulékot kellett fizetni.</p>
+	<p>Mindig egész éves keresetet adj meg, mert törtévvel nem tud számolni a kalkulátor.</p>
+	<h4>Nyugdíjszámítás menete a gyakorlatban</h4>
+	<ol>
+	<li>Az egész élet során szerzett szolgálati évek egész számban, lefelé kerekítve (a törtév elvész).</li>
+	<li>Az 1988 január 1-je óta szerzett jövedelmek nettósított éves értéke (adók és járulékok levonása után).</li>
+	<li>A nettó értékeket minden évben fel kell szorozni az éves valorizációs szorzóval. Ez megmutatja, hogy mai áron számolva az akkori kereset mennyit ért. Gyakorlatban a fő szempont az, hogy az adott éves jövedelem az adott év nettó átlagkeresete alatt vagy felett volt-e (ez határozza meg a relatív értékét).</li>
+	<li>A kapott összegeket el kell osztani a teljes szolgálati idővel (napokban számolva). Ezt az összeget utána fel kell szorozni 365-tel, majd osztani 12-vel, így megkapva a nettó életpálya átlagkeresetet. </li>
+	<li>Ha az így kapott összeg meghaladja a 372 ezer Ft-ot havonta, akkor degresszálni kell (először 90%-kal, majd 421 ezer Ft felett 80%-kal). </li>
+	<li>Végül az így kapott összeget meg kell szorozni a szolgálati évekre eső szorzóval (20 év után ez 53%, 30 évnél 68%, 40 évnél 80%, stb.). A maximális szolgálati idő 50 év, a minimális 15 év (de a kalkulátor 10-15 év közötti időszakra is tud számítást végezni). </li>
+	<li> </li>
+	</ol>
 	<p>Az adatok tájékoztató jellegűek, pontosabb számításra a <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/oregsegi-nyugdij/onkiszolgalo-nyugdijkalkulator">Magyar Államkincstár nyugdíjkalkulátora</a> javasolt.</p>
 
     <div class="grid">
@@ -381,31 +393,45 @@ YEARS.forEach((y,i)=>{
 });
 
 function recalc(){
-  let sumValorizalt=0;
+  let sumValorizalt = 0;
   inputs.forEach(({inp,tdVal},i)=>{
-    const raw=parseFloat(inp.value||'0');
-    const valor=raw*YEAR_MULTS[i];
-    tdVal.textContent=raw?formatFt(valor):'—';
-    tdVal.className=raw?'':'muted';
-    sumValorizalt+=valor;
+    const raw = parseFloat(inp.value || '0');
+    const valor = raw * YEAR_MULTS[i];
+    tdVal.textContent = raw ? formatFt(valor) : '—';
+    tdVal.className = raw ? '' : 'muted';
+    sumValorizalt += valor;
   });
-  const years=parseInt(serviceRange.value,10);
-  const sMult=serviceMultiplier(years);
-  const avgPerServiceYear=sumValorizalt/Math.max(1,years);
-  const afterServiceMult=avgPerServiceYear*sMult;
-  const grossMonthly=afterServiceMult/12;
-  const prog=progressiveDegression(grossMonthly);
 
-  // %-os megjelenítés 1 tizedes jeggyel
+  const years = parseInt(serviceRange.value, 10);
+  const sMult = serviceMultiplier(years); // %-os szorzó, de majd csak a degresszió UTÁN alkalmazzuk
   const sMultPct = (sMult * 100).toFixed(1);
 
-  resultEl.innerHTML=`${formatFt(prog.value)} <small>havi várható nyugdíj</small>`;
-  serviceLabel.textContent=`${years} év`;
-  infoEl.textContent=`Szolgálati szorzó: ${sMultPct}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${years} év = ${formatFt(avgPerServiceYear)}`;
-  breakdownEl.innerHTML=`Összes valorizált kereset: <strong>${formatFt(sumValorizalt)}</strong><br/>Osztás szolgálati évekkel: ÷<strong>${years}</strong> = <strong>${formatFt(avgPerServiceYear)}</strong><br/>Szolgálati szorzó: ×<strong>${sMultPct}%</strong> → <strong>${formatFt(afterServiceMult)}</strong><br/>Havi osztás: ÷12 = <strong>${formatFt(grossMonthly)}</strong><br/>Degresszió:<br/>- ${prog.parts.join('<br/>- ')}<br/><strong>Eredmény: ${formatFt(prog.value)}</strong>`;
+  // 1) Éves → szolgálati évek szerinti átlag
+  const avgPerServiceYear = sumValorizalt / Math.max(1, years);
+
+  // 2) Havi bruttó (SZORZÓ NÉLKÜL)
+  const grossMonthlyBeforeDeg = avgPerServiceYear / 12;
+
+  // 3) Degresszió ALKALMAZÁSA először
+  const prog = progressiveDegression(grossMonthlyBeforeDeg);
+  const monthlyAfterDegression = prog.value;
+
+  // 4) Szolgálati szorzó ALKALMAZÁSA a degresszió után
+  const finalMonthly = monthlyAfterDegression * sMult;
+
+  // Kiírások
+  resultEl.innerHTML = `${formatFt(finalMonthly)} <small>havi várható nyugdíj</small>`;
+  serviceLabel.textContent = `${years} év`;
+  infoEl.textContent =
+    `Szolgálati szorzó: ${sMultPct}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${years} év = ${formatFt(avgPerServiceYear)}`;
+
+  breakdownEl.innerHTML =
+    `Összes valorizált kereset: <strong>${formatFt(sumValorizalt)}</strong><br/>
+     Osztás szolgálati évekkel: ÷<strong>${years}</strong> = <strong>${formatFt(avgPerServiceYear)}</strong><br/>
+     Havi osztás (szorzó nélkül): ÷12 = <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
+     Degresszió:<br/>
+     - ${prog.parts.join('<br/>- ')}<br/>
+     Degresszió utáni havi: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
+     Szolgálati szorzó alkalmazása: ×<strong>${sMultPct}%</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
 }
-inputs.forEach(({inp})=>inp.addEventListener('input',recalc));
-serviceRange.addEventListener('input',recalc);
-document.getElementById('reset').addEventListener('click',()=>{inputs.forEach(({inp})=>inp.value='');recalc();});
-recalc();
 </script>
