@@ -511,3 +511,5 @@ function recalc(){
      Degresszió utáni havi: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
      Szolgálati szorzó alkalmazása: ×<strong>${sMultPct}%</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
 }
+
+</script>
