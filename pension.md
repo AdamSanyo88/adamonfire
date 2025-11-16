@@ -512,4 +512,6 @@ function recalc(){
      Szolgálati szorzó alkalmazása: ×<strong>${sMultPct}%</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
 }
 
+// Első kalkuláció
+recalc();
 </script>
