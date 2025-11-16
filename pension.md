@@ -461,60 +461,50 @@ YEARS.forEach((y, i) => {
 // ------- Számítás (új sorrend: degresszió -> szolgálati szorzó) -------
 function recalc(){
   let sumValorizalt = 0;
+  let filledCount = 0; // hány input mező NEM üres
 
-  inputs.forEach(({inp,tdVal},i)=>{
-    const raw = parseFloat(inp.value || '0');
-    const valor = raw * YEAR_MULTS[i];
-    tdVal.textContent = raw ? formatFt(valor) : '—';
-    tdVal.className = raw ? '' : 'muted';
+  inputs.forEach(({inp, tdVal}, i) => {
+    const isFilled = (String(inp.value).trim() !== '');
+    const raw = isFilled ? parseFloat(inp.value) : 0;
+    const valor = (isFinite(raw) ? raw : 0) * YEAR_MULTS[i];
+
+    // Soronkénti megjelenítés
+    tdVal.textContent = isFilled ? formatFt(valor) : '—';
+    tdVal.className = isFilled ? '' : 'muted';
+
+    if (isFilled) filledCount++;
     sumValorizalt += (isFinite(valor) ? valor : 0);
   });
 
   const years = parseInt(serviceRange.value || '0', 10) || 0;
-  const sMult = serviceMultiplier(years);                // %-os szorzó (később alkalmazzuk)
+  const sMult = serviceMultiplier(years); // szolgálati szorzó változatlan (40+ évek +2%/év logikával)
   const sMultPct = (sMult * 100).toFixed(1);
 
-  // 1) Éves → szolgálati évek szerinti átlag
-  const avgPerServiceYear = sumValorizalt / Math.max(1, years);
+  // ÚJ: az osztó a kitöltött mezők száma (ha 0, akkor 1, hogy ne legyen div-by-zero)
+  const divisor = Math.max(1, filledCount);
 
-  // 2) Havi bruttó (SZORZÓ NÉLKÜL)
-  const grossMonthlyBeforeDeg = avgPerServiceYear / 12;
+  // 1) Éves → kitöltött évek szerinti átlag
+  const avgPerFilledYear = sumValorizalt / divisor;
 
-  // 3) Degresszió ALKALMAZÁSA először
+  // 2) Havi bruttó (szorzó nélkül)
+  const grossMonthlyBeforeDeg = avgPerFilledYear / 12;
+
+  // 3) Degresszió először
   const prog = progressiveDegression(grossMonthlyBeforeDeg);
   const monthlyAfterDegression = prog.value;
 
-  // 4) Szolgálati szorzó ALKALMAZÁSA a degresszió után
+  // 4) Szolgálati szorzó alkalmazása
   const finalMonthly = monthlyAfterDegression * sMult;
 
   // Kiírások
   resultEl.innerHTML = `${formatFt(finalMonthly)} <small>havi várható nyugdíj</small>`;
   serviceLabel.textContent = `${years} év`;
   infoEl.textContent =
-    `Szolgálati szorzó: ${sMultPct}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${years} év = ${formatFt(avgPerServiceYear)}`;
+    `Szolgálati szorzó: ${sMultPct}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | ` +
+    `Kitöltött mezők: ${filledCount} db | Osztó: ${divisor}`;
 
   breakdownEl.innerHTML =
-    `Összes valorizált kereset: <strong>${formatFt(sumValorizalt)}</strong><br/>
-     Osztás szolgálati évekkel: <strong>${years}</strong> = <strong>${formatFt(avgPerServiceYear)}</strong><br/>
-     Havi életpálya átlagkereset = <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
-     Degresszió:<br/>
-     - ${prog.parts.join('<br/>- ')}<br/>
-     Degresszió utáni havi: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
-     Szolgálati szorzó alkalmazása: ×<strong>${sMultPct}%</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
-}
 
-// ------- Események és inicializálás -------
-inputs.forEach(({inp})=> inp.addEventListener('input', recalc));
-if (serviceRange) serviceRange.addEventListener('input', recalc);
-
-// Opcionális reset gomb — csak ha létezik
-const resetBtn = document.getElementById('reset');
-if (resetBtn) {
-  resetBtn.addEventListener('click', ()=>{
-    inputs.forEach(({inp})=> inp.value = '');
-    recalc();
-  });
-}
 
 // Első kalkuláció
 recalc();
