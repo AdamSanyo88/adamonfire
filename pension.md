@@ -461,19 +461,23 @@ YEARS.forEach((y, i) => {
 // ------- Számítás (új sorrend: degresszió -> szolgálati szorzó) -------
 function recalc(){
   let sumValorizalt = 0;
-  let entriesCount = 0; // hány évre adott meg keresetet a felhasználó
+  let filledCount = 0; // hány mező van ténylegesen kitöltve (nem üres és nem 0)
 
   inputs.forEach(({inp,tdVal},i)=>{
-    const hasInput = (inp.value != null && String(inp.value).trim() !== '');
+    const hasValue = String(inp.value ?? '').trim() !== '';
     const raw = parseFloat(inp.value || '0');
     const valor = raw * YEAR_MULTS[i];
 
-    tdVal.textContent = hasInput ? formatFt(valor) : '—';
-    tdVal.className = hasInput ? '' : 'muted';
+    // megjelenítés marad a régi logika szerint: 0 esetén "—"
+    tdVal.textContent = raw ? formatFt(valor) : '—';
+    tdVal.className = raw ? '' : 'muted';
 
-    if (hasInput && isFinite(valor)) {
+    if (isFinite(valor)) {
       sumValorizalt += valor;
-      entriesCount += 1;
+    }
+    // csak akkor számoljuk kitöltöttnek, ha nem üres ÉS nem 0
+    if (hasValue && raw) {
+      filledCount += 1;
     }
   });
 
@@ -481,12 +485,12 @@ function recalc(){
   const sMult = serviceMultiplier(years);                // %-os szorzó (később alkalmazzuk)
   const sMultPct = (sMult * 100).toFixed(1);
 
-  // 1) Éves → MEGADOTT keresetek számával vett átlag (NEM a szolgálati évek!)
-  const divisor = Math.max(1, entriesCount);            // osztó védelme 0 ellen
-  const avgPerEnteredYear = sumValorizalt / divisor;
+  // 1) Éves → kitöltött mezők számával vett átlag
+  const divisor = Math.max(1, filledCount);
+  const avgPerFilled = sumValorizalt / divisor;
 
   // 2) Havi bruttó (SZORZÓ NÉLKÜL)
-  const grossMonthlyBeforeDeg = avgPerEnteredYear / 12;
+  const grossMonthlyBeforeDeg = avgPerFilled / 12;
 
   // 3) Degresszió ALKALMAZÁSA először
   const prog = progressiveDegression(grossMonthlyBeforeDeg);
@@ -500,11 +504,11 @@ function recalc(){
   serviceLabel.textContent = `${years} év`;
 
   infoEl.textContent =
-    `Szolgálati szorzó: ${sMultPct}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${divisor} megadott év = ${formatFt(avgPerEnteredYear)}`;
+    `Szolgálati szorzó: ${sMultPct}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${divisor} kitöltött év = ${formatFt(avgPerFilled)}`;
 
   breakdownEl.innerHTML =
     `Összes valorizált kereset: <strong>${formatFt(sumValorizalt)}</strong><br/>
-     Osztás megadott évek számával: <strong>${divisor}</strong> = <strong>${formatFt(avgPerEnteredYear)}</strong><br/>
+     Osztás kitöltött évek számával: <strong>${divisor}</strong> = <strong>${formatFt(avgPerFilled)}</strong><br/>
      Havi életpálya átlagkereset = <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
      Degresszió:<br/>
      - ${prog.parts.join('<br/>- ')}<br/>
