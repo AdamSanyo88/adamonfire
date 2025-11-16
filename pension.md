@@ -508,4 +508,27 @@ if (serviceRange) serviceRange.addEventListener('input', recalc);
 
 // Első kalkuláció
 recalc();
+
+// ------- Reset gomb (CSAK EZ MÓDOSULT) -------
+const resetBtn = document.getElementById('reset');
+if (resetBtn) {
+  const onReset = (ev) => {
+    // Ne fusson böngésző-RESET / form submit
+    if (ev) ev.preventDefault();
+
+    // Csak a keresetmezőket ürítjük (szolgálati évekhez nem nyúlunk)
+    inputs.forEach(({ inp }) => { inp.value = ''; });
+
+    // Azonnali újraszámolás és UI-frissítés
+    recalc();
+  };
+
+  // Ha a gomb formban van és type="reset", a form 'reset' eseményét is elkapjuk
+  if (resetBtn.form) {
+    resetBtn.form.addEventListener('reset', onReset);
+  }
+
+  // Kattintás kezelése minden esetben
+  resetBtn.addEventListener('click', onReset);
+}
 </script>
