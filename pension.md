@@ -495,8 +495,8 @@ function recalc(){
 
   breakdownEl.innerHTML =
     `Összes valorizált kereset: <strong>${formatFt(sumValorizalt)}</strong><br/>
-     Osztás szolgálati évekkel: ÷<strong>${years}</strong> = <strong>${formatFt(avgPerServiceYear)}</strong><br/>
-     Havi osztás (szorzó nélkül): ÷12 = <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
+     Osztás szolgálati évekkel: <strong>${years}</strong> = <strong>${formatFt(avgPerServiceYear)}</strong><br/>
+     Havi életpálya átlagkereset = <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
      Degresszió:<br/>
      - ${prog.parts.join('<br/>- ')}<br/>
      Degresszió utáni havi: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
