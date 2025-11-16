@@ -368,37 +368,26 @@ const SERVICE_TABLE = {
 };
 
 // ------- Segédfüggvények -------
-
-// Szolgálati szorzó (0..1) a fenti táblából + 40 év felett +2%/év, max 100%
 function serviceMultiplier(years) {
   const y = Math.max(10, Math.min(50, years|0));
-
-  // Tábla szerinti érték, ha van
   let pct = SERVICE_TABLE[y];
-
-  // Ha nincs, számoljuk szabállyal 40 felett
   if (typeof pct !== 'number') {
-    const baseAt40 = SERVICE_TABLE[40] ?? 80; // 40 év = 80%
-    const extra = Math.max(0, y - 40) * 2;    // 40 felett +2%/év
-    pct = Math.min(100, baseAt40 + extra);    // plafon 100%
+    const baseAt40 = SERVICE_TABLE[40] ?? 80;
+    const extra = Math.max(0, y - 40) * 2;
+    pct = Math.min(100, baseAt40 + extra);
   }
-
-  // 40 felett a szabály legyen az irányadó
   if (y > 40) {
     const baseAt40 = SERVICE_TABLE[40] ?? 80;
     pct = Math.min(100, baseAt40 + (y - 40) * 2);
   }
-
   return pct / 100;
 }
 
-// % formázó
 function formatPct(mult) {
   const pct = mult * 100;
   return (pct % 1 === 0) ? `${pct.toFixed(0)}%` : `${pct.toFixed(1)}%`;
 }
 
-// Degresszió (2025-ös sávok)
 function progressiveDegression(monthly) {
   const a = 372000, b = 421000;
   let res = 0, parts = [];
@@ -426,7 +415,7 @@ const resultEl = document.getElementById('result');
 const infoEl = document.getElementById('serviceInfo');
 const breakdownEl = document.getElementById('breakdown');
 
-// Védőkorlát: ha kritikus elemek hiányoznak, ne fusson tovább
+// Védőkorlát: ha kritikus elemek hiányoznak, jelezzük
 if (!rowsEl || !serviceRange || !serviceLabel || !resultEl || !infoEl || !breakdownEl) {
   console.error('Hiányzó DOM elemek: ellenőrizd az #rows, #serviceYears, #serviceYearsLabel, #result, #serviceInfo, #breakdown elemeket.');
 }
@@ -435,68 +424,64 @@ if (!rowsEl || !serviceRange || !serviceLabel || !resultEl || !infoEl || !breakd
 const inputs = [];
 YEARS.forEach((y, i) => {
   const tr = document.createElement('tr');
+
   const tdY = document.createElement('td'); tdY.textContent = y;
   const tdM = document.createElement('td'); tdM.textContent = YEAR_MULTS[i].toFixed(3);
+
   const tdIn = document.createElement('td');
   const inp = document.createElement('input');
   inp.type = 'number'; inp.min = '0'; inp.step = '1000'; inp.placeholder = '0'; inp.inputMode = 'numeric';
   tdIn.appendChild(inp);
 
   const tdVal = document.createElement('td'); tdVal.className = 'muted'; tdVal.textContent = '—';
+
   const tdGuide = document.createElement('td'); tdGuide.className = 'muted mono';
   tdGuide.textContent = formatFt(ANNUAL_NET[i] || 0);
 
-  // --- ÚJ: ADÓLIMIT OSZLOP ---
   const tdTax = document.createElement('td');
   const limit = CONST_TAX_LIMIT[i];
   tdTax.className = 'muted mono';
   tdTax.textContent = limit ? formatFt(limit) : '—';
 
-  // új oszlop beillesztése a sor végére
   tr.append(tdY, tdM, tdIn, tdVal, tdGuide, tdTax);
   rowsEl.appendChild(tr);
   inputs.push({ inp, tdVal });
 });
 
-// ------- Számítás (új sorrend: degresszió -> szolgálati szorzó) -------
+// ------- Számítás -------
 function recalc(){
   let sumValorizalt = 0;
-  let filledCount = 0; // hány mező van ténylegesen kitöltve (nem üres és nem 0)
+  let filledCount = 0; // kitöltött mezők darabszáma (a "0" is számít kitöltöttnek)
 
-  inputs.forEach(({inp,tdVal},i)=>{
+  inputs.forEach(({inp, tdVal}, i) => {
     const hasValue = String(inp.value ?? '').trim() !== '';
     const raw = parseFloat(inp.value || '0');
     const valor = raw * YEAR_MULTS[i];
 
-    // megjelenítés marad a régi logika szerint: 0 esetén "—"
+    // 0 esetén "—" jelenik meg (megegyezik a korábbi viselkedéssel)
     tdVal.textContent = raw ? formatFt(valor) : '—';
     tdVal.className = raw ? '' : 'muted';
 
-    if (isFinite(valor)) {
-      sumValorizalt += valor;
-    }
-    // csak akkor számoljuk kitöltöttnek, ha nem üres ÉS nem 0
-    if (hasValue && raw) {
-      filledCount += 1;
-    }
+    if (isFinite(valor)) sumValorizalt += valor;
+    if (hasValue) filledCount += 1; // a 0 is számít kitöltöttnek
   });
 
   const years = parseInt(serviceRange.value || '0', 10) || 0;
-  const sMult = serviceMultiplier(years);                // %-os szorzó (később alkalmazzuk)
-  const sMultPct = (sMult * 100).toFixed(1);
+  const sMult = serviceMultiplier(years);
+  const sMultPct = formatPct(sMult);
 
-  // 1) Éves → kitöltött mezők számával vett átlag
+  // Osztás a kitöltött mezők számával (min. 1)
   const divisor = Math.max(1, filledCount);
-  const avgPerFilled = sumValorizalt / divisor;
+  const avgPerEntered = sumValorizalt / divisor;
 
-  // 2) Havi bruttó (SZORZÓ NÉLKÜL)
-  const grossMonthlyBeforeDeg = avgPerFilled / 12;
+  // Havi bruttó (szorzó nélkül)
+  const grossMonthlyBeforeDeg = avgPerEntered / 12;
 
-  // 3) Degresszió ALKALMAZÁSA először
+  // Degresszió
   const prog = progressiveDegression(grossMonthlyBeforeDeg);
   const monthlyAfterDegression = prog.value;
 
-  // 4) Szolgálati szorzó ALKALMAZÁSA a degresszió után
+  // Szolgálati szorzó a degresszió után
   const finalMonthly = monthlyAfterDegression * sMult;
 
   // Kiírások
@@ -504,17 +489,22 @@ function recalc(){
   serviceLabel.textContent = `${years} év`;
 
   infoEl.textContent =
-    `Szolgálati szorzó: ${sMultPct}% | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${divisor} kitöltött év = ${formatFt(avgPerFilled)}`;
+    `Szolgálati szorzó: ${sMultPct} | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${divisor} megadott év = ${formatFt(avgPerEntered)}`;
 
   breakdownEl.innerHTML =
     `Összes valorizált kereset: <strong>${formatFt(sumValorizalt)}</strong><br/>
-     Osztás kitöltött évek számával: <strong>${divisor}</strong> = <strong>${formatFt(avgPerFilled)}</strong><br/>
+     Osztás megadott évek számával: <strong>${divisor}</strong> = <strong>${formatFt(avgPerEntered)}</strong><br/>
      Havi életpálya átlagkereset = <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
      Degresszió:<br/>
      - ${prog.parts.join('<br/>- ')}<br/>
      Degresszió utáni havi: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
-     Szolgálati szorzó alkalmazása: ×<strong>${sMultPct}%</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
+     Szolgálati szorzó alkalmazása: ×<strong>${sMultPct}</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
 }
+
+// ------- Események és inicializálás -------
+// (ez hiányzott, ezért nem frissültek a számok gépeléskor)
+inputs.forEach(({inp}) => inp.addEventListener('input', recalc));
+if (serviceRange) serviceRange.addEventListener('input', recalc);
 
 // Első kalkuláció
 recalc();
