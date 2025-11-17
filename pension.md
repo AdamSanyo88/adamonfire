@@ -6,6 +6,8 @@ permalink: /pension
 
 <h1 class="page-title">{{ page.title | escape }}</h1>
 
+<h1 class="page-title">{{ page.title | escape }}</h1>
+
 <html lang="hu">
 <head>
   <meta charset="utf-8" />
@@ -30,7 +32,7 @@ body {
 /* --- Teljes szélességű tartalom --- */
 .wrap {
   width: 100%;
-  max-width: 100%;      /* NE korlátozzuk a szélességet */
+  max-width: 100%;
   margin: 32px auto;
   padding: 0 16px;
 }
@@ -54,7 +56,7 @@ p.lead {
 /* --- Egyoszlopos elrendezés minden kijelzőn --- */
 .grid {
   display: grid;
-  grid-template-columns: 1fr; /* mindig 1 oszlop */
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 @media (min-width: 900px) {
@@ -206,10 +208,11 @@ input[type="number"] {
 <body>
   <div class="wrap">
     <br/>
-    <p>Add meg az <strong>éves bruttó kereseteidet minden általad ledolgozott évben</strong>. Fontos, hogy a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj csak.</p>
-	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad. Egyéb tényezőkkel és kedvezményekkel nem számol a modell, csak a kereseti adatokkal.</p>
-	<p>A kalkulátor nem számol továbbá a 2013 előtti éves járulékplafonnal, de a táblázat megmutatja, hogy milyen éves bruttó bér volt a maximum, amelyre nyugdíjjárulékot kellett fizetni. Ennél nagyobb bruttó éves összeget ne adj meg az adott sorban.</p>
-	<p>Mindig egész éves keresetet adj meg, mert törtévvel nem tud számolni a kalkulátor.</p>
+	<h5>Hogyan használd a kalkulátort?</h5>
+    <p>Add meg az <strong>éves bruttó kereseteidet minden általad ledolgozott évben</strong>. Csak a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj.</p>
+	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad.</p>
+	<p><strong>Fontos:</strong> A kalkulátor nem számol a 2013 előtti éves járulékplafonnal, de a táblázat megmutatja, hogy milyen éves bruttó bér volt a maximum, amelyre nyugdíjjárulékot kellett fizetni. Ennél nagyobb bruttó éves összeget ne adj meg az adott években.</p>
+	<p>Mindig egész éves keresetet adj meg. A kalkulátor folyamatosan újrakalkulálja az átlagos életkeresetet, szóval ha csak pár évet dolgoztál, azt feltételezi, hogy a jövőben is ilyen bérszinten fogsz keresni. Ezért fontos, hogy minden éves adatot adj meg a pontosabb kalkulációhoz.</p>
 	<br/>
 	<h5>Nyugdíjszámítás menete a gyakorlatban</h5>
 	<ol>
@@ -298,123 +301,123 @@ function contributionRatePct(year){
 /* ===== Éves SZJA sávok ===== */
 const TAX_TABLES = {
   1988: [
-    {th:0,      base:0,     rate:0,   cap:48000},
-    {th:48000,  base:0,     rate:0.20,cap:70000},
-    {th:70000,  base:4400,  rate:0.25,cap:90000},
-    {th:90000,  base:9400,  rate:0.30,cap:120000},
-    {th:120000, base:18400, rate:0.35,cap:150000},
-    {th:150000, base:28900, rate:0.39,cap:180000},
-    {th:180000, base:40600, rate:0.44,cap:240000},
-    {th:240000, base:67000, rate:0.48,cap:360000},
-    {th:360000, base:124600,rate:0.52,cap:600000},
-    {th:600000, base:249400,rate:0.56,cap:800000},
-    {th:800000, base:361400,rate:0.60}
+    {th:0,      rate:0,    cap:48000},
+    {th:48000,  rate:0.20, cap:70000},
+    {th:70000,  rate:0.25, cap:90000},
+    {th:90000,  rate:0.30, cap:120000},
+    {th:120000, rate:0.35, cap:150000},
+    {th:150000, rate:0.39, cap:180000},
+    {th:180000, rate:0.44, cap:240000},
+    {th:240000, rate:0.48, cap:360000},
+    {th:360000, rate:0.52, cap:600000},
+    {th:600000, rate:0.56, cap:800000},
+    {th:800000, rate:0.60}
   ],
   1989: [
-    {th:0,      base:0,     rate:0,   cap:55000},
-    {th:55000,  base:0,     rate:0.17,cap:70000},
-    {th:70000,  base:2550,  rate:0.23,cap:100000},
-    {th:100000, base:9450,  rate:0.29,cap:150000},
-    {th:150000, base:23950, rate:0.35,cap:240000},
-    {th:240000, base:55450, rate:0.42,cap:360000},
-    {th:360000, base:105850,rate:0.49,cap:600000},
-    {th:600000, base:223450,rate:0.56}
+    {th:0,      rate:0,    cap:55000},
+    {th:55000,  rate:0.17, cap:70000},
+    {th:70000,  rate:0.23, cap:100000},
+    {th:100000, rate:0.29, cap:150000},
+    {th:150000, rate:0.35, cap:240000},
+    {th:240000, rate:0.42, cap:360000},
+    {th:360000, rate:0.49, cap:600000},
+    {th:600000, rate:0.56}
   ],
   1990: [
-    {th:0,      base:0,     rate:0,   cap:55000},
-    {th:55000,  base:0,     rate:0.15,cap:90000},
-    {th:90000,  base:5250,  rate:0.30,cap:300000},
-    {th:300000, base:68250, rate:0.40,cap:500000},
-    {th:500000, base:148250,rate:0.50}
+    {th:0,      rate:0,    cap:55000},
+    {th:55000,  rate:0.15, cap:90000},
+    {th:90000,  rate:0.30, cap:300000},
+    {th:300000, rate:0.40, cap:500000},
+    {th:500000, rate:0.50}
   ],
   1991: [
-    {th:0,      base:0,     rate:0,   cap:55000},
-    {th:55000,  base:0,     rate:0.12,cap:90000},
-    {th:90000,  base:4200,  rate:0.18,cap:120000},
-    {th:120000, base:9600,  rate:0.30,cap:150000},
-    {th:150000, base:18600, rate:0.32,cap:300000},
-    {th:300000, base:66600, rate:0.40,cap:500000},
-    {th:500000, base:146600,rate:0.50}
+    {th:0,      rate:0,    cap:55000},
+    {th:55000,  rate:0.12, cap:90000},
+    {th:90000,  rate:0.18, cap:120000},
+    {th:120000, rate:0.30, cap:150000},
+    {th:150000, rate:0.32, cap:300000},
+    {th:300000, rate:0.40, cap:500000},
+    {th:500000, rate:0.50}
   ],
   1992: [
-    {th:0,      base:0,     rate:0,   cap:100000},
-    {th:100000, base:0,     rate:0.25,cap:200000},
-    {th:200000, base:25000, rate:0.35,cap:500000},
-    {th:500000, base:130000,rate:0.40}
+    {th:0,      rate:0,    cap:100000},
+    {th:100000, rate:0.25, cap:200000},
+    {th:200000, rate:0.35, cap:500000},
+    {th:500000, rate:0.40}
   ],
   1993: 'sameAs:1992',
   1994: [
-    {th:0,      base:0,     rate:0,   cap:110000},
-    {th:110000, base:0,     rate:0.20,cap:150000},
-    {th:150000, base:8000,  rate:0.25,cap:220000},
-    {th:220000, base:25500, rate:0.35,cap:380000},
-    {th:380000, base:81500, rate:0.40,cap:550000},
-    {th:550000, base:149500,rate:0.44}
+    {th:0,      rate:0,    cap:110000},
+    {th:110000, rate:0.20, cap:150000},
+    {th:150000, rate:0.25, cap:220000},
+    {th:220000, rate:0.35, cap:380000},
+    {th:380000, rate:0.40, cap:550000},
+    {th:550000, rate:0.44}
   ],
   1995: 'sameAs:1994',
   1996: [
-    {th:0,      base:0,     rate:0.20,cap:150000},
-    {th:150000, base:30000, rate:0.25,cap:220000},
-    {th:220000, base:47500, rate:0.35,cap:380000},
-    {th:380000, base:103500,rate:0.40,cap:500000},
-    {th:500000, base:171500,rate:0.44,cap:900000},
-    {th:900000, base:325500,rate:0.48}
+    {th:0,      rate:0.20, cap:150000},
+    {th:150000, rate:0.25, cap:220000},
+    {th:220000, rate:0.35, cap:380000},
+    {th:380000, rate:0.40, cap:500000},
+    {th:500000, rate:0.44, cap:900000},
+    {th:900000, rate:0.48}
   ],
   1997: [
-    {th:0,      base:0,     rate:0.20,cap:250000},
-    {th:250000, base:50000, rate:0.22,cap:300000},
-    {th:300000, base:61000, rate:0.31,cap:500000},
-    {th:500000, base:123000,rate:0.35,cap:700000},
-    {th:700000, base:193000,rate:0.39,cap:1100000},
-    {th:1100000,base:349000,rate:0.42}
+    {th:0,      rate:0.20, cap:250000},
+    {th:250000, rate:0.22, cap:300000},
+    {th:300000, rate:0.31, cap:500000},
+    {th:500000, rate:0.35, cap:700000},
+    {th:700000, rate:0.39, cap:1100000},
+    {th:1100000,rate:0.42}
   ],
   1998: 'sameAs:1997',
   1999: [
-    {th:0,      base:0,     rate:0.20,cap:400000},
-    {th:400000, base:80000, rate:0.30,cap:1000000},
-    {th:1000000,base:260000,rate:0.40}
+    {th:0,      rate:0.20, cap:400000},
+    {th:400000, rate:0.30, cap:1000000},
+    {th:1000000,rate:0.40}
   ],
   2000: 'sameAs:1999',
   2001: [
-    {th:0,      base:0,     rate:0.20,cap:480000},
-    {th:480000, base:96000, rate:0.30,cap:1050000},
-    {th:1050000,base:267000,rate:0.40}
+    {th:0,      rate:0.20, cap:480000},
+    {th:480000, rate:0.30, cap:1050000},
+    {th:1050000,rate:0.40}
   ],
   2002: [
-    {th:0,      base:0,     rate:0.20,cap:600000},
-    {th:600000, base:120000,rate:0.30,cap:1200000},
-    {th:1200000,base:300000,rate:0.40}
+    {th:0,      rate:0.20, cap:600000},
+    {th:600000, rate:0.30, cap:1200000},
+    {th:1200000,rate:0.40}
   ],
   2003: [
-    {th:0,      base:0,     rate:0.20,cap:650000},
-    {th:650000, base:130000,rate:0.30,cap:1350000},
-    {th:1350000,base:340000,rate:0.40}
+    {th:0,      rate:0.20, cap:650000},
+    {th:650000, rate:0.30, cap:1350000},
+    {th:1350000,rate:0.40}
   ],
   2004: [
-    {th:0,      base:0,     rate:0.18,cap:800000},
-    {th:800000, base:144000,rate:0.26,cap:1500000},
-    {th:1500000,base:326000,rate:0.38}
+    {th:0,      rate:0.18, cap:800000},
+    {th:800000, rate:0.26, cap:1500000},
+    {th:1500000,rate:0.38}
   ],
   2005: [
-    {th:0,      base:0,     rate:0.18,cap:1500000},
-    {th:1500000,base:270000,rate:0.38}
+    {th:0,      rate:0.18, cap:1500000},
+    {th:1500000,rate:0.38}
   ],
   2006: [
-    {th:0,      base:0,     rate:0.18,cap:1550000},
-    {th:1550000,base:279000,rate:0.36}
+    {th:0,      rate:0.18, cap:1550000},
+    {th:1550000,rate:0.36}
   ],
   2007: [
-    {th:0,      base:0,     rate:0.18,cap:1700000},
-    {th:1700000,base:306000,rate:0.36}
+    {th:0,      rate:0.18, cap:1700000},
+    {th:1700000,rate:0.36}
   ],
   2008: 'sameAs:2007',
   2009: [
-    {th:0,      base:0,     rate:0.18,cap:1900000},
-    {th:1900000,base:342000,rate:0.36}
+    {th:0,      rate:0.18, cap:1900000},
+    {th:1900000,rate:0.36}
   ],
-  2010: [ // adóalap-kiegészítés: *1.27 a teljes alapra
-    {th:0,      base:0,     rate:0.17,cap:5000000},
-    {th:5000000,base:850000,rate:0.32}
+  2010: [ // adóalap-kiegészítés: *1.27 a teljes alapra (ezt külön alkalmazzuk)
+    {th:0,      rate:0.17, cap:5000000},
+    {th:5000000,rate:0.32}
   ]
 };
 
@@ -427,120 +430,91 @@ for (const y of Object.keys(TAX_TABLES)) {
   }
 }
 
-/* ===== Adójóváírások 1988–2011 =====
-   A jóváírást a számított adóból vonjuk le (min 0-ig).
-   Megjegyzés: ahol a szöveg járulék(ok) 25%-át említi, a kalkulátorban
-   elérhető "levont járulék" összeg 25%-ával közelítünk. */
+/* ===== Adójóváírások 1988–2011 ===== */
 function taxCreditAmount(year, rawIncome, contributionAmount){
-  let c = 0;
-
-  // 1988–1990: keresetből 12 000 Ft (itt adócsökkentésként kezeljük)
-  if (year>=1988 && year<=1990){ c = 12000; return c; }
-
-  // 1991: fix 3 000 Ft
-  if (year===1991){ return 3000; }
-
-  // 1993: fix 2 400 Ft
-  if (year===1993){ return 2400; }
-
-  // 1994: kereset 10%-a
-  if (year===1994){ return rawIncome * 0.10; }
-
-  // 1995: levont egészségbizt.+nyugdíjjárulék 25%-a (közelítés: teljes levont járulék 25%-a)
-  if (year===1995){ return contributionAmount * 0.25; }
-
-  // 1997: min(kereset 20%-a, 43 200)
-  if (year===1997){ return Math.min(rawIncome * 0.20, 43200); }
-
-  // 1998: min(kereset 20%-a, 50 400) + (nyugdíjjárulék + magánnyugdíj tagdíj) 25%
-  if (year===1998){ return Math.min(rawIncome * 0.20, 50400) + (contributionAmount * 0.25); }
-
-  // 1999–2001: min(kereset 10%-a, 36 000) + nyugdíjjárulék(+magánnyugdíj) 25%
-  if (year>=1999 && year<=2001){ return Math.min(rawIncome * 0.10, 36000) + (contributionAmount * 0.25); }
-
-  // 2002: min(kereset 18%-a, 60 000) + nyugdíjjárulék(+magánnyugdíj) 25%
-  if (year===2002){ return Math.min(rawIncome * 0.18, 60000) + (contributionAmount * 0.25); }
-
-  // 2003: min(kereset 18%-a, 108 000) + nyugdíjjárulék(+magánnyugdíj) 25%
-  if (year===2003){ return Math.min(rawIncome * 0.18, 108000) + (contributionAmount * 0.25); }
-
-  // 2004–2007: min(kereset 18%-a, 108 000)
-  if (year>=2004 && year<=2007){ return Math.min(rawIncome * 0.18, 108000); }
-
-  // 2008–2009: min(kereset 18%-a, 136 080)
-  if (year===2008 || year===2009){ return Math.min(rawIncome * 0.18, 136080); }
-
-  // 2010: min(kereset 17%-a, 181 200)
-  if (year===2010){ return Math.min(rawIncome * 0.17, 181200); }
-
-  // 2011: min(kereset 16%-a, 145 200)
-  if (year===2011){ return Math.min(rawIncome * 0.16, 145200); }
-
-  // 1992, 1996, 2012+ stb.: nincs
+  // 1988–1990: fix 12 000 Ft
+  if (year>=1988 && year<=1990) return 12000;
+  if (year===1991) return 3000;            // 1991: fix 3 000 Ft
+  if (year===1993) return 2400;            // 1993: fix 2 400 Ft
+  if (year===1994) return rawIncome * 0.10;
+  if (year===1995) return contributionAmount * 0.25;
+  if (year===1997) return Math.min(rawIncome * 0.20, 43200);
+  if (year===1998) return Math.min(rawIncome * 0.20, 50400) + (contributionAmount * 0.25);
+  if (year>=1999 && year<=2001) return Math.min(rawIncome * 0.10, 36000) + (contributionAmount * 0.25);
+  if (year===2002) return Math.min(rawIncome * 0.18, 60000) + (contributionAmount * 0.25);
+  if (year===2003) return Math.min(rawIncome * 0.18, 108000) + (contributionAmount * 0.25);
+  if (year>=2004 && year<=2007) return Math.min(rawIncome * 0.18, 108000);
+  if (year===2008 || year===2009) return Math.min(rawIncome * 0.18, 136080);
+  if (year===2010) return Math.min(rawIncome * 0.17, 181200);
+  if (year===2011) return Math.min(rawIncome * 0.16, 145200);
+  // 1992, 1996, 2012+ : nincs
   return 0;
 }
 
-/* ===== Adó számítása egy évre (járulék UTÁNI alapra) ===== */
+/* ===== Sávos adó összegző (bracket-by-bracket) ===== */
+function progressiveTaxFromTable(year, taxBase){
+  const table = TAX_TABLES[year];
+  if (!table || !Number.isFinite(taxBase) || taxBase <= 0) return 0;
+  let tax = 0;
+  const brackets = [...table].sort((a,b)=>a.th - b.th);
+  for (let i=0; i<brackets.length; i++){
+    const {th=0, rate=0, cap=Infinity} = brackets[i];
+    if (taxBase <= th) break;
+    const upper = Math.min(taxBase, cap);
+    const width = Math.max(0, upper - th);
+    tax += width * rate;
+    if (taxBase <= cap) break;
+  }
+  return Math.max(0, tax);
+}
+
+/* ===== Adó számítása egy évre – végleges logika =====
+   1) bruttóból járuléklevonás -> baseAfterContribution (a hívó ezt adja át)
+   2) 1988–1996: jóváírás az ADÓALAPBÓL
+      1997–2011: jóváírás a KISZÁMOLT ADÓBÓL (min 0)
+      2012+: nincs jóváírás
+   3) év szerinti adóképlet (sávos/egykulcsos), ahol kell adóalap-kiegészítéssel
+*/
 function taxForYear(year, baseAfterContribution, rawIncomeForCredits, contributionAmount){
   if (!Number.isFinite(baseAfterContribution) || baseAfterContribution<=0) return 0;
 
-  // 2016–: 15%
-  if (year>=2016) {
-    const grossTax = baseAfterContribution*0.15;
-    return Math.max(0, grossTax - taxCreditAmount(year, rawIncomeForCredits, contributionAmount));
+  const credit = Math.max(0, taxCreditAmount(year, rawIncomeForCredits, contributionAmount));
+
+  // 2016+ (15%) és 2013–2015 (16%) – nincs jóváírás
+  if (year >= 2016) return baseAfterContribution * 0.15;
+  if (year >= 2013 && year <= 2015) return baseAfterContribution * 0.16;
+
+  // 2012 – nincs jóváírás, de részleges adóalap-kiegészítés
+  if (year === 2012){
+    const thr = 2424000;
+    const extra = Math.max(0, baseAfterContribution - thr) * 0.27;
+    const taxBase = baseAfterContribution + extra;
+    return taxBase * 0.16;
   }
 
-  // 2013–2015: 16%
-  if (year>=2013 && year<=2015) {
-    const grossTax = baseAfterContribution*0.16;
-    return Math.max(0, grossTax - taxCreditAmount(year, rawIncomeForCredits, contributionAmount));
-  }
+  // 1997–2011: jóváírás a FIZETENDŐ ADÓBÓL
+  if (year >= 1997 && year <= 2011){
+    let grossTax = 0;
 
-  // 2012: 16%, adóalap-kiegészítés csak 2 424 000 feletti részre
-  if (year===2012){
-    const thr=2424000;
-    const extra=Math.max(0, baseAfterContribution - thr)*0.27;
-    const taxBase=baseAfterContribution + extra;
-    const grossTax = taxBase*0.16;
-    return Math.max(0, grossTax - taxCreditAmount(year, rawIncomeForCredits, contributionAmount));
-  }
-
-  // 2011: 16%, teljes adóalap +27%
-  if (year===2011){
-    const grossTax = (baseAfterContribution*1.27)*0.16;
-    return Math.max(0, grossTax - taxCreditAmount(year, rawIncomeForCredits, contributionAmount));
-  }
-
-  // 2010: sávos + teljes 27% adóalap-kiegészítés
-  if (year===2010){
-    const taxBase = baseAfterContribution*1.27;
-    const grossTax = applyBracketTable(2010, taxBase);
-    return Math.max(0, grossTax - taxCreditAmount(year, rawIncomeForCredits, contributionAmount));
-  }
-
-  // 1988–2009: sávos
-  const yr = Math.min(Math.max(1988, year), 2009);
-  const grossTax = applyBracketTable(yr, baseAfterContribution);
-  return Math.max(0, grossTax - taxCreditAmount(year, rawIncomeForCredits, contributionAmount));
-}
-
-/* Sávos adó: adott év tábláján lépegetünk */
-function applyBracketTable(year, taxBase){
-  const table = TAX_TABLES[year];
-  let tax = 0;
-  for (let i=0;i<table.length;i++){
-    const {th, base, rate, cap} = table[i];
-    if (taxBase>=th && (cap===undefined || taxBase<=cap)){
-      tax = base + Math.max(0, taxBase - th)*rate;
-      break;
+    if (year === 2011){
+      const taxBase = baseAfterContribution * 1.27; // teljes adóalap-kiegészítés
+      grossTax = taxBase * 0.16;
+    } else if (year === 2010){
+      const taxBase = baseAfterContribution * 1.27;
+      grossTax = progressiveTaxFromTable(2010, taxBase);
+    } else {
+      // 1997–2009: sávos
+      const yr = Math.min(Math.max(1997, year), 2009);
+      grossTax = progressiveTaxFromTable(yr, baseAfterContribution);
     }
-    if (cap!==undefined && taxBase>cap) continue;
+
+    return Math.max(0, grossTax - credit);
   }
-  if (tax===0){
-    const first = table[0];
-    if (taxBase<=first.cap){ tax = first.base + (taxBase-first.th)*first.rate; }
-  }
-  return Math.max(0, tax);
+
+  // 1988–1996: jóváírás az ADÓALAPBÓL, majd sávos adó
+  const baseAfterCredit = Math.max(0, baseAfterContribution - credit);
+  const yr = Math.min(Math.max(1988, year), 1996);
+  return progressiveTaxFromTable(yr, baseAfterCredit);
 }
 
 /* ===== Nyugdíj segédfüggvények ===== */
@@ -613,20 +587,21 @@ function recalc(){
     if(raw>0){
       const year=YEARS[i];
 
-      // 1) Járulék
+      // (1) Járulék
       const contr=contributionRatePct(year)/100;
       const contrAmt=raw*contr;
       const afterContr=Math.max(0, raw-contrAmt);
       tdAfterContr.textContent=formatFt(afterContr); tdAfterContr.className='';
 
-      // 2) Adó – sávok szerint + ADÓJÓVÁÍRÁS LEVONÁSA
+      // (2+3) Adó – a taxForYear már kezeli a megfelelő jóváírás-szabályt
       const tax=taxForYear(year, afterContr, raw, contrAmt);
+
       const afterTax=Math.max(0, afterContr - tax);
       tdTax.textContent=formatFt(tax); tdTax.className=tax? '':'muted mono';
 
       tdFinal.textContent=formatFt(afterTax); tdFinal.className='';
 
-      // 3) Valorizáció a végeredményből
+      // Valorizáció a végeredményből
       const valor=afterTax*YEAR_MULTS[i];
       tdVal.textContent=formatFt(valor); tdVal.className='';
       if(isFinite(valor)) sumValorizalt+=valor;
@@ -678,4 +653,3 @@ document.getElementById('reset').addEventListener('click',(ev)=>{
   recalc();
 });
 </script>
-
