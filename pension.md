@@ -6,8 +6,6 @@ permalink: /pension
 
 <h1 class="page-title">{{ page.title | escape }}</h1>
 
-<h1 class="page-title">{{ page.title | escape }}</h1>
-
 <html lang="hu">
 <head>
   <meta charset="utf-8" />
