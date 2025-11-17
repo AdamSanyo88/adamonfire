@@ -6,12 +6,9 @@ permalink: /pension
 
 <h1 class="page-title">{{ page.title | escape }}</h1>
 
-<!doctype html>
 <html lang="hu">
 <head>
-<meta charset="utf-8" />
-<title>Nyugdíjkalkulátor – sávos SZJA (év szerint)</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
 <style>
 :root {
   --bg: #ffffff;
@@ -207,9 +204,23 @@ input[type="number"] {
 </style>
 </head>
 <body>
-<div class="wrap">
-  <h1>Nyugdíjkalkulátor</h1>
-  <p>Éves nettó járulékköteles keresetet adj meg. A kalkulátor: (1) levonja az adott év szerinti járulékot, (2) az így kapott összeget az adott év <em>sávos SZJA</em> szabályaival adóztatja (2011–2012-ben adóalap-kiegészítés), majd (3) a végeredményt valorizálja és számol havi nyugdíjat.</p>
+  <div class="wrap">
+    <br/>
+    <p>Add meg az <strong>éves bruttó ajárulékköteles kereseteidet minden általad ledolgozott évben</strong>. Fontos, hogy a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj csak.</p>
+	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad. Egyéb tényezőkkel és kedvezményekkel nem számol a modell, csak a kereseti adatokkal.</p>
+	<p>A kalkulátor nem számol továbbá a 2013 előtti éves járulékplafonnal, de a táblázat megmutatja, hogy milyen éves bruttó bér volt a maximum, amelyre nyugdíjjárulékot kellett fizetni. Ennél nagyobb bruttó éves összeget ne adj meg az adott sorban.</p>
+	<p>Mindig egész éves keresetet adj meg, mert törtévvel nem tud számolni a kalkulátor.</p>
+	<br/>
+	<h5>Nyugdíjszámítás menete a gyakorlatban</h5>
+	<ol>
+	<li>Az egész élet során szerzett szolgálati évek egész számban, lefelé kerekítve (a törtév elvész).</li>
+	<li>Az 1988 január 1-je óta szerzett jövedelmek nettósított éves értéke (először levonjuk a nyugdíjjárulékot, majd ebből az összegből az adót).</li>
+	<li>A nettó értékeket minden évben fel kell szorozni az éves valorizációs szorzóval. Ez megmutatja, hogy mai áron számolva az akkori kereset mennyit ért. Gyakorlatban a fő szempont az, hogy az adott éves jövedelem az adott év nettó átlagkeresete alatt vagy felett volt-e (ez határozza meg a relatív értékét).</li>
+	<li>A kapott összegeket el kell osztani a teljes szolgálati idővel (napokban számolva). Ezt az összeget utána fel kell szorozni 365-tel, majd osztani 12-vel, így megkapva a havi nettó életpálya átlagkeresetet.</li>
+	<li>Ha az így kapott összeg meghaladja a 372 ezer Ft-ot havonta, akkor degresszálni kell (először 90%-kal, majd 421 ezer Ft felett 80%-kal). </li>
+	<li>Végül az így kapott összeget meg kell szorozni a szolgálati évekre eső szorzóval (20 év után ez 53%, 30 évnél 68%, 40 évnél 80%, stb.). A maximális szolgálati idő 50 év, a minimális 15 év (de a kalkulátor 10-15 év közötti időszakra is tud számítást végezni).</li>
+	</ol>
+	<p>Az adatok tájékoztató jellegűek, pontosabb számításra a <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/oregsegi-nyugdij/onkiszolgalo-nyugdijkalkulator">Magyar Államkincstár nyugdíjkalkulátora</a> javasolt.</p>
 
   <div class="grid">
     <div class="left card">
@@ -225,13 +236,13 @@ input[type="number"] {
             <tr>
               <th>Év</th>
               <th>Szorzó</th>
-              <th>Éves nettó<br/>kereset (Ft)</th>
-              <th>Valorizált<br/>éves kereset</th>
-              <th>Éves átlag nettó<br/>kereset (irányadó)</th>
-              <th>Éves bruttó kereset<br/>járulékplafonja</th>
-              <th>Járulék után</th>
+              <th>Éves bruttó kereset (Ft)</th>
+              <th>Valorizált éves kereset</th>
+              <th>Éves átlag nettó keresetek (irányadó)</th>
+              <th>Éves bruttó kereset járulékplafonja</th>
+              <th>Járulék levonás után</th>
               <th>Fizetendő adó</th>
-              <th>Végeredmény<br/>(járulék + adó után)</th>
+              <th>Éves nettó kereset</th>
             </tr>
           </thead>
           <tbody id="rows"></tbody>
