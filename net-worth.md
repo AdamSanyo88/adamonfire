@@ -133,7 +133,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
   function addProperty(){
     const anchor=document.getElementById("prop-anchor");
     const tr=document.createElement("tr"); tr.dataset.type="prop";
-    tr.innerHTML=`<td>🏠</td><td>Real estate</td>
+    tr.innerHTML=`<td>🏠</td><td>Property</td>
       <td><input type="number" data-field="value" value="0"></td>
       <td><input type="number" data-field="debt" value="0"></td>
       <td class="text-end mono" data-cell="net">€0</td>
