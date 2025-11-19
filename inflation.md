@@ -110,6 +110,19 @@ permalink: /inflation
     font-size: 0.85rem !important;
     padding: 0.25rem 0.4rem !important;
   }
+  
+/* --- SZEMÉLYES INFLÁCIÓ KIEMELT STÍLUS --- */
+#personalInfl {
+  font-size: 2.2rem !important;      /* nagyobb betűméret */
+  padding: 0.6rem 1.2rem !important; /* vastagabb badge */
+  border-radius: 0.6rem !important;  /* lekerekített szélek */
+  background-color: #0d6efd !important; /* egységes kék háttér */
+  color: #fff !important;            /* fehér szöveg */
+  display: inline-block;
+  min-width: 6rem;                   /* stabil szélesség, hogy ne ugráljon */
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
 </style>
 
 </head>
