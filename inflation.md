@@ -236,35 +236,29 @@ permalink: /inflation
   }
 
   function recompute() {
-    const spends = readSpends();
-    const total = Object.values(spends).reduce((s, v) => s + v, 0);
+  const spends = readSpends();
+  const total = Object.values(spends).reduce((s, v) => s + v, 0);
 
-    // relatív súlyok cellánként
+  // relatív súlyok kiszámítása és frissítése
+  CATS.forEach(c => {
+    const w = total > 0 ? spends[c.key] / total : 0;
+    document.getElementById('w_' + c.key).textContent = fmtPct(w); // pl. 12,3%
+  });
+
+  document.getElementById('totalSpend').textContent = fmtAmt(total);
+
+  // személyes infláció (súlyozott átlag)
+  let personalInflation = 0;
+  if (total > 0) {
     CATS.forEach(c => {
-      const w = total > 0 ? spends[c.key] / total : 0;
-      document.getElementById('w_' + c.key).textContent = fmtPct(w);
+      const weight = spends[c.key] / total;
+      personalInflation += weight * c.rate;
     });
-
-    document.getElementById('totalSpend').textContent = fmtAmt(total);
-
-    // személyes infláció = súlyozott átlag
-    let personal = 0, sumW = 0;
-    CATS.forEach(c => {
-      const w = total > 0 ? spends[c.key] / total : 0;
-      sumW += w;
-      personal += w * c.rate;
-    });
-
-    document.getElementById('personalInfl').textContent = (personal * 100).toFixed(1).replace('.', ',') + '%';
   }
 
-  // eseményfigyelés
-  document.addEventListener('DOMContentLoaded', () => {
-    CATS.forEach(c => {
-      document.getElementById('amt_' + c.key).addEventListener('input', recompute);
-    });
-    recompute();
-  });
-</script>
+  // személyes infláció kiírása: NEM ugyanaz, mint a relatív súly!
+  const inflValue = (personalInflation * 100).toFixed(1).replace('.', ',') + '%';
+  document.getElementById('personalInfl').textContent = inflValue;
+}
 </body>
 </html>
