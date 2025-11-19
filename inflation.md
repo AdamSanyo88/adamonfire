@@ -51,7 +51,7 @@ permalink: /inflation
     vertical-align: middle;
   }
 
-  /* --- MINDEN SZÖVEG FEKETE --- */
+  /* --- NEW: minden szöveg fekete --- */
   .spending-table,
   .spending-table h2,
   .spending-table .table,
@@ -65,7 +65,7 @@ permalink: /inflation
     font-weight: normal !important;
   }
 
-  /* --- SZŰKEBB, KOMPAKT TÁBLÁZAT (kb. 50%-kal alacsonyabb sorok) --- */
+  /* --- SZŰKEBB SOROK és KOMPAKT MEGJELENÉS (kb. 50%-os sormagasság) --- */
   .table-sm > :not(caption) > * > * {
     padding-top: 0.20rem !important;
     padding-bottom: 0.20rem !important;
@@ -76,16 +76,14 @@ permalink: /inflation
     padding-bottom: 0.10rem !important;
     height: auto !important;
     line-height: 1.1 !important;
-    font-size: 0.9rem !important;
   }
 
   .table td, .table th {
     vertical-align: middle !important;
     line-height: 1.1 !important;
-    font-size: 0.9rem !important;
   }
 
-  /* --- BADGE-ek: mindig fehér szöveg, ha színes háttér --- */
+  /* --- BADGE színek: biztosan fehér szöveg, ha színes háttér --- */
   .badge.bg-primary,
   .badge.bg-success,
   .badge.bg-danger,
@@ -94,7 +92,16 @@ permalink: /inflation
     color: #fff !important;
   }
 
-  /* --- Kompakt elrendezés finomhangolása --- */
+  /* --- Táblázat kompakt megjelenés finomításai --- */
+  .table {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #f9fafb !important;
+  }
+
+  /* --- További apró vizuális finomhangolások --- */
   .card-body {
     padding: 0.75rem 1rem !important;
   }
@@ -103,17 +110,7 @@ permalink: /inflation
     font-size: 0.85rem !important;
     padding: 0.25rem 0.4rem !important;
   }
-
-  /* --- Sorköz és szín finomítás --- */
-  .table-striped > tbody > tr:nth-of-type(odd) > * {
-    background-color: #f9fafb !important;
-  }
-
-  .table {
-    margin-bottom: 0.5rem !important;
-  }
 </style>
-
 
 </head>
 <body>
