@@ -17,6 +17,15 @@ permalink: /inflation
     .badge-fixed { font-variant-numeric: tabular-nums; }
     .table thead th { white-space: nowrap; }
     .muted { color:#6c757d; }
+	
+	/* Biztosítsd, hogy a színes badge-ek szövege fehér maradjon */
+.badge.bg-primary,
+.badge.bg-success,
+.badge.bg-danger,
+.badge.bg-info,
+.badge.bg-warning {
+  color: #fff !important;
+}
   </style>
 </head>
 <body>
@@ -68,7 +77,7 @@ permalink: /inflation
 
           <div class="d-flex justify-content-between">
             <div><strong>Személyes infláció</strong> (súlyozott átlag):</div>
-            <div><span id="personalInfl" class="badge bg-primary badge-fixed fs-5">0,0%</span></div>
+            <span id="personalInfl" class="badge bg-primary text-white badge-fixed fs-5">0,0%</span>
           </div>
 
           <hr>
