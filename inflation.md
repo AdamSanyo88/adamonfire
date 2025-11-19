@@ -13,40 +13,105 @@ permalink: /inflation
   <title>Személyes infláció kalkulátor</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    body { background: #f8fafc; }
-    .badge-fixed { font-variant-numeric: tabular-nums; }
-    .table thead th { white-space: nowrap; }
-    .muted { color:#6c757d; }
+  body { background: #f8fafc; }
+  .category-removed { opacity: 0.5; }
+  .badge-fixed { font-variant-numeric: tabular-nums; }
+  .table thead th { white-space: nowrap; }
 
-/* 50%-kal keskenyebb sorok a táblázatokban */
-.table-sm > :not(caption) > * > * {
-  padding-top: 0.20rem !important;   /* korábban 0.40 vagy 0.50 volt */
-  padding-bottom: 0.20rem !important;
-}
+  /* --- NAV override (Materialize markup kompatibilitás) --- */
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:link,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:visited,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:hover,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:focus,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a:active,
+  nav.blue.accent-4 .nav-wrapper ul#nav-mobile.side-nav li > a {
+    text-decoration: none !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
 
-/* Kompakt inputmezők */
-.form-control-sm {
-  padding-top: 0.10rem !important;
-  padding-bottom: 0.10rem !important;
-  height: auto !important;
-  line-height: 1.1 !important;
-}
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li.active > a,
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a.active {
+    text-decoration: none !important;
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
 
-/* Szorosabb sorok általánosan */
-.table td, .table th {
-  vertical-align: middle !important;
-  line-height: 1.1 !important;
-}
-	
-	/* Biztosítsd, hogy a színes badge-ek szövege fehér maradjon */
-.badge.bg-primary,
-.badge.bg-success,
-.badge.bg-danger,
-.badge.bg-info,
-.badge.bg-warning {
-  color: #fff !important;
-}
-  </style>
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a::after {
+    content: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  nav.blue.accent-4 .nav-wrapper ul.right.hide-on-med-and-down > li > a .material-icons,
+  nav.blue.accent-4 .nav-wrapper ul#nav-mobile.side-nav li > a .material-icons {
+    text-decoration: none;
+    display: inline-flex;
+    vertical-align: middle;
+  }
+
+  /* --- NEW: minden szöveg fekete --- */
+  .spending-table,
+  .spending-table h2,
+  .spending-table .table,
+  .spending-table .table th,
+  .spending-table .table td,
+  .spending-table .badge,
+  .form-label,
+  .form-check-label {
+    color: #000 !important;
+    font-family: inherit !important;
+    font-weight: normal !important;
+  }
+
+  /* --- SZŰKEBB SOROK és KOMPAKT MEGJELENÉS (kb. 50%-os sormagasság) --- */
+  .table-sm > :not(caption) > * > * {
+    padding-top: 0.20rem !important;
+    padding-bottom: 0.20rem !important;
+  }
+
+  .form-control-sm {
+    padding-top: 0.10rem !important;
+    padding-bottom: 0.10rem !important;
+    height: auto !important;
+    line-height: 1.1 !important;
+  }
+
+  .table td, .table th {
+    vertical-align: middle !important;
+    line-height: 1.1 !important;
+  }
+
+  /* --- BADGE színek: biztosan fehér szöveg, ha színes háttér --- */
+  .badge.bg-primary,
+  .badge.bg-success,
+  .badge.bg-danger,
+  .badge.bg-info,
+  .badge.bg-warning {
+    color: #fff !important;
+  }
+
+  /* --- Táblázat kompakt megjelenés finomításai --- */
+  .table {
+    margin-bottom: 0.5rem !important;
+  }
+
+  .table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: #f9fafb !important;
+  }
+
+  /* --- További apró vizuális finomhangolások --- */
+  .card-body {
+    padding: 0.75rem 1rem !important;
+  }
+
+  .badge-fixed {
+    font-size: 0.85rem !important;
+    padding: 0.25rem 0.4rem !important;
+  }
+</style>
+
 </head>
 <body>
 <div class="container py-4">
