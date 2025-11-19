@@ -17,6 +17,26 @@ permalink: /inflation
     .badge-fixed { font-variant-numeric: tabular-nums; }
     .table thead th { white-space: nowrap; }
     .muted { color:#6c757d; }
+
+/* Szűkebb sormagasság a táblázatokban */
+.table-sm > :not(caption) > * > * {
+  padding-top: 0.25rem !important;
+  padding-bottom: 0.25rem !important;
+}
+
+/* Kisebb sortávolság a badge-ek és inputok között */
+.form-control-sm {
+  padding-top: 0.15rem !important;
+  padding-bottom: 0.15rem !important;
+  height: auto !important;
+  line-height: 1.2 !important;
+}
+
+/* Kisebb távolság a cellák között, kompakt megjelenés */
+.table td, .table th {
+  vertical-align: middle !important;
+  line-height: 1.2 !important;
+}
 	
 	/* Biztosítsd, hogy a színes badge-ek szövege fehér maradjon */
 .badge.bg-primary,
