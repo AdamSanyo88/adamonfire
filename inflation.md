@@ -112,16 +112,26 @@ permalink: /inflation
   }
   
 /* --- SZEMÉLYES INFLÁCIÓ KIEMELT STÍLUS --- */
-#personalInfl {
-  font-size: 2.2rem !important;      /* nagyobb betűméret */
-  padding: 0.6rem 1.2rem !important; /* vastagabb badge */
-  border-radius: 0.6rem !important;  /* lekerekített szélek */
-  background-color: #0d6efd !important; /* egységes kék háttér */
-  color: #fff !important;            /* fehér szöveg */
+.personal-infl-badge {
   display: inline-block;
-  min-width: 6rem;                   /* stabil szélesség, hogy ne ugráljon */
+  font-size: 2.6rem !important;      /* nagyobb, látványos érték */
+  font-weight: 700 !important;
+  padding: 0.8rem 2rem !important;   /* elég nagy, de nem lóg ki */
+  border-radius: 0.8rem !important;
+  background-color: #0d6efd !important;
+  color: #fff !important;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  line-height: 1 !important;
+  min-width: 7rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .personal-infl-badge {
+    font-size: 2rem !important;
+    padding: 0.6rem 1.5rem !important;
+  }
 }
 </style>
 
@@ -173,10 +183,10 @@ permalink: /inflation
         <div class="card-body">
           <h2 class="h6 mb-3">Eredmény</h2>
 
-          <div class="d-flex justify-content-between">
-            <div><strong>Személyes infláció</strong> (súlyozott átlag):</div>
-            <span id="personalInfl" class="badge bg-primary text-white badge-fixed fs-5">0,0%</span>
-          </div>
+        <div class="text-center mb-3">
+  <div class="mb-2"><strong>Személyes infláció</strong> (súlyozott átlag)</div>
+  <span id="personalInfl" class="personal-infl-badge">0,0%</span>
+</div>
 
           <hr>
           <p class="small muted mb-0">
