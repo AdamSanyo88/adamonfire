@@ -18,24 +18,24 @@ permalink: /inflation
     .table thead th { white-space: nowrap; }
     .muted { color:#6c757d; }
 
-/* Szűkebb sormagasság a táblázatokban */
+/* 50%-kal keskenyebb sorok a táblázatokban */
 .table-sm > :not(caption) > * > * {
-  padding-top: 0.25rem !important;
-  padding-bottom: 0.25rem !important;
+  padding-top: 0.20rem !important;   /* korábban 0.40 vagy 0.50 volt */
+  padding-bottom: 0.20rem !important;
 }
 
-/* Kisebb sortávolság a badge-ek és inputok között */
+/* Kompakt inputmezők */
 .form-control-sm {
-  padding-top: 0.15rem !important;
-  padding-bottom: 0.15rem !important;
+  padding-top: 0.10rem !important;
+  padding-bottom: 0.10rem !important;
   height: auto !important;
-  line-height: 1.2 !important;
+  line-height: 1.1 !important;
 }
 
-/* Kisebb távolság a cellák között, kompakt megjelenés */
+/* Szorosabb sorok általánosan */
 .table td, .table th {
   vertical-align: middle !important;
-  line-height: 1.2 !important;
+  line-height: 1.1 !important;
 }
 	
 	/* Biztosítsd, hogy a színes badge-ek szövege fehér maradjon */
