@@ -162,7 +162,7 @@ permalink: /spending
       { key: "tavkozles", label: "Mobile & Internet", weight: 0.0422 },
       { key: "oktatas", label: "Education", weight: 0.0222 },
       { key: "szabadido", label: "Hobbies", weight: 0.0734 },
-      { key: "vendeglatas", label: "Eating out", weight: 0.0495 },
+      { key: "vendeglatas", label: "Eating out and travel", weight: 0.0495 },
       { key: "egyeb_szolg", label: "All other services (e.g. insurance, banking)", weight: 0.0733 },
     ];
 

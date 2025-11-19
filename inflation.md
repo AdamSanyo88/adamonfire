@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Személyes infláció kalkulátor
+title: Personal inflation calculator
 permalink: /inflation
 ---
 
@@ -10,7 +10,7 @@ permalink: /inflation
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Személyes infláció kalkulátor</title>
+  <title>Personal inflation calculator</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
@@ -135,9 +135,9 @@ permalink: /inflation
 <div class="container py-4">
 
   <p class="muted">
-    Add meg, mennyit költesz havonta az alábbi kategóriákban.  
-    A kalkulátor a <strong>KSH 10 éves átlagos inflációs rátáit</strong> használja fixen,  
-    és ezek alapján kiszámítja a <strong>személyes inflációdat</strong>.
+    Enter how much you spend each month in the categories below.
+The calculator uses the <strong>10-year average inflation rates published by the Hungarian Central Statistical Office (KSH)</strong> as fixed values,
+and based on these it calculates your <strong>personal inflation rate</strong>.
   </p>
 
   <div class="row g-4 align-items-start">
@@ -146,15 +146,15 @@ permalink: /inflation
     <div class="col-lg-7">
       <div class="card shadow-sm">
         <div class="card-body">
-          <h2 class="h6 mb-3">Havi átlagos költés kategóriánként</h2>
+          <h2 class="h6 mb-3">Monthly average spending by category</h2>
           <div class="table-responsive">
             <table class="table table-sm table-striped align-middle">
               <thead>
                 <tr>
-                  <th>Kategória</th>
-                  <th class="text-end">Költés</th>
-                  <th class="text-end">Relatív súly</th>
-                  <th class="text-end">10 év átlagos infláció</th>
+                  <th>Category</th>
+                  <th class="text-end">Spending</th>
+                  <th class="text-end">Relative weight</th>
+                  <th class="text-end">10-year inflation</th>
                 </tr>
               </thead>
               <tbody id="spendBody"></tbody>
@@ -177,12 +177,11 @@ permalink: /inflation
       <div class="card shadow-sm">
         <div class="card-body text-center">
           <h2 class="h6 mb-3">Eredmény</h2>
-          <div class="mb-2"><strong>Személyes infláció</strong> (súlyozott átlag)</div>
+          <div class="mb-2"><strong>Personal inflation %</strong> (weighted average)</div>
           <span id="personalInfl" class="personal-infl-badge">0,0%</span>
           <hr>
           <p class="small muted mb-0">
-            Az inflációs százalékok a 2015–2024 közötti időszak KSH által közölt 
-            <strong>átlagos éves inflációját</strong> mutatják kategóriánként.
+            The inflation percentages show the <strong>average annual inflation rates</strong> published by the Hungarian Central Statistical Office (KSH) for each category during the period 2015–2024.
           </p>
         </div>
       </div>
@@ -193,21 +192,21 @@ permalink: /inflation
 
 <script>
 const CATS = [
-  { key: "elelmiszer", label: "Élelmiszer", rate: 0.082 },
-  { key: "alkohol", label: "Alkohol", rate: 0.055 },
-  { key: "dohany", label: "Dohányáru", rate: 0.098 },
-  { key: "ruhazat", label: "Ruházat", rate: 0.023 },
-  { key: "lakasszolg", label: "Rezsi és lakáshoz kötött költségek", rate: 0.043 },
-  { key: "lakber", label: "Lakberendezés és lakás karbantartása", rate: 0.047 },
-  { key: "egeszsegugy", label: "Egészségügy", rate: 0.057 },
-  { key: "auto", label: "Közlekedés saját autóval", rate: 0.058 },
-  { key: "auto_ertek", label: "Autó értékvesztése", rate: 0.027 },
-  { key: "egyeb_kozlekedes", label: "Egyéb közlekedés", rate: 0.074 },
-  { key: "tavkozles", label: "Távközlés", rate: 0.008 },
-  { key: "oktatas", label: "Oktatás", rate: 0.041 },
-  { key: "szabadido", label: "Szabadidő és hobbi", rate: 0.044 },
-  { key: "vendeglatas", label: "Vendéglátás és szálláshely", rate: 0.090 },
-  { key: "egyeb", label: "Egyéb termékek és szolgáltatások (pl. biztosítások, banki díjak)", rate: 0.051 },
+  { key: "elelmiszer", label: "Groceries", rate: 0.082 },
+  { key: "alkohol", label: "Alcohol", rate: 0.055 },
+  { key: "dohany", label: "Tobacco", rate: 0.098 },
+  { key: "ruhazat", label: "Clothing", rate: 0.023 },
+  { key: "lakasszolg", label: "Utilities and housing-related services", rate: 0.043 },
+  { key: "lakber", label: "Furniture and maintenance", rate: 0.047 },
+  { key: "egeszsegugy", label: "Healthcare", rate: 0.057 },
+  { key: "auto", label: "Transportation - car", rate: 0.058 },
+  { key: "auto_ertek", label: "Car depreciation", rate: 0.027 },
+  { key: "egyeb_kozlekedes", label: "Transportation - other", rate: 0.074 },
+  { key: "tavkozles", label: "Mobile & Internet", rate: 0.008 },
+  { key: "oktatas", label: "Education", rate: 0.041 },
+  { key: "szabadido", label: "Hobbies", rate: 0.044 },
+  { key: "vendeglatas", label: "Eating out and travel", rate: 0.090 },
+  { key: "egyeb", label: "All other services (e.g. insurance, banking)", rate: 0.051 },
 ];
 
 const fmtPct = (v) => (v * 100).toFixed(1).replace('.', ',') + '%';
