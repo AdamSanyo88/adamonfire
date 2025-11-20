@@ -96,7 +96,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
   function initChart(){
     const canvas = document.getElementById("percentileChart");
     if(!canvas || !window.Chart) return;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext('2d'); 
 
     chart = new Chart(ctx, {
   type: "bar",
