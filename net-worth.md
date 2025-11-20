@@ -98,28 +98,43 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
     if(!canvas || !window.Chart) return;
     const ctx = canvas.getContext('2d');
 
-    chart = new Chart(ctx,{
-      type:"bar",
-      data:{
-        labels:LABELS,
-        datasets:[{data:[...PCT].reverse(),backgroundColor:"#cfd8dc",borderWidth:0}]
-      },
-      options:{
-        responsive:true,maintainAspectRatio:false,
-        plugins:{
-          legend:{display:false},
-          tooltip:{callbacks:{
-            title:it => it && it[0] ? ("Percentilis "+it[0].label) : "",
-            label:it => "Küszöb €"+Number(it.raw).toLocaleString()
-          }}
-        },
-        scales:{
-          x:{grid:{display:false},ticks:{autoSkip:true,maxRotation:0}},
-          y:{beginAtZero:true,ticks:{callback:v=>"€"+v.toLocaleString()}}
+    chart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: LABELS,
+    datasets: [{
+      data: [...PCT].reverse(),
+      backgroundColor: "#cfd8dc",
+      borderWidth: 0
+    }]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          title: it => it && it[0] ? ("Percentilis " + it[0].label) : "",
+          label: it => "Median €" + Number(it.raw).toLocaleString()
         }
       }
-    });
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: { autoSkip: true, maxRotation: 0 }
+      },
+      y: {
+        beginAtZero: true,
+        max: 4000000, // 👈 Added to cap Y-axis at €4 million
+        ticks: {
+          callback: v => "€" + v.toLocaleString()
+        }
+      }
+    }
   }
+});
 
   function highlight(p){
     if(!chart) return;
