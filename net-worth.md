@@ -115,7 +115,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
       legend: { display: false },
       tooltip: {
         callbacks: {
-          title: it => it && it[0] ? ("Percentilis " + it[0].label) : "",
+          title: it => it && it[0] ? ("Percentile " + it[0].label) : "",
           label: it => "Median wealth €" + Number(it.raw).toLocaleString()
         }
       }
