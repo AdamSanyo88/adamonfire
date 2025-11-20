@@ -22,7 +22,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
 
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
-    <p>This calculator shows you how wealthy your household was at the end of 2024 compared to all household in Hungary. The percentiles are created using the 2023 data collected by the Hungarian Central Bank (MNB) and modified to match the estimated wealth increase between 2023 and 2024. The calculation takes into account the value of your primary residence, so include that as well. All calculations are made in euro.</p>
+    <p>This calculator shows you how wealthy your household was at the end of 2025 compared to all household in Hungary. The percentiles are created using the 2023 data collected by the Hungarian Central Bank (MNB) and modified to match the estimated wealth increase between 2023 and 2025. The calculation takes into account the value of your primary residence, so include that as well. All calculations are made in euro.</p>
   </div>
 
   <table class="table table-bordered bg-white" id="nw-table">
@@ -88,7 +88,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
 <script>
 (function(){
   const PCT = [
-    3160000,997801,751807,601008,522823,455581,412012,369040,339199,331937,311980,297613,283245,268878,254510,248353,239732,231112,222491,213871,205250,196630,188009,179389,170768,165021,160506,155990,151475,146959,142444,137928,133413,128897,124382,123150,119866,116582,113298,110014,106730,103446,100162,96878,93594,92116,89817,87519,85220,82921,80622,78323,76025,73726,71427,70606,68554,66501,64449,62396,60344,58291,56239,54186,52134,51313,49260,47208,45155,43103,41050,38998,36945,34893,32840,31609,29967,28325,26683,25041,23399,21757,20115,18473,16831,16215,14778,13341,11905,10468,9031,7594,6158,4721,3284,2627,1970,1314,657,0
+3645300, 1196700, 903800, 729100, 635000, 558500, 503400, 448800, 415400, 406100, 383700, 366100, 348400, 333400, 315600, 308000, 299700, 288900, 278100, 269500, 258600, 247800, 238800, 227800, 216900, 211200, 205400, 199700, 193900, 188100, 182300, 176500, 170800, 165000, 159200, 157600, 153400, 149200, 145000, 140800, 136600, 132400, 128200, 124000, 119800, 117900, 115000, 112000, 109100, 106100, 103200, 100300, 97300, 94400, 91400, 90400, 87700, 85100, 82500, 79900, 77200, 74600, 72000, 69400, 66700, 65700, 63100, 60400, 57800, 55200, 52500, 49900, 47300, 44700, 42000, 40500, 38400, 36300, 34200, 32100, 30000, 27800, 25700, 23600, 21500, 20800, 18900, 17100, 15200, 13400, 11600, 9700, 7900, 6000, 4200, 3400, 2500, 1700, 800, 0
   ];
   const LABELS = Array.from({length:100},(_,i)=>String(100-i));
   let chart;
