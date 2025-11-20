@@ -88,111 +88,125 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
 <script>
 (function(){
   const PCT = [
-3645300, 1196700, 903800, 729100, 635000, 558500, 503400, 448800, 415400, 406100, 383700, 366100, 348400, 333400, 315600, 308000, 299700, 288900, 278100, 269500, 258600, 247800, 238800, 227800, 216900, 211200, 205400, 199700, 193900, 188100, 182300, 176500, 170800, 165000, 159200, 157600, 153400, 149200, 145000, 140800, 136600, 132400, 128200, 124000, 119800, 117900, 115000, 112000, 109100, 106100, 103200, 100300, 97300, 94400, 91400, 90400, 87700, 85100, 82500, 79900, 77200, 74600, 72000, 69400, 66700, 65700, 63100, 60400, 57800, 55200, 52500, 49900, 47300, 44700, 42000, 40500, 38400, 36300, 34200, 32100, 30000, 27800, 25700, 23600, 21500, 20800, 18900, 17100, 15200, 13400, 11600, 9700, 7900, 6000, 4200, 3400, 2500, 1700, 800, 0
+    3645300,1196700,903800,729100,635000,558500,503400,448800,415400,406100,383700,366100,348400,333400,315600,308000,299700,288900,278100,269500,258600,247800,238800,227800,216900,211200,205400,199700,193900,188100,182300,176500,170800,165000,159200,157600,153400,149200,145000,140800,136600,132400,128200,124000,119800,117900,115000,112000,109100,106100,103200,100300,97300,94400,91400,90400,87700,85100,82500,79900,77200,74600,72000,69400,66700,65700,63100,60400,57800,55200,52500,49900,47300,44700,42000,40500,38400,36300,34200,32100,30000,27800,25700,23600,21500,20800,18900,17100,15200,13400,11600,9700,7900,6000,4200,3400,2500,1700,800,0
   ];
-  const LABELS = Array.from({length:100},(_,i)=>String(100-i));
+  const LABELS = Array.from({length: PCT.length}, (_, i) => String(PCT.length - i));
   let chart;
 
   function initChart(){
     const canvas = document.getElementById("percentileChart");
-    if(!canvas || !window.Chart) return;
-    const ctx = canvas.getContext('2d'); 
+    if (!canvas || !window.Chart) return;
+    const ctx = canvas.getContext("2d");
 
     chart = new Chart(ctx, {
-  type: "bar",
-  data: {
-    labels: LABELS,
-    datasets: [{
-      data: [...PCT].reverse(),
-      backgroundColor: "#cfd8dc",
-      borderWidth: 0
-    }]
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        callbacks: {
-          title: it => it && it[0] ? ("Percentile " + it[0].label) : "",
-          label: it => "Median wealth €" + Number(it.raw).toLocaleString()
-        }
-      }
-    },
-    scales: {
-      x: {
-        grid: { display: false },
-        ticks: { autoSkip: true, maxRotation: 0 }
+      type: "bar",
+      data: {
+        labels: LABELS,
+        datasets: [{
+          data: [...PCT].reverse(),
+          backgroundColor: "#cfd8dc",
+          borderWidth: 0
+        }]
       },
-      y: {
-        beginAtZero: true,
-        max: 4000000, // 👈 Added to cap Y-axis at €4 million
-        ticks: {
-          callback: v => "€" + v.toLocaleString()
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              title: it => it && it[0] ? ("Percentile " + it[0].label) : "",
+              label: it => "Median wealth €" + Number(it.raw).toLocaleString()
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { display: false },
+            ticks: { autoSkip: true, maxRotation: 0 }
+          },
+          y: {
+            beginAtZero: true,
+            max: 4000000,
+            ticks: { callback: v => "€" + v.toLocaleString() }
+          }
         }
       }
-    }
-  }
-});
+    });
+  } // ✅ properly close initChart
 
   function highlight(p){
-    if(!chart) return;
-    const idx = 100 - p;
-    const colors = new Array(100).fill("#cfd8dc");
-    if (idx>=0 && idx<colors.length) colors[idx]="#0d6efd";
+    if (!chart) return;
+    const bars = chart.data.datasets[0].data.length;
+    const idx = (PCT.length) - p; // dataset is reversed vs percentile
+    const colors = Array.from({length: bars}, () => "#cfd8dc");
+    if (idx >= 0 && idx < colors.length) colors[idx] = "#0d6efd";
     chart.data.datasets[0].backgroundColor = colors;
     chart.update();
   }
 
   function addProperty(){
-    const anchor=document.getElementById("prop-anchor");
-    const tr=document.createElement("tr"); tr.dataset.type="prop";
-    tr.innerHTML=`<td>🏠</td><td>Property</td>
-      <td><input type="number" data-field="value" value="0"></td>
-      <td><input type="number" data-field="debt" value="0"></td>
+    const anchor = document.getElementById("prop-anchor");
+    const tr = document.createElement("tr");
+    tr.dataset.type = "prop";
+    tr.innerHTML = `<td>🏠</td><td>Property</td>
+      <td><input type="number" data-field="value" value="0" inputmode="decimal"></td>
+      <td><input type="number" data-field="debt" value="0" inputmode="decimal"></td>
       <td class="text-end mono" data-cell="net">€0</td>
       <td><button class="btn btn-sm btn-outline-danger" type="button">✖</button></td>`;
-    anchor.parentNode.insertBefore(tr,anchor);
+    (anchor?.parentNode || document.querySelector("#rows")).insertBefore(tr, anchor || null);
   }
 
   function compute(){
-    let sumV=0,sumD=0,sumN=0;
+    let sumV = 0, sumD = 0, sumN = 0;
     document.querySelectorAll("#rows tr[data-type]").forEach(r=>{
-      const t=r.dataset.type;
-      const v=+r.querySelector('[data-field="value"]')?.value||0;
-      const d=+r.querySelector('[data-field="debt"]')?.value||0;
-      let n=0;
-      if(t==="prop") n=v-d;
-      else if(t==="inv"||t==="asset") n=v;
-      else if(t==="liab") n=-d;
-      sumV+=v; sumD+=d; sumN+=n;
-      r.querySelector('[data-cell="net"]').textContent="€"+n.toLocaleString();
-    });
-    document.getElementById("sum-value").textContent="€"+sumV.toLocaleString();
-    document.getElementById("sum-debt").textContent="€"+sumD.toLocaleString();
-    document.getElementById("sum-net").textContent="€"+sumN.toLocaleString();
-    document.getElementById("nw-eur").textContent="€"+sumN.toLocaleString();
+      const t = r.dataset.type;
+      const v = +r.querySelector('[data-field="value"]')?.value || 0;
+      const d = +r.querySelector('[data-field="debt"]')?.value || 0;
+      let n = 0;
+      if (t === "prop") n = v - d;
+      else if (t === "inv" || t === "asset") n = v;
+      else if (t === "liab") n = -d;
 
-    let pct=100; for(let i=0;i<PCT.length;i++){ if(sumN>=PCT[i]){ pct=i+1; break; } }
-    document.getElementById("pct-chip").textContent="Top "+pct+"%";
-    document.getElementById("pct-text").textContent=`Your estimated net worth is €${sumN.toLocaleString()}, which places you ${100-pct}% higher than others (Top ${pct}%).`;
+      sumV += v; sumD += d; sumN += n;
+      const netCell = r.querySelector('[data-cell="net"]');
+      if (netCell) netCell.textContent = "€" + n.toLocaleString();
+    });
+
+    document.getElementById("sum-value").textContent = "€" + sumV.toLocaleString();
+    document.getElementById("sum-debt").textContent  = "€" + sumD.toLocaleString();
+    document.getElementById("sum-net").textContent   = "€" + sumN.toLocaleString();
+    document.getElementById("nw-eur").textContent    = "€" + sumN.toLocaleString();
+
+    // Percentile: find the first threshold not greater than sumN
+    let pct = PCT.length;
+    for (let i = 0; i < PCT.length; i++) {
+      if (sumN >= PCT[i]) { pct = i + 1; break; }
+    }
+    const higherThan = Math.max(0, PCT.length - pct);
+    document.getElementById("pct-chip").textContent = "Top " + pct + "%";
+    document.getElementById("pct-text").textContent =
+      `Your estimated net worth is €${sumN.toLocaleString()}, which places you ${higherThan}% higher than others (Top ${pct}%).`;
+
     highlight(pct);
   }
 
-  // Biztosan csak akkor futunk, amikor minden betöltött
+  // Run when ready
+  const start = () => { initChart(); addProperty(); compute(); };
   if (document.readyState === "complete" || document.readyState === "interactive") {
-    initChart(); addProperty(); compute();
+    start();
   } else {
-    document.addEventListener("DOMContentLoaded", ()=>{ initChart(); addProperty(); compute(); });
+    document.addEventListener("DOMContentLoaded", start);
   }
 
-  document.body.addEventListener("input",e=>{ if(e.target.matches("input")) compute(); });
-  document.addEventListener("click",e=>{
-    if(e.target.id==="add-prop"){ addProperty(); }
-    if(e.target.tagName==="BUTTON" && e.target.closest("tr")?.dataset.type==="prop"){
+  // Recompute on input; support add/remove property
+  document.body.addEventListener("input", e => { if (e.target.matches("input[type=number]")) compute(); });
+  document.addEventListener("click", e => {
+    if (e.target.id === "add-prop") { addProperty(); }
+    if (e.target.closest("tr")?.dataset.type === "prop" && e.target.matches("button")) {
       e.target.closest("tr").remove(); compute();
     }
   });
 })();
 </script>
+
