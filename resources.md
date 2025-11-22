@@ -22,12 +22,12 @@ permalink: /resources
 <br/>
 <h6><a href="https://www.youtube.com/watch?v=i6TT_x7nPZ4">10 misconceptions about the FIRE movement, September 2025</a>.</h6>
 <h5>Calculators</h5>
-<h6><a href="net-worth"><strong>Net worth calculator</a></strong> - how rich you were in 2024 in Hungary?</h6>
+<h6><strong><a href="net-worth">Net worth calculator</a></strong> - how rich you were in 2024 in Hungary?</h6>
 <br/>
-<h6><a href="spending"><strong>Household expenses calculator</a></strong> - how does the average household spend its budget?</h6>
+<h6><strong><a href="spending">Household expenses calculator</a></strong> - how does the average household spend its budget?</h6>
 <br/>
-<h6><a href="pension"><strong>Hungarian pension calculator</a></strong> - what is your expected monthly state pension?</h6>
+<h6><strong><a href="pension">Hungarian pension calculator</a></strong> - what is your expected monthly state pension?</h6>
 <br/>
-<h6><a href="inflation"><strong>Personal inflation calculator</a></strong> - how much is your personal inflation based on your spending habits?</h6>
+<h6><strong><a href="inflation">Personal inflation calculator</a></strong> - how much is your personal inflation based on your spending habits?</h6>
 
 
