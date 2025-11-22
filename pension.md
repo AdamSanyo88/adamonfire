@@ -227,8 +227,8 @@ input[type="number"] {
     <div class="left card">
       <div class="row" style="margin-bottom:12px">
         <label for="serviceYears"><strong>Szolgálati évek száma</strong></label>
-        <input id="serviceYears" type="range" min="10" max="50" step="1" value="15" />
-        <strong id="serviceYearsLabel">15 év</strong>
+        <input id="serviceYears" type="range" min="10" max="50" step="1" value="40" />
+        <strong id="serviceYearsLabel">40 év</strong>
       </div>
 
  <!-- === QUICK FILL (new) === -->
