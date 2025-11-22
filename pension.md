@@ -639,9 +639,27 @@ function recalc(){
      Szolgálati szorzó: ×<strong>${sMultPct}</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
 }
 
+/* === QUICK FILL logic (new) === */
+function quickFillByPct(p){
+  inputs.forEach(({inp}, i)=>{
+    const base = ANNUAL_NET[i] || 0; // irányadó: Éves bruttó átlagkereset oszlop
+    inp.value = base ? Math.round(base * p) : '';
+  });
+  recalc();
+}
+
 /* Események + init */
 inputs.forEach(({inp})=>inp.addEventListener('input', recalc));
 document.getElementById('serviceYears').addEventListener('input', recalc);
+
+/* Quick fill buttons */
+document.getElementById('fill40').addEventListener('click', ()=>quickFillByPct(0.40));
+document.getElementById('fill60').addEventListener('click', ()=>quickFillByPct(0.60));
+document.getElementById('fill80').addEventListener('click', ()=>quickFillByPct(0.80));
+document.getElementById('fill100').addEventListener('click', ()=>quickFillByPct(1.00));
+document.getElementById('fill150').addEventListener('click', ()=>quickFillByPct(1.50));
+document.getElementById('fill275').addEventListener('click', ()=>quickFillByPct(2.75));
+
 recalc();
 
 /* Reset */
