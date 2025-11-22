@@ -231,6 +231,19 @@ input[type="number"] {
         <strong id="serviceYearsLabel">15 év</strong>
       </div>
 
+ <!-- === QUICK FILL (new) === -->
+      <div class="row" style="margin-bottom:12px; align-items:flex-start;">
+        <div class="btn-group" aria-label="Quick fill buttons to select specific salary levels">
+          <span class="inline-label">Quick fill buttons to select specific salary levels:</span>
+          <button class="btn sm" type="button" id="fill40">40% (~minimum wage)</button>
+          <button class="btn sm" type="button" id="fill60">60%</button>
+          <button class="btn sm" type="button" id="fill80">80% (median wage)</button>
+          <button class="btn sm" type="button" id="fill100">100% (average wage)</button>
+          <button class="btn sm" type="button" id="fill150">150% (top 15%)</button>
+          <button class="btn sm" type="button" id="fill275">275% (top 5%)</button>
+        </div>
+      </div>
+
       <div style="max-height:55vh; overflow:auto; border-radius:12px; border:1px solid rgba(0,0,0,.06)">
         <table>
           <thead>
