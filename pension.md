@@ -233,8 +233,8 @@ input[type="number"] {
 
  <!-- === QUICK FILL (new) === -->
       <div class="row" style="margin-bottom:12px; align-items:flex-start;">
-        <div class="btn-group" aria-label="Quick fill buttons to select specific salary levels">
-          <span class="inline-label">Quick fill buttons to select specific salary levels:</span>
+        <div class="btn-group" aria-label="Quick fill with wage levels relative to the gross average wage">
+          <span class="inline-label">Quick fill with wage levels relative to the gross average wage:</span>
           <button class="btn sm" type="button" id="fill40">40% (~minimum wage)</button>
           <button class="btn sm" type="button" id="fill60">60% (bottom ~30%)</button>
           <button class="btn sm" type="button" id="fill80">80% (median wage)</button>
