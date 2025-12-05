@@ -1,66 +1,171 @@
+---
+layout: page
+title: Nettó vagyon kalkulátor
+permalink: /net-worth
+---
+
+<h1 class="page-title">{{ page.title | escape }}</h1>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<style>
+body{background:#f8f9fa;color:#212529;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+.container-lg{max-width:1400px}
+input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-radius:6px}
+.table th,.table td{vertical-align:middle}
+.table input[disabled]{background:#eee}
+.chart-wrap{height:420px}
+.result strong{font-size:1.25rem}
+.mono{font-variant-numeric: tabular-nums}
+</style>
+
+<div class="container py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+     <p>Ez a kalkulátor megmutatja, hogy az MNB adatai alapján mennyi nettó vagyonod van a magyar háztartásokhoz képest. A percentilisek (a teljes lakosság 100 egyenlő részre bontva) a Magyar Nemzeti Bank (MNB) 2014, 2017, 2020, és 2023-as adatai alapján készültek, és módosítva lettek a 2023 és 2025 közötti becsült vagyonnövekedéssel. A számítás tartalmazza az elsődleges lakóingatlan értékét is, ezért azt mindenképpen vedd bele. A számítás forintban történik (400 Ft-os euró-forint árfolyamot figyelembe véve). A lenti grafikában több időszak vagyoni szintjeit is megnézheted, és ahhoz hasonlíthatod a vagyonod szintjét (de értelemszerűen a 2025-ös táblázat tükrözi a jelenlegi vagyoni szinteket).</p>
+  </div>
+
+  <table class="table table-bordered bg-white" id="nw-table">
+    <thead class="table-light">
+      <tr>
+        <th style="width:15%">Kategóriák</th>
+        <th>Vagyonelemek</th>
+        <th class="text-end" style="width:15%">Piaci ár (Ft)</th>
+        <th class="text-end" style="width:15%">Hitel összege (Ft)</th>
+        <th class="text-end" style="width:15%">Nettó érték</th>
+        <th style="width:4%"></th>
+      </tr>
+    </thead>
+    <tbody id="rows">
+      <tr class="table-secondary"><td colspan="6">🏠 Ingatlanok</td></tr>
+      <tr id="prop-anchor"></tr>
+      <tr><td colspan="6"><button class="btn btn-outline-secondary" id="add-prop" type="button">➕ Ingatlan hozzáadása</button></td></tr>
+
+      <tr class="table-secondary"><td colspan="6">📊 Befektetések</td></tr>
+      <tr data-type="inv"><td>📦</td><td>Nyugdíjpénztár</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+      <tr data-type="inv"><td>🏛️</td><td>Állampapírok</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+      <tr data-type="inv"><td>🧾</td><td>Tartós befektetési számla</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+      <tr data-type="inv"><td>📈</td><td>Egyéb befektetések</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+
+      <tr class="table-secondary"><td colspan="6">💶 Egyéb vagyontárgyak</td></tr>
+      <tr data-type="asset"><td>🚗</td><td>Autó- és egyéb vagyontárgyak</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+
+      <tr class="table-secondary"><td colspan="6">➖ Hitelek</td></tr>
+      <tr data-type="liab"><td>💳</td><td>Egyéb hitelek</td>
+        <td><input type="number" data-field="value" value="0" disabled></td>
+        <td><input type="number" data-field="debt" value="0"></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+
+      <tr class="fw-bold table-light">
+        <td colspan="2">Total</td>
+        <td class="text-end" id="sum-value">Ft 0</td>
+        <td class="text-end" id="sum-debt">Ft 0</td>
+        <td class="text-end" id="sum-net">Ft 0</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="result mb-3">
+    <strong>Nettó vagyon:</strong> <span id="nw-ft">Ft 0</span>
+    <span class="badge text-bg-primary" id="pct-chip">Percentilis: –</span>
+  </div>
+
+  <!-- Skála év választó -->
+  <div class="d-flex align-items-center gap-2 mb-1">
+    <label for="scale-year" class="form-label mb-0 small text-muted">
+      Skála éve a grafikonhoz:
+    </label>
+    <select id="scale-year" class="form-select form-select-sm" style="width:auto">
+      <option value="2014">2014</option>
+      <option value="2017">2017</option>
+      <option value="2020">2020</option>
+      <option value="2023">2023</option>
+      <option value="2025" selected>2025</option>
+    </select>
+  </div>
+
+  <div class="chart-wrap"><canvas id="percentileChart"></canvas></div>
+  <div id="pct-text" class="mt-2 small text-muted">Az értékek automatikusan frissülnek, ha új adatot adsz meg.</div>
+</div>
+
 <script>
 (function(){
   // === Percentilis küszöbök Ft-ban (1..100; 1 = leggazdagabb, 100 = legszegényebb) ===
   const PCT_DATA = {
     "2014": [
-      1071200, 312800, 223200, 182300, 159300, 138000, 124000, 114200, 104600, 100300,
-      94100, 88400, 83000, 78000, 73200, 68800, 66100, 63600, 61100, 58800,
-      56500, 54400, 52300, 50300, 48400, 46500, 44900, 43400, 42000, 40500,
-      39200, 37900, 36600, 35300, 34200, 33000, 32100, 31200, 30300, 29400,
-      28600, 27800, 27000, 26200, 25500, 24800, 24100, 23400, 22800, 22100,
-      21500, 21000, 20400, 19800, 19300, 18800, 18100, 17600, 17000, 16400,
-      15900, 15400, 14900, 14400, 14000, 13500, 12900, 12300, 11800, 11200,
-      10700, 10200, 9800, 9300, 8900, 8500, 7900, 7300, 6800, 6300,
-      5800, 5400, 5000, 4700, 4300, 4000, 3000, 2300, 1700, 1300,
-      1000, 800, 600, 400, 300, 300, 200, 100, 100, 0
+1071200, 312800, 223200, 182300, 159300, 138000, 124000, 114200, 104600, 100300,
+94100, 88400, 83000, 78000, 73200, 68800, 66100, 63600, 61100, 58800,
+56500, 54400, 52300, 50300, 48400, 46500, 44900, 43400, 42000, 40500,
+39200, 37900, 36600, 35300, 34200, 33000, 32100, 31200, 30300, 29400,
+28600, 27800, 27000, 26200, 25500, 24800, 24100, 23400, 22800, 22100,
+21500, 21000, 20400, 19800, 19300, 18800, 18100, 17600, 17000, 16400,
+15900, 15400, 14900, 14400, 14000, 13500, 12900, 12300, 11800, 11200,
+10700, 10200, 9800, 9300, 8900, 8500, 7900, 7300, 6800, 6300,
+5800, 5400, 5000, 4700, 4300, 4000, 3000, 2300, 1700, 1300,
+1000, 800, 600, 400, 300, 300, 200, 100, 100, 0
+
     ],
     "2017": [
-      1618000, 478300, 343000, 260000, 209800, 183500, 160800, 146100, 139100, 124500,
-      118200, 112300, 106600, 101200, 96100, 91300, 87600, 84200, 80900, 77700,
-      74600, 71700, 68800, 66100, 63500, 61000, 59300, 57600, 56000, 54400,
-      52800, 51300, 49900, 48500, 47100, 45800, 44600, 43400, 42300, 41200,
-      40200, 39100, 38100, 37100, 36200, 35300, 34300, 33300, 32400, 31400,
-      30600, 29700, 28900, 28100, 27300, 26500, 25700, 24900, 24100, 23300,
-      22600, 21900, 21200, 20500, 19900, 19300, 18400, 17700, 16900, 16200,
-      15500, 14900, 14200, 13600, 13100, 12500, 11500, 10600, 9800, 9000,
-      8300, 7600, 7000, 6500, 6000, 5500, 4600, 3900, 3300, 2800,
-      2300, 2000, 1700, 1400, 1200, 1000, 800, 500, 300, 0
+1618000, 478300, 343000, 260000, 209800, 183500, 160800, 146100, 139100, 124500,
+118200, 112300, 106600, 101200, 96100, 91300, 87600, 84200, 80900, 77700,
+74600, 71700, 68800, 66100, 63500, 61000, 59300, 57600, 56000, 54400,
+52800, 51300, 49900, 48500, 47100, 45800, 44600, 43400, 42300, 41200,
+40200, 39100, 38100, 37100, 36200, 35300, 34300, 33300, 32400, 31400,
+30600, 29700, 28900, 28100, 27300, 26500, 25700, 24900, 24100, 23300,
+22600, 21900, 21200, 20500, 19900, 19300, 18400, 17700, 16900, 16200,
+15500, 14900, 14200, 13600, 13100, 12500, 11500, 10600, 9800, 9000,
+8300, 7600, 7000, 6500, 6000, 5500, 4600, 3900, 3300, 2800,
+2300, 2000, 1700, 1400, 1200, 1000, 800, 500, 300, 0
+
     ],
     "2020": [
-      1918100, 774900, 555700, 421200, 339900, 297300, 260600, 236600, 225300, 201500,
-      193600, 185400, 177500, 169900, 162700, 155800, 149600, 143700, 138000, 132500,
-      127300, 122200, 117400, 112700, 108300, 104000, 100800, 97600, 94600, 91600,
-      88800, 86000, 83300, 80700, 78200, 75800, 73600, 71600, 69600, 67600,
-      65700, 63900, 62100, 60300, 58600, 57000, 55500, 54000, 52600, 51200,
-      49800, 48500, 47200, 45900, 44700, 43500, 42200, 40800, 39600, 38400,
-      37200, 36000, 34900, 33800, 32800, 31800, 30300, 28900, 27600, 26400,
-      25200, 24100, 23000, 21900, 20900, 20000, 18700, 17500, 16400, 15300,
-      14300, 13400, 12500, 11700, 11000, 10300, 8700, 7400, 6300, 5300,
-      4500, 3800, 3300, 2800, 2400, 2000, 1500, 1000, 500, 0
+1918100, 774900, 555700, 421200, 339900, 297300, 260600, 236600, 225300, 201500,
+193600, 185400, 177500, 169900, 162700, 155800, 149600, 143700, 138000, 132500,
+127300, 122200, 117400, 112700, 108300, 104000, 100800, 97600, 94600, 91600,
+88800, 86000, 83300, 80700, 78200, 75800, 73600, 71600, 69600, 67600,
+65700, 63900, 62100, 60300, 58600, 57000, 55500, 54000, 52600, 51200,
+49800, 48500, 47200, 45900, 44700, 43500, 42200, 40800, 39600, 38400,
+37200, 36000, 34900, 33800, 32800, 31800, 30300, 28900, 27600, 26400,
+25200, 24100, 23000, 21900, 20900, 20000, 18700, 17500, 16400, 15300,
+14300, 13400, 12500, 11700, 11000, 10300, 8700, 7400, 6300, 5300,
+4500, 3800, 3300, 2800, 2400, 2000, 1500, 1000, 500, 0
+
     ],
     "2023": [
-      2958100, 1195100, 857000, 649600, 524100, 458400, 401800, 364900, 347500, 310700,
-      298600, 285900, 273700, 262100, 250900, 240200, 230700, 221600, 212800, 204400,
-      197800, 190000, 182500, 175200, 168300, 161600, 156600, 151700, 147000, 142400,
-      140200, 135900, 131600, 127500, 123500, 119700, 116300, 113100, 109900, 106800,
-      104500, 101500, 98700, 95900, 93200, 90600, 88200, 85800, 83600, 81300,
-      78600, 76500, 74500, 72500, 70500, 68700, 66500, 64500, 62500, 60500,
-      59200, 57400, 55600, 53900, 52200, 50600, 48300, 46100, 44000, 42100,
-      41100, 39300, 37500, 35800, 34200, 32700, 30500, 28600, 26700, 25000,
-      21500, 20100, 18800, 17600, 16400, 15400, 13100, 11100, 9400, 8000,
-      6800, 5800, 4900, 4200, 3500, 3000, 2300, 1500, 700, 0
+     2958100, 1195100, 857000, 649600, 524100, 458400, 401800, 364900, 347500, 310700, 298600, 285900, 273700, 262100, 250900, 240200, 230700, 221600, 212800, 204400, 197800, 190000, 182500, 175200, 168300, 161600, 156600, 151700, 147000, 142400, 140200, 135900, 131600, 127500, 123500, 119700, 116300, 113100, 109900, 106800, 104500, 101500, 98700, 95900, 93200, 90600, 88200, 85800, 83600, 81300, 78600, 76500, 74500, 72500, 70500, 68700, 66500, 64500, 62500, 60500, 59200, 57400, 55600, 53900, 52200, 50600, 48300, 46100, 44000, 42100, 41100, 39300, 37500, 35800, 34200, 32700, 30500, 28600, 26700, 25000, 21500, 20100, 18800, 17600, 16400, 15400, 13100, 11100, 9400, 8000, 6800, 5800, 4900, 4200, 3500, 3000, 2300, 1500, 700, 0
+
     ],
     "2025": [
-      4437100, 1732900, 1242600, 941900, 760000, 664700, 582700, 529100, 503900, 463000,
-      444900, 426000, 407800, 390500, 373800, 357900, 343700, 330100, 317100, 304500,
-      294700, 283100, 271900, 261100, 250800, 240800, 233300, 226000, 219000, 212200,
-      210300, 203800, 197400, 191300, 185300, 179500, 174500, 169600, 164800, 160200,
-      156700, 152300, 148000, 143900, 139800, 135900, 132300, 128800, 125300, 122000,
-      117900, 114800, 111700, 108700, 105800, 103000, 99800, 96700, 93700, 90800,
-      88800, 86100, 83400, 80800, 78300, 75900, 72500, 69200, 66100, 63100,
-      61700, 58900, 56300, 53700, 51300, 45700, 42800, 40000, 37400, 35000,
-      30100, 28100, 26300, 24600, 23000, 21500, 18300, 15500, 13200, 11200,
-      9500, 8100, 6900, 5800, 4900, 4200, 3200, 2000, 900, 0
+     4437100, 1732900, 1242600, 941900, 760000, 664700, 582700, 529100, 503900, 463000, 444900, 426000, 407800, 390500, 373800, 357900, 343700, 330100, 317100, 304500, 294700, 283100, 271900, 261100, 250800, 240800, 233300, 226000, 219000, 212200, 210300, 203800, 197400, 191300, 185300, 179500, 174500, 169600, 164800, 160200, 156700, 152300, 148000, 143900, 139800, 135900, 132300, 128800, 125300, 122000, 117900, 114800, 111700, 108700, 105800, 103000, 99800, 96700, 93700, 90800, 88800, 86100, 83400, 80800, 78300, 75900, 72500, 69200, 66100, 63100, 61700, 58900, 56300, 53700, 51300, 45700, 42800, 40000, 37400, 35000, 30100, 28100, 26300, 24600, 23000, 21500, 18300, 15500, 13200, 11200, 9500, 8100, 6900, 5800, 4900, 4200, 3200, 2000, 900, 0
+
     ]
   };
 
@@ -112,20 +217,16 @@
         },
         scales:{
           x:{grid:{display:false},ticks:{autoSkip:true,maxRotation:0}},
-          y: {
-  beginAtZero: true,
-  max: 5000000,
-  suggestedMax: 5000000,
-  ticks: {
-    stepSize: 250000,
-    callback: (value) => {
-      const n = Number(value);
-      if (isNaN(n)) return "";
-      if (n === 0) return "0";
-      return (n / 1_000_000).toFixed(1).replace(".0","") + "M";
-    }
-  }
-}
+          y:{
+            beginAtZero:true,
+            suggestedMax: 5000000,   // fix: 1,8 Mrd
+            max: 5000000,
+            ticks:{
+              stepSize: 250000,      // fix: 100M lépték
+              callback: (v) => (v/1e6)+"M"
+            }
+          }
+        }
       }
     });
   }
@@ -137,7 +238,7 @@
 
     chart.data.datasets[0].data = getChartBars();
 
-    // Y-skála minden évre fix: 0–5M, 250k lépés
+    // Y-skála fix marad: 0–1.8Mrd, 100M lépés
     chart.options.scales.y.max = 5000000;
     chart.options.scales.y.suggestedMax = 5000000;
     chart.options.scales.y.ticks.stepSize = 250000;
