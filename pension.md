@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Nyugdíjkalkulátor
+title: Pension calculator
 permalink: /pension
 ---
 
