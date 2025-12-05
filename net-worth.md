@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Net worth calculator
+title: Nettó vagyon kalkulátor
 permalink: /net-worth
 ---
 
@@ -22,66 +22,98 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
 
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
-   <p>This calculator shows you how much net wealth you have compared to Hungarian households, based on the data supplied by the Hungarian National Bank (MNB). The percentiles (dividing the total population into 100 equal parts) were created using data from MNB for 2014, 2017, 2020 and 2023, and have been adjusted for the estimated wealth growth between 2023 and 2025. The calculation also includes the value of your primary residence, so make sure to include that. The calculation is done in forints (taking an exchange rate of 400 HUF per euro into account). In the chart below, you can also look at wealth levels for several periods and compare your wealth level to those (but naturally, the 2025 table reflects the current wealth percentiles).</p>
+     <p>Ez a kalkulátor megmutatja, hogy az MNB adatai alapján mennyi nettó vagyonod van a magyar háztartásokhoz képest. A percentilisek (a teljes lakosság 100 egyenlő részre bontva) a Magyar Nemzeti Bank (MNB) 2014, 2017, 2020, és 2023-as adatai alapján készültek, és módosítva lettek a 2023 és 2025 közötti becsült vagyonnövekedéssel. A számítás tartalmazza az elsődleges lakóingatlan értékét is, ezért azt mindenképpen vedd bele. A számítás forintban történik (400 Ft-os euró-forint árfolyamot figyelembe véve). A lenti grafikában több időszak vagyoni szintjeit is megnézheted, és ahhoz hasonlíthatod a vagyonod szintjét (de értelemszerűen a 2025-ös táblázat tükrözi a jelenlegi vagyoni szinteket).</p>
+  </div>
 
   <table class="table table-bordered bg-white" id="nw-table">
     <thead class="table-light">
       <tr>
-        <th style="width:15%">Categories</th>
-        <th>Items</th>
-        <th class="text-end" style="width:15%">Market value (€)</th>
-        <th class="text-end" style="width:15%">Mortgage (€)</th>
-        <th class="text-end" style="width:15%">Net value</th>
+        <th style="width:15%">Kategóriák</th>
+        <th>Vagyonelemek</th>
+        <th class="text-end" style="width:15%">Piaci ár (Ft)</th>
+        <th class="text-end" style="width:15%">Hitel összege (Ft)</th>
+        <th class="text-end" style="width:15%">Nettó érték</th>
         <th style="width:4%"></th>
       </tr>
     </thead>
     <tbody id="rows">
-      <tr class="table-secondary"><td colspan="6">🏠 Real estate</td></tr>
+      <tr class="table-secondary"><td colspan="6">🏠 Ingatlanok</td></tr>
       <tr id="prop-anchor"></tr>
-      <tr><td colspan="6"><button class="btn btn-outline-secondary" id="add-prop" type="button">➕ Add property</button></td></tr>
+      <tr><td colspan="6"><button class="btn btn-outline-secondary" id="add-prop" type="button">➕ Ingatlan hozzáadása</button></td></tr>
 
-      <tr class="table-secondary"><td colspan="6">📊 Investments</td></tr>
-      <tr data-type="inv"><td>📦</td><td>Private pension</td>
-        <td><input type="number" data-field="value" value="0"></td><td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">€0</td><td></td></tr>
-      <tr data-type="inv"><td>🏛️</td><td>Government bonds</td>
-        <td><input type="number" data-field="value" value="0"></td><td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">€0</td><td></td></tr>
-      <tr data-type="inv"><td>🧾</td><td>Tax-efficient investments</td>
-        <td><input type="number" data-field="value" value="0"></td><td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">€0</td><td></td></tr>
-      <tr data-type="inv"><td>📈</td><td>Other investments</td>
-        <td><input type="number" data-field="value" value="0"></td><td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">€0</td><td></td></tr>
+      <tr class="table-secondary"><td colspan="6">📊 Befektetések</td></tr>
+      <tr data-type="inv"><td>📦</td><td>Nyugdíjpénztár</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+      <tr data-type="inv"><td>🏛️</td><td>Állampapírok</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+      <tr data-type="inv"><td>🧾</td><td>Tartós befektetési számla</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+      <tr data-type="inv"><td>📈</td><td>Egyéb befektetések</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
 
-      <tr class="table-secondary"><td colspan="6">💶 Other assets</td></tr>
-      <tr data-type="asset"><td>🚗</td><td>Cars and other assets</td>
-        <td><input type="number" data-field="value" value="0"></td><td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">€0</td><td></td></tr>
+      <tr class="table-secondary"><td colspan="6">💶 Egyéb vagyontárgyak</td></tr>
+      <tr data-type="asset"><td>🚗</td><td>Autó- és egyéb vagyontárgyak</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
 
-      <tr class="table-secondary"><td colspan="6">➖ Liabilities</td></tr>
-      <tr data-type="liab"><td>💳</td><td>Other liabilities</td>
+      <tr class="table-secondary"><td colspan="6">➖ Hitelek</td></tr>
+      <tr data-type="liab"><td>💳</td><td>Egyéb hitelek</td>
         <td><input type="number" data-field="value" value="0" disabled></td>
         <td><input type="number" data-field="debt" value="0"></td>
-        <td class="text-end mono" data-cell="net">€0</td><td></td></tr>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
 
       <tr class="fw-bold table-light">
         <td colspan="2">Total</td>
-        <td class="text-end" id="sum-value">€0</td>
-        <td class="text-end" id="sum-debt">€0</td>
-        <td class="text-end" id="sum-net">€0</td>
+        <td class="text-end" id="sum-value">Ft 0</td>
+        <td class="text-end" id="sum-debt">Ft 0</td>
+        <td class="text-end" id="sum-net">Ft 0</td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
   <div class="result mb-3">
-    <strong>Net worth:</strong> <span id="nw-eur">€0</span>
-    <span class="badge text-bg-primary" id="pct-chip">Percentile: –</span>
+    <strong>Nettó vagyon:</strong> <span id="nw-ft">Ft 0</span>
+    <span class="badge text-bg-primary" id="pct-chip">Percentilis: –</span>
+  </div>
+
+  <!-- Skála év választó -->
+  <div class="d-flex align-items-center gap-2 mb-1">
+    <label for="scale-year" class="form-label mb-0 small text-muted">
+      Skála éve a grafikonhoz:
+    </label>
+    <select id="scale-year" class="form-select form-select-sm" style="width:auto">
+      <option value="2014">2014</option>
+      <option value="2017">2017</option>
+      <option value="2020">2020</option>
+      <option value="2023">2023</option>
+      <option value="2025" selected>2025</option>
+    </select>
   </div>
 
   <div class="chart-wrap"><canvas id="percentileChart"></canvas></div>
-  <div id="pct-text" class="mt-2 small text-muted">Your totals are automatically updated when entering new values.</div>
+  <div id="pct-text" class="mt-2 small text-muted">Az értékek automatikusan frissülnek, ha új adatot adsz meg.</div>
 </div>
 
 <script>
@@ -187,10 +219,10 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
           x:{grid:{display:false},ticks:{autoSkip:true,maxRotation:0}},
           y:{
             beginAtZero:true,
-            suggestedMax: 5000000,   // fix: 5M euro
+            suggestedMax: 5000000,   // fix: 1,8 Mrd
             max: 5000000,
             ticks:{
-              stepSize: 250000,      // fix: 250k lépték
+              stepSize: 250000,      // fix: 100M lépték
               callback: (v) => (v/1e6)+"M"
             }
           }
@@ -207,7 +239,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
     chart.data.datasets[0].data = getChartBars();
 
     // Y-skála fix marad: 0–1.8Mrd, 100M lépés
-    chart.options.scales.y.max = 5000000;
+    chart.options.scales.y.max = 1800000000;
     chart.options.scales.y.suggestedMax = 5000000;
     chart.options.scales.y.ticks.stepSize = 250000;
 
@@ -270,7 +302,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
 
     document.getElementById("pct-chip").textContent = "Top "+pct+"% ("+currentYear+")";
     document.getElementById("pct-text").textContent =
-      `Your net worth is ${fmtFt(sumN)}, which makes you richer than ${100-pct}% of households (Top ${pct}%, ${currentYear} scale).`;
+      `A nettó becsült vagyonod ${fmtFt(sumN)}, amivel a háztartások ${100-pct}%-ánál vagyonosabb vagy (Top ${pct}%, ${currentYear}-es skála).`;
 
     highlight(pct);
   }
@@ -303,4 +335,3 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
   });
 })();
 </script>
-
