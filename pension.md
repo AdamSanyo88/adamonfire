@@ -207,7 +207,7 @@ input[type="number"] {
   <div class="wrap">
     <br/>
 	<h5>Hogyan használd a kalkulátort?</h5>
-    <p>Add meg az <strong>éves bruttó kereseteidet minden általad ledolgozott évben</strong>. Csak a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj.</p>
+    <p>Először add meg a szolgálati éveid számát (ami megadja, mekkora szorzóval számolódik majd a kereseted). Ezt követően add meg az <strong>éves bruttó kereseteidet minden általad ledolgozott évben</strong>. Csak a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj.</p>
 	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad.</p>
 	<p><strong>Fontos:</strong> A kalkulátor nem számol a 2013 előtti éves járulékplafonnal, de a táblázat megmutatja, hogy milyen éves bruttó bér volt a maximum, amelyre nyugdíjjárulékot kellett fizetni. Ennél nagyobb bruttó éves összeget ne adj meg az adott években.</p>
 	<p>Mindig egész éves keresetet adj meg. A kalkulátor folyamatosan újrakalkulálja az átlagos életkeresetet, szóval ha csak pár évet dolgoztál, azt feltételezi, hogy a jövőben is ilyen bérszinten fogsz keresni. Ezért fontos, hogy minden éves adatot adj meg a pontosabb kalkulációhoz.</p>
@@ -226,10 +226,12 @@ input[type="number"] {
   <div class="grid">
     <div class="left card">
       <div class="row" style="margin-bottom:12px">
-        <label for="serviceYears"><strong>Szolgálati évek száma</strong></label>
+        <label for="serviceYears"><h5>1. Szolgálati éveid száma</h5></label>
         <input id="serviceYears" type="range" min="10" max="50" step="1" value="40" />
         <strong id="serviceYearsLabel">40 év</strong>
       </div>
+
+<h5>2. Járulékköteles éves jövedelmek</h5>
 
  <!-- === QUICK FILL (new) === -->
       <div class="row" style="margin-bottom:12px; align-items:flex-start;">
@@ -237,12 +239,13 @@ input[type="number"] {
           <span class="inline-label">Quick fill with wage levels relative to the gross average wage:</span>
           <button class="btn sm" type="button" id="fill40">40% (~minimum wage)</button>
           <button class="btn sm" type="button" id="fill60">60% (bottom ~30%)</button>
-          <button class="btn sm" type="button" id="fill80">80% (median wage)</button>
+          <button class="btn sm" type="button" id="fill80">80% (median wage)</button> 
           <button class="btn sm" type="button" id="fill100">100% (average wage)</button>
           <button class="btn sm" type="button" id="fill150">150% (top 15%)</button>
           <button class="btn sm" type="button" id="fill275">275% (top 5%)</button>
         </div>
       </div>
+
 
       <div style="max-height:55vh; overflow:auto; border-radius:12px; border:1px solid rgba(0,0,0,.06)">
         <table>
