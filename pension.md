@@ -206,32 +206,33 @@ input[type="number"] {
 <body>
   <div class="wrap">
     <br/>
-	<h5>Hogyan használd a kalkulátort?</h5>
-    <p>Először add meg a <strong>szolgálati éveid számát</strong> (ami megadja, mekkora szorzóval számolódik majd a kereseted). Ezt követően add meg az <strong>éves bruttó kereseteidet minden általad ledolgozott évben</strong>. Csak a munkabérként és prémiumként kapott bejelentett és leadózott jövedelemmel számolj.</p>
-	<p>A kalkulátor figyelembe veszi az adott év <em>valorizációs szorzóját</em>, a <em>szolgálati idő szorzóját</em>, a lépcsőzetes <em>degressziót</em>, és ezek alapján kiszámolja, mi a várható havi nyugdíjad.</p>
-	<p><strong>Fontos:</strong> A kalkulátor nem számol a 2013 előtti éves járulékplafonnal, de a táblázat megmutatja, hogy milyen éves bruttó bér volt a maximum, amelyre nyugdíjjárulékot kellett fizetni. Ennél nagyobb bruttó éves összeget ne adj meg az adott években.</p>
-	<p>Mindig egész éves keresetet adj meg. A kalkulátor folyamatosan újrakalkulálja az átlagos életkeresetet, szóval ha csak pár évet dolgoztál, azt feltételezi, hogy a jövőben is ilyen bérszinten fogsz keresni. Ezért fontos, hogy minden éves adatot adj meg a pontosabb kalkulációhoz.</p>
-	<br/>
-	<h5>Nyugdíjszámítás menete a gyakorlatban</h5>
-	<ol>
-	<li>Az egész élet során szerzett szolgálati évek egész számban, lefelé kerekítve (a törtév elvész).</li>
-	<li>Az 1988 január 1-je óta szerzett jövedelmek nettósított éves értéke (először levonjuk a nyugdíjjárulékot, majd ebből az összegből az adót).</li>
-	<li>A nettó értékeket minden évben fel kell szorozni az éves valorizációs szorzóval. Ez megmutatja, hogy mai áron számolva az akkori kereset mennyit ért. Gyakorlatban a fő szempont az, hogy az adott éves jövedelem az adott év nettó átlagkeresete alatt vagy felett volt-e (ez határozza meg a relatív értékét).</li>
-	<li>A kapott összegeket el kell osztani a teljes szolgálati idővel (napokban számolva). Ezt az összeget utána fel kell szorozni 365-tel, majd osztani 12-vel, így megkapva a havi nettó életpálya átlagkeresetet.</li>
-	<li>Ha az így kapott összeg meghaladja a 372 ezer Ft-ot havonta, akkor degresszálni kell (először 90%-kal, majd 421 ezer Ft felett 80%-kal). </li>
-	<li>Végül az így kapott összeget meg kell szorozni a szolgálati évekre eső szorzóval (20 év után ez 53%, 30 évnél 68%, 40 évnél 80%, stb.). A maximális szolgálati idő 50 év, a minimális 15 év (de a kalkulátor 10-15 év közötti időszakra is tud számítást végezni).</li>
-	</ol>
-	<p>Az adatok tájékoztató jellegűek, pontosabb számításra a <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/oregsegi-nyugdij/onkiszolgalo-nyugdijkalkulator">Magyar Államkincstár nyugdíjkalkulátora</a> javasolt.</p>
+		<h5>How to use the calculator?</h5>
+<p>First, enter the <strong>number of qualifying years</strong> (which determines the multiplier applied to your earnings). Then provide your <strong>annual gross earnings for each year you worked</strong>. Only include officially declared and taxed income received as wages or bonuses.</p>
+<p>The calculator takes into account the given year’s <em>valorization multiplier</em>, the <em>qualifying years multiplier</em>, and the tiered <em>degression</em>, and based on these values, it calculates your expected monthly pension.</p>
+<p><strong>Important:</strong> The calculator does not account for the annual contribution cap prior to 2013, but the table shows the maximum annual gross income on which pension contributions had to be paid. Do not enter a higher annual gross amount than this for those years.</p>
+<p>Always enter full-year earnings. The calculator continuously recalculates the average lifetime earnings, so if you have worked only a few years, it assumes that you will continue to earn at a similar level in the future. Therefore, it is important to enter all yearly data for a more accurate calculation.</p>
+<br/>
+<h5>The actual steps of pension calculations</h5>
+<ol>
+<li>The total years of service earned during your lifetime, rounded down to whole years (partial years are lost).</li>
+<li>The net annual value of earnings received since January 1, 1988 (first pension contributions are deducted, then the income tax).</li>
+<li>The net values must be multiplied each year by the annual valorization multiplier. This shows how much previous earnings are worth in today's terms. In practice, the key factor is whether the given year's income was below or above that year's net average wage (this determines its relative value).</li>
+<li>The resulting amounts must be divided by the total qualying years (calculated in days). This amount must then be multiplied by 365 and divided by 12 to obtain the monthly net average lifetime earnings.</li>
+<li>If the resulting amount exceeds 372,000 HUF per month, it must be degressed (first at 90%, then above 421,000 HUF at 80%).</li>
+<li>Finally, the resulting amount must be multiplied by the multiplier corresponding to the qualifying years (after 20 years this is 53%, at 30 years 68%, at 40 years 80%, etc.). The maximum is 50 years, the minimum is 15 years (but the calculator can also calculate for the 10–15 year range).</li>
+</ol>
+<p>The information is for guidance only. For more accurate calculations, use the <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/oregsegi-nyugdij/onkiszolgalo-nyugdijkalkulator">Hungarian State Treasury's pension calculator</a>.</p>
+
 
   <div class="grid">
     <div class="left card">
       <div class="row" style="margin-bottom:12px">
-        <label for="serviceYears"><h5>1. Szolgálati éveid száma</h5></label>
+        <label for="serviceYears"><h5>1. Qualifying years</h5></label>
         <input id="serviceYears" type="range" min="10" max="50" step="1" value="40" />
-        <strong id="serviceYearsLabel">40 év</strong>
+        <strong id="serviceYearsLabel">40 years</strong>
       </div>
 
-<h5>2. Járulékköteles éves jövedelmek</h5>
+<h5>2. Annual gross income</h5>
 
  <!-- === QUICK FILL (new) === -->
       <div class="row" style="margin-bottom:12px; align-items:flex-start;">
@@ -251,15 +252,15 @@ input[type="number"] {
         <table>
           <thead>
             <tr>
-              <th>Év</th>
-              <th>Szorzó</th>
-              <th>Éves bruttó kereset (Ft)</th>
-              <th>Valorizált éves kereset</th>
-              <th>Éves bruttó átlagkeresetek (irányadó)</th>
-              <th>Éves bruttó kereset járulékplafonja</th>
-              <th>Járulék levonás után</th>
-              <th>Fizetendő adó</th>
-              <th>Éves nettó kereset</th>
+              <th>Year</th>
+              <th>Multiplier</th>
+              <th>Annual gross income (Ft)</th>
+              <th>Indexed gross income</th>
+              <th>Yearly gross income (indicative)</th>
+              <th>Pension cap on gross yearly income</th>
+              <th>Insurance deductions</th>
+              <th>Taxes</th>
+              <th>Yearly net income</th>
             </tr>
           </thead>
           <tbody id="rows"></tbody>
@@ -267,14 +268,14 @@ input[type="number"] {
       </div>
 
       <div class="row" style="margin-top:12px">
-        <button id="reset" class="btn" type="button">Összes mező törlése</button>
+        <button id="reset" class="btn" type="button">Clear all fields</button>
         <span id="serviceInfo" class="muted"></span>
       </div>
     </div>
 
     <div class="right">
       <div class="card">
-        <div class="result" id="result">— <small>havi várható nyugdíj</small></div>
+        <div class="result" id="result">— <small>expected monthly pension</small></div>
         <hr style="border:none;border-top:1px solid rgba(0,0,0,.08); margin:14px 0" />
         <div class="muted" id="breakdown"></div>
       </div>
@@ -645,14 +646,14 @@ function recalc(){
   serviceLabel.textContent=`${years} év`;
 
   infoEl.textContent=
-    `Szolgálati szorzó: ${sMultPct} | Éves valorizált összes: ${formatFt(sumValorizalt)} | / ${divisor} megadott év = ${formatFt(avgPerEntered)}`;
+    `Qualifying years multiplier: ${sMultPct} | Annual indexed total: ${formatFt(sumValorizalt)} | / ${divisor} years entered = ${formatFt(avgPerEntered)}`;
 
   breakdownEl.innerHTML=
-    `Összes valorizált kereset (járulék+adó után): <strong>${formatFt(sumValorizalt)}</strong><br/>
-     Havi életpálya átlagkereset: <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
-     Degresszió:<br/>- ${prog.parts.join('<br/>- ')}<br/>
-     Degresszió utáni havi: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
-     Szolgálati szorzó: ×<strong>${sMultPct}</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
+    `Total indexed income (after tax and insurance): <strong>${formatFt(sumValorizalt)}</strong><br/>
+     Monthly average lifetime income: <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
+     Degression:<br/>- ${prog.parts.join('<br/>- ')}<br/>
+     After degression monthly: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
+     Qualifying years multiplier: ×<strong>${sMultPct}</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
 }
 
 /* === QUICK FILL logic (new) === */
