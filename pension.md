@@ -258,8 +258,8 @@ input[type="number"] {
               <th>Indexed gross income</th>
               <th>Yearly gross income (indicative)</th>
               <th>Pension cap on gross yearly income</th>
-              <th>Insurance deductions</th>
-              <th>Taxes</th>
+              <th>After insurance deduct.</th>
+              <th>Income tax</th>
               <th>Yearly net income</th>
             </tr>
           </thead>
@@ -642,8 +642,8 @@ function recalc(){
   const monthlyAfterDegression=prog.value;
   const finalMonthly=monthlyAfterDegression*sMult;
 
-  resultEl.innerHTML=`${formatFt(finalMonthly)} <small>havi várható nyugdíj</small>`;
-  serviceLabel.textContent=`${years} év`;
+  resultEl.innerHTML=`${formatFt(finalMonthly)} <small>expected monthly pension</small>`;
+  serviceLabel.textContent=`${years} years`;
 
   infoEl.textContent=
     `Qualifying years multiplier: ${sMultPct} | Annual indexed total: ${formatFt(sumValorizalt)} | / ${divisor} years entered = ${formatFt(avgPerEntered)}`;
