@@ -29,9 +29,9 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
     <thead class="table-light">
       <tr>
         <th style="width:15%">Categories</th>
-        <th>Vagyonelemek</th>
-        <th class="text-end" style="width:15%">Market value (Ft)</th>
-        <th class="text-end" style="width:15%">Mortgage (Ft)</th>
+        <th>Assets</th>
+        <th class="text-end" style="width:15%">Market value (EUR)</th>
+        <th class="text-end" style="width:15%">Mortgage (EUR)</th>
         <th class="text-end" style="width:15%">Net equity</th>
         <th style="width:4%"></th>
       </tr>
@@ -45,25 +45,25 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
       <tr data-type="inv"><td>📦</td><td>Pension</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td class="text-end mono" data-cell="net">EUR 0</td>
         <td></td>
       </tr>
       <tr data-type="inv"><td>🏛️</td><td>Bonds</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td class="text-end mono" data-cell="net">EUR 0</td>
         <td></td>
       </tr>
       <tr data-type="inv"><td>🧾</td><td>Tax-advantageous accounts</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td class="text-end mono" data-cell="net">EUR 0</td>
         <td></td>
       </tr>
       <tr data-type="inv"><td>📈</td><td>Other investment accounts</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td class="text-end mono" data-cell="net">EUR 0</td>
         <td></td>
       </tr>
 
@@ -71,7 +71,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
       <tr data-type="asset"><td>🚗</td><td>Car and other investments</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td class="text-end mono" data-cell="net">EUR 0</td>
         <td></td>
       </tr>
 
@@ -79,22 +79,22 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
       <tr data-type="liab"><td>💳</td><td>Other loans</td>
         <td><input type="number" data-field="value" value="0" disabled></td>
         <td><input type="number" data-field="debt" value="0"></td>
-        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td class="text-end mono" data-cell="net">EUR 0</td>
         <td></td>
       </tr>
 
       <tr class="fw-bold table-light">
         <td colspan="2">Total</td>
-        <td class="text-end" id="sum-value">Ft 0</td>
-        <td class="text-end" id="sum-debt">Ft 0</td>
-        <td class="text-end" id="sum-net">Ft 0</td>
+        <td class="text-end" id="sum-value">EUR 0</td>
+        <td class="text-end" id="sum-debt">EUR 0</td>
+        <td class="text-end" id="sum-net">EUR 0</td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
   <div class="result mb-3">
-    <strong>Net worth:</strong> <span id="nw-ft">Ft 0</span>
+    <strong>Net worth:</strong> <span id="nw-ft">EUR 0</span>
     <span class="badge text-bg-primary" id="pct-chip">Percentile: –</span>
   </div>
 
@@ -170,7 +170,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
   };
 
   const LABELS = Array.from({length:100},(_,i)=>String(100-i)); // 100 -> 1
-  const CURRENCY = "Ft";
+  const CURRENCY = "EUR";
   const LOCALE = "hu-HU";
 
   function fmtFt(n){
@@ -211,7 +211,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
           tooltip:{
             callbacks:{
               title: items => items && items[0] ? ("Percentilis "+items[0].label) : "",
-              label:  item  => "Medián vagyon " + fmtFt(item.raw)
+              label:  item  => "Median wealth " + fmtFt(item.raw)
             }
           }
         },
@@ -261,10 +261,10 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
   function addProperty(){
     const anchor=document.getElementById("prop-anchor");
     const tr=document.createElement("tr"); tr.dataset.type="prop";
-    tr.innerHTML=`<td>🏠</td><td>Ingatlan</td>
+    tr.innerHTML=`<td>🏠</td><td>Real estate</td>
       <td><input type="number" data-field="value" value="0"></td>
       <td><input type="number" data-field="debt" value="0"></td>
-      <td class="text-end mono" data-cell="net">Ft 0</td>
+      <td class="text-end mono" data-cell="net">EUR 0</td>
       <td><button class="btn btn-sm btn-outline-danger" type="button">✖</button></td>`;
     anchor.parentNode.insertBefore(tr,anchor);
   }
