@@ -14,8 +14,8 @@ permalink: /consulting
       <br/>
 
       <section class="pricing-tiers" style="font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color:#0f172a; padding:24px;">
-        <h2 style="text-align:center; font-size:clamp(1.4rem, 2.5vw, 2rem); margin:0 0 16px;">Tanácsadási szolgáltatások</h2>
-        <p style="text-align:center; color:#475569; margin:0 0 24px;">Átlátható, egyszerű díjazás két csomagban: óradíjas tanácsadás, vagy vagyontervezés megállapodás szerint.</p>
+        <h2 style="text-align:center; font-size:clamp(1.4rem, 2.5vw, 2rem); margin:0 0 16px;">Consulting options</h2>
+        <p style="text-align:center; color:#475569; margin:0 0 24px;">You can choose either an hourly consultation or wealth planning for more complex cases.</p>
 
         <div class="cards" style="display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:16px; align-items:stretch;">
           <!-- 1) Coaching / Tanácsadás -->
