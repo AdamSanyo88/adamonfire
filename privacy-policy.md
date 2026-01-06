@@ -32,7 +32,6 @@ permalink: /privacy-policy
           <li><strong>Egyéni vállalkozói nyilvántartási száma:</strong> xxx</li>
           <li><strong>Adószám:</strong> xxx</li>
           <li><strong>E-mail:</strong> <a href="mailto:adamsanyo@goefire.com">adamsanyo@goesfire.com</a></li>
-          <li><strong>Telefonszám:</strong> <a href="tel:+36307681656">+36307681656</a></li>
         </ul>
       </div>
 
@@ -188,9 +187,9 @@ permalink: /privacy-policy
     <section id="zaro">
       <h4>11. Záró rendelkezések</h4>
       <h5>11.1. Az adatkezelési tájékoztató hatálya és módosításának lehetőségei</h5>
-      <p>Jelen Tájékoztató 2025.09.10. napjától hatályos.</p>
+      <p>Jelen Tájékoztató 2026. 01. 06. napjától hatályos.</p>
       <p>Az Adatkezelő jogosult a Tájékoztató egyoldalú módosítására, különösen a jogszabályi változások, új adatkezelési tevékenységek bevezetése vagy a felügyeleti hatóság ajánlásainak figyelembevétele érdekében. A módosításokat a weboldalon közzétesszük, és a hatálybalépést követően az érintettek elfogadják az új szabályokat a szolgáltatások további használatával.</p>
-      <p><strong>Kelt:</strong> Budapest, 2025.09.10.<br>
+      <p><strong>Kelt:</strong> Budapest, 2026.01.06.<br>
       <strong>Sanyó Ádám</strong></p>
     </section>
 

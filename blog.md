@@ -4,7 +4,7 @@ title: FIRE blog
 permalink: /blog
 ---
 
-<h1 class="page-title">{{ page.title | escape }}</h1>
+<h1 class="page-title">{{ page.title | escape }}</h1> 
     
 <div class="section">
     <div class="row">
@@ -30,4 +30,4 @@ permalink: /blog
 <br/>
 <h5>550 days to go</h5>
 <p>I recently did a calculation on my FIRE portfolio and if all goes well, I can pull the trigger in mid-2026, so in about 550 days. My only concerns are the following:<p/>
-<p>The markets are still overvalued with S&P500 standing over 6,000 and Nasdaq-100 being at 21,500 points... <a href="blog-1"><strong> continue reading here</strong></a>.</p>
+<p>The markets are still overvalued with S&P500 standing over 6,000 and Nasdaq-100 being at 21,500 points... <a href="blog-1"><strong> continue reading here</strong></a>.</p> 

@@ -26,7 +26,7 @@ permalink: /resources
 <br/>
 <h6><strong><a href="spending">Household expenses calculator</a></strong> - how does the average household spend its budget?</h6>
 <br/>
-<h6><strong><a href="pension">Hungarian pension calculator</a></strong> - what is your expected monthly state pension?</h6>
+<h6><strong><a href="pension">Hungarian pension calculator</a></strong> - what is your expected monthly state pension?</h6> 
 <br/>
 <h6><strong><a href="inflation">Personal inflation calculator</a></strong> - how much is your personal inflation based on your spending habits?</h6>
 

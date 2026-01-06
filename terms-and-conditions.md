@@ -12,78 +12,42 @@ permalink: /terms-and-conditions
 
   <h4>1. Szolgáltató adatai</h4>
   
-    <p><strong>Szolgáltató neve:</strong> Sanyó Ádám E.V</p>
+    <p><strong>Szolgáltató neve:</strong> Sanyó Ádám egyéni vállalkozó</p>
     <p><strong>Székhely / levelezési cím:</strong> 1045 Budapest, Chinoin utca 4. 1/4</p>
     <p><strong>Adószám / egyéni vállalkozói nyilvántartási szám:</strong> XXX</p>
-    <p><strong>Elérhetőség:</strong> adamgoesfire@gmail.com, +36307681656</p>
+    <p><strong>Elérhetőség:</strong> adamgoesfire@gmail.com</p>
     <p><strong>Weboldal:</strong> adamonfire.hu és adamonfire.eu</p>
   
 
   <h4>2. A szolgáltatás tárgya</h4>
+  <p>A Szolgáltató <strong>FIRE (Financial Independence, Retire Early) coaching</strong> szolgáltatást nyújt ügyfeleinek tanácsadás formájában.</p>
+  <p>A coaching keretében a Szolgáltató támogatást nyújt pénzügyi tervezés, megtakarítás, nyugdíjtervezés, karrierválasztás, és egyéb, a FIRE coaching témakörébe eső ügyekben.</p>
+
   <p>
-    A Szolgáltató <strong>FIRE (Financial Independence, Retire Early) coaching</strong> szolgáltatásokat nyújt ügyfeleinek különböző csomagok (tiers) formájában.
-    A coaching keretében a Szolgáltató támogatást nyújt pénzügyi tervezés, megtakarítás, nyugdíjtervezés, karrierválasztás, és egyéb, a FIRE coaching témakörébe eső ügyekben.
-  </p>
-  <p>
-    <strong>Fontos!</strong> A coaching szolgáltatás nem minősül pénzügyi tanácsadásnak, befektetési szolgáltatásnak, adó-, jogi- vagy pszichológiai tanácsadásnak. A döntések felelőssége teljes mértékben az Ügyfelet terheli.
+    <strong>Fontos:</strong> A coaching szolgáltatás nem minősül pénzügyi tanácsadásnak, befektetési szolgáltatásnak, adó-, jogi- vagy pszichológiai tanácsadásnak. A coaching csupán iránymutatást ad, a meghozott döntések felelőssége teljes mértékben az Ügyfelet terhelik.
   </p>
 
   <h4>3. Szolgáltatási csomagok</h4>
   
-    <p><strong>0. szint – FIRE Starter</strong> (ingyenes)
-      
-        <p>1 × 20 perces ingyenes felmérő hívás</p>
-		<p>A hívás célja felmérni, hogy az Ügyfél az általa választott csomagban foglaltakat megértette és tényleg szüksége van a szolgáltatásra</p>
-		<p>A szolgáltató a hívás eredményétől függően indoklás nélkül visszautasíthatja a szolgáltatás nyújtását</p>
-      
-    </p>
-    <p><strong>1. szint – FIRE Review</strong> (60,000 Ft + 30,000 Ft extra egy további alkalomért)
-      
-        <p>1 × 90 perces coaching alkalom</p>
-        <p>Az Ügyfél portfóliójának áttekintése</p>
-        <p>Rövid írásos összefoglaló benchmarkokkal</p>
-        <p>Alapvető nyugdíjszámítások</p>
-        <p>25% Kedvezménnyel további egy 60 perces coaching alkalom lehetősége</p>
-      
-    </p>
-    <p><strong>2. szint – FIRE Coach</strong> (200,000 Ft)
-      
-        <p>1 × 90 perces coaching alkalom + 3 × 60 perces kísérő alkalom</p>
-        <p>Portfólió részletes elemzése, előrejelzések készítése</p>
-        <p>Teljes írásos jelentés és alap akcióterv</p>
-        <p>Mérföldkövek és előrejelzések a FIRE útvonalhoz</p>
-        <p>Legfeljebb 3 hónap utókövetés (e-mail-ben és a coaching alkalmak keretében)</p>
-        <p>Havi egyeztetés</p>
-      
-    </p>
-    <p><strong>3. szint – FIRE Partner</strong> (400,000 Ft)
-      
-        <p>1 × 90 perces coaching alkalom + 6 × 60 perces kísérő alkalom</p>
-        <p>Teljesen személyre szabott portfólió stratégia készítése</p>
-        <p>Komplett pénzügyi tervezés, több </p>
-        <p>Haladó modellezés, pénzügyi szabadság és visszavonulási terv</p>
-        <p>Legfeljebb 6 hónap utókövetés (e-mail-ben és a coaching alkalmak keretében)</p>
-        <p>Havi egyeztetés</p>
-      
-    </p>
+    <p><strong>Személyes vagy online konzultáció</strong>: 60 perc díja 40000 Ft.</p>
+	<p>A szolgáltatás díja tartalmazza a beszélgetés után készített rövid írásos összefoglalót is.</p>
+	
+	<p><strong>Vagyontervezés</strong>: Egyedi ajánlat szerint</p>
+	<p>A szolgáltatás célja az, hogy az Ügyfél komplexebb helyzetét megvizsgálva adjon tanácsot.</p>
   
 
   <h4>4. Fizetési feltételek</h4>
   
     <p>A szolgáltatások díját az Ügyfél köteles a Szolgáltató részére a következők szerint megfizetni:</p>
       
-        <p><strong>Személyes coaching tanácsadás esetén:</strong> a díj a helyszínen, a tanácsadást követően azonnal fizetendő készpénzben.</p>
-        <p><strong>Online coaching tanácsadás esetén:</strong> a díj a tanácsadást követő <strong>3 munkanapon belül</strong> átutalással fizetendő a Szolgáltató által kiállított számla alapján.</p>
-      
-    <p>Több alkalmat tartalmazó csomag választása esetén a teljes csomag díja egy összegben, a szolgáltatás első igénybevételét megelőzően fizetendő, kivéve ha a Szolgáltató és az Ügyfél írásban másként állapodnak meg.</p>
-    <p>Lemondás esetén a már megfizetett díj 50%-a jár vissza (kivéve jogszabályban meghatározott elállási jog esetén). Ez az összeg az igénybe nem vett coaching alkalmak számából kerül kiszámításra (például a FIRE Coach csomag esetében 3 igénybe nem vett alkalom esetén 1.5 alkalom ára jár vissza az ügyfélnek. A lemondást követően a Szolgáltató ezt az összeget 7 napon belül visszautalja az Ügyfél számlájára.</p>
-  
+        <p>A díj a tanácsadást követő <strong>3 munkanapon belül</strong> átutalással fizetendő a Szolgáltató által kiállított számla alapján.</p>
+    
 
   <h4>5. Időpontfoglalás és lemondás</h4>
   
     <p>Az időpontokat előzetesen egyeztetni szükséges.</p>
-    <p>Lemondásra vagy módosításra legkésőbb <strong>48 órával az alkalom előtt</strong> van lehetőség.</p>
-    <p>Ennél későbbi lemondás vagy meg nem jelenés esetén a szolgáltatás teljesítettnek minősül, a díj nem kerül visszatérítésre.</p>
+    <p>Lemondásra vagy módosításra legkésőbb <strong>24 órával az alkalom előtt</strong> van lehetőség.</p>
+    <p>Ennél későbbi lemondás vagy meg nem jelenés esetén a szolgáltatás teljesítettnek minősül, és számlázásra kerül.</p>
   
 
   <h4>6. Felelősségkorlátozás</h4>
@@ -123,6 +87,6 @@ permalink: /terms-and-conditions
     <p>Ha az Ügyfél a 14 napos elállási idő alatt kéri a szolgáltatás megkezdését, tudomásul veszi, hogy az elállási jogát elveszíti, amennyiben a szolgáltatás legalább első része - az ingyenes felmérő hívás kivételével - teljesítésre került.</p>
     <p>Ha az Ügyfél az elállási időszak alatt már igénybe vett coaching alkalmat, akkor az elállás esetén a Szolgáltató jogosult arányos díjra az addig nyújtott szolgáltatásért, továbbá a Fizetési feltételekben meghatározott lemondási díj arányos részére.</p>
   
-<p>Utolsó módosítás: 2025.09.10</p>
+<p>Utolsó módosítás: 2026.01.06</p>
 </div>
 </body>
