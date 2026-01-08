@@ -23,7 +23,7 @@ permalink: /consulting
             <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;">
               <div>
                <h3 style="margin:0 0 6px; font-size:1.4rem;">Online Consulting</h3>
-<p style="margin:0; color:#475569;">Consultation focused on specific questions, decisions, and next steps</p>
+<p style="margin:0; color:#475569;">Structured consultation on questions focusing on decision points</p>
 </div>
 <div style="text-align:right;">
   <div style="font-weight:800; font-size:1.25rem; color:#0ea5e9;">40,000 HUF / hour</div>
@@ -33,7 +33,7 @@ permalink: /consulting
 <ul style="margin:14px 0 0; padding-left:18px; color:#0f172a; line-height:1.6;">
   <li>- Online consultation (1 hour)</li>
   <li>- Review of financial and life-strategy questions using a structured approach</li>
-  <li>- Short, factual written summary of the discussed topics and raised considerations</li>
+  <li>- Short, factual written summary of the discussed topics and considerations</li>
 </ul>
 
 <div style="margin-top:16px;">
@@ -46,7 +46,7 @@ permalink: /consulting
   <div style="display:flex; justify-content:space-between; gap:12px; align-items:flex-start; flex-wrap:wrap;">
     <div>
       <h3 style="margin:0 0 6px; font-size:1.4rem;">Wealth Planning</h3>
-      <p style="margin:0; color:#475569;">A more comprehensive collaboration along financial, logical, temporal, and decision-making frameworks</p>
+      <p style="margin:0; color:#475569;">A more comprehensive collaboration along financial, logical, and decision-making frameworks</p>
     </div>
     <div style="text-align:right;">
       <div style="font-weight:800; font-size:1.25rem; color:#0c4a6e;">By agreement (minimum 100,000 HUF)</div>
