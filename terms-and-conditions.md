@@ -20,20 +20,33 @@ permalink: /terms-and-conditions
   
 
   <h4>2. A szolgáltatás tárgya</h4>
-  <p>A Szolgáltató <strong>FIRE (Financial Independence, Retire Early) coaching</strong> szolgáltatást nyújt ügyfeleinek tanácsadás formájában.</p>
-  <p>A coaching keretében a Szolgáltató támogatást nyújt pénzügyi tervezés, megtakarítás, nyugdíjtervezés, karrierválasztás, és egyéb, a FIRE coaching témakörébe eső ügyekben.</p>
+  <p>A Szolgáltató <strong>FIRE (Financial Independence, Retire Early) coaching és döntéstámogató</strong> szolgáltatást nyújt.</p>
+  <p>A szolgáltatás célja az Ügyfél pénzügyi és életpályával kapcsolatos helyzetének strukturált áttekintése, a lehetséges alternatívák és összefüggések bemutatása, valamint az önálló döntéshozatal támogatása.</p>
 
   <p>
-    <strong>Fontos:</strong> A coaching szolgáltatás nem minősül pénzügyi tanácsadásnak, befektetési szolgáltatásnak, adó-, jogi- vagy pszichológiai tanácsadásnak. A coaching csupán iránymutatást ad, a meghozott döntések felelőssége teljes mértékben az Ügyfelet terhelik.
+     A szolgáltatás nem tartalmaz konkrét pénzügyi, befektetési vagy egyéb szakmai ajánlásokat, és nem irányul meghatározott döntések meghozatalára.</p>
+	 
+	<p>A coaching keretében a Szolgáltató az alábbi témakörökben nyújt edukációs és gondolkodási támogatást:</p>
+<ul>
+<li>- Pénzügyi tudatosság és szemléletformálás</li>
+<li>- Megtakarítási és életstratégiai megközelítések</li>
+<li>- Hosszú távú pénzügyi függetlenséggel kapcsolatos dilemmák</li>
+<li>- Nyugdíjjal, karrierrel és életmóddal összefüggő döntési helyzetek értelmezése</li>
+<li>- A FIRE szemlélethez kapcsolódó tipikus kockázatok és trade-offok bemutatása</li>
+</ul>
+
+<p><strong>Fontos:</strong> A Szolgáltató nem értékeli, nem minősíti és nem rangsorolja az Ügyfél számára elérhető konkrét befektetési, pénzügyi vagy egyéb megoldásokat.</p>
+	
+	
   </p>
 
   <h4>3. Szolgáltatási csomagok</h4>
   
-    <p><strong>Személyes vagy online konzultáció</strong>: 60 perc díja 40000 Ft.</p>
-	<p>A szolgáltatás díja tartalmazza a beszélgetés után készített rövid írásos összefoglalót is.</p>
+    <p><strong>Online konzultáció</strong>: 60 perc díja 40000 Ft.</p>
+	<p>A díj tartalmazza az alkalmat követően készített rövid, tényszerű összefoglalót, amely a megbeszélt témák és felvetett szempontok rögzítésére szolgál, ajánlások nélkül.</p>
 	
 	<p><strong>Vagyontervezés</strong>: Egyedi ajánlat szerint</p>
-	<p>A szolgáltatás célja az, hogy az Ügyfél komplexebb helyzetét megvizsgálva adjon tanácsot.</p>
+	<p>A szolgáltatás célja az Ügyfél pénzügyi helyzetének logikai és időbeli struktúrába rendezése, a fő döntési irányok és kockázati kérdések feltérképezése, konkrét befektetési döntések vagy javaslatok nélkül.</p>
   
 
   <h4>4. Fizetési feltételek</h4>
@@ -52,9 +65,8 @@ permalink: /terms-and-conditions
 
   <h4>6. Felelősségkorlátozás</h4>
   
-    <p>A Szolgáltató a coaching során kapott információk alapján nyújt támogatást, de az Ügyfél minden pénzügyi és életmódbeli döntésért önállóan felelős.</p>
-    <p>A coaching nem helyettesíti a szakképzett pénzügyi tanácsadót, befektetési szolgáltatót, adótanácsadót vagy egyéb okleveles szakembert.</p>
-	<p>A coaching célja, hogy az Ügyfél önálló döntéseket hozzon, és szükség esetén egyéb, szakképesítéssel rendelkező szolgáltatókat vegyen igénybe.
+   <p>A Szolgáltató a coaching során az Ügyfél által megosztott információkra támaszkodva nyújt általános szemléleti és döntéstámogató segítséget, azonban nem vállal felelősséget az Ügyfél pénzügyi, befektetési vagy életmódbeli döntéseinek következményeiért.</p>
+   <p>A coaching nem helyettesíti engedéllyel rendelkező pénzügyi tanácsadó, befektetési szolgáltató, adótanácsadó, jogi vagy egyéb szakképzett szakember szolgáltatását. A szolgáltatás célja, hogy az Ügyfél önálló, tudatos döntéseket hozzon, és szükség esetén megfelelő jogosultsággal rendelkező szakemberekhez forduljon.</p>
   
 
   <h4>7. Adatkezelés</h4>
