@@ -38,7 +38,6 @@ permalink: /terms-and-conditions
 <p><strong>Fontos:</strong> A Szolgáltató nem értékeli, nem minősíti és nem rangsorolja az Ügyfél számára elérhető konkrét befektetési, pénzügyi vagy egyéb megoldásokat.</p>
 	
 	
-  </p>
 
   <h4>3. Szolgáltatási csomagok</h4>
   
@@ -82,7 +81,7 @@ permalink: /terms-and-conditions
     <p>Amennyiben ez nem vezet eredményre, az illetékes bíróság dönt.</p>
 	<p>Jogvita esetén az Ügyfél az alábbi illetékes testületeknél teheti meg bejelentését és kezdeményezhet eljárást:</p>
 	<p>Budapesti Békéltető Testület: 1016 Budapest, Krisztina krt. 99. I. em. 111.</p>
-	<p>Pesti Központi Kerületi Bíróság: 1055 Budapest, Markó u. 25.</p></p>
+	<p>Pesti Központi Kerületi Bíróság: 1055 Budapest, Markó u. 25.</p>
   
 
   <h4>9. Záró rendelkezések</h4>
