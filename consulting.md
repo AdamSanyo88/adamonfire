@@ -26,7 +26,7 @@ permalink: /consulting
 <p style="margin:0; color:#475569;">Structured consultation on questions focusing on decision points</p>
 </div>
 <div style="text-align:right;">
-  <div style="font-weight:800; font-size:1.25rem; color:#0ea5e9;">40,000 HUF / hour</div>
+  <div style="font-weight:800; font-size:1.25rem; color:#0ea5e9;">110 EUR / hour</div>
 </div>
 </div>
 
@@ -49,7 +49,7 @@ permalink: /consulting
       <p style="margin:0; color:#475569;">A more comprehensive collaboration along financial, logical, and decision-making frameworks</p>
     </div>
     <div style="text-align:right;">
-      <div style="font-weight:800; font-size:1.25rem; color:#0c4a6e;">By agreement (minimum 100,000 HUF)</div>
+      <div style="font-weight:800; font-size:1.25rem; color:#0c4a6e;">By agreement (minimum 275 EUR)</div>
     </div>
   </div>
 
