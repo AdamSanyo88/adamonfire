@@ -29,8 +29,8 @@ permalink: /privacy-policy
         <ul class="kv-list">
           <li><strong>Név:</strong> Sanyó Ádám</li>
           <li><strong>Székhely:</strong> 1045 Budapest, Chinoin utca 4. 1/4</li>
-          <li><strong>Egyéni vállalkozói nyilvántartási száma:</strong> xxx</li>
-          <li><strong>Adószám:</strong> xxx</li>
+          <li><strong>Egyéni vállalkozói nyilvántartási száma:</strong> 61678648</li>
+          <li><strong>Adószám:</strong> 91669210-1-41</li>
           <li><strong>E-mail:</strong> <a href="mailto:adamsanyo@goefire.com">adamsanyo@goesfire.com</a></li>
         </ul>
       </div>
@@ -187,9 +187,9 @@ permalink: /privacy-policy
     <section id="zaro">
       <h4>11. Záró rendelkezések</h4>
       <h5>11.1. Az adatkezelési tájékoztató hatálya és módosításának lehetőségei</h5>
-      <p>Jelen Tájékoztató 2026. 01. 06. napjától hatályos.</p>
+      <p>Jelen Tájékoztató 2026. 01. 08. napjától hatályos.</p>
       <p>Az Adatkezelő jogosult a Tájékoztató egyoldalú módosítására, különösen a jogszabályi változások, új adatkezelési tevékenységek bevezetése vagy a felügyeleti hatóság ajánlásainak figyelembevétele érdekében. A módosításokat a weboldalon közzétesszük, és a hatálybalépést követően az érintettek elfogadják az új szabályokat a szolgáltatások további használatával.</p>
-      <p><strong>Kelt:</strong> Budapest, 2026.01.06.<br>
+      <p><strong>Kelt:</strong> Budapest, 2026.01.08.<br>
       <strong>Sanyó Ádám</strong></p>
     </section>
 
