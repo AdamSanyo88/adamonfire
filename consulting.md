@@ -10,7 +10,7 @@ permalink: /consulting
   <div class="row">
     <div class="col s12">
 
-      <h5>Private consultations are not available at the moment.</h5>
+      <h5>Private consultations are not available at the moment. </h5>
       <br/>
  
      
