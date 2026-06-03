@@ -12,7 +12,7 @@ permalink: /consulting
 
       <h5>Private consultations are not available at the moment.</h5>
       <br/>
-
+ 
      
 </div>
 </div>
