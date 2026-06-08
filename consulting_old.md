@@ -1,7 +1,7 @@
 ---
 layout: page
 title: FIRE consulting
-permalink: /consulting
+permalink: 
 ---
 
 <h1 class="page-title">{{ page.title | escape }}</h1>
