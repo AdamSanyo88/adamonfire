@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Household expenses calculator 
+title: Personal spending calculator
 permalink: /spending
 ---
 
@@ -9,7 +9,7 @@ permalink: /spending
 
 <html lang="hu">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8">  
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Monthly Spending Redistributor</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -65,53 +65,73 @@ permalink: /spending
       font-family: inherit !important;
       font-weight: normal !important;
     }
-  </style>
+  
+    /* === Calculator visual refresh === */
+    .calculator-shell{background:linear-gradient(135deg,#eef6ff 0%,#f8fbff 100%);border:1px solid #d7e9ff;border-radius:22px;padding:24px;box-shadow:0 14px 36px rgba(13,110,253,.08)}
+    .calculator-kicker{font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#0d6efd;margin-bottom:6px}
+    .calculator-shell .card{border:1px solid #e3eaf2;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(15,23,42,.06)!important}
+    .input-card{border-top:4px solid #0d6efd!important}
+    #monthlyInput{background:#eaf4ff!important;border:2px solid #90c2ff!important;border-radius:10px!important;font-size:1.35rem!important;font-weight:800!important;padding:.75rem 1rem!important}
+    #monthlyInput:focus{background:#fff7d6!important;border-color:#e0a800!important;box-shadow:0 0 0 3px rgba(224,168,0,.14)!important}
+    .calculator-shell .form-check{background:#f8fafc;border:1px solid #e6ebf1;border-radius:10px;padding:.65rem .8rem .65rem 2.3rem;margin-bottom:.5rem!important}
+    .calculator-shell .form-check-input{margin-left:-1.45rem}
+    .spending-table thead th{background:#f1f5f9!important;color:#475569!important;font-size:.75rem;text-transform:uppercase;letter-spacing:.03em}
+    .spending-table tbody tr:not(.category-removed) td:last-child .badge{background:#eaf4ff!important;color:#0756c9!important;border:1px solid #b9d9ff}
+    .spending-table tfoot th{background:#eaf2fb!important;font-weight:800!important}
+    .summary-card{background:linear-gradient(135deg,#0d6efd,#0756c9)!important;color:#fff!important;border:0!important}
+    .summary-card h2,.summary-card li{color:#fff!important}
+    .summary-card .text-muted{color:rgba(255,255,255,.84)!important}
+    @media(max-width:768px){.calculator-shell{padding:14px}}
+
+</style>
 </head>
 <body>
   <div class="container py-4">
+    <div class="calculator-shell">
+      <div class="calculator-kicker">Interactive calculator</div>
     <p class="text-muted mb-4">
-      Enter your average monthly spending total. The calculator distributes your spending according to the weights of the Hungarian consumer basket.
-      If selected items are removed, their weights are proportionally redistributed among the remaining categories. The calculator does not include rent, so it is recommended to subtract that from your total budget.
+      Enter your monthly spending. The calculator allocates it according to the weights of the Hungarian consumer basket.
+      Selected items are removed and their weights are redistributed proportionally across the remaining categories. The calculator does not include rent, so you should subtract it from your total budget.
     </p>
 
     <div class="row g-4 align-items-start">
       <div class="col-md-6">
-        <div class="card shadow-sm mb-4">
+        <div class="card shadow-sm mb-4 summary-card">
           <div class="card-body">
             <h2 class="h6 mb-2">Summary</h2>
             <ul class="small text-muted mb-0">
-            <li>The original weights come from the Hungarian Central Statistical Office (KSH) consumer basket, normalized to 100%.</li>
-			<li>The weights of the removed categories are proportionally redistributed among the remaining categories.</li>
+              <li>The original weights are based on the KSH consumer basket, normalized to 100%.</li>
+              <li>The weight of removed categories is redistributed proportionally across the remaining categories.</li>
             </ul>
           </div>
         </div>
 
-        <div class="card shadow-sm">
+        <div class="card shadow-sm input-card">
           <div class="card-body">
-            <label for="monthlyInput" class="form-label">Monthly average spending</label>
+            <label for="monthlyInput" class="form-label">Average monthly spending</label>
             <div class="input-group mb-3">
               <input id="monthlyInput" type="number" class="form-control" min="0" step="100" value="0" />
             </div>
 
             <div class="form-check mb-2">
               <input class="form-check-input" type="checkbox" id="noSmoke">
-              <label class="form-check-label" for="noSmoke">I don't smoke</label>
+              <label class="form-check-label" for="noSmoke">I do not smoke</label>
             </div>
             <div class="form-check mb-2">
               <input class="form-check-input" type="checkbox" id="noDrink">
-              <label class="form-check-label" for="noDrink">I don't drink alcohol</label>
+              <label class="form-check-label" for="noDrink">I do not drink alcohol</label>
             </div>
             <div class="form-check mb-2">
               <input class="form-check-input" type="checkbox" id="noHouse">
-              <label class="form-check-label" for="noHouse">I don't live in my own flat/house</label>
+              <label class="form-check-label" for="noHouse">I do not own a home</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" id="noCar">
-              <label class="form-check-label" for="noCar">I don't have a car</label>
+              <label class="form-check-label" for="noCar">I do not own a car</label>
             </div>
 
             <div id="removedAlert" class="alert alert-secondary mt-3 mb-0" role="alert">
-              Total removed from original weights: <strong><span id="removedPct">0.0</span>%</strong>
+              Total original weight removed: <strong><span id="removedPct">0.0</span>%</strong>
             </div>
           </div>
         </div>
@@ -120,20 +140,20 @@ permalink: /spending
       <div class="col-md-6">
         <div class="card mt-md-0 mt-4 shadow-sm spending-table">
           <div class="card-body table-responsive">
-            <h2 class="h6 mb-3">Categories and monthly average spending</h2>
+            <h2 class="h6 mb-3">Categories and average monthly spending</h2>
             <table class="table table-sm table-striped align-middle">
               <thead>
                 <tr>
-                  <th>Categories</th>
-                  <th class="text-end">Original weight</th>
-                  <th class="text-end">New weight</th>
+                  <th>Category</th>
+                  <th class="text-end">Weight (original)</th>
+                  <th class="text-end">Weight (adjusted)</th>
                   <th class="text-end">Amount</th>
                 </tr>
               </thead>
               <tbody id="tableBody"></tbody>
               <tfoot>
                 <tr>
-                  <th>Összesen</th>
+                  <th>Total</th>
                   <th class="text-end">100,0%</th>
                   <th class="text-end">100,0%</th>
                   <th class="text-end"><span id="totalCell" class="badge bg-light text-dark badge-fixed">0,00</span></th>
@@ -142,28 +162,29 @@ permalink: /spending
             </table>
           </div>
         </div>
-        <p class="text-muted small mt-2 mb-0">Note: The currency here is not relevant; the amounts in the table are calculated from the specified monthly budget.</p>
+        <p class="text-muted small mt-2 mb-0">Note: you can use any currency; the amounts in the table are calculated from the monthly total you enter.</p>
       </div>
+    </div>
     </div>
   </div>
 
   <script>
     const BASE = [
-      { key: "elelmiszer", label: "Groceries", weight: 0.2274 },
-      { key: "alkohol", label: "Alcohol", weight: 0.0325 },
+      { key: "elelmiszer", label: "Food", weight: 0.2274 },
+      { key: "alkohol", label: "Alkohol", weight: 0.0325 },
       { key: "dohanyaru", label: "Tobacco", weight: 0.0591 },
       { key: "ruhazat", label: "Clothing", weight: 0.0341 },
-      { key: "rezsi_lakas", label: "Utilities and housing-related services", weight: 0.1152 },
-      { key: "lakber_karb", label: "Furniture and maintenance", weight: 0.0717 },
+      { key: "rezsi_lakas", label: "Utilities and housing-related costs", weight: 0.1152 },
+      { key: "lakber_karb", label: "Furnishings and home maintenance", weight: 0.0717 },
       { key: "egeszsegugy", label: "Healthcare", weight: 0.0545 },
-      { key: "auto_kozlekedes", label: "Transportation - car", weight: 0.0872 },
+      { key: "auto_kozlekedes", label: "Transport by own car", weight: 0.0872 },
       { key: "auto_vasarlas", label: "Car depreciation", weight: 0.0437 },
-      { key: "egyeb_kozlekedes", label: "Transportation - other", weight: 0.0140 },
-      { key: "tavkozles", label: "Mobile & Internet", weight: 0.0422 },
+      { key: "egyeb_kozlekedes", label: "Other transport", weight: 0.0140 },
+      { key: "tavkozles", label: "Telecommunications", weight: 0.0422 },
       { key: "oktatas", label: "Education", weight: 0.0222 },
-      { key: "szabadido", label: "Hobbies", weight: 0.0734 },
-      { key: "vendeglatas", label: "Eating out and travel", weight: 0.0495 },
-      { key: "egyeb_szolg", label: "All other services (e.g. insurance, banking)", weight: 0.0733 },
+      { key: "szabadido", label: "Leisure and hobbies", weight: 0.0734 },
+      { key: "vendeglatas", label: "Restaurants and accommodation", weight: 0.0495 },
+      { key: "egyeb_szolg", label: "Other services (e.g. insurance, bank fees)", weight: 0.0733 },
     ];
 
     const fmtPct = (v) => (v * 100).toFixed(1).replace('.', ',');

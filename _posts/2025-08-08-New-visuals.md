@@ -1,12 +1,238 @@
 ---
 layout: post
-title: New visuals
+title: Új vizualizációk
 date: 2025-08-08
 permalink: blog-5
 ---
 
-<p>I received some very good feedback from some strangers in the FIRE community Several people explained to me that the real value of my FIRE journey is the transparency around it meaning that I shared my journey with numbers, explanation on what I purchased, etc.<p/>
-<p>For most people, talking about their money and choices may feel uncomfortable as it would make them a target of criticism. However, I actually got used to being a target. Ever since my childhood, I was the weird kid who didn't want to follow the social norms. Of course, this had its downsides as I was alone quite a lot. But more recently, I found that being an analyst and focusing on the numbers and logical explanations, that's actually a strength and not a weakness.</p>
-<p>So I decided to be even more transparent about how I invest my money and the homepage of the site will show the changes every month. This way I hope people can get some inspiration on what I do and it also gives me an additional accountability that my portfolio should be managed well as now it's not just me who gets to know how my decisions had turned out. For the next few months, my goal will be to reduce my technology focus a little bit, I still believe in the power of tech stocks, but I also want to be sensible about my approach. Also, probably the time of crypto is here too, so I should get a more bitcoin in the coming months (now that I missed the Ethereum rally).</p>
-<br/>
-<h5><a href="../blog">Back to all posts</a></h5>
+
+<style>
+/* ==========================================
+   ADAM ON FIRE - INDIVIDUAL BLOG POST STYLE
+   Copy this block into any individual blog post.
+   ========================================== */
+
+.post-shell {
+  margin: 42px auto 56px;
+}
+
+.post-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 44px 46px 38px;
+  border-radius: 18px 18px 0 0;
+  background: linear-gradient(135deg, #0d47a1 0%, #2962ff 100%);
+  color: #fff;
+  box-shadow: 0 14px 34px rgba(13, 71, 161, .16);
+}
+
+.post-hero::after {
+  content: "FIRE";
+  position: absolute;
+  right: -12px;
+  bottom: -54px;
+  font-size: 150px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -10px;
+  color: rgba(255,255,255,.06);
+  pointer-events: none;
+}
+
+.post-kicker {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.78);
+}
+
+.post-title {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0;
+  font-size: 42px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -1px;
+  color: #fff;
+}
+
+.post-date {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 6px 11px;
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: 999px;
+  background: rgba(255,255,255,.10);
+  color: rgba(255,255,255,.92);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+.post-body {
+  padding: 44px 48px 50px;
+  border-left: 1px solid #dce8ff;
+  border-right: 1px solid #dce8ff;
+  background: #eef4ff;
+  color: #17345f;
+  font-size: 17px;
+  line-height: 1.82;
+}
+
+.post-body p {
+  margin: 0 0 24px;
+  color: #17345f;
+}
+
+.post-body p:last-child {
+  margin-bottom: 0;
+}
+
+.post-body a {
+  color: #0d47a1;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.post-body strong {
+  color: #0b2f67;
+}
+
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  margin-top: 38px;
+  margin-bottom: 16px;
+  color: #0d47a1;
+  font-weight: 700;
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 10px 0 28px 24px;
+  padding-left: 12px;
+}
+
+.post-body li {
+  margin-bottom: 14px;
+  padding-left: 4px;
+}
+
+.post-body blockquote {
+  margin: 32px 0;
+  padding: 22px 24px;
+  border-left: 5px solid #2962ff;
+  border-radius: 0 10px 10px 0;
+  background: #dfeaff;
+  color: #17345f;
+  font-style: normal;
+}
+
+.post-back {
+  border-radius: 0 0 18px 18px;
+  background: #164fa8;
+  box-shadow: 0 14px 34px rgba(13, 71, 161, .14);
+}
+
+.post-back a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 30px;
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: .1px;
+  transition: background .2s ease, padding-left .2s ease;
+}
+
+.post-back a:hover {
+  background: rgba(255,255,255,.08);
+  padding-left: 36px;
+}
+
+.post-back-arrow {
+  font-size: 22px;
+  line-height: 1;
+  transition: transform .2s ease;
+}
+
+.post-back a:hover .post-back-arrow {
+  transform: translateX(-5px);
+}
+
+@media only screen and (max-width: 600px) {
+  .post-shell {
+    margin: 26px auto 38px;
+  }
+
+  .post-hero {
+    padding: 30px 24px 28px;
+    border-radius: 14px 14px 0 0;
+  }
+
+  .post-hero::after {
+    font-size: 95px;
+    bottom: -34px;
+  }
+
+  .post-title {
+    font-size: 31px;
+    letter-spacing: -.5px;
+  }
+
+  .post-body {
+    padding: 30px 24px 34px;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .post-back {
+    border-radius: 0 0 14px 14px;
+  }
+
+  .post-back a {
+    padding: 20px 22px;
+  }
+}
+</style>
+
+<div class="post-shell">
+
+  <header class="post-hero">
+    <div class="post-kicker">Adam on FIRE · Blog</div>
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+    <div class="post-date">{{ page.date | date: "%Y. %m. %d." }}</div>
+  </header>
+
+  <article class="post-body">
+
+<p>Nagyon jó visszajelzéseket kaptam a FIRE közösség néhány tagjától. Többen elmagyarázták nekem, hogy az utam igazi értéke a transzparencia, vagyis hogy számszerűen, részletes magyarázatokkal osztom meg a történetemet, arról is, mit vásároltam, hogyan alakult a helyzetem, stb.<p/>  
+
+<p>A legtöbb ember számára kényelmetlen lehet a pénzügyeiről és a döntéseiről beszélni, mert így könnyen a kritika célpontjává válhat. Nekem viszont, úgy érzem, sikerült hozzászoknom ehhez. Gyerekkorom óta az a "különc gyerek" voltam, aki nem akart megfelelni a társadalmi normáknak. Persze ennek megvoltak a hátrányai is, hiszen sokszor voltam egyedül. De mostanában rájöttem, hogy elemzőként dolgozni és a számokra, logikus magyarázatokra koncentrálni valójában erősség, nem pedig gyengeség.</p>  
+
+<p>Ezért úgy döntöttem, hogy még átláthatóbb leszek abban, hogyan fektetem be a pénzemet, és a nyitóoldalon minden hónapban láthatók lesznek a változások. Így remélem, hogy mások is inspirációt nyerhetnek abból, amit csinálok, nekem pedig egy plusz elszámoltathatóságot ad, hiszen a portfóliómat felelősen kell kezelnem, mivel most már nem csak én látom, hogyan alakultak a döntéseim. Egyébként a következő hónapokban az lesz a célom, hogy egy kicsit csökkentsem a technológiai fókuszt a portfóliómban. Továbbra is hiszek a technológiai részvények erejében, de szeretném ésszerűbben megközelíteni a befektetéseimet. Emellett valószínűleg a kriptó ideje is eljött, ezért a következő hónapokban több bitcoint kellene vásárolnom (most, hogy lemaradtam az Ethereum-rallyról).</p>
+
+  </article>
+
+  <div class="post-back">
+    <a href="/blog">
+      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Vissza az összes bejegyzéshez</span>
+      <span>Blog</span>
+    </a>
+  </div>
+
+</div>

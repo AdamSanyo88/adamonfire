@@ -10,19 +10,242 @@ permalink: /net-worth
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <style>
-body{background:#f8f9fa;color:#212529;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-.container-lg{max-width:1400px}
-input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-radius:6px}
-.table th,.table td{vertical-align:middle}
-.table input[disabled]{background:#eee}
-.chart-wrap{height:420px}
-.result strong{font-size:1.25rem}
-.mono{font-variant-numeric: tabular-nums}
+body{
+  background:#f8f9fa;
+  color:#212529;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+}
+
+.container-lg{
+  max-width:1400px;
+}
+
+input[type=number]{
+  width:100%;
+  padding:6px 8px;
+  border:1px solid #ced4da;
+  border-radius:6px;
+}
+
+.table th,
+.table td{
+  vertical-align:middle;
+}
+
+.table input[disabled]{
+  background:#eee;
+}
+
+.chart-wrap{
+  height:420px;
+}
+
+.result strong{
+  font-size:1.25rem;
+}
+
+.mono{
+  font-variant-numeric:tabular-nums;
+}
+
+
+/* === Calculator visual refresh === */
+
+.calculator-shell{
+  background:linear-gradient(135deg,#eef6ff 0%,#f8fbff 100%);
+  border:1px solid #d7e9ff;
+  border-radius:22px;
+  padding:24px;
+  box-shadow:0 14px 36px rgba(13,110,253,.08);
+}
+
+.calculator-kicker{
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#0d6efd;
+  margin-bottom:6px;
+}
+
+
+/* === Net worth table === */
+
+#nw-table{
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(15,23,42,.06);
+  border-color:#e3eaf2;
+}
+
+#nw-table thead th{
+  background:#f1f5f9!important;
+  color:#475569;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+}
+
+#nw-table .table-secondary td{
+  background:#eaf2fb!important;
+  color:#23415f;
+  font-weight:800;
+  border-top:8px solid #fff;
+}
+
+
+/* Positive / asset inputs */
+
+#nw-table input[data-field=value]:not(:disabled){
+  background:#eaf4ff!important;
+  border:2px solid #90c2ff!important;
+  font-weight:700;
+}
+
+
+/* Debt inputs */
+
+#nw-table input[data-field=debt]:not(:disabled){
+  background:#fff1f1!important;
+  border:2px solid #f0a2a2!important;
+  font-weight:700;
+}
+
+
+/* Active input */
+
+#nw-table input:not(:disabled):focus{
+  background:#fff7d6!important;
+  border-color:#e0a800!important;
+  box-shadow:0 0 0 3px rgba(224,168,0,.14)!important;
+  outline:0;
+}
+
+
+/* Disabled inputs */
+
+#nw-table input:disabled{
+  background:#f1f3f5!important;
+  border-color:#e2e5e8!important;
+  color:#a0a6ad;
+}
+
+
+/* === Main result card === */
+
+.net-result-card{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:32px;
+
+  background:linear-gradient(135deg,#0d6efd,#0756c9);
+  color:#fff;
+
+  border-radius:18px;
+  padding:24px 28px;
+  margin:22px 0;
+
+  box-shadow:0 12px 28px rgba(13,110,253,.2);
+}
+
+
+/* Left side: net worth result */
+
+.net-result-card > div{
+  flex:1 1 auto;
+  min-width:0;
+}
+
+.net-result-card .result-label{
+  font-size:.78rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.82;
+  margin-bottom:5px;
+}
+
+.net-result-card #nw-ft{
+  display:block;
+  font-size:clamp(1.8rem,3.2vw,2.4rem);
+  font-weight:800;
+  line-height:1.15;
+  white-space:nowrap;
+}
+
+
+/* Right side: percentile */
+
+.net-result-card #pct-chip{
+  flex:0 0 auto;
+
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-width:130px;
+
+  font-size:1rem;
+  font-weight:800;
+  line-height:1.2;
+  white-space:nowrap;
+
+  padding:.75rem 1.1rem;
+
+  background:#fff!important;
+  color:#0d6efd!important;
+
+  border-radius:999px;
+
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
+}
+
+
+/* === Chart === */
+
+.chart-card{
+  background:#fff;
+  border:1px solid #e3eaf2;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 8px 22px rgba(15,23,42,.06);
+}
+
+
+/* === Mobile === */
+
+@media(max-width:768px){
+
+  .calculator-shell{
+    padding:14px;
+  }
+
+  .net-result-card{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:16px;
+    padding:20px;
+  }
+
+  .net-result-card #nw-ft{
+    font-size:1.7rem;
+    white-space:normal;
+  }
+
+  .net-result-card #pct-chip{
+    align-self:flex-start;
+    min-width:auto;
+  }
+
+}
 </style>
 
 <div class="container py-4">
+<div class="calculator-shell">
+  <div class="calculator-kicker">Interactive calculator</div>
   <div class="d-flex justify-content-between align-items-center mb-4">
-     <p>This calculator shows you how much net wealth you have compared to Hungarian households, based on MNB data. The percentiles (dividing the total population into 100 equal parts) were created using data from the Hungarian National Bank (MNB) for 2014, 2017, 2020 and 2023, and have been adjusted for the estimated wealth growth between 2023 and 2025. The calculation also includes the value of your primary residence, so make sure to include that. The calculation is done in forints (taking an exchange rate of 400 HUF per euro into account). In the chart below you can also look at wealth percentiles for several periods and compare your wealth to those (but naturally, the 2025 table reflects the current wealth percentiles).</p>
+     <p>This calculator shows how your net worth compares with Hungarian households based on data from the Hungarian National Bank (MNB). The percentiles (dividing the population into 100 equal groups) are based on MNB data from 2014, 2017, 2020 and 2023, adjusted for estimated wealth growth between 2023 and 2025. The calculation includes the value of your primary residence, so make sure to include it. Calculations are in Hungarian forints, assuming an EUR/HUF exchange rate of 400. The chart below lets you compare your wealth with wealth levels from several years; naturally, the 2025 scale best reflects current wealth levels.</p>
   </div>
 
   <table class="table table-bordered bg-white" id="nw-table">
@@ -30,9 +253,9 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
       <tr>
         <th style="width:15%">Categories</th>
         <th>Assets</th>
-        <th class="text-end" style="width:15%">Market value (EUR)</th>
-        <th class="text-end" style="width:15%">Mortgage (EUR)</th>
-        <th class="text-end" style="width:15%">Net equity</th>
+        <th class="text-end" style="width:15%">Market value (HUF)</th>
+        <th class="text-end" style="width:15%">Debt (HUF)</th>
+        <th class="text-end" style="width:15%">Net value</th>
         <th style="width:4%"></th>
       </tr>
     </thead>
@@ -42,66 +265,66 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
       <tr><td colspan="6"><button class="btn btn-outline-secondary" id="add-prop" type="button">➕ Add property</button></td></tr>
 
       <tr class="table-secondary"><td colspan="6">📊 Investments</td></tr>
-      <tr data-type="inv"><td>📦</td><td>Pension</td>
+      <tr data-type="inv"><td>📦</td><td>Pension fund</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">EUR 0</td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
         <td></td>
       </tr>
-      <tr data-type="inv"><td>🏛️</td><td>Bonds</td>
+      <tr data-type="inv"><td>🏛️</td><td>Government bonds</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">EUR 0</td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
         <td></td>
       </tr>
-      <tr data-type="inv"><td>🧾</td><td>Tax-advantageous accounts</td>
+      <tr data-type="inv"><td>🧾</td><td>Long-term investment account (TBSZ)</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">EUR 0</td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
         <td></td>
       </tr>
-      <tr data-type="inv"><td>📈</td><td>Other investment accounts</td>
+      <tr data-type="inv"><td>📈</td><td>Other investments</td>
         <td><input type="number" data-field="value" value="0"></td>
         <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">EUR 0</td>
-        <td></td>
-      </tr>
-
-      <tr class="table-secondary"><td colspan="6">💶 Other investments</td></tr>
-      <tr data-type="asset"><td>🚗</td><td>Car and other investments</td>
-        <td><input type="number" data-field="value" value="0"></td>
-        <td><input type="number" data-field="debt" value="0" disabled></td>
-        <td class="text-end mono" data-cell="net">EUR 0</td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
         <td></td>
       </tr>
 
-      <tr class="table-secondary"><td colspan="6">➖ Loans and debt</td></tr>
-      <tr data-type="liab"><td>💳</td><td>Other loans</td>
+      <tr class="table-secondary"><td colspan="6">💶 Other assets</td></tr>
+      <tr data-type="asset"><td>🚗</td><td>Car and other assets</td>
+        <td><input type="number" data-field="value" value="0"></td>
+        <td><input type="number" data-field="debt" value="0" disabled></td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
+        <td></td>
+      </tr>
+
+      <tr class="table-secondary"><td colspan="6">➖ Debts</td></tr>
+      <tr data-type="liab"><td>💳</td><td>Other debts</td>
         <td><input type="number" data-field="value" value="0" disabled></td>
         <td><input type="number" data-field="debt" value="0"></td>
-        <td class="text-end mono" data-cell="net">EUR 0</td>
+        <td class="text-end mono" data-cell="net">Ft 0</td>
         <td></td>
       </tr>
 
       <tr class="fw-bold table-light">
         <td colspan="2">Total</td>
-        <td class="text-end" id="sum-value">EUR 0</td>
-        <td class="text-end" id="sum-debt">EUR 0</td>
-        <td class="text-end" id="sum-net">EUR 0</td>
+        <td class="text-end" id="sum-value">Ft 0</td>
+        <td class="text-end" id="sum-debt">Ft 0</td>
+        <td class="text-end" id="sum-net">Ft 0</td>
         <td></td>
       </tr>
     </tbody>
   </table>
 
-  <div class="result mb-3">
-    <strong>Net worth:</strong> <span id="nw-ft">EUR 0</span>
-    <span class="badge text-bg-primary" id="pct-chip">Percentile: –</span>
+  <div class="net-result-card">
+    <div><div class="result-label">Estimated net worth</div><span id="nw-ft">Ft 0</span></div>
+    <span class="badge" id="pct-chip">Percentile: –</span>
   </div>
 
   <!-- Skála év választó -->
   <div class="d-flex align-items-center gap-2 mb-1">
     <label for="scale-year" class="form-label mb-0 small text-muted">
-      Select a year for percentiles:
+      Scale year for the chart:
     </label>
     <select id="scale-year" class="form-select form-select-sm" style="width:auto">
       <option value="2014">2014</option>
@@ -112,8 +335,9 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
     </select>
   </div>
 
-  <div class="chart-wrap"><canvas id="percentileChart"></canvas></div>
-  <div id="pct-text" class="mt-2 small text-muted">Values are automatically updated.</div>
+  <div class="chart-card"><div class="chart-wrap"><canvas id="percentileChart"></canvas></div>
+  <div id="pct-text" class="mt-2 small text-muted">Values update automatically when you enter new data.</div></div>
+</div>
 </div>
 
 <script>
@@ -121,56 +345,51 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
   // === Percentilis küszöbök Ft-ban (1..100; 1 = leggazdagabb, 100 = legszegényebb) ===
   const PCT_DATA = {
     "2014": [
-1071200, 312800, 223200, 182300, 159300, 138000, 124000, 114200, 104600, 100300,
-94100, 88400, 83000, 78000, 73200, 68800, 66100, 63600, 61100, 58800,
-56500, 54400, 52300, 50300, 48400, 46500, 44900, 43400, 42000, 40500,
-39200, 37900, 36600, 35300, 34200, 33000, 32100, 31200, 30300, 29400,
-28600, 27800, 27000, 26200, 25500, 24800, 24100, 23400, 22800, 22100,
-21500, 21000, 20400, 19800, 19300, 18800, 18100, 17600, 17000, 16400,
-15900, 15400, 14900, 14400, 14000, 13500, 12900, 12300, 11800, 11200,
-10700, 10200, 9800, 9300, 8900, 8500, 7900, 7300, 6800, 6300,
-5800, 5400, 5000, 4700, 4300, 4000, 3000, 2300, 1700, 1300,
-1000, 800, 600, 400, 300, 300, 200, 100, 100, 0
-
+      428491000, 125133000, 89270000, 72937000, 63705000, 55200000, 49602000, 45677000, 41848000, 40127000,
+      37656700, 35362300, 33207700, 31184300, 29284300, 27500000, 26445400, 25431300, 24456100, 23518200,
+      22616400, 21749100, 20915000, 20113000, 19341700, 18600000, 17972900, 17367000, 16781500, 16215800,
+      15669100, 15140800, 14630400, 14137100, 13660500, 13200000, 12825700, 12462000, 12108600, 11765200,
+      11431500, 11107400, 10792400, 10486300, 10188900, 9900000, 9628900, 9365300, 9108800, 8859400,
+      8616800, 8380900, 8151400, 7928200, 7711100, 7500000, 7257600, 7023100, 6796100, 6576500,
+      6364000, 6158300, 5959300, 5766700, 5580300, 5400000, 5155900, 4922800, 4700200, 4487700,
+      4284900, 4091100, 3906200, 3729600, 3561000, 3400000, 3153100, 2924200, 2711900, 2515000,
+      2332400, 2163000, 2006000, 1860300, 1725300, 1600000, 1212600, 919000, 696400, 527800,
+      400000, 303100, 229700, 174100, 132000, 100000, 70000, 40000, 20000, 0
     ],
     "2017": [
-1618000, 478300, 343000, 260000, 209800, 183500, 160800, 146100, 139100, 124500,
-118200, 112300, 106600, 101200, 96100, 91300, 87600, 84200, 80900, 77700,
-74600, 71700, 68800, 66100, 63500, 61000, 59300, 57600, 56000, 54400,
-52800, 51300, 49900, 48500, 47100, 45800, 44600, 43400, 42300, 41200,
-40200, 39100, 38100, 37100, 36200, 35300, 34300, 33300, 32400, 31400,
-30600, 29700, 28900, 28100, 27300, 26500, 25700, 24900, 24100, 23300,
-22600, 21900, 21200, 20500, 19900, 19300, 18400, 17700, 16900, 16200,
-15500, 14900, 14200, 13600, 13100, 12500, 11500, 10600, 9800, 9000,
-8300, 7600, 7000, 6500, 6000, 5500, 4600, 3900, 3300, 2800,
-2300, 2000, 1700, 1400, 1200, 1000, 800, 500, 300, 0
-
+      647184000, 191334000, 137200000, 104003000, 83914000, 73398000, 64335000, 58422000, 55636000, 49800000,
+      47286800, 44900400, 42634500, 40482900, 38439900, 36500000, 35059200, 33675400, 32346100, 31069300,
+      29842900, 28664900, 27533500, 26446600, 25402700, 24400000, 23708100, 23035700, 22382500, 21747700,
+      21131000, 20531800, 19949500, 19383800, 18834100, 18300000, 17829000, 17370200, 16923200, 16487600,
+      16063300, 15649900, 15247200, 14854800, 14472500, 14100000, 13703400, 13317900, 12943300, 12579200,
+      12225400, 11881500, 11547300, 11222500, 10906800, 10600000, 10266500, 9943600, 9630800, 9327800,
+      9034400, 8750200, 8474900, 8208300, 7950100, 7700000, 7374600, 7063000, 6764500, 6478600,
+      6204800, 5942600, 5691500, 5451000, 5220600, 5000000, 4605900, 4242900, 3908500, 3600400,
+      3316600, 3055200, 2814400, 2592600, 2388200, 2200000, 1855200, 1564400, 1319200, 1112400,
+      938100, 791100, 667100, 562500, 474300, 400000, 300000, 200000, 100000, 0
     ],
     "2020": [
-1918100, 774900, 555700, 421200, 339900, 297300, 260600, 236600, 225300, 201500,
-193600, 185400, 177500, 169900, 162700, 155800, 149600, 143700, 138000, 132500,
-127300, 122200, 117400, 112700, 108300, 104000, 100800, 97600, 94600, 91600,
-88800, 86000, 83300, 80700, 78200, 75800, 73600, 71600, 69600, 67600,
-65700, 63900, 62100, 60300, 58600, 57000, 55500, 54000, 52600, 51200,
-49800, 48500, 47200, 45900, 44700, 43500, 42200, 40800, 39600, 38400,
-37200, 36000, 34900, 33800, 32800, 31800, 30300, 28900, 27600, 26400,
-25200, 24100, 23000, 21900, 20900, 20000, 18700, 17500, 16400, 15300,
-14300, 13400, 12500, 11700, 11000, 10300, 8700, 7400, 6300, 5300,
-4500, 3800, 3300, 2800, 2400, 2000, 1500, 1000, 500, 0
-
+      767230000, 309962000, 222265000, 168485000, 135942000, 118905000, 104223000, 94645000, 90130000, 80591000,
+      77453000, 74152900, 70993500, 67968600, 65072600, 62300000, 59834100, 57465800, 55191200, 53006600,
+      50908500, 48893500, 46958200, 45099600, 43314400, 41600000, 40302200, 39044800, 37826700, 36646500,
+      35503200, 34395600, 33322500, 32282900, 31275700, 30300000, 29450400, 28624700, 27822100, 27042000,
+      26283800, 25546900, 24830600, 24134400, 23457700, 22800000, 22192000, 21600200, 21024200, 20463500,
+      19917800, 19386700, 18869700, 18366500, 17876700, 17400000, 16860700, 16338000, 15831600, 15340900,
+      14865400, 14404600, 13958100, 13525500, 13106200, 12700000, 12126400, 11578700, 11055800, 10556500,
+      10079700, 9624400, 9189800, 8774700, 8378400, 8000000, 7482700, 6998900, 6546300, 6123000,
+      5727100, 5356800, 5010400, 4686500, 4383400, 4100000, 3481900, 2957000, 2511200, 2132600,
+      1811100, 1538000, 1306200, 1109200, 942000, 800000, 600000, 390000, 180000, 0
     ],
     "2023": [
-     2958100, 1195100, 857000, 649600, 524100, 458400, 401800, 364900, 347500, 310700, 298600, 285900, 273700, 262100, 250900, 240200, 230700, 221600, 212800, 204400, 197800, 190000, 182500, 175200, 168300, 161600, 156600, 151700, 147000, 142400, 140200, 135900, 131600, 127500, 123500, 119700, 116300, 113100, 109900, 106800, 104500, 101500, 98700, 95900, 93200, 90600, 88200, 85800, 83600, 81300, 78600, 76500, 74500, 72500, 70500, 68700, 66500, 64500, 62500, 60500, 59200, 57400, 55600, 53900, 52200, 50600, 48300, 46100, 44000, 42100, 41100, 39300, 37500, 35800, 34200, 32700, 30500, 28600, 26700, 25000, 21500, 20100, 18800, 17600, 16400, 15400, 13100, 11100, 9400, 8000, 6800, 5800, 4900, 4200, 3500, 3000, 2300, 1500, 700, 0
-
+      1183230000, 478028000, 342780000, 259840000, 209652000, 183377000, 160735000, 145963000, 139001000, 124290000, 119449000, 114360000, 109487000, 104822000, 100356000, 96080000, 92277000, 88624000, 85117000, 81747000, 79121000, 75990000, 72982000, 70093000, 67319000, 64654000, 62637000, 60683000, 58790000, 56955000, 56092000, 54342000, 52647000, 51004000, 49413000, 47872000, 46529000, 45225000, 43957000, 42724000, 41785000, 40614000, 39475000, 38368000, 37292000, 36247000, 35280000, 34339000, 33424000, 32532000, 31439000, 30601000, 29785000, 28991000, 28218000, 27465000, 26614000, 25789000, 24989000, 24215000, 23690000, 22956000, 22244000, 21555000, 20886000, 20239000, 19325000, 18452000, 17619000, 16823000, 16456000, 15712000, 15003000, 14325000, 13678000, 13060000, 12216000, 11426000, 10687000, 9996000, 8591000, 8035000, 7516000, 7030000, 6575000, 6150000, 5223000, 4436000, 3767000, 3199000, 2717000, 2307000, 1959000, 1664000, 1413000, 1200000, 900000, 585000, 270000, 0
     ],
     "2025": [
-     4437100, 1732900, 1242600, 941900, 760000, 664700, 582700, 529100, 503900, 463000, 444900, 426000, 407800, 390500, 373800, 357900, 343700, 330100, 317100, 304500, 294700, 283100, 271900, 261100, 250800, 240800, 233300, 226000, 219000, 212200, 210300, 203800, 197400, 191300, 185300, 179500, 174500, 169600, 164800, 160200, 156700, 152300, 148000, 143900, 139800, 135900, 132300, 128800, 125300, 122000, 117900, 114800, 111700, 108700, 105800, 103000, 99800, 96700, 93700, 90800, 88800, 86100, 83400, 80800, 78300, 75900, 72500, 69200, 66100, 63100, 61700, 58900, 56300, 53700, 51300, 45700, 42800, 40000, 37400, 35000, 30100, 28100, 26300, 24600, 23000, 21500, 18300, 15500, 13200, 11200, 9500, 8100, 6900, 5800, 4900, 4200, 3200, 2000, 900, 0
-
+      1774845000, 693140000, 497031000, 376768000, 303995000, 265897000, 233066000, 211646000, 201551000, 185191000, 177979000, 170396000, 163136000, 156185000, 149530000, 143159000, 137493000, 132050000, 126824000, 121804000, 117891000, 113224000, 108743000, 104439000, 100305000, 96335000, 93329000, 90417000, 87597000, 84864000, 84138000, 81514000, 78970000, 76507000, 74120000, 71807000, 69794000, 67837000, 65935000, 64086000, 62678000, 60921000, 59213000, 57552000, 55939000, 54370000, 52920000, 51509000, 50136000, 48798000, 47159000, 45902000, 44677000, 43486000, 42326000, 41198000, 39921000, 38683000, 37484000, 36322000, 35535000, 34433000, 33366000, 32332000, 31330000, 30359000, 28987000, 27678000, 26428000, 25235000, 24684000, 23569000, 22504000, 21488000, 20517000, 18285000, 17102000, 15997000, 14962000, 13995000, 12027000, 11249000, 10522000, 9842000, 9205000, 8610000, 7312000, 6210000, 5274000, 4478000, 3803000, 3230000, 2743000, 2329000, 1978000, 1680000, 1260000, 819000, 378000, 0
     ]
   };
 
   const LABELS = Array.from({length:100},(_,i)=>String(100-i)); // 100 -> 1
-  const CURRENCY = "EUR";
+  const CURRENCY = "Ft";
   const LOCALE = "hu-HU";
 
   function fmtFt(n){
@@ -210,8 +429,8 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
           legend:{display:false},
           tooltip:{
             callbacks:{
-              title: items => items && items[0] ? ("Percentilis "+items[0].label) : "",
-              label:  item  => "Median wealth " + fmtFt(item.raw)
+              title: items => items && items[0] ? ("Percentile "+items[0].label) : "",
+              label:  item  => "Median net worth " + fmtFt(item.raw)
             }
           }
         },
@@ -219,10 +438,10 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
           x:{grid:{display:false},ticks:{autoSkip:true,maxRotation:0}},
           y:{
             beginAtZero:true,
-            suggestedMax: 5000000,   // fix: 1,8 Mrd
-            max: 5000000,
+            suggestedMax: 1800000000,   // fix: 1,8 Mrd
+            max: 1800000000,
             ticks:{
-              stepSize: 250000,      // fix: 100M lépték
+              stepSize: 100000000,      // fix: 100M lépték
               callback: (v) => (v/1e6)+"M"
             }
           }
@@ -239,9 +458,9 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
     chart.data.datasets[0].data = getChartBars();
 
     // Y-skála fix marad: 0–1.8Mrd, 100M lépés
-    chart.options.scales.y.max = 5000000;
-    chart.options.scales.y.suggestedMax = 5000000;
-    chart.options.scales.y.ticks.stepSize = 250000;
+    chart.options.scales.y.max = 1800000000;
+    chart.options.scales.y.suggestedMax = 1800000000;
+    chart.options.scales.y.ticks.stepSize = 100000000;
 
     chart.data.datasets[0].backgroundColor = new Array(100).fill("#cfd8dc");
     chart.update();
@@ -261,10 +480,10 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
   function addProperty(){
     const anchor=document.getElementById("prop-anchor");
     const tr=document.createElement("tr"); tr.dataset.type="prop";
-    tr.innerHTML=`<td>🏠</td><td>Real estate</td>
+    tr.innerHTML=`<td>🏠</td><td>Property</td>
       <td><input type="number" data-field="value" value="0"></td>
       <td><input type="number" data-field="debt" value="0"></td>
-      <td class="text-end mono" data-cell="net">EUR 0</td>
+      <td class="text-end mono" data-cell="net">Ft 0</td>
       <td><button class="btn btn-sm btn-outline-danger" type="button">✖</button></td>`;
     anchor.parentNode.insertBefore(tr,anchor);
   }
@@ -290,7 +509,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
 
     if (!PCT_THRESHOLDS.length){
       document.getElementById("pct-chip").textContent = "Percentile: –";
-      document.getElementById("pct-text").textContent = "Missing percentile values.";
+      document.getElementById("pct-text").textContent = "Percentile data unavailable.";
       return;
     }
 
@@ -302,7 +521,7 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
 
     document.getElementById("pct-chip").textContent = "Top "+pct+"% ("+currentYear+")";
     document.getElementById("pct-text").textContent =
-      `Your estimated net worth is ${fmtFt(sumN)}, which puts you above ${100-pct}% of households (Top ${pct}%, ${currentYear} levels).`;
+      `Your estimated net worth is ${fmtFt(sumN)}, making you wealthier than ${100-pct}% of households (Top ${pct}%, ${currentYear} scale).`;
 
     highlight(pct);
   }
@@ -335,3 +554,4 @@ input[type=number]{width:100%;padding:6px 8px;border:1px solid #ced4da;border-ra
   });
 })();
 </script>
+

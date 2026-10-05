@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Elkészült a portfóliókövetőm
-date: 2025-05-03
-permalink: blog-3
+title: Brain Bar and the bond markets
+date: 2026-09-21
+permalink: blog-15
 ---
+
 
 
 <style>
@@ -220,61 +221,36 @@ permalink: blog-3
 
   <article class="post-body">
 
-<p>Volt egy pozitív hozadéka az egész vámtarifa-ügynek, és ez a FIRE-re való felkészültségemhez kapcsolódik. Trump bejelentéséig és a piaci összeomlásig azt hittem, mindenem megvan ahhoz, hogy nyomon kövessem a portfóliómat. Volt egy fő táblázatom, Yahoo és Google Finance követés, stb.<p/>  
-<p>Amire viszont eddig nem gondoltam, az egy valódi, félig automatizált módszer az összes számlám követésére. Nem is sejtettem, hogy lehetséges a legtöbb vagyonelemhez – vagy legalábbis a nagy amerikai és európai piacokon jegyzettekhez – valós idejű adatfrissítést beállítani. Így aztán némi Google Sheets-varázslatnak köszönhetően most van egy fő táblázatom, amely bármely pillanatban pontosan megmutatja a portfólióm értékét, és az eszközeim több mint 70%-a automatikusan frissül. Ez megkönnyíti a havi áttekintést is – amit Trump miatt a negyedévesről havi rendszerességűre változtattam –, mivel pontosan látom, hová megy a pénzem, mik a beérkező egyenlegeim, stb.</p>  
+<p>I managed to survive the heat, and by September I finally got my enthusiasm for life back as well. The main lesson of the past four months is that, for me, the most important thing is feeling that I am useful.</p>
 
-<p>A cél egy jó 60-30-10 portfólió kialakítása a végére. 60% részvényekbe kerül – valószínűleg továbbra is többségében USA-központú ETF-ekbe –, 30% kötvényekbe – szintén főként amerikai, de néhány magyar állampapír is megmarad, hogy legyen azért forintom is a költéseimre –, és végül körülbelül 10% aranyba és bitcoinba, amit a jövőben a kötvények rovására még növelhetek is (tekintve, hogy a Bitcoin most történelmi csúcson jár, és az arany lassan afféle tartalékvalutává válik).</p>  
+<p>One thing that helped a lot was appearing at Brain Bar with Dani as speakers in September, where we put on a really enjoyable three-hour programme. We had two panel discussions with Balázs Bognár, the head of the FIRE Hungary group, and Ádám Németh, who develops the <a href="https://www.growy.hu/">Growy.hu portfolio tracker</a>. I will probably write another blog post about Growy, because I am very happy with the app. It has become one of my favourites, and lately I have also been using it for my FIRE modelling.</p>
 
-<p>Végül itt van néhány diagram arról, hogyan alakult át kismértékben a portfólióm Trump "nagy, gyönyörű táblázatának" bejelentése után.</p>
+<p>The reason I have been checking the markets more often is what has been happening in the bond market. The US 10-year yield has been above 5% since early September, and who knows where it will end. About a year ago, I bought a 7–10-year US Treasury ETF when yields were around 4.2%, and so far I am down 9% on it. That in itself is not really a problem. The bigger issue is that a Trump-style administration will choose inflation over recession anyway – in other words, it will try to inflate away the debt – and in that case a 5% yield is not actually that high, especially if inflation really gets there. Fortunately, the new Fed chair, Kevin Warsh, remains committed to curbing inflation for now, so there was a rate hike this week. But the expectations from the beginning of the year – that rates would fall to 3–3.5% – now look more like wishful thinking, with the US policy rate more likely to stabilize somewhere between 4% and 5%.</p>
 
-<br/>
-<div class="row">
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-3Foxj" 
-            src="https://datawrapper.dwcdn.net/3Foxj/2/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
-  
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-1M7s1" 
-            src="https://datawrapper.dwcdn.net/1M7s1/1/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
-</div>
+<p><img src="../images/blog-15-pic.png" alt="US 10-year bond rate daily 2026"></p>
 
-<script type="text/javascript">
-!function(){"use strict";
-  window.addEventListener("message",function(a){
-    if(void 0!==a.data["datawrapper-height"]){
-      var e=document.querySelectorAll("iframe");
-      for(var t in a.data["datawrapper-height"])
-        for(var r,i=0;r=e[i];i++)
-          if(r.contentWindow===a.source){
-            var d=a.data["datawrapper-height"][t]+"px";
-            r.style.height=d
-          }
-    }
-  })
-}();
-</script>
+<p>And if higher interest rates really do stay with us for a prolonged period, the stock market could run into trouble as well. Everything is still near all-time highs: the S&P 500 is above 7,700, the Nasdaq-1000 is above 30,000 points (and I was already writing at 21,000 that “this is a little high”), AI investment amounts to 2–3% of US GDP, and so on. As an investor, it is fascinating to see how fragile the market’s position appears to be, while it nevertheless continues to rise.</p>
 
+<p>Another positive, from the perspective of my own portfolio, is that I created a new visualization that I will use for my year-end review. It essentially shows how much return I earned from the different components of my portfolio. For now, the September result is slightly below my return target for this year – 8–8.5% – but equities have still performed nicely, while bonds and the other asset classes have contributed less.</p>
+
+<p><img src="../images/blog-15-pic-2.png alt="Yearly portfolio gains by investment type" style="
+       max-height: 500px;
+       max-width: 100%;
+       width: auto;
+       height: auto;
+       display: block;
+       margin: 30px auto;
+       object-fit: contain;
+     "></p>
+
+<p>But there are still three months left, the midterm elections are coming, and perhaps we will see another major autumn rally this year, just as we did after Trump’s victory in 2024. This time, though, I am not sure how the market would react to a Democratic victory (at the moment, the odds are almost 50–50 that the Democrats will win the Senate as well), and I am concerned that the dollar would weaken in that scenario. Still, it would be important for Trump and the Republican Party to receive a setback, because what they are doing with US debt financing is unlikely to end well over the longer term.</p>
+
+<p>So, go Democrats. On November 3, we will find out which direction the US economy takes next.</p>
   </article>
 
   <div class="post-back">
     <a href="/blog">
-      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Vissza az összes bejegyzéshez</span>
+      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Back to all posts</span>
       <span>Blog</span>
     </a>
   </div>

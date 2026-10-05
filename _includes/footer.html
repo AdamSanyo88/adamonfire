@@ -1,10 +1,61 @@
-  <footer class="page-footer blue accent-4">
-    <div class="footer-copyright blue accent-4">
-        <div class="container">
-            <div>
-                Copyright © 2024 - 2026 created by <a style ="color: white; font-weight: bold" href="mailto:adamgoesfire@gmail.com">Sanyó Ádám</a>
-                </span>
-            </div>
-        </div>
+<style>
+.site-footer-fire {
+  margin-top: 40px;
+  padding: 0 !important;
+  background: linear-gradient(135deg, #082f6f 0%, #0d47a1 55%, #245ec2 100%) !important;
+  color: #fff;
+  box-shadow: 0 -10px 28px rgba(13,71,161,.12);
+}
+
+.site-footer-fire .footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 92px;
+}
+
+.site-footer-fire .footer-brand {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .2px;
+}
+
+.site-footer-fire .footer-meta {
+  color: rgba(255,255,255,.82);
+  font-size: 14px;
+}
+
+.site-footer-fire a {
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer-fire a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media only screen and (max-width: 600px) {
+  .site-footer-fire .footer-inner {
+    min-height: 0;
+    padding: 24px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+</style>
+
+<footer class="page-footer site-footer-fire">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">Adam on FIRE</div>
+      <div class="footer-meta">
+        Copyright © 2024 - 2026 &nbsp;·&nbsp; Edited by: 
+        <a href="mailto:adamgoesfire@gmail.com">Sanyó Ádám</a>
+      </div>
     </div>
+  </div>
 </footer>

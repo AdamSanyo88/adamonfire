@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Elkészült a portfóliókövetőm
-date: 2025-05-03
-permalink: blog-3
+title: Lessons from my first road trip
+date: 2026-06-01
+permalink: blog-13
 ---
+
 
 
 <style>
@@ -220,61 +221,23 @@ permalink: blog-3
 
   <article class="post-body">
 
-<p>Volt egy pozitív hozadéka az egész vámtarifa-ügynek, és ez a FIRE-re való felkészültségemhez kapcsolódik. Trump bejelentéséig és a piaci összeomlásig azt hittem, mindenem megvan ahhoz, hogy nyomon kövessem a portfóliómat. Volt egy fő táblázatom, Yahoo és Google Finance követés, stb.<p/>  
-<p>Amire viszont eddig nem gondoltam, az egy valódi, félig automatizált módszer az összes számlám követésére. Nem is sejtettem, hogy lehetséges a legtöbb vagyonelemhez – vagy legalábbis a nagy amerikai és európai piacokon jegyzettekhez – valós idejű adatfrissítést beállítani. Így aztán némi Google Sheets-varázslatnak köszönhetően most van egy fő táblázatom, amely bármely pillanatban pontosan megmutatja a portfólióm értékét, és az eszközeim több mint 70%-a automatikusan frissül. Ez megkönnyíti a havi áttekintést is – amit Trump miatt a negyedévesről havi rendszerességűre változtattam –, mivel pontosan látom, hová megy a pénzem, mik a beérkező egyenlegeim, stb.</p>  
+<p>I have already had my first holiday of the year, because after the election I could finally leave the country for a week with peace of mind. We visited a friend who lives in Salzburg and also spent a few days in Slovenia, which I was visiting for the first time in my life.</p>
 
-<p>A cél egy jó 60-30-10 portfólió kialakítása a végére. 60% részvényekbe kerül – valószínűleg továbbra is többségében USA-központú ETF-ekbe –, 30% kötvényekbe – szintén főként amerikai, de néhány magyar állampapír is megmarad, hogy legyen azért forintom is a költéseimre –, és végül körülbelül 10% aranyba és bitcoinba, amit a jövőben a kötvények rovására még növelhetek is (tekintve, hogy a Bitcoin most történelmi csúcson jár, és az arany lassan afféle tartalékvalutává válik).</p>  
+<p>What continues to amaze me is how calmly Austrians seem to live. We were very lucky with the weather: temperatures stayed between 25 and 30°C throughout the trip, even though it had rained continuously the week before. I even went for a swim in the 16.5°C Wolfgangsee, fully embracing the Austrian lifestyle. We also drove to Munich for a day — because we were travelling by car — and it did not really impress me, although perhaps I simply was not in the mood for it.</p>
 
-<p>Végül itt van néhány diagram arról, hogyan alakult át kismértékben a portfólióm Trump "nagy, gyönyörű táblázatának" bejelentése után.</p>
+<p>The most instructive part of the trip was the driving itself: we covered a total of 1,700 kilometres in eight days. And my main takeaway is that I simply do not like spending that much time in a car. I am not saying I never want to take another road trip, but when you have to drive for 6.5 hours along the M1 through Győr, then across Austria, with stops along the way and so on, that is too much for me. The stretch to Győr alone took nearly 2.5 hours, which felt like outright torture on the single-lane sections of the M1. One funny moment was that at a petrol station in Győr I bought another batch of the 7% FIXMÁP government bond, because a transfer had arrived in my account just two hours before the subscription deadline. So I managed to lock in the 7% interest rate on another few million forints. I will never forget standing next to the petrol station tapping away on my phone thinking, “right, time to make a little money.” That is true passive income.</p>
 
-<br/>
-<div class="row">
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-3Foxj" 
-            src="https://datawrapper.dwcdn.net/3Foxj/2/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
+<p>Slovenia is a beautiful country too, although there I felt even more strongly how dependent you are on a car if you want to see several places. The cave with the underground railway was excellent, perhaps one of the best parts of the trip. And once again I felt sad about how expensive Hungary has become: we could eat in restaurants in Ljubljana and Salzburg at roughly the same prices as in the outer parts of Budapest. Around €15–16 per person — and now we have to pay that at home as well. The difference, of course, is that Austrians earn about twice as much and Slovenians roughly one and a half times as much as Hungarians. I know I can afford to pay these prices, but it still bothers me how poor the average Hungarian household is.</p>
+
+<p>I still have a trip to Madrid planned this year — just for a few days — and after that I hope the Strait of Hormuz situation gets resolved, because I would also like to go to Asia, although I am afraid that trip may not happen this year.</p>
+
   
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-1M7s1" 
-            src="https://datawrapper.dwcdn.net/1M7s1/1/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
-</div>
-
-<script type="text/javascript">
-!function(){"use strict";
-  window.addEventListener("message",function(a){
-    if(void 0!==a.data["datawrapper-height"]){
-      var e=document.querySelectorAll("iframe");
-      for(var t in a.data["datawrapper-height"])
-        for(var r,i=0;r=e[i];i++)
-          if(r.contentWindow===a.source){
-            var d=a.data["datawrapper-height"][t]+"px";
-            r.style.height=d
-          }
-    }
-  })
-}();
-</script>
 
   </article>
 
   <div class="post-back">
     <a href="/blog">
-      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Vissza az összes bejegyzéshez</span>
+      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Back to all posts</span>
       <span>Blog</span>
     </a>
   </div>

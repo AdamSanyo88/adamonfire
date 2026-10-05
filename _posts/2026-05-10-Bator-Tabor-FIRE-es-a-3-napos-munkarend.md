@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Elkészült a portfóliókövetőm
-date: 2025-05-03
-permalink: blog-3
+title: Bátor Tábor, FIRE talks, and the three-day workweek
+date: 2026-05-10
+permalink: blog-12
 ---
+
 
 
 <style>
@@ -220,61 +221,26 @@ permalink: blog-3
 
   <article class="post-body">
 
-<p>Volt egy pozitív hozadéka az egész vámtarifa-ügynek, és ez a FIRE-re való felkészültségemhez kapcsolódik. Trump bejelentéséig és a piaci összeomlásig azt hittem, mindenem megvan ahhoz, hogy nyomon kövessem a portfóliómat. Volt egy fő táblázatom, Yahoo és Google Finance követés, stb.<p/>  
-<p>Amire viszont eddig nem gondoltam, az egy valódi, félig automatizált módszer az összes számlám követésére. Nem is sejtettem, hogy lehetséges a legtöbb vagyonelemhez – vagy legalábbis a nagy amerikai és európai piacokon jegyzettekhez – valós idejű adatfrissítést beállítani. Így aztán némi Google Sheets-varázslatnak köszönhetően most van egy fő táblázatom, amely bármely pillanatban pontosan megmutatja a portfólióm értékét, és az eszközeim több mint 70%-a automatikusan frissül. Ez megkönnyíti a havi áttekintést is – amit Trump miatt a negyedévesről havi rendszerességűre változtattam –, mivel pontosan látom, hová megy a pénzem, mik a beérkező egyenlegeim, stb.</p>  
+<p>These weeks have been fairly eventful as well — practically every week I have been doing something different.</p>
 
-<p>A cél egy jó 60-30-10 portfólió kialakítása a végére. 60% részvényekbe kerül – valószínűleg továbbra is többségében USA-központú ETF-ekbe –, 30% kötvényekbe – szintén főként amerikai, de néhány magyar állampapír is megmarad, hogy legyen azért forintom is a költéseimre –, és végül körülbelül 10% aranyba és bitcoinba, amit a jövőben a kötvények rovására még növelhetek is (tekintve, hogy a Bitcoin most történelmi csúcson jár, és az arany lassan afféle tartalékvalutává válik).</p>  
+<p>First, I completed the three presentations on 70 years of US stock-market history. What surprised me was how good the audience’s questions were, and we spent a lot of time discussing whether the situation in the Strait of Hormuz could produce something similar to the 1973 oil crisis. For now, my view is that it is possible, so I bought both a commodities ETF and an energy ETF. Unfortunately, I probably bought both near a local peak on April 3–4, when oil was close to $110, so both positions are currently down around 10%. I hope time proves me right — although in that case the probability of a recession would also be higher. To be honest, I no longer know what outcome I am supposed to root for in this situation.</p>
 
-<p>Végül itt van néhány diagram arról, hogyan alakult át kismértékben a portfólióm Trump "nagy, gyönyörű táblázatának" bejelentése után.</p>
+<p>Alongside the markets, I have also been busy with Bátor Tábor, because over the weekend they trained me to become a volunteer archery instructor. I was a little clumsy with the bow and my technique is still not the best, but the most important part of volunteering is paying attention to the children. I should be fine with that, because it will be a bit like officiating American football: you have to keep watching and only intervene occasionally. What still feels very unusual is having to sleep in the same room as strangers; during this long-weekend training course I barely managed to sleep. Apparently you get used to it, but it is still clearly a new situation for me. Everyone is incredibly kind, though, and the Bátor Tábor community genuinely has a unique atmosphere and attitude — it is a truly welcoming group.</p>
 
-<br/>
-<div class="row">
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-3Foxj" 
-            src="https://datawrapper.dwcdn.net/3Foxj/2/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
+<p>Finally, I managed to make the big decision... which is that I am not going straight into full FIRE. I thought about it for a long time, and after Tisza’s election victory my first reaction was, “right, then I will resign immediately,” but fortunately common sense ultimately won over emotion. I spoke to my manager about wanting to spend more time on my personal projects and proposed working three days a week for the next year. Fortunately, he was very understanding, and he managed to arrange it relatively quickly, within four weeks. I have already received the amended contract, so from June 1 onward I will only work Tuesday, Wednesday, and Thursday; everything else will remain the same. I have high expectations for how much this new arrangement can help, because simply getting Mondays and Fridays back for my own projects could give me a major boost.</p>
+
+
+<p>So thank you, Chris — this is a great help on my path toward full FIRE.</p>
+
+
   
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-1M7s1" 
-            src="https://datawrapper.dwcdn.net/1M7s1/1/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
-</div>
 
-<script type="text/javascript">
-!function(){"use strict";
-  window.addEventListener("message",function(a){
-    if(void 0!==a.data["datawrapper-height"]){
-      var e=document.querySelectorAll("iframe");
-      for(var t in a.data["datawrapper-height"])
-        for(var r,i=0;r=e[i];i++)
-          if(r.contentWindow===a.source){
-            var d=a.data["datawrapper-height"][t]+"px";
-            r.style.height=d
-          }
-    }
-  })
-}();
-</script>
 
   </article>
 
   <div class="post-back">
     <a href="/blog">
-      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Vissza az összes bejegyzéshez</span>
+      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Back to all posts</span>
       <span>Blog</span>
     </a>
   </div>

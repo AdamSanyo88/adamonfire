@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Long Term Investment Account (TBSZ)
+title: Tartós Befektetési Számla (TBSZ)
 permalink: /tbsz
 ---
 

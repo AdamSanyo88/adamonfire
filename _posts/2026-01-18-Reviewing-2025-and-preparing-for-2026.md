@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Elkészült a portfóliókövetőm
-date: 2025-05-03
-permalink: blog-3
+title: Reviewing 2025 and looking ahead to 2026
+date: 2026-01-18
+permalink: blog-8
 ---
+
 
 
 <style>
@@ -220,37 +221,20 @@ permalink: blog-3
 
   <article class="post-body">
 
-<p>Volt egy pozitív hozadéka az egész vámtarifa-ügynek, és ez a FIRE-re való felkészültségemhez kapcsolódik. Trump bejelentéséig és a piaci összeomlásig azt hittem, mindenem megvan ahhoz, hogy nyomon kövessem a portfóliómat. Volt egy fő táblázatom, Yahoo és Google Finance követés, stb.<p/>  
-<p>Amire viszont eddig nem gondoltam, az egy valódi, félig automatizált módszer az összes számlám követésére. Nem is sejtettem, hogy lehetséges a legtöbb vagyonelemhez – vagy legalábbis a nagy amerikai és európai piacokon jegyzettekhez – valós idejű adatfrissítést beállítani. Így aztán némi Google Sheets-varázslatnak köszönhetően most van egy fő táblázatom, amely bármely pillanatban pontosan megmutatja a portfólióm értékét, és az eszközeim több mint 70%-a automatikusan frissül. Ez megkönnyíti a havi áttekintést is – amit Trump miatt a negyedévesről havi rendszerességűre változtattam –, mivel pontosan látom, hová megy a pénzem, mik a beérkező egyenlegeim, stb.</p>  
+<p>And so another year has come to an end, and it closed with a major milestone: I successfully reached my FIRE target, a net worth of roughly €600,000. This was still mainly thanks to my contributions, because in 2025 the weakening dollar — combined with a strengthening forint — hit my US-equity-heavy portfolio twice over. Even so, the final result was only around -3%, and I am glad this was not my first year without employment income.</p>
 
-<p>A cél egy jó 60-30-10 portfólió kialakítása a végére. 60% részvényekbe kerül – valószínűleg továbbra is többségében USA-központú ETF-ekbe –, 30% kötvényekbe – szintén főként amerikai, de néhány magyar állampapír is megmarad, hogy legyen azért forintom is a költéseimre –, és végül körülbelül 10% aranyba és bitcoinba, amit a jövőben a kötvények rovására még növelhetek is (tekintve, hogy a Bitcoin most történelmi csúcson jár, és az arany lassan afféle tartalékvalutává válik).</p>  
+<p>Still, the simple fact that I will no longer have to work feels incredibly liberating. Of course, I will wait for the share payout in May — I am not about to give up another batch of “free money” — but after that I will have to make a decision: what should my life be about? It is strange to think that very few people ever get the chance to ask themselves this question. Most of us are prisoners of our external circumstances, with a great deal of path dependency. I also felt, right up until I reached the gates of FIRE, that there was work, and everything else had to be organized around it. And I should add that I am in a fortunate position: my day-to-day life is not stressful, I do not have to work excessively, and I get one week more vacation than average, which I can use freely. Yet I still lived for the weekends and those five or six weeks of vacation. Now I have the chance to change that, and I do not want to spend the next 40–50 years living the same way.</p>
 
-<p>Végül itt van néhány diagram arról, hogyan alakult át kismértékben a portfólióm Trump "nagy, gyönyörű táblázatának" bejelentése után.</p>
+<p>Looking back at last year from a portfolio perspective, the most interesting development was that I, too, moved somewhat away from the United States. I started the year with more than 80% US exposure — with a healthy overweight to technology stocks — but that has now fallen to 53%. Instead, I bought European equities, including regional and value ETFs, as well as actively managed funds. I could have bought them 10–15% cheaper if I had acted at the start of the year, but better late than never. I also bought gold for the first time in my life in March — which turned out to be a good decision — and within bonds I slightly increased my exposure to Hungarian government securities to improve liquidity.</p>
 
 <br/>
 <div class="row">
   <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-3Foxj" 
-            src="https://datawrapper.dwcdn.net/3Foxj/2/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
+    <iframe title="Bond ETFs and cash allocation" aria-label="Small multiple pie chart" id="datawrapper-chart-fn9bL" src="https://datawrapper.dwcdn.net/fn9bL/1/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="431" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
   </div>
   
   <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-1M7s1" 
-            src="https://datawrapper.dwcdn.net/1M7s1/1/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
+   <iframe title="Allocation of non-bond ETFs within the portfolio" aria-label="Small multiple pie chart" id="datawrapper-chart-ABtWe" src="https://datawrapper.dwcdn.net/ABtWe/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="384" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
   </div>
 </div>
 
@@ -270,11 +254,17 @@ permalink: blog-3
 }();
 </script>
 
+<p>And what will 2026 bring? Well, not much good. Trump kicked the door in as early as January 3 by “removing” the Venezuelan president, and now he is having another bout of madness over Greenland. It is astonishing how the world seems to have gone crazy since 2015–16. Brexit, Trump’s first victory, Covid, the Russia–Ukraine war — all within the space of ten years. The 2020s are certainly going to be an eventful decade.</p>
+
+<p>In any case, I am heading into this year prepared — the Year of the Fire Horse according to the Chinese calendar. Supposedly it is a year of major changes and bold ventures, so I am not even surprised that things started this way. The key point is that after the share payout in May, and especially after the Hungarian elections — now only 12 weeks away — I will see what comes next. For now, I am waiting and watching developments.</p>
+
+  
+
   </article>
 
   <div class="post-back">
     <a href="/blog">
-      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Vissza az összes bejegyzéshez</span>
+      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Back to all posts</span>
       <span>Blog</span>
     </a>
   </div>

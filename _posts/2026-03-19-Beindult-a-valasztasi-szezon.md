@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Elkészült a portfóliókövetőm
-date: 2025-05-03
-permalink: blog-3
+title: Election season has begun
+date: 2026-03-19
+permalink: blog-10
 ---
+
 
 
 <style>
@@ -220,61 +221,21 @@ permalink: blog-3
 
   <article class="post-body">
 
-<p>Volt egy pozitív hozadéka az egész vámtarifa-ügynek, és ez a FIRE-re való felkészültségemhez kapcsolódik. Trump bejelentéséig és a piaci összeomlásig azt hittem, mindenem megvan ahhoz, hogy nyomon kövessem a portfóliómat. Volt egy fő táblázatom, Yahoo és Google Finance követés, stb.<p/>  
-<p>Amire viszont eddig nem gondoltam, az egy valódi, félig automatizált módszer az összes számlám követésére. Nem is sejtettem, hogy lehetséges a legtöbb vagyonelemhez – vagy legalábbis a nagy amerikai és európai piacokon jegyzettekhez – valós idejű adatfrissítést beállítani. Így aztán némi Google Sheets-varázslatnak köszönhetően most van egy fő táblázatom, amely bármely pillanatban pontosan megmutatja a portfólióm értékét, és az eszközeim több mint 70%-a automatikusan frissül. Ez megkönnyíti a havi áttekintést is – amit Trump miatt a negyedévesről havi rendszerességűre változtattam –, mivel pontosan látom, hová megy a pénzem, mik a beérkező egyenlegeim, stb.</p>  
+<p>We are now only 24 days away from Hungary’s decisive election. While I am mentally preparing for that, Trump has once again fired up the rockets and attacked Iran, which responded by closing the Strait of Hormuz. I expected the Year of the Fire Horse to be intense, but not this intense. I have been thinking about what one can do in a situation like this — although I am happy about the temporary strengthening of the dollar — but I have not figured it out yet.</p>
 
-<p>A cél egy jó 60-30-10 portfólió kialakítása a végére. 60% részvényekbe kerül – valószínűleg továbbra is többségében USA-központú ETF-ekbe –, 30% kötvényekbe – szintén főként amerikai, de néhány magyar állampapír is megmarad, hogy legyen azért forintom is a költéseimre –, és végül körülbelül 10% aranyba és bitcoinba, amit a jövőben a kötvények rovására még növelhetek is (tekintve, hogy a Bitcoin most történelmi csúcson jár, és az arany lassan afféle tartalékvalutává válik).</p>  
+<p>But back to politics. I had the honour of being invited by the French Embassy in Hungary to give a presentation on the likely outcome of the Hungarian election. Although I mostly do this kind of work as a hobby, I am always very pleased when I receive invitations like this during election periods. The outcome of the April election will fundamentally shape Hungary’s future. Based on the numbers I remain optimistic for now, although Fidesz has strengthened somewhat in recent weeks, so the previous stable Tisza lead has been replaced by a narrower expectation of around 105–110 seats. Still, a lot can happen in the final weeks of the campaign, and the Tisza rally on March 15 also drew a huge crowd.</p>
 
-<p>Végül itt van néhány diagram arról, hogyan alakult át kismértékben a portfólióm Trump "nagy, gyönyörű táblázatának" bejelentése után.</p>
+<p>On the FIRE front, things are unchanged. I am currently working on an idea for a presentation that I would like to take to the FIRE community. The topic is 70 years of returns in the United States. My main motivation was to look more closely at what tends to happen in different economic environments and what kind of expectations make sense from a FIRE perspective over the coming years. If all goes well, I will present the material in Győr, Vienna, and Budapest over the next few months.</p>
 
-<br/>
-<div class="row">
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-3Foxj" 
-            src="https://datawrapper.dwcdn.net/3Foxj/2/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
+<p>I still feel a mild sense of anxiety about the election. My view is that if Tisza wins, there is a good chance we can finally leave the Orbán system behind — although with a very close result that is far from certain. But if Fidesz wins again, I genuinely think there will be an exodus. I have already started looking at CEU programmes in Vienna, and I am considering moving either to Vienna or Mosonmagyaróvár and commuting to university from there if necessary. One thing is certain: I do not want to spend another four years living under this system. But let us hope for the best. Everything will be decided in April.</p>
+
   
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-1M7s1" 
-            src="https://datawrapper.dwcdn.net/1M7s1/1/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
-</div>
-
-<script type="text/javascript">
-!function(){"use strict";
-  window.addEventListener("message",function(a){
-    if(void 0!==a.data["datawrapper-height"]){
-      var e=document.querySelectorAll("iframe");
-      for(var t in a.data["datawrapper-height"])
-        for(var r,i=0;r=e[i];i++)
-          if(r.contentWindow===a.source){
-            var d=a.data["datawrapper-height"][t]+"px";
-            r.style.height=d
-          }
-    }
-  })
-}();
-</script>
 
   </article>
 
   <div class="post-back">
     <a href="/blog">
-      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Vissza az összes bejegyzéshez</span>
+      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Back to all posts</span>
       <span>Blog</span>
     </a>
   </div>

@@ -11,11 +11,15 @@ permalink: /pension
   <meta charset="utf-8" />
 <style>
 :root {
-  --bg: #ffffff;
+  --bg: #f6f8fb;
   --card: #ffffff;
-  --muted: #555555;
-  --accent: #007acc;
-  --text: #111111;
+  --muted: #64748b;
+  --accent: #1565c0;
+  --accent-dark: #0d47a1;
+  --accent-soft: #eaf3ff;
+  --text: #172033;
+  --border: #e2e8f0;
+  --success: #0f766e;
 }
 * {
   box-sizing: border-box;
@@ -23,261 +27,414 @@ permalink: /pension
 }
 body {
   margin: 0;
-  background: var(--bg);
+  background: #fff;
   color: var(--text);
 }
 
-/* --- Teljes szélességű tartalom --- */
 .wrap {
   width: 100%;
-  max-width: 100%;
-  margin: 32px auto;
+  max-width: 1180px;
+  margin: 30px auto 56px;
   padding: 0 16px;
 }
 
-h1 {
-  font-size: 28px;
-  margin: 0 0 6px;
+h1 { font-size: 28px; margin: 0 0 6px; }
+p.lead { margin: 0 0 24px; color: var(--muted); }
+
+/* Calculator highlight */
+.calculator-shell {
+  margin-top: 34px;
+  background: linear-gradient(145deg, #f8fbff 0%, #eef5ff 100%);
+  border: 1px solid #d8e7fb;
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 18px 50px rgba(22, 67, 120, 0.12);
 }
-p.lead {
-  margin: 0 0 24px;
-  color: var(--muted);
+.calculator-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.calculator-heading h3 { margin: 0 0 6px; font-size: 26px; }
+.calculator-heading p { margin: 0; color: var(--muted); }
+.calculator-badge {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid #cfe1f7;
+  color: var(--accent-dark);
+  font-size: 13px;
+  font-weight: 700;
 }
 
+.summary-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
+  gap: 18px;
+  margin-bottom: 18px;
+}
 .card {
   background: var(--card);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
 }
 
-/* --- Egyoszlopos elrendezés minden kijelzőn --- */
-.grid {
+.input-card h5,
+.income-card h5 { margin: 0 0 8px; }
+.step-kicker {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.service-control {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr auto;
+  align-items: center;
   gap: 16px;
+  margin-top: 20px;
 }
-@media (min-width: 900px) {
-  .grid { grid-template-columns: 1fr; }
+.service-slider-wrap { min-width: 0; }
+.service-range-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 7px;
+  color: #94a3b8;
+  font-size: 12px;
 }
-.right .card { position: static; top: auto; }
+#serviceYearsLabel {
+  min-width: 92px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+#serviceYears {
+  width: 100% !important;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  height: 22px;
+  padding: 0;
+}
+#serviceYears::-webkit-slider-runnable-track { height: 6px; background: #d6e1ee; border-radius: 999px; }
+#serviceYears::-moz-range-track { height: 6px; background: #d6e1ee; border-radius: 999px; }
+#serviceYears::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  margin-top: -8px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(21,101,192,.35);
+  cursor: pointer;
+}
+#serviceYears::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(21,101,192,.35);
+  cursor: pointer;
+}
 
-/* --- Táblázat teljes szélességben --- */
-table {
-  width: 100%;
-  border-collapse: collapse;
+.result-card {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  border: 0;
+  background: linear-gradient(135deg, var(--accent-dark), #1976d2 60%, #42a5f5);
+  box-shadow: 0 16px 34px rgba(13, 71, 161, .24);
 }
+.result-card::after {
+  content: '';
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  right: -65px;
+  top: -90px;
+  background: rgba(255,255,255,.10);
+}
+.result-label {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  opacity: .88;
+}
+.result {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1.05;
+  font-weight: 850;
+  letter-spacing: -.02em;
+  font-variant-numeric: tabular-nums;
+}
+.result small {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 600;
+  color: rgba(255,255,255,.82);
+}
+.result-divider { border: 0; border-top: 1px solid rgba(255,255,255,.22); margin: 18px 0 14px; }
+.result-card .muted { color: rgba(255,255,255,.82); }
+.result-card #breakdown { line-height: 1.65; }
+.result-card #breakdown strong { color: #fff; }
+
+.income-card { padding: 0; overflow: hidden; }
+.income-head { padding: 22px 22px 16px; }
+.income-head p { margin: 4px 0 0; color: var(--muted); }
+.quick-fill-panel {
+  margin: 0 22px 18px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+}
+.inline-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #334155;
+}
+.btn-group { display: flex; flex-wrap: wrap; gap: 8px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 10px 16px;
+  min-width: 130px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  text-align: center;
+  transition: .18s ease;
+  box-shadow: none;
+}
+.btn:hover { background: var(--accent-soft); border-color: #9cc2ee; color: var(--accent-dark); transform: translateY(-1px); }
+.btn.sm { padding: 8px 11px; font-size: 13px; min-width: auto; }
+#reset { background: #fff; }
+
+.table-wrap {
+  max-height: 58vh;
+  overflow: auto;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+}
+table { width: 100%; border-collapse: collapse; }
 th, td {
-  padding: 8px 10px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding: 10px 11px;
+  border-bottom: 1px solid #eef2f7;
   text-align: left;
+  vertical-align: middle;
 }
 thead th {
   position: sticky;
   top: 0;
-  background: #f5f5f5;
+  background: #f8fafc;
   z-index: 2;
+  color: #475569;
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 800;
 }
-tbody tr:hover { background: rgba(0,0,0,0.03); }
+tbody tr:hover { background: #f8fbff; }
 
-/* --- Űrlapmezők --- */
 input[type="number"] {
-  width: 120px;
-  padding: 6px 8px;
-  border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.2);
-  background: #fff;
-  color: var(--text);
+  width: 100%;
+  min-width: 120px;
+  max-width: 170px;
+  height: 40px;
+  padding: 7px 10px;
+  border-radius: 9px;
+  border: 2px solid #90caf9;
+  background: #eaf4ff;
+  color: #0f172a;
+  font-weight: 700;
+  box-shadow: inset 0 1px 2px rgba(15,23,42,.03), 0 1px 3px rgba(21,101,192,.08);
+  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+input[type="number"]::placeholder {
+  color: #6b8fb3;
+  font-weight: 600;
+}
+input[type="number"]:hover {
+  background: #dfefff;
+  border-color: #64a4e8;
+}
+input[type="number"]:focus {
+  outline: none;
+  background: #fff8dc;
+  border-color: #f2b134;
+  box-shadow: 0 0 0 4px rgba(242,177,52,.18);
 }
 .muted { color: var(--muted); font-size: 13px; }
-.pill {
-  display: inline-block;
-  padding: 6px 10px;
-  border-radius: 999px;
-  background: rgba(0,122,204,0.1);
-  border: 1px solid rgba(0,122,204,0.3);
-  color: var(--accent);
-  font-weight: 600;
-}
-.result {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: .3px;
-}
-.result small {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--muted);
-}
-.footer { margin-top: 10px; font-size: 12px; color: var(--muted); }
-.btn {
-  display: inline-block;
-  cursor: pointer;
-  padding: 10px 18px;
-  min-width: 130px;
-  border-radius: 12px;
-  border: 1px solid rgba(0,0,0,0.1);
-  background: #fff;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 14px;
-  white-space: nowrap;
-  text-align: center;
-  transition: background 0.2s, transform 0.1s;
-}
-.btn:hover { background: #f0f0f0; }
-
 .mono { font-variant-numeric: tabular-nums; }
-
-/* --- SLIDER compact layout --- */
-.left .row {
+.table-footer {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: nowrap;
-  margin: 6px 0;
-  padding: 0;
-  min-height: 0;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding: 16px 22px 20px;
 }
-label[for="serviceYears"] { white-space: nowrap; }
-#serviceYearsLabel {
-  min-width: 56px;
-  text-align: right;
-  font-weight: 600;
-  white-space: nowrap;
-}
-/* Slider alap */
-#serviceYears {
-  width: 280px !important;
-  flex: 0 0 280px !important;
-  margin: 0 6px;
-  appearance: none;
-  background: transparent;
-  height: 18px;
-  padding: 0;
-  position: relative;
-}
-/* Track */
-#serviceYears::-webkit-slider-runnable-track { height: 4px; background: #ccc; border-radius: 999px; }
-#serviceYears::-moz-range-track { height: 4px; background: #ccc; border-radius: 999px; }
-/* Thumb */
-#serviceYears::-webkit-slider-thumb,
-#serviceYears::-moz-range-thumb {
-  appearance: none;
-  width: 16px; height: 16px; margin-top: -6px;
-  border-radius: 50%; background: var(--accent); cursor: pointer; position: relative; z-index: 2;
-}
-/* Tooltipok tiltása */
-#serviceYears::-webkit-slider-thumb::before,
-#serviceYears::-webkit-slider-thumb::after,
-#serviceYears::-moz-range-thumb::before,
-#serviceYears::-moz-range-thumb::after,
-#serviceYears::before,
-#serviceYears::after { display: none !important; content: none !important; }
-#serviceYears::-ms-tooltip { display: none !important; }
+#serviceInfo { line-height: 1.45; }
 
-/* Mobilon se nőjön meg */
-@media (max-width: 480px) {
-  #serviceYears { width: 240px !important; flex-basis: 240px !important; }
-}
-
-/* Külső lib-féle buborékok tiltása */
+/* Materialize range tooltip suppression */
 #serviceYears + .thumb,
 #serviceYears ~ .thumb,
 #serviceYears + .thumb .value,
 #serviceYears ~ .thumb .value,
-.left .row .thumb,
-.left .row .thumb .value { display: none !important; visibility: hidden !important; opacity: 0 !important; pointer-events: none !important; }
-.range-label, .value, .value-indicator, .mdc-slider__value-indicator, .noUi-tooltip { display: none !important; }
+.thumb .value,
+.range-label, .value, .value-indicator, .mdc-slider__value-indicator, .noUi-tooltip {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
 
-/* Kártyák teljes szélesség használata */
-.left .card, .right .card { width: 100%; height: 100%; }
-
-/* Táblázat biztosan kitöltse a sort */
-table { width: 100%; }
-
-/* Számmezők se lógjanak túl kis kijelzőn */
-input[type="number"] {
-  max-width: 160px;
-  width: 100%;
+@media (max-width: 900px) {
+  .summary-grid { grid-template-columns: 1fr; }
+  .calculator-shell { padding: 18px; border-radius: 20px; }
+  .calculator-heading { flex-direction: column; }
+  .result-card { order: -1; }
+}
+@media (max-width: 560px) {
+  .wrap { padding: 0 10px; }
+  .calculator-shell { padding: 12px; margin-top: 24px; }
+  .card { padding: 17px; }
+  .service-control { grid-template-columns: 1fr; }
+  #serviceYearsLabel { width: 100%; }
+  .income-head { padding: 18px 16px 12px; }
+  .quick-fill-panel { margin: 0 16px 16px; padding: 13px; }
+  .table-footer { padding: 14px 16px 18px; }
+  .btn-group .btn { flex: 1 1 calc(50% - 8px); }
 }
 </style>
 </head>
 <body>
   <div class="wrap">
     <br/>
-		<h5>How to use the calculator?</h5>
-<p>First, enter the <strong>number of qualifying years</strong> (which determines the multiplier applied to your earnings). Then provide your <strong>annual gross earnings for each year you worked</strong>. Only include officially declared and taxed income received as wages or bonuses.</p>
-<p>The calculator takes into account the given year’s <em>valorization multiplier</em>, the <em>qualifying years multiplier</em>, and the tiered <em>degression</em>, and based on these values, it calculates your expected monthly pension.</p>
-<p><strong>Important:</strong> The calculator does not account for the annual contribution cap prior to 2013, but the table shows the maximum annual gross income on which pension contributions had to be paid. Do not enter a higher annual gross amount than this for those years.</p>
-<p>Always enter full-year earnings. The calculator continuously recalculates the average lifetime earnings, so if you have worked only a few years, it assumes that you will continue to earn at a similar level in the future. Therefore, it is important to enter all yearly data for a more accurate calculation.</p>
-<br/>
-<h5>The actual steps of pension calculations</h5>
-<ol>
-<li>The total years of service earned during your lifetime, rounded down to whole years (partial years are lost).</li>
-<li>The net annual value of earnings received since January 1, 1988 (first pension contributions are deducted, then the income tax).</li>
-<li>The net values must be multiplied each year by the annual valorization multiplier. This shows how much previous earnings are worth in today's terms. In practice, the key factor is whether the given year's income was below or above that year's net average wage (this determines its relative value).</li>
-<li>The resulting amounts must be divided by the total qualying years (calculated in days). This amount must then be multiplied by 365 and divided by 12 to obtain the monthly net average lifetime earnings.</li>
-<li>If the resulting amount exceeds 372,000 HUF per month, it must be degressed (first at 90%, then above 421,000 HUF at 80%).</li>
-<li>Finally, the resulting amount must be multiplied by the multiplier corresponding to the qualifying years (after 20 years this is 53%, at 30 years 68%, at 40 years 80%, etc.). The maximum is 50 years, the minimum is 15 years (but the calculator can also calculate for the 10–15 year range).</li>
-</ol>
-<p>The information is for guidance only. For more accurate calculations, use the <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/oregsegi-nyugdij/onkiszolgalo-nyugdijkalkulator">Hungarian State Treasury's pension calculator</a>.</p>
+	<h5>How to use the calculator</h5>
+    <p>First enter your <strong>number of years of service</strong> (which determines the multiplier applied to your earnings). Then enter your <strong>annual gross earnings for every year you worked</strong>. Only include officially declared and taxed income received as salary or bonuses.</p>
+	<p>The calculator takes into account the <em>valuation multiplier</em> for each year, the <em>service-time multiplier</em>, and the progressive <em>degression</em>, and uses these to estimate your expected monthly pension.</p>
+	<p><strong>Important:</strong> The calculator does not automatically apply the annual contribution ceiling that existed before 2013, but the table shows the maximum annual gross income on which pension contributions were payable. Do not enter a gross annual amount above this limit for those years.</p>
+	<p>Always enter full-year earnings. The calculator continuously recalculates average lifetime earnings, so if you have only worked for a few years, it assumes you will continue earning at a similar level in the future. For a more accurate estimate, enter data for every year available.</p>
+	<br/>
+	<h5>How the pension calculation works in practice</h5>
+	<ol>
+	<li>The total number of service years accumulated over your lifetime, rounded down to a whole number (partial years are disregarded).</li>
+	<li>The annual net value of income earned since January 1, 1988 (first pension contributions are deducted, then income tax is deducted from the remaining amount).</li>
+	<li>The net values for each year must be multiplied by the annual valuation factor. This converts historical earnings into their present-day equivalent. In practice, the key question is whether your income in a given year was below or above that year’s average net earnings, which determines its relative value.</li>
+	<li>The resulting amounts are divided by the total service period measured in days. The result is then multiplied by 365 and divided by 12 to obtain the average monthly net lifetime earnings.</li>
+	<li>If the resulting amount exceeds HUF 372,000 per month, degression must be applied (first at 90%, then at 80% above HUF 421,000). </li>
+	<li>Finally, the resulting amount is multiplied by the factor corresponding to your years of service (53% after 20 years, 68% after 30 years, 80% after 40 years, etc.). The maximum service period is 50 years and the minimum is 15 years (although the calculator can also perform estimates for 10–15 years).</li>
+	</ol>
+	<p>The figures are for informational purposes only. For a more precise calculation, use the <a href="https://www.allamkincstar.gov.hu/nyugdij/sajat-jogu-ellatasok/oregsegi-nyugdij/onkiszolgalo-nyugdijkalkulator">Hungarian State Treasury pension calculator</a>.</p>
 
-
-  <div class="grid">
-    <div class="left card">
-      <div class="row" style="margin-bottom:12px">
-        <label for="serviceYears"><h5>1. Qualifying years</h5></label>
-        <input id="serviceYears" type="range" min="10" max="50" step="1" value="40" />
-        <strong id="serviceYearsLabel">40 years</strong>
+  <div class="calculator-shell">
+    <div class="calculator-heading">
+      <div>
+        <span class="step-kicker">Interactive calculator</span>
+        <h3>Estimate your expected monthly pension</h3>
+        <p>Enter your years of service and annual earnings. The result updates automatically whenever you make a change.</p>
       </div>
+      <span class="calculator-badge">2026 calculation</span>
+    </div>
 
-<h5>2. Annual gross income</h5>
+    <div class="summary-grid">
+      <div class="card input-card">
+        <span class="step-kicker">Step 1</span>
+        <h5>Your years of service</h5>
+        <p class="muted">Set the total number of service years to include in the calculation.</p>
 
- <!-- === QUICK FILL (new) === -->
-      <div class="row" style="margin-bottom:12px; align-items:flex-start;">
-        <div class="btn-group" aria-label="Quick fill with wage levels relative to the gross average wage">
-          <span class="inline-label">Quick fill with wage levels relative to the gross average wage:</span>
-          <button class="btn sm" type="button" id="fill40">40% (~minimum wage)</button>
-          <button class="btn sm" type="button" id="fill60">60% (bottom ~30%)</button>
-          <button class="btn sm" type="button" id="fill80">80% (median wage)</button> 
-          <button class="btn sm" type="button" id="fill100">100% (average wage)</button>
-          <button class="btn sm" type="button" id="fill150">150% (top 15%)</button>
-          <button class="btn sm" type="button" id="fill275">275% (top 5%)</button>
+        <div class="service-control">
+          <div class="service-slider-wrap">
+            <input id="serviceYears" type="range" min="10" max="50" step="1" value="40" aria-label="Number of service years" />
+            <div class="service-range-labels"><span>10 years</span><span>50 years</span></div>
+          </div>
+          <strong id="serviceYearsLabel">40 years</strong>
         </div>
       </div>
 
+      <div class="card result-card">
+        <div class="result-label">Estimated monthly pension</div>
+        <div class="result" id="result">— <small>estimated monthly pension</small></div>
+        <hr class="result-divider" />
+        <div class="muted" id="breakdown"></div>
+      </div>
+    </div>
 
-      <div style="max-height:55vh; overflow:auto; border-radius:12px; border:1px solid rgba(0,0,0,.06)">
+    <div class="card income-card">
+      <div class="income-head">
+        <span class="step-kicker">Step 2</span>
+        <h5>Annual income subject to contributions</h5>
+        <p>Enter your annual gross earnings for each year, or fill the table quickly using a typical salary level.</p>
+      </div>
+
+      <div class="quick-fill-panel">
+        <span class="inline-label">Quick fill relative to the average gross salary</span>
+        <div class="btn-group" aria-label="Quick-fill buttons based on percentages of average gross earnings">
+          <button class="btn sm" type="button" id="fill40">40% · ~minimum wage</button>
+          <button class="btn sm" type="button" id="fill60">60% · bottom ~30%</button>
+          <button class="btn sm" type="button" id="fill80">80% · median wage</button>
+          <button class="btn sm" type="button" id="fill100">100% · average wage</button>
+          <button class="btn sm" type="button" id="fill150">150% · top 15%</button>
+          <button class="btn sm" type="button" id="fill275">275% · top 5%</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Year</th>
               <th>Multiplier</th>
-              <th>Annual gross income (Ft)</th>
-              <th>Indexed gross income</th>
-              <th>Yearly gross income (indicative)</th>
-              <th>Pension cap on gross yearly income</th>
-              <th>After insurance deduct.</th>
-              <th>Income tax</th>
-              <th>Yearly net income</th>
+              <th>Annual gross earnings (HUF)</th>
+              <th>Valuated annual earnings</th>
+              <th>Average annual gross earnings (reference)</th>
+              <th>Annual contribution ceiling</th>
+              <th>After contributions</th>
+              <th>Tax payable</th>
+              <th>Annual net earnings</th>
             </tr>
           </thead>
           <tbody id="rows"></tbody>
         </table>
       </div>
 
-      <div class="row" style="margin-top:12px">
+      <div class="table-footer">
         <button id="reset" class="btn" type="button">Clear all fields</button>
         <span id="serviceInfo" class="muted"></span>
-      </div>
-    </div>
-
-    <div class="right">
-      <div class="card">
-        <div class="result" id="result">— <small>expected monthly pension</small></div>
-        <hr style="border:none;border-top:1px solid rgba(0,0,0,.08); margin:14px 0" />
-        <div class="muted" id="breakdown"></div>
       </div>
     </div>
   </div>
@@ -285,9 +442,9 @@ input[type="number"] {
 
 <script>
 /* ===== Adatok ===== */
-const YEARS=[1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024];
-const YEAR_MULTS=[63.115,53.99,44.4,35.378,29.163,24.782,19.468,17.287,14.724,11.867,10.023,8.893,7.982,6.871,5.742,5.028,4.753,4.318,4.013,3.894,3.643,3.576,3.347,3.146,3.083,2.938,2.852,2.735,2.539,2.248,2.019,1.813,1.652,1.52,1.294,1.133,1.0];
-const ANNUAL_NET=[107616, 126852, 161352, 215208, 267528, 326076, 399708, 466800, 562044, 687600, 813600, 926400, 1051200, 1243200, 1470000, 1646400, 1748400, 1899600, 2054400, 2220000, 2386800, 2397600, 2431200, 2557200, 2676000, 2772000, 2852400, 2972400, 3158400, 3564000, 3958800, 4413600, 4843200, 5265600, 6189192, 7069368, 8008380];
+const YEARS=[1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+const YEAR_MULTS=[68.795, 58.849, 48.396, 38.562, 31.788, 27.012, 21.220, 18.843, 16.049, 12.935, 10.925, 9.693, 8.700, 7.489, 6.259, 5.481, 5.181, 4.707, 4.374, 4.244, 3.971, 3.898, 3.648, 3.429, 3.360, 3.202, 3.109, 2.981, 2.768, 2.450, 2.201, 1.976, 1.801, 1.657, 1.410, 1.235, 1.090, 1];
+const ANNUAL_NET=[107616, 126852, 161352, 215208, 267528, 326076, 399708, 466800, 562044, 687600, 813600, 926400, 1051200, 1243200, 1470000, 1646400, 1748400, 1899600, 2054400, 2220000, 2386800, 2397600, 2431200, 2557200, 2676000, 2772000, 2852400, 2972400, 3158400, 3564000, 3958800, 4413600, 4843200, 5265600, 6189192, 7069368, 8008380, 8460000];
 const CONST_TAX_LIMIT=[,,, ,750000,915000,912500,912500,915000,1204500,1565850,1854200,2020320,2197300,2368850,3905500,5307000,6000600,6325450,6748850,7137000,7446000,7453300,7665000,7942200];
 const SERVICE_TABLE={10:33,11:35,12:37,13:39,14:41,15:43,16:45,17:47,18:49,19:51,20:53,21:55,22:57,23:59,24:61,25:63,26:64,27:65,28:66,29:67,30:68,31:69,32:70,33:71,34:72,35:73,36:74,37:75.5,38:77,39:78.5,40:80,41:82,42:84,43:86,44:88,45:90,46:92,47:94,48:96,49:98,50:100};
 
@@ -642,18 +799,18 @@ function recalc(){
   const monthlyAfterDegression=prog.value;
   const finalMonthly=monthlyAfterDegression*sMult;
 
-  resultEl.innerHTML=`${formatFt(finalMonthly)} <small>expected monthly pension</small>`;
+  resultEl.innerHTML=`${formatFt(finalMonthly)} <small>estimated monthly pension</small>`;
   serviceLabel.textContent=`${years} years`;
 
   infoEl.textContent=
-    `Qualifying years multiplier: ${sMultPct} | Annual indexed total: ${formatFt(sumValorizalt)} | / ${divisor} years entered = ${formatFt(avgPerEntered)}`;
+    `Service multiplier: ${sMultPct} | Total annual valuated earnings: ${formatFt(sumValorizalt)} | / ${divisor} years entered = ${formatFt(avgPerEntered)}`;
 
   breakdownEl.innerHTML=
-    `Total indexed income (after tax and insurance): <strong>${formatFt(sumValorizalt)}</strong><br/>
-     Monthly average lifetime income: <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
+    `Total valuated earnings (after contributions and tax): <strong>${formatFt(sumValorizalt)}</strong><br/>
+     Average monthly lifetime earnings: <strong>${formatFt(grossMonthlyBeforeDeg)}</strong><br/>
      Degression:<br/>- ${prog.parts.join('<br/>- ')}<br/>
-     After degression monthly: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
-     Qualifying years multiplier: ×<strong>${sMultPct}</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
+     Monthly amount after degression: <strong>${formatFt(monthlyAfterDegression)}</strong><br/>
+     Service multiplier: ×<strong>${sMultPct}</strong> → <strong>${formatFt(finalMonthly)}</strong>`;
 }
 
 /* === QUICK FILL logic (new) === */

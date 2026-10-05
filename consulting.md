@@ -1,6 +1,6 @@
 ---
 layout: page
-title: FIRE consulting
+title: FIRE tanácsadás
 permalink: /consulting
 ---
 
@@ -10,10 +10,9 @@ permalink: /consulting
   <div class="row">
     <div class="col s12">
 
-      <h5>Private consultations are not available at the moment. </h5>
-      <br/>
- 
-     
-</div>
-</div>
+      <h5>Az egyéni tanácsadás lehetősége jelenleg nem elérhető. </h5>
+       
+
+    </div>
+  </div>
 </div>

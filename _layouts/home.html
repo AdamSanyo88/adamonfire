@@ -19,7 +19,7 @@ layout: default
       </div>
       <div class="col l7 offset-l1 center">
         <h3 class="header center">Adam on FIRE</h3>
-        <h5 class="header center">How I reached Financial Independence in 15 years</h5>
+        <h5 class="header center">How I achieved financial independence in 15 years</h5>
       </div>
     </div>
   </div>
@@ -36,6 +36,75 @@ layout: default
 .mb-4 {
   margin-bottom: 1.5rem;
 }
+
+/* ==========================================
+   ADAM ON FIRE - ABOUT CARD
+   ========================================== */
+.about-fire-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #0d47a1 0%, #2962ff 100%) !important;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+  box-shadow: 0 14px 34px rgba(13,71,161,.18);
+}
+
+.about-fire-card::after {
+  content: "FIRE";
+  position: absolute;
+  right: -16px;
+  bottom: -52px;
+  font-size: 145px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -10px;
+  color: rgba(255,255,255,.055);
+  pointer-events: none;
+}
+
+.about-fire-card .card-content {
+  position: relative;
+  z-index: 1;
+  padding: 30px 32px;
+}
+
+.about-fire-card .card-title {
+  margin-bottom: 16px !important;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.about-fire-card p {
+  color: rgba(255,255,255,.92);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.about-fire-card a {
+  color: #fff !important;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.about-fire-card .about-photo {
+  max-height: 205px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 3px solid rgba(255,255,255,.34);
+  box-shadow: 0 10px 24px rgba(0,0,0,.14);
+}
+
+@media only screen and (max-width: 600px) {
+  .about-fire-card .card-content { padding: 24px 22px; }
+  .about-fire-card .card-title { font-size: 25px; }
+  .about-fire-card .about-photo { margin-top: 22px; }
+  .about-fire-card::after { font-size: 95px; bottom: -34px; }
+}
+
 </style>
 
 <!-- MAIN CONTENT CONTAINER -->
@@ -43,25 +112,23 @@ layout: default
   <!-- About Me -->
   <div class="row">
     <div class="col s12">
-      <div class="card light-blue lighten-4 mb-4">
+      <div class="card about-fire-card mb-4">
         <div class="card-content">
           <div class="row" style="margin-bottom:0;">
             <!-- Text -->
             <div class="col s12 m9">
-              <span class="card-title">About Me</span>
-              <p>This blog is dedicated to my journey to financial independence. I will share my personal story as well as provide meaningful guidance for those who would like to retire early.</p>
+              <span class="card-title">About me</span>
+              <p>This blog follows my journey to financial independence. I share my personal story and try to provide guidance for those who would like to retire early.</p>
 			  <br/>
-              <p>Visit the <a href="../blog">Blog section</a> for the posts detailing my FIRE journey.</p>
+			  <p>Visit my <a href="../blog">Blog</a>, where I write in detail about my FIRE journey.</p>
+			  <br/> <p>Under <a href="../resources">Resources</a>, you will find FIRE-related content and useful calculators.</p>
 			  <br/>
-              <p>The <a href="../resources">Resources tab</a> contains detailed information on FIRE-related content.</p>
-			   <br/>
             </div>
             <!-- Image -->
             <div class="col s12 m3 center-align">
               <img src="images/adam.png"
                    alt="About Me" 
-                   class="responsive-img" 
-                   style="max-height:200px; object-fit:cover; border-radius:8px;">
+                   class="responsive-img about-photo">
             </div>
           </div>
         </div>
@@ -75,10 +142,10 @@ layout: default
     <div class="col s12 m6">
       <div class="mb-4">
 	  <div class="mb-4">
-        <h5>My FIRE journey (since 2015)</h5>
+        <h5>My FIRE journey since 2015</h5>
         <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/eQxCE" height="500"></iframe>
       </div>
-        <h5>My Portfolio History</h5>
+        <h5>How my portfolio has changed</h5>
         <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/oK5cm" height="800"></iframe>
       </div>
     </div>
@@ -86,17 +153,15 @@ layout: default
     <!-- RIGHT column: 1 chart -->
     <div class="col s12 m6">
 	  <div class="mb-4">
-        <h5>Current allocation by asset groups</h5>
+        <h5>My current investments by asset type</h5>
         <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/tq0GF" height="500"></iframe>
       </div>
 	  <div class="mb-4">
-        <h5>Current assets by sector weight</h5>
+        <h5>Current investments by sector</h5>
         <iframe class="responsive-iframe" src="https://datawrapper.dwcdn.net/peTBA" height="800"></iframe>
       </div>
     </div>
-	<div class="container my-4">
-  
-</div>
+	
 
 <style>
   /* Responsive iframe wrapper */
@@ -131,5 +196,5 @@ layout: default
     .resp-embed { max-width: 100%; }
   }
 </style>
-
+  </div>
 </div>

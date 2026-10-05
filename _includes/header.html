@@ -1,20 +1,161 @@
-<nav class="blue accent-4" role="navigation">
-    <div class="nav-wrapper">
-	 <a href="/" class="brand-logo left"></a>
-      <ul class="right hide-on-med-and-down">
-	   <li><a href="/"><i class="material-icons">home</i></a></li>
-	   <li><a href="../blog">Blog</a></li>
-	   <li><a href="../resources">Resources</a></li>
-	   <li><a href="https://adamonfire.hu">HU</a></li>
-      </ul>
-	  
-      <ul id="nav-mobile" class="side-nav">
-	   <li><a href="/"><i class="material-icons">home</i>home</a></li>
-	   <li><a href="../blog">Blog</a></li>
-	   <li><a href="../resources">Resources</a></li>
-	   <li><a href="https://adamonfire.hu">HU</a></li>
-      </ul>     
+<style>
+/* ==========================================
+   ADAM ON FIRE - HEADER
+   ========================================== */
 
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+.site-header {
+    background: linear-gradient(
+        135deg,
+        #0d47a1 0%,
+        #164fa8 52%,
+        #2962ff 100%
+    );
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    box-shadow: 0 8px 24px rgba(13,71,161,.20);
+}
+
+/* Navigation container */
+.site-header .nav-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Desktop links */
+.site-header ul.right > li > a {
+    color: rgba(255,255,255,.90);
+    font-weight: 600;
+    letter-spacing: .2px;
+    padding: 0 20px;
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+.site-header ul.right > li > a:hover {
+    background: rgba(255,255,255,.11);
+    color: #fff;
+}
+
+/* Home icon */
+.site-header ul.right > li > a i {
+    color: #fff;
+}
+
+/* Mobile menu button */
+.site-header .button-collapse {
+    color: #fff;
+}
+
+.site-header .button-collapse i {
+    color: #fff;
+}
+
+
+/* ==========================================
+   MOBILE SIDE MENU
+   ========================================== */
+
+#nav-mobile.side-nav {
+    background: linear-gradient(
+        180deg,
+        #0d47a1 0%,
+        #164fa8 100%
+    );
+}
+
+#nav-mobile.side-nav li > a {
+    color: rgba(255,255,255,.94);
+    font-weight: 600;
+}
+
+#nav-mobile.side-nav li > a i {
+    color: rgba(255,255,255,.90);
+}
+
+#nav-mobile.side-nav li > a:hover {
+    background: rgba(255,255,255,.10);
+}
+
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media only screen and (max-width: 992px) {
+
+    .site-header .nav-wrapper {
+        padding: 0 12px;
+    }
+
+}
+</style>
+
+
+<nav class="site-header" role="navigation">
+
+    <div class="nav-wrapper">
+
+        <a href="/" class="brand-logo left"></a>
+
+        <!-- Desktop navigation -->
+        <ul class="right hide-on-med-and-down">
+
+            <li>
+                <a href="/">
+                    <i class="material-icons">home</i>
+                </a>
+            </li>
+
+            <li>
+                <a href="../blog">Blog</a>
+            </li>
+
+            <li>
+                <a href="../resources">Eszközök</a>
+            </li>
+
+            <li>
+                <a href="https://adamonfire.eu">EN</a>
+            </li>
+
+        </ul>
+
+
+        <!-- Mobile navigation -->
+        <ul id="nav-mobile" class="side-nav">
+
+            <li>
+                <a href="/">
+                    <i class="material-icons">home</i>
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="../blog">Blog</a>
+            </li>
+
+            <li>
+                <a href="../resources">Eszközök</a>
+            </li>
+
+            <li>
+                <a href="https://adamonfire.eu">EN</a>
+            </li>
+
+        </ul>
+
+
+        <!-- Mobile menu icon -->
+        <a href="#"
+           data-activates="nav-mobile"
+           class="button-collapse">
+
+            <i class="material-icons">menu</i>
+
+        </a>
+
     </div>
+
 </nav>

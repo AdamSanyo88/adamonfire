@@ -1,9 +1,10 @@
 ---
 layout: post
-title: Elkészült a portfóliókövetőm
-date: 2025-05-03
-permalink: blog-3
+title: Losing direction and summer depression
+date: 2026-07-28
+permalink: blog-14
 ---
+
 
 
 <style>
@@ -220,61 +221,23 @@ permalink: blog-3
 
   <article class="post-body">
 
-<p>Volt egy pozitív hozadéka az egész vámtarifa-ügynek, és ez a FIRE-re való felkészültségemhez kapcsolódik. Trump bejelentéséig és a piaci összeomlásig azt hittem, mindenem megvan ahhoz, hogy nyomon kövessem a portfóliómat. Volt egy fő táblázatom, Yahoo és Google Finance követés, stb.<p/>  
-<p>Amire viszont eddig nem gondoltam, az egy valódi, félig automatizált módszer az összes számlám követésére. Nem is sejtettem, hogy lehetséges a legtöbb vagyonelemhez – vagy legalábbis a nagy amerikai és európai piacokon jegyzettekhez – valós idejű adatfrissítést beállítani. Így aztán némi Google Sheets-varázslatnak köszönhetően most van egy fő táblázatom, amely bármely pillanatban pontosan megmutatja a portfólióm értékét, és az eszközeim több mint 70%-a automatikusan frissül. Ez megkönnyíti a havi áttekintést is – amit Trump miatt a negyedévesről havi rendszerességűre változtattam –, mivel pontosan látom, hová megy a pénzem, mik a beérkező egyenlegeim, stb.</p>  
+<p>Unfortunately, this summer has not gone the way I planned so far. First of all, it has been unbearably hot. There have been days when I did not leave the apartment at all because the temperature was already above 30°C in the morning. And I do like warm weather, but not constant extreme heat. I had all sorts of plans to spend more time outdoors, start running, and so on, and none of that has happened.</p>
 
-<p>A cél egy jó 60-30-10 portfólió kialakítása a végére. 60% részvényekbe kerül – valószínűleg továbbra is többségében USA-központú ETF-ekbe –, 30% kötvényekbe – szintén főként amerikai, de néhány magyar állampapír is megmarad, hogy legyen azért forintom is a költéseimre –, és végül körülbelül 10% aranyba és bitcoinba, amit a jövőben a kötvények rovására még növelhetek is (tekintve, hogy a Bitcoin most történelmi csúcson jár, és az arany lassan afféle tartalékvalutává válik).</p>  
+<p>My Mondays and Fridays off also tend to just dissolve into unstructured time for now, so I do not feel any more productive at all. Unfortunately, I have had to realize that FIRE by itself does not provide salvation; it will not automatically make me more active or happier. I really do have to figure out what I actually want to do. So after a break of almost three years, I am going back to therapy with a new therapist to help me understand what may be holding me back and how I can motivate myself.</p>
 
-<p>Végül itt van néhány diagram arról, hogyan alakult át kismértékben a portfólióm Trump "nagy, gyönyörű táblázatának" bejelentése után.</p>
+<p>But I do not want to write only about the negative things, so let me also mention Bátor Tábor. I completed my one-week international camp session, where I did archery with Czech and Slovak children and their parents. The first two days were still very difficult because I had to sleep in a room with strangers, but after that I got completely used to it and was able to rest fairly well. Still, walking 15,000–20,000 steps a day, constantly paying attention, and then remaining active in the evenings was a lot for me. As a result, the feedback I received was that I had been less active than expected and needed to improve in this area. I did not argue with that; I felt it myself. While others kept going at full speed for the whole week, I was already heading to bed at 10:30 p.m.</p>
 
-<br/>
-<div class="row">
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-3Foxj" 
-            src="https://datawrapper.dwcdn.net/3Foxj/2/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
+<p>Another good thing about Bátor Tábor was that it reminded me how easy my own life is. Seeing — especially in the parents of seriously ill children — that these few days may be their only real break during the year was quite shocking. Meanwhile, I am sitting here worrying about not being able to find the meaning of my life. That truly is a first-world problem. In any case, I hope I will be able to work on this with my therapist and soon have a clearer idea of what my post-FIRE goal should be.</p>
+
+
   
-  <div class="col-md-6">
-    <iframe title="Portfólió összetétele az elmúlt 8 hónapban" 
-            aria-label="Small multiple pie chart" 
-            id="datawrapper-chart-1M7s1" 
-            src="https://datawrapper.dwcdn.net/1M7s1/1/" 
-            scrolling="no" 
-            frameborder="0" 
-            style="width: 100%; border: none;" 
-            height="388" 
-            data-external="1"></iframe>
-  </div>
-</div>
 
-<script type="text/javascript">
-!function(){"use strict";
-  window.addEventListener("message",function(a){
-    if(void 0!==a.data["datawrapper-height"]){
-      var e=document.querySelectorAll("iframe");
-      for(var t in a.data["datawrapper-height"])
-        for(var r,i=0;r=e[i];i++)
-          if(r.contentWindow===a.source){
-            var d=a.data["datawrapper-height"][t]+"px";
-            r.style.height=d
-          }
-    }
-  })
-}();
-</script>
 
   </article>
 
   <div class="post-back">
     <a href="/blog">
-      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Vissza az összes bejegyzéshez</span>
+      <span><span class="post-back-arrow">←</span>&nbsp;&nbsp; Back to all posts</span>
       <span>Blog</span>
     </a>
   </div>

@@ -128,16 +128,34 @@ permalink: /inflation
       padding: 0.6rem 1.5rem !important;
     }
   }
-  </style>
+  
+  /* === Calculator visual refresh === */
+  .calculator-shell{background:linear-gradient(135deg,#eef6ff 0%,#f8fbff 100%);border:1px solid #d7e9ff;border-radius:22px;padding:24px;box-shadow:0 14px 36px rgba(13,110,253,.08)}
+  .calculator-kicker{font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#0d6efd;margin-bottom:6px}
+  .calculator-shell .card{border:1px solid #e3eaf2;border-radius:16px;overflow:hidden;box-shadow:0 8px 22px rgba(15,23,42,.06)!important}
+  .calculator-shell thead th{background:#f1f5f9!important;color:#475569!important;font-size:.78rem;text-transform:uppercase;letter-spacing:.03em;border-bottom:1px solid #dbe3ec}
+  .calculator-shell tbody td{border-color:#edf1f5}
+  .calculator-shell input[type=number]{background:#eaf4ff!important;border:2px solid #90c2ff!important;border-radius:9px!important;font-weight:700!important;color:#0f172a!important;box-shadow:none!important}
+  .calculator-shell input[type=number]:hover{background:#dceeff!important;border-color:#5aa5ff!important}
+  .calculator-shell input[type=number]:focus{background:#fff7d6!important;border-color:#e0a800!important;box-shadow:0 0 0 3px rgba(224,168,0,.14)!important}
+  .result-card{background:linear-gradient(135deg,#0d6efd,#0756c9)!important;color:#fff;border:0!important;position:sticky;top:18px}
+  .result-card h2,.result-card strong,.result-card p{color:#fff!important}
+  .result-card .personal-infl-badge{background:#fff!important;color:#0d6efd!important;box-shadow:0 8px 20px rgba(0,0,0,.16)}
+  .result-card .muted{color:rgba(255,255,255,.82)!important}
+  @media(max-width:991px){.calculator-shell{padding:16px}.result-card{position:static}}
+
+</style>
 </head>
 
 <body>
 <div class="container py-4">
+<div class="calculator-shell">
+  <div class="calculator-kicker">Interactive calculator</div>
 
   <p class="muted">
-    Enter how much you spend each month in the categories below.
-The calculator uses the <strong>10-year average inflation rates published by the Hungarian Central Statistical Office (KSH)</strong> as fixed values,
-and based on these it calculates your <strong>personal inflation rate</strong>.
+    Enter how much you spend each month in the categories below.  
+    The calculator uses the <strong>10-year average inflation rates published by the Hungarian Central Statistical Office (KSH)</strong> as fixed inputs,  
+    and uses them to calculate your <strong>personal inflation rate</strong>.
   </p>
 
   <div class="row g-4 align-items-start">
@@ -146,7 +164,7 @@ and based on these it calculates your <strong>personal inflation rate</strong>.
     <div class="col-lg-7">
       <div class="card shadow-sm">
         <div class="card-body">
-          <h2 class="h6 mb-3">Monthly average spending by category</h2>
+          <h2 class="h6 mb-3">Average monthly spending by category</h2>
           <div class="table-responsive">
             <table class="table table-sm table-striped align-middle">
               <thead>
@@ -154,13 +172,13 @@ and based on these it calculates your <strong>personal inflation rate</strong>.
                   <th>Category</th>
                   <th class="text-end">Spending</th>
                   <th class="text-end">Relative weight</th>
-                  <th class="text-end">10-year inflation</th>
+                  <th class="text-end">10-year average inflation</th>
                 </tr>
               </thead>
               <tbody id="spendBody"></tbody>
               <tfoot>
                 <tr>
-                  <th>Összes költés</th>
+                  <th>Total spending</th>
                   <th class="text-end"><span id="totalSpend" class="badge bg-light text-dark badge-fixed">0,00</span></th>
                   <th class="text-end"><span class="badge bg-light text-dark badge-fixed">100,0%</span></th>
                   <th></th>
@@ -174,14 +192,14 @@ and based on these it calculates your <strong>personal inflation rate</strong>.
 
     <!-- JOBB OSZLOP: eredmény -->
     <div class="col-lg-5">
-      <div class="card shadow-sm">
+      <div class="card shadow-sm result-card">
         <div class="card-body text-center">
-          <h2 class="h6 mb-3">Eredmény</h2>
-          <div class="mb-2"><strong>Personal inflation %</strong> (weighted average)</div>
+          <h2 class="h6 mb-3">Result</h2>
+          <div class="mb-2"><strong>Personal inflation</strong> (weighted average)</div>
           <span id="personalInfl" class="personal-infl-badge">0,0%</span>
           <hr>
           <p class="small muted mb-0">
-            The inflation percentages show the <strong>average annual inflation rates</strong> published by the Hungarian Central Statistical Office (KSH) for each category during the period 2015–2024.
+            The inflation percentages show the <strong>average annual inflation</strong> reported by KSH for each category over the 2015–2024 period.
           </p>
         </div>
       </div>
@@ -189,24 +207,25 @@ and based on these it calculates your <strong>personal inflation rate</strong>.
 
   </div>
 </div>
+</div>
 
 <script>
 const CATS = [
-  { key: "elelmiszer", label: "Groceries", rate: 0.082 },
-  { key: "alkohol", label: "Alcohol", rate: 0.055 },
+  { key: "elelmiszer", label: "Food", rate: 0.082 },
+  { key: "alkohol", label: "Alkohol", rate: 0.055 },
   { key: "dohany", label: "Tobacco", rate: 0.098 },
   { key: "ruhazat", label: "Clothing", rate: 0.023 },
-  { key: "lakasszolg", label: "Utilities and housing-related services", rate: 0.043 },
-  { key: "lakber", label: "Furniture and maintenance", rate: 0.047 },
+  { key: "lakasszolg", label: "Utilities and housing-related costs", rate: 0.043 },
+  { key: "lakber", label: "Furnishings and home maintenance", rate: 0.047 },
   { key: "egeszsegugy", label: "Healthcare", rate: 0.057 },
-  { key: "auto", label: "Transportation - car", rate: 0.058 },
+  { key: "auto", label: "Transport by own car", rate: 0.058 },
   { key: "auto_ertek", label: "Car depreciation", rate: 0.027 },
-  { key: "egyeb_kozlekedes", label: "Transportation - other", rate: 0.074 },
-  { key: "tavkozles", label: "Mobile & Internet", rate: 0.008 },
+  { key: "egyeb_kozlekedes", label: "Other transport", rate: 0.074 },
+  { key: "tavkozles", label: "Telecommunications", rate: 0.008 },
   { key: "oktatas", label: "Education", rate: 0.041 },
-  { key: "szabadido", label: "Hobbies", rate: 0.044 },
-  { key: "vendeglatas", label: "Eating out and travel", rate: 0.090 },
-  { key: "egyeb", label: "All other services (e.g. insurance, banking)", rate: 0.051 },
+  { key: "szabadido", label: "Leisure and hobbies", rate: 0.044 },
+  { key: "vendeglatas", label: "Restaurants and accommodation", rate: 0.090 },
+  { key: "egyeb", label: "Other goods and services (e.g. insurance, bank fees)", rate: 0.051 },
 ];
 
 const fmtPct = (v) => (v * 100).toFixed(1).replace('.', ',') + '%';
